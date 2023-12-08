@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="66."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question"
+            android:padding="10dp"
+            android:text="In your life, which of the following substances have you ever used (non-medical use only)?"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <TextView
+            android:id="@+id/question_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_desc"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="a."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_a_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_desc"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_a"
+            android:padding="10dp"
+            android:text="Tobacco products (cigarettes, chewing tobacco, cigars, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/tobaccoProduct1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_a_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never48"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tobaccoProduct1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="b."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_b_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tobaccoProduct1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_b"
+            android:padding="10dp"
+            android:text="Alcoholic beverages (beer, wine, spirits, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/alcohol1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_b_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never49"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_c"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/alcohol1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="c."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_c_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alcohol1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_c"
+            android:padding="10dp"
+            android:text="Cannabis (marijuana, pot, grass, hash, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/cannabis1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_c_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never50"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/question_d"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/cannabis1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="d."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_d_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cannabis1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_d"
+            android:padding="10dp"
+            android:text="Cocaine (coke, crack, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/cocaine1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_d_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never51"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_e"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/cocaine1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="e."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_e_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cocaine1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_e"
+            android:padding="10dp"
+            android:text="Amphetamine-type stimulants (speed, meth, ecstasy, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/amphetamine1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_e_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never52"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amphetamine1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="f."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_f_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amphetamine1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_f"
+            android:padding="10dp"
+            android:text="Inhalants (nitrous, glue, petrol, paint thinner, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:id="@+id/inhalants1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_f_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never53"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_g"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inhalants1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="g."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_g_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inhalants1"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_g"
+            android:padding="10dp"
+            android:text="Sedatives or sleeping pills (diazepam, alprazolam, flunitrazepam, midazolam, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/sedatives1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_g_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never54"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_h"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/sedatives1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="h."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_h_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sedatives1"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_h"
+            android:padding="10dp"
+            android:text="Hallucinogens (LSD, acid, mushrooms, trips, ketamine, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:id="@+id/hallucinogens1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_h_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never55"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_i"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/hallucinogens1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="i."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_i_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hallucinogens1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_i"
+            android:padding="10dp"
+            android:text="Opioids (heroin, morphine, methadone, buprenorphine, codeine, etc.)"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <RadioGroup
+            android:id="@+id/opiods1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_i_desc"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never56"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/question_j"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/opiods1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="j."
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/question_j_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/opiods1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/question_j"
+            android:padding="10dp"
+            android:text="Other"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+
+        <EditText
+            android:id="@+id/Specify10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_j_desc"
+            android:layout_marginEnd="15dp"
+            android:layout_toRightOf="@+id/question_j"
+            android:background="@drawable/edit_text_border"
+            android:hint="Specify"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:id="@+id/Specify17"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Specify10"
+            android:layout_marginLeft="30dp">
+
+            <RadioButton
+                android:id="@+id/never57"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/never"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/onceOrTwice9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/once_or_twice"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/monthly10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/monthly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/weekly9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/weekly"
+                android:textAlignment="textStart" />
+
+            <RadioButton
+                android:id="@+id/daily9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layoutDirection="rtl"
+                android:text="@string/daily_or_almost_daily"
+                android:textAlignment="textStart" />
+        </RadioGroup>
+
+    </RelativeLayout>
+</ScrollView>

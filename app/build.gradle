@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.ganesh.nimhans'
+    compileSdk 34
+
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.ganesh.nimhans"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('/Users/ganesh/myProject/droid/signedBuildKey')
+            storePassword '9600557288'
+            keyAlias 'key0'
+            keyPassword '9600557288'
+        }
+        preprod {
+            storeFile file('/Users/ganesh/myProject/droid/signedBuildKey')
+            storePassword '9600557288'
+            keyAlias 'key0'
+            keyPassword '9600557288'
+        }
+    }
+    buildTypes {
+        release {
+            buildConfigField("String", "api_host", "\"${prod_api_host}\"")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            signingConfig signingConfigs.release
+        }
+        preprod {
+            buildConfigField("String", "api_host", "\"${preprod_api_host}\"")
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            signingConfig signingConfigs.preprod
+        }
+        debug {
+            buildConfigField("String", "api_host", "\"${dev_api_host}\"")
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation "com.github.skydoves:powerspinner:1.2.7"
+    implementation 'com.github.elirehema:worksheet:0.0.1'
+    api group: 'org.apache.poi', name: 'poi', version: '3.9'
+    api group: 'org.apache.poi', name: 'poi-ooxml', version: '3.9'
+
+    
+}

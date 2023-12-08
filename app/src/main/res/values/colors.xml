@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#C7C8D2</color>
+    <color name="colorPrimaryDark">#3B3D3B</color>
+
+    <color name="light_grey">#C7C8D2</color>
+    <color name="dark_grey">#3B3D3B</color>
+    <color name="app_bg">#E5E7EB</color>
+    <color name="app_bg_champ">#203169</color>
+    <color name="yellow_champ">#FFD25E</color>
+    <color name="button_bg">#6E726E</color>
+    <color name="button_play_green">#0CC857</color>
+    <color name="button_play1">#404040</color>
+    <color name="button_play2">#FFBC1F</color>
+    <color name="button_close">#E93C3C</color>
+
+    <color name="button_bg_wallet_success">#DCFCE7</color>
+    <color name="button_bg_wallet_failure">#FEF9C3</color>
+    <color name="yellow_pending">#FFBE5C</color>
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FFE5E7EB</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="blue_grey">#455A64</color>
+    <color name="red">#F44336</color>
+    <color name="pink">#E91E63</color>
+    <color name="purple">#9C27B0</color>
+    <color name="deep_purple">#673AB7</color>
+    <color name="indigo">#3F51B5</color>
+    <color name="blue">#2196F3</color>
+    <color name="light_blue">#03A9F4</color>
+    <color name="cyan">#00BCD4</color>
+    <color name="teal">#009688</color>
+    <color name="green">#4CAF50</color>
+    <color name="light_green">#8BC34A</color>
+    <color name="lime">#CDDC39</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="amber">#FFC107</color>
+    <color name="orange">#FF9800</color>
+    <color name="deep_orange">#FF5722</color>
+    <color name="brown">#795548</color>
+    <color name="grey">#E0E0E0</color>
+
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="cyan_50">#E0F7FA</color>
+    <color name="amber_50">#FFF8E1</color>
+    <color name="purple_50">#F3E5F5</color>
+
+
+    <color name="colorPrimaryLight">#172f6e</color>
+
+    <color name="colorSecondary">#FFE13D</color>
+    <color name="colorSecondaryLight">#DCC964</color>
+
+    <color name="colorStart">@color/colorPrimary</color>
+    <color name="colorCenter">@color/colorPrimary</color>
+    <color name="colorEnd">@color/colorPrimaryLight</color>
+
+    <color name="colorAppText">@color/colorBlack</color>
+    <color name="colorEditText">@color/colorPrimary</color>
+    <color name="colorMenu">#DADDEA</color>
+    <color name="colorHighLightText">@color/colorPrimary</color>
+
+    <color name="colorWhite">@android:color/white</color>
+    <color name="colorSplashScreen">#FCFCFF</color>
+    <color name="colorAppBG">#F8F8F8</color>
+    <color name="colorAppBG1">#F5F5F5</color>
+    <color name="deposit_bg">#4D515B</color>
+
+    <color name="colorWhiteHint">#BAB9BA</color>
+    <color name="colorWhiteLight">#F5F5F5</color>
+    <color name="colorInputBackground">#F2F3FF</color>
+
+    <color name="colorBlack">@android:color/black</color>
+    <color name="colorTransBlack">#D3000000</color>
+    <color name="colorTransparent">@android:color/transparent</color>
+    <color name="colorGlass">#20FFFFFF</color>
+
+    <color name="colorGray">#808080</color>
+    <color name="colorGrayDark">#5C5C5C</color>
+    <color name="colorGrayLight">#B7B7B7</color>
+    <color name="colorGrayExtraLight">#F3F3F3</color>
+
+    <color name="colorLinkText">#0000EE</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGreen">#39B54A</color>
+
+    <color name="colorNavigationIcon">@color/colorBlack</color>
+    <color name="colorProgressBG">@color/colorWhite</color>
+    <color name="colorProgress">@color/colorWhite</color>
+
+    <color name="colorActive">#3498DB</color>
+    <color name="colorOkayButton">#3491F3</color>
+    <color name="colorSwitchTrack">#89B6DA</color>
+
+    <color name="colorUnSelect">#BDBDBD</color>
+
+    <color name="colorPrepaidStart">#2F80ED</color>
+    <color name="colorPrepaidEnd">#0029FF</color>
+
+    <color name="colorPostpaidStart">#7F29CF</color>
+    <color name="colorPostpaidEnd">#511BEB</color>
+
+    <color name="colorSavingsStart">#FF2C45</color>
+    <color name="colorSavingsEnd">#C70077</color>
+
+    <color name="colorSearchView">@color/colorInputBackground</color>
+</resources>

@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- Data -->
+        <variable
+            name="handlers"
+            type="com.ganesh.nimhans.activity.Section5Activity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressTheme"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/app_bg_champ">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/section_5_title"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <EditText
+                    android:id="@+id/specify8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="SSD"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_bg_champ" />
+
+                <TextView
+                    android:id="@+id/section_5_substance_screening"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/specify8"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/check_age_child"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/section_5_substance_screening"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Check the age of the child and mark"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/ageAndMark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/check_age_child"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="13"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/interview_child"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/ageAndMark"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Interview the child"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/intro_patients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/interview_child"
+                    android:gravity="center|left"
+                    android:padding="10dp"
+                    android:text="@string/section5_intro"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/intro_patients"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="66."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/intro_patients"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66"
+                    android:padding="10dp"
+                    android:text="In your life, which of the following substances have you ever used (non-medical use only)?"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/question_66_desc"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="a."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_a_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_desc"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_a"
+                    android:padding="10dp"
+                    android:text="Tobacco products (cigarettes, chewing tobacco, cigars, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <RadioGroup
+                    android:id="@+id/tobaccoProduct"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_a_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question_66_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tobaccoProduct"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="b."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_b_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tobaccoProduct"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_b"
+                    android:padding="10dp"
+                    android:text="Alcoholic beverages (beer, wine, spirits, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <RadioGroup
+                    android:id="@+id/alcoholProducts"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_b_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question_66_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/alcoholProducts"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="c."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_c_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/alcoholProducts"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_c"
+                    android:padding="10dp"
+                    android:text="Cannabis (marijuana, pot, grass, hash, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <RadioGroup
+                    android:id="@+id/cannabis"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_c_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question_66_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/cannabis"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="d."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_d_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cannabis"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_d"
+                    android:padding="10dp"
+                    android:text="Cocaine (coke, crack, etc.) "
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <RadioGroup
+                    android:id="@+id/cocaine"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_d_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/question_66_e"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/cocaine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="e."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_e_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cocaine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_e"
+                    android:padding="10dp"
+                    android:text="Amphetamine-type stimulants (speed, meth, ecstasy, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <RadioGroup
+                    android:id="@+id/amphetamine"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_e_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no7"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question_66_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/amphetamine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="f."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_f_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/amphetamine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_f"
+                    android:padding="10dp"
+                    android:text="Inhalants (nitrous, glue, petrol, paint thinner, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <RadioGroup
+                    android:id="@+id/inhalants"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_f_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no8"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes7"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/question_66_g"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/inhalants"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="g."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_g_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/inhalants"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_g"
+                    android:padding="10dp"
+                    android:text="Sedatives or sleeping pills (diazepam, alprazolam, flunitrazepam, midazolam, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <RadioGroup
+                    android:id="@+id/sedatives"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_g_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no9"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes8"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question_66_h"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sedatives"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="h."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_h_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sedatives"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_h"
+                    android:padding="10dp"
+                    android:text="Hallucinogens (LSD, acid, mushrooms, trips, ketamine, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <RadioGroup
+                    android:id="@+id/hallucinogens"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_h_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no10"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes9"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/question_66_i"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hallucinogens"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="i."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_i_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hallucinogens"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_i"
+                    android:padding="10dp"
+                    android:text="Opioids (heroin, morphine, methadone, buprenorphine, codeine, etc.)"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <RadioGroup
+                    android:id="@+id/opioids"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_i_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no11"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes10"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/question_66_j"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/opioids"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="j."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_66_j_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/opioids"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/question_66_j"
+                    android:padding="10dp"
+                    android:text="Other"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <EditText
+                    android:id="@+id/Specify9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_66_j_desc"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="Specify"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <RadioGroup
+                    android:id="@+id/Specify16"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Specify9"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no12"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes11"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+                <androidx.recyclerview.widget.RecyclerView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/question_options_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/Specify16"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+                <TextView
+                    android:id="@+id/question_73"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_options_list"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="73."
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/question_73_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_options_list"
+                    android:layout_toRightOf="@+id/question_73"
+                    android:padding="10dp"
+                    android:text="Have you ever used any drug by injection (non-medical use only)?"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <RadioGroup
+                    android:id="@+id/injectableDrugSubstance1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/question_73_desc"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/no18"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="No, Never"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes32"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="2. Yes,in the past 3 months"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/yes33"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Yes,but not in the past 3 months"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/rcads_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_btn_background"
+                    android:text="@string/calculate_rcads_score"
+                    android:textAllCaps="false"
+                    android:layout_below="@+id/injectableDrugSubstance1"
+                    android:textColor="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/substance_score_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rcads_score"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Substance(Alcohol)_score "
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/alcoholSubstance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/substance_score_txt"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="15"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/substance_other_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/alcoholSubstance"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Substance(Other)_score "
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/otherSubstance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/substance_other_txt"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="15"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/substance_injectable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/otherSubstance"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Substance(injectable drug)_score "
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/injectableDrugSubstance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/substance_injectable"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="15"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/assistResult_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/injectableDrugSubstance"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="ASSIST Result "
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/assistResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/assistResult_txt"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="15"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/assistResult"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:onClick="@{handlers::onClickPreviousSection}"
+                        android:padding="15dp"
+                        android:text="Previous Section"
+                        android:textAllCaps="false"
+                        android:textColor="@color/app_bg_champ" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:gravity="right"
+                        android:onClick="@{handlers::onClickNextSection}"
+                        android:padding="15dp"
+                        android:text="Next Section"
+                        android:textAllCaps="false"
+                        android:textColor="@color/app_bg_champ" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

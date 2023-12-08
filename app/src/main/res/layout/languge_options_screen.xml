@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/title_section_header"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/app_bg_champ">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Language"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+    <RadioGroup
+        android:id="@+id/lang_radio_btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_section_header"
+        android:layout_marginLeft="30dp">
+
+        <RadioButton
+            android:id="@+id/hindi_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layoutDirection="rtl"
+            android:text="Hindi"
+            android:textAlignment="textStart" />
+
+        <RadioButton
+            android:id="@+id/english_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layoutDirection="rtl"
+            android:text="English"
+            android:textAlignment="textStart" />
+
+    </RadioGroup>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/change_lang"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/lang_radio_btns"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_btn_background"
+        android:text="Change"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

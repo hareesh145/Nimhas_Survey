@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".MyNimhans"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApp"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.DashboardActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.ActivitySurvey"
+            android:exported="true"></activity>
+
+        <activity android:name=".activity.LanguageScreen" />
+        <activity
+            android:name=".activity.Section1Activity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.Section2Activity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".activity.Section3aActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section3bActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section3cActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section4Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section5Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section6Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section7aActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section7bActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section8Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section9Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section10Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section11Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section12Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.Section13Activity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.CreateUserActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.ViewUserActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activity.EditUserActivity"
+            android:exported="true"/>
+    </application>
+</manifest>
