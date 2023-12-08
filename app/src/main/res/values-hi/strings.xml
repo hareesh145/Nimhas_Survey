@@ -1,0 +1,33 @@
+<resources>
+
+//Section 1
+    <string name="section_EPIDEMIOLOGICAL_SURVEY">उत्तराखंड में बच्चों और किशोरों में ऑटिज्म, आईडी और सामान्य मानसिक विकारों का महामारी विज्ञान सर्वेक्षण</string>
+    <string name="section_household_form">धारा 1: घरेलू प्रपत्र</string>
+    <string name="district">जिला</string>
+    <string name="taluka">तालुका</string>
+    <string name="city_town_village">शहर/क़स्बा/गाँव</string>
+    <string name="house_hold_number">घरेलू नंबर</string>
+    <string name="locale">स्थान :</string>
+    <string name="name_of_the_respondent">प्रतिवादी का नाम</string>
+    <string name="address_with_landmark">मील का पत्थर सहित पता</string>
+    <string name="mobile_number">मोबाईल नंबर</string>
+    <string name="date_of_interview">साक्षातकर की तिथि</string>
+    <string name="consented_for_study">अध्ययन के लिए सहमति दी :</string>
+    <string name="result_code">परिणाम कोड :</string>
+    <string name="_1_interview_completed">1. साक्षात्कार पूरा हुआ</string>
+    <string name="_2_interview_partially_completed_postponed">2. साक्षात्कार आंशिक रूप से संपन्न/स्थगित</string>
+    <string name="_3_residents_of_household_refused_to_take_part">3.घर के सदस्यों ने भाग लेने से इनकार कर दिया</string>
+    <string name="_4_residents_of_household_not_available">4. घर के निवासी उपलब्ध नहीं</string>
+    <string name="_5_residents_of_household_permanently_migrated">5. Residents of Household Permanently Migrated</string>
+    <string name="_6_no_competent_respondent_at_home">6. घर पर कोई सक्षम प्रतिवादी नहीं</string>
+    <string name="_7_dwelling_vacant_not_a_dwelling_dwelling_destroyed">7.आवास खाली/आवास नहीं/निवास नष्ट</string>
+    <string name="_8_other">अन्य</string>
+    <string name="yes">हाँ</string>
+    <string name="no">नहीं</string>
+    <string name="visit">मिलने जाना :</string>
+    <string name="first_visit">पहली यात्रा</string>
+    <string name="second_visit">दूसरा दौरा</string>
+    <string name="third_visit">तीसरा दौरा</string>
+    <string name="rural">ग्रामीण</string>
+    <string name="urban">शहरी</string>
+</resources>

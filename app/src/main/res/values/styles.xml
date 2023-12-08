@@ -1,0 +1,297 @@
+<!--
+  ~ Copyright(c) 2022 AppworldHD. All rights reserved.
+  ~
+  ~ Dissemination of this information or reproduction of this material is strictly
+  ~ unless prior written permission is obtained from AppworldHD.
+  ~
+  ~ Created by Divya N
+  ~
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.ToolBar" parent="AppTheme">
+        <item name="titleTextColor">@color/black</item>
+    </style>
+
+    <!-- App Load Theme-->
+    <style name="Theme.Splash" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_centered</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="ProgressTheme">
+        <item name="colorAccent">@color/colorPrimaryDark</item> <!-- Whatever color you want-->
+    </style>
+
+    <!--App Background-->
+    <style name="AppBackground">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="ToolBarBackground">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <!--App Font-->
+    <style name="AppFont">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="AppFontItalic">
+        <item name="android:fontFamily">@font/roboto_italic</item>
+        <item name="fontFamily">@font/roboto_italic</item>
+    </style>
+
+    <style name="AppFontBold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="AppFontMedium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <!--Input Styles-->
+    <style name="InputTextStyle" parent="AppFont">
+        <item name="android:textColorHint">@color/colorGray</item>
+        <item name="android:colorAccent">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">14sp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/view_background_input</item>
+    </style>
+
+
+    <style name="InputTextStyleSearch" parent="AppFont">
+        <item name="android:textColorHint">@color/colorGray</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:background">@drawable/button_selector_primary</item>
+        <item name="android:backgroundTint">@color/colorSearchView</item>
+    </style>
+
+    <!--Button styles-->
+    <style name="ButtonPrimary" parent="AppFontBold">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:padding">4sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/button_selector_primary</item>
+    </style>
+
+    <style name="ButtonSecondary" parent="AppFontBold">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:padding">8sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/button_selector_sec</item>
+    </style>
+
+    <style name="ButtonTransparent" parent="AppFont">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@color/colorTransparent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="ButtonError" parent="AppFont">
+        <item name="android:textColor">@color/colorOkayButton</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@color/colorTransparent</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="ButtonAddRemove" parent="AppFont">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@color/colorInputBackground</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="ButtonGray" parent="AppFontBold">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:padding">4sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="backgroundTint">@color/colorUnSelect</item>
+        <item name="android:background">@drawable/button_selector_sec</item>
+    </style>
+
+    <style name="ButtonBorderRounded" parent="AppFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/bg_border</item>
+    </style>
+
+    <style name="ButtonBorderDotted" parent="AppFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/bg_border_dotted</item>
+    </style>
+
+    <style name="ButtonWhite" parent="AppFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">10sp</item>
+        <item name="android:backgroundTint">@color/colorWhite</item>
+        <item name="android:background">@drawable/bg_border</item>
+    </style>
+
+    <!--TextView Normal styles-->
+    <style name="AppText" parent="AppFont">
+        <item name="android:textColor">@color/colorAppText</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="AppTextLight" parent="AppFont">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="AppTextPrimaryLarge" parent="AppFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="AppTextPrimaryMedium" parent="AppFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="AppTextItalic" parent="AppFontItalic">
+        <item name="android:textColor">@color/colorAppText</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="AppTextPrimary" parent="AppFont">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTextPrimaryBold" parent="AppFontBold">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTextSecondary" parent="AppFontBold">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTextError" parent="AppFont">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="AppTextGreen" parent="AppFontBold">
+        <item name="android:textColor">@color/colorGreen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTextRed" parent="AppFontBold">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTextSmall" parent="AppFont">
+        <item name="android:textColor">@color/colorAppText</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="AppTextMedium" parent="AppFontMedium">
+        <item name="android:textColor">@color/colorAppText</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="AppTextWhite" parent="AppFont">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+
+    <style name="AppTextBlack" parent="AppFont">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="AppTextMediumWhite" parent="AppFontMedium">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="AppTextBold" parent="AppFontBold">
+        <item name="android:textColor">@color/colorAppText</item>
+    </style>
+
+    <style name="AppTextLarge" parent="AppFontMedium">
+        <item name="android:textColor">@color/colorAppText</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="AppTextLargeHeader" parent="AppTextLarge">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="AppTextXLarge" parent="AppTextLarge">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <!--CardView Styles-->
+    <style name="CardStyle" parent="CardView">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardBackgroundColor">@color/colorWhite</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="elevation">10sp</item>
+    </style>
+
+    <style name="CardStyleCashOut" parent="CardView">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardBackgroundColor">@color/colorInputBackground</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="elevation">10sp</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorAppText</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="SwitchStyle" parent="AppTheme">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorSwitchThumbNormal">@color/colorSwitchTrack</item>
+        <item name="android:colorForeground">@color/colorGrayLight</item>
+    </style>
+
+    <style name="CheckBoxStyle" parent="AppFont">
+        <item name="buttonTint">@color/colorPrimary</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="TabText" parent="AppFontMedium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

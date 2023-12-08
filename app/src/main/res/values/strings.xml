@@ -1,0 +1,255 @@
+<resources>
+    <string name="app_name">Nimhans</string>
+    <string name="service_error">Something went wrong from service</string>
+
+    <string name="string_text1">EPIDEMIOLOGICAL SURVEY OF AUTISM, ID AND COMMON MENTAL DISORDERS AMONG CHILDREN AND ADOLESCENTS IN UTTARAKHAND
+</string>
+    <string name="string_text2">Section 1: Household Form</string>
+    <string name="string_text3">State</string>
+    <string name="string_text4">District</string>
+    <string name="string_text5">Talk</string>
+    <string name="string_text6">City/town/village</string>
+    <string name="string_text7">Household Number</string>
+    <string name="string_text8">Locale</string>
+    <string name="string_text9">RURAL</string>
+    <string name="string_text10">URBAN</string>
+    <string name="string_text11">Name of the respondent</string>
+    <string name="string_text12">Address with landmark</string>
+    <string name="string_text13">Mobile Number</string>
+    <string name="string_text14">Consented for study</string>
+    <string name="string_text15">Date of interview</string>
+    <string name="string_text16">DAY</string>
+    <string name="string_text17">MONTH</string>
+    <string name="string_text18">YEAR</string>
+    <string name="string_text19">Result</string>
+    <string name="string_text20">*RESULT CODES</string>
+    <string name="string_text21">INTERVIEW COMPLETED</string>
+    <string name="string_text22">INTERVIEW PARTIALLY COMPLETED</string>
+    <string name="string_text23">RESPONDENT REFUSED TO TAKE PART</string>
+
+    <string name="section5_intro">INTRODUCTION (PLEASE READ TO PATIENTS)
+Thank you for agreeing to take part in this brief interview about alcohol, tobacco products and other drugs. I am going to ask you some questions about your experience of using these substances across your lifetime and in the past three months. These substances can be smoked, swallowed, snorted, inhaled, injected or ta ken in the form of pills (show drug card). Some of the substances listed may be prescribed by a doctor (like amphetamines, sedatives, pain medications). For this interview, we will not record medications that are used as prescribed by your doctor. However, if you have taken such medications for reasons other than prescription, or taken them more frequently or at higher doses than prescribed, please let me know. While we are also interested in knowing about your use of various illicit drugs, please be assured that information on such use will be treated as strictly confidential.
+NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT
+(if completing follow- up please cross check the patient’s answers with the answers given for Q1 at baseline. Any differences on this question should be queried)
+</string>
+
+    <string name="section_EPIDEMIOLOGICAL_SURVEY">EPIDEMIOLOGICAL SURVEY OF AUTISM, ID AND COMMON MENTAL DISORDERS AMONG CHILDREN AND ADOLESCENTS IN UTTARAKHAND
+</string>
+    <string name="section_household_form">Section 1: Household Form</string>
+    <string name="district">District</string>
+
+
+    <string name="section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist">Section 5: The Alcohol, Smoking and Substance Involvement Screening Test(ASSIST)</string>
+    <string name="section_5_title">Section 5</string>
+    <string name="create_user">Create User</string>
+    <string name="full_name">Full name</string>
+    <string name="age">Age</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="view_users">View Users</string>
+    <string name="reports">Reports</string>
+    <string name="_525">525</string>
+    <string name="edit_user">Edit User</string>
+    <string name="update">Update</string>
+    <string name="sign_in">Sign In</string>
+    <string name="email_or_user_name">Email or User Name</string>
+    <string name="login">Login</string>
+    <string name="section_1">Section 1</string>
+    <string name="_1">1</string>
+    <string name="uttarakhand">Uttarakhand</string>
+    <string name="_2">2</string>
+    <string name="dehradun">Dehradun</string>
+    <string name="pauri_garhwal">Pauri Garhwal</string>
+    <string name="almora">Almora</string>
+    <string name="nainital">Nainital</string>
+    <string name="_3">3</string>
+    <string name="taluka">Taluka</string>
+    <string name="select_taluka">Select Taluka</string>
+    <string name="_4">4</string>
+    <string name="city_town_village">City/Town/Village</string>
+    <string name="_5">5</string>
+    <string name="house_hold_number">House hold Number</string>
+    <string name="_6">6</string>
+    <string name="locale">Locale:</string>
+    <string name="rural">Rural</string>
+    <string name="urban">Urban</string>
+    <string name="_7">7</string>
+    <string name="name_of_the_respondent">Name of the Respondent</string>
+    <string name="_8">8</string>
+    <string name="address_with_landmark">Address with Landmark</string>
+    <string name="_9">9</string>
+    <string name="date_of_interview">Date Of Interview</string>
+    <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="_11">11</string>
+    <string name="consented_for_study">Consented for study :</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="_13">13</string>
+    <string name="visit">Visit :</string>
+    <string name="first_visit">First Visit</string>
+    <string name="second_visit">Second Visit</string>
+    <string name="third_visit">Third Visit</string>
+    <string name="date_picker">Date Picker</string>
+    <string name="_15">15</string>
+    <string name="result_code">Result Code :</string>
+    <string name="_1_interview_completed">1. Interview Completed</string>
+    <string name="_2_interview_partially_completed_postponed">2. Interview Partially Completed/Postponed</string>
+    <string name="_3_residents_of_household_refused_to_take_part">3. Residents of Household Refused to take part</string>
+    <string name="_4_residents_of_household_not_available">4. Residents of Household not available</string>
+    <string name="_5_residents_of_household_permanently_migrated">5. Residents of Household Permanently Migrated</string>
+    <string name="_6_no_competent_respondent_at_home">6. No Competent Respondent at Home</string>
+    <string name="_7_dwelling_vacant_not_a_dwelling_dwelling_destroyed">7. Dwelling Vacant/Not a Dwelling/Dwelling Destroyed</string>
+    <string name="_8_other">8. Other</string>
+    <string name="parent_interview_title">PARENT INTERVIEW FORM TO BE ADMINISTERED TO ONE OF THE PARENTS PREFERABLY MOTHER.IF BOTH MOTHER AND FATHER ARE NOT ALIVE, ONLY THEN THE GUARDIAN OR CARETAKER NEEDS TO BE INTERVIEWED.</string>
+    <string name="section_11_title">Section 11: Anxiety and Depression (RCADS)</string>
+    <string name="check_the_age_of_the_child_and_mark">Check the age of the child and mark</string>
+    <string name="interview_only_the_parents_guardian">INTERVIEW ONLY THE PARENTS/GUARDIAN</string>
+    <string name="respondent">Respondent</string>
+    <string name="mother">Mother</string>
+    <string name="father">Father</string>
+    <string name="guardian">Guardian</string>
+    <string name="specify">Specify</string>
+    <string name="my_child_worries_about_things">My child worries about things</string>
+    <string name="never">Never</string>
+    <string name="occasionally">Occasionally</string>
+    <string name="often">Often</string>
+    <string name="very_often">Very Often</string>
+    <string name="my_child_feels_sad_or_empty">My child feels sad or empty</string>
+    <string name="sometimes">Sometimes</string>
+    <string name="always">Always</string>
+    <string name="calculate_rcads_score">Calculate RCADS Score</string>
+    <string name="monthly">Monthly</string>
+    <string name="once_or_twice">Once or twice</string>
+    <string name="weekly">Weekly</string>
+    <string name="daily_or_almost_daily">Daily or almost daily</string>
+    <string name="select_village">Select Village</string>
+    <!--    <string name="_15a">15A</string>-->
+    <!--    <string name="specify">Specify</string>-->
+    <!--    <string name="_16">16</string>-->
+    <!--    <string name="next_visit">Next Visit</string>-->
+    <!--    <string name="_16a">16A</string>-->
+    <!--    <string name="_16b">16B</string>-->
+    <!--    <string name="time_picker">Time Picker</string>-->
+    <!--    <string name="_16c">16C</string>-->
+    <!--    <string name="total_visits">Total Visits</string>-->
+    <!--    <string name="next_section">Next Section</string>-->
+    <!--    <string name="section_10">Section 10</string>-->
+    <!--    <string name="ssdddtttttvvvvvvhhh">SSDDDTTTTTVVVVVVHHH</string>-->
+    <!--    <string name="section_10_conduct_disorder_vanderbilt">Section 10: Conduct Disorder (Vanderbilt)</string>-->
+    <!--    <string name="check_the_age_of_the_child_and_mark">Check the age of the child and mark</string>-->
+    <!--    <string name="number">Number</string>-->
+    <!--    <string name="interview_only_the_parents_guardian">INTERVIEW ONLY THE PARENTS/GUARDIAN</string>-->
+    <!--    <string name="respondent">Respondent</string>-->
+    <!--    <string name="_1_mother">1. Mother</string>-->
+    <!--    <string name="_2_father">2. Father</string>-->
+    <!--    <string name="_3_guardian">3. Guardian</string>-->
+    <!--    <string name="_139">139.</string>-->
+    <!--    <string name="bullies_threatens_or_scares_others">Bullies, threatens, or scares others</string>-->
+    <!--    <string name="_0_never">0. Never</string>-->
+    <!--    <string name="_1_occasionally">1. Occasionally</string>-->
+    <!--    <string name="_2_often">2. Often</string>-->
+    <!--    <string name="_3_very_often">3. Very Often</string>-->
+    <!--    <string name="_140">140.</string>-->
+    <!--    <string name="starts_physical_fights">Starts physical fights</string>-->
+    <!--    <string name="_141">141.</string>-->
+    <!--    <string name="lies_to_get_out_of_trouble_or_to_avoid_jobs_i_e_cons_others">Lies to get out of trouble or to avoid jobs (i.e., “cons” others)</string>-->
+    <!--    <string name="_142">142.</string>-->
+    <!--    <string name="skips_school_without_permission">Skips school without permission</string>-->
+    <!--    <string name="_143">143.</string>-->
+    <!--    <string name="is_physically_unkind_to_people">Is physically unkind to people</string>-->
+    <!--    <string name="_144">144.</string>-->
+    <!--    <string name="has_stolen_things_that_have_value">Has stolen things that have value</string>-->
+    <!--    <string name="_145">145.</string>-->
+    <!--    <string name="destroys_others_property_on_purpose">Destroys others’ property on purpose</string>-->
+    <!--    <string name="_146">146.</string>-->
+    <!--    <string name="has_used_a_weapon_that_can_cause_serious_harm_bat_knife_brick_gun">Has used a weapon that can cause serious harm (bat, knife, brick, gun)</string>-->
+    <!--    <string name="_147">147.</string>-->
+    <!--    <string name="is_physically_mean_to_animals">Is physically mean to animals</string>-->
+    <!--    <string name="_148">148.</string>-->
+    <!--    <string name="has_set_fires_on_purpose_to_cause_damage">Has set fires on purpose to cause damage</string>-->
+    <!--    <string name="_149">149.</string>-->
+    <!--    <string name="has_broken_into_someone_else_s_home_business_or_car">Has broken into someone else’s home, business, or car</string>-->
+    <!--    <string name="_150">150.</string>-->
+    <!--    <string name="has_stayed_out_at_night_without_permission">Has stayed out at night without permission</string>-->
+    <!--    <string name="_151">151.</string>-->
+    <!--    <string name="has_run_away_from_home_overnight">Has run away from home overnight</string>-->
+    <!--    <string name="performance">Performance</string>-->
+    <!--    <string name="_152">152.</string>-->
+    <!--    <string name="overall_school_performance">Overall school performance</string>-->
+    <!--    <string name="_1_excellent">1. Excellent</string>-->
+    <!--    <string name="_2_above_average">2. Above Average</string>-->
+    <!--    <string name="_3_average">3. Average</string>-->
+    <!--    <string name="_4_somewhat_of_a_problem">4. Somewhat of a Problem</string>-->
+    <!--    <string name="_5_problematic">5. Problematic</string>-->
+    <!--    <string name="_153">153.</string>-->
+    <!--    <string name="reading">Reading</string>-->
+    <!--    <string name="_154">154.</string>-->
+    <!--    <string name="writing">Writing</string>-->
+    <!--    <string name="_155">155.</string>-->
+    <!--    <string name="mathematics">Mathematics</string>-->
+    <!--    <string name="_156">156.</string>-->
+    <!--    <string name="relationship_with_parents">Relationship with parents</string>-->
+    <!--    <string name="_157">157.</string>-->
+    <!--    <string name="relationship_with_siblings">Relationship with siblings</string>-->
+    <!--    <string name="_158">158.</string>-->
+    <!--    <string name="relationship_with_peers">Relationship with peers</string>-->
+    <!--    <string name="_159">159.</string>-->
+    <!--    <string name="participation_in_organized_activities_eg_teams">Participation in organized activities (eg, teams)</string>-->
+    <!--    <string name="cd_screener">CD_screener</string>-->
+    <!--    <string name="cd_result">CD Result</string>-->
+    <!--    <string name="previous_section">Previous Section</string>-->
+    <!--    <string name="section_11">Section 11</string>-->
+    <!--    <string name="section_11_anxiety_and_depression_rcads">Section 11: Anxiety and Depression (RCADS)</string>-->
+    <!--    <string name="_14">14</string>-->
+    <!--    <string name="section_3a">Section 3a</string>-->
+    <!--    <string name="section_3_socio_demographic_characteristics">Section 3: Socio-Demographic characteristics</string>-->
+    <!--    <string name="what_is_the_religion_you_follow">What is the religion you follow?</string>-->
+    <!--    <string name="_1_hindu">1. Hindu</string>-->
+
+
+    <string-array name="relation_ship_array">
+        <item>Wife/Husband</item>
+        <item>Son/Daughter</item>
+        <item>Son-in-law/Daughter-in-law</item>
+        <item>Grandchild</item>
+        <item>Father</item>
+        <item>Mother</item>
+        <item>Mother-in-law</item>
+        <item>Father-in-law</item>
+        <item>Bother/sister</item>
+        <item>Brother-in-law/Sister-in-law</item>
+        <item>Niece/Nephew</item>
+        <item>Other relative</item>
+        <item>Adopted/Foster child</item>
+        <item>Not related</item>
+    </string-array>
+
+    <string-array name="occupation_array">
+        <item>Select Occupation</item>
+        <item>Cultivator</item>
+        <item>Agricultural labourer</item>
+        <item>Non-agricultural labourer</item>
+        <item>Business</item>
+        <item>Salaried employment</item>
+        <item>Housework</item>
+        <item>Student</item>
+        <item>Not working/unemployed</item>
+        <item>Other work</item>
+    </string-array>
+
+    <string-array name="education_array">
+        <item>Select Education</item>
+        <item>Illiterate</item>
+        <item>Pre- Primary</item>
+        <item>Middle school</item>
+        <item>High school</item>
+        <item>Intermediate</item>
+        <item>Degree/diploma</item>
+        <item>Student</item>
+        <item>Post-graduation and above</item>
+    </string-array>
+</resources>

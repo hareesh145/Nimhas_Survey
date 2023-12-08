@@ -1,0 +1,203 @@
+package com.ganesh.nimhans.activity;
+
+import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.ganesh.nimhans.MyNimhans;
+import com.ganesh.nimhans.R;
+import com.ganesh.nimhans.databinding.ActivitySection3aBinding;
+import com.ganesh.nimhans.model.ServeySectionRequest;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
+import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.ganesh.nimhans.utils.Util;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Section3aActivity extends AppCompatActivity {
+    Activity activity;
+    private ActivitySection3aBinding binding;
+    String phoneNo, pswd;
+    Section2Activity sec2;
+    ProgressBar progressBar;
+
+    MyNimhans myGameApp;
+    EditText Specify, Specify0, Specify1, Specify2, NoOfSons, NoOfDaughters, IncomePerMonth;
+
+
+    RadioGroup Caste, AnswerType, MaritalStatus, YesOrNo;
+    String selectedCaste, selectedAnswerType, selectedMaritalStatus, selectedYesOrNo;
+    Long demoGraphicsID;
+    int noOfSons;
+    int noOfDaughters;
+    int incomePerMonth;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivitySection3aBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+        activity = this;
+        binding.setHandlers(this);
+        myGameApp = (MyNimhans) activity.getApplicationContext();
+
+        phoneNo = myGameApp.getUserPhoneNo();
+        Specify = findViewById(R.id.Specify);
+        Specify0 = findViewById(R.id.SSDDDTTTTTVVVVVVHHH);
+        Specify1 = findViewById(R.id.Specify1);
+        Specify2 = findViewById(R.id.Specify2);
+        NoOfSons = findViewById(R.id.Sons);
+        NoOfDaughters = findViewById(R.id.daughters);
+        IncomePerMonth = findViewById(R.id.Income);
+        Caste = findViewById(R.id.Caste);
+        AnswerType = findViewById(R.id.AnswerType);
+        MaritalStatus = findViewById(R.id.maritalStatus);
+        YesOrNo = findViewById(R.id.yesOrNo);
+//        Specify =binding.Specify;
+//        Specify1 = binding.Specify1;
+//        Specify2 = binding.Specify2;
+//        NoOfSons = binding.Sons;
+//        NoOfDaughters = binding.daughters;
+//        IncomePerMonth = binding.Income;
+//        Caste = binding.Caste;
+//        AnswerType = binding.AnswerType;
+//        MaritalStatus = binding.maritalStatus;
+//        YesOrNo = binding.yesOrNo;
+        Caste.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedCaste = selectedValue;
+            Log.d("selectedCaste", "Selected value: " + selectedCaste);
+        });
+        AnswerType.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedAnswerType = selectedValue;
+            Log.d("selectedAnswerType", "Selected value: " + selectedAnswerType);
+        });
+        MaritalStatus.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedMaritalStatus = selectedValue;
+            Log.d("selectedMaritalStatus", "Selected value: " + selectedMaritalStatus);
+        });
+        YesOrNo.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedYesOrNo = selectedValue;
+            Log.d("selectedYesOrNo", "Selected value: " + selectedYesOrNo);
+
+            if (selectedYesOrNo.equals("No")) {
+                binding.question5Section.setEnabled(false);
+                binding.question5aSection.setEnabled(false);
+                binding.question5bSection.setEnabled(false);
+                binding.noOfDaughtsField.setEnabled(false);
+                binding.noOfSonsField.setEnabled(false);
+                binding.daughters.setEnabled(false);
+                binding.Sons.setEnabled(false);
+            } else {
+                binding.question5Section.setEnabled(true);
+                binding.question5aSection.setEnabled(true);
+                binding.question5bSection.setEnabled(true);
+                binding.daughters.setEnabled(true);
+                binding.Sons.setEnabled(true);
+                binding.noOfDaughtsField.setEnabled(true);
+                binding.noOfSonsField.setEnabled(true);
+            }
+        });
+        String demoGraphicsId = getIntent().getStringExtra("demoGraphicsId");
+        Log.d("demoGraphicsId", "onCreate: " + demoGraphicsId);
+
+
+    }
+
+    public void onClickNextSection(View v) {
+        Bundle bundle = getIntent().getExtras();
+        demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
+//        Log.d("demoID", "onCreate: " + demoGraphicsID);
+//        Log.d("selectedCaste", "onCreate: " + selectedCaste);
+//        Log.d("selectedAnswerType", "onCreate: " + selectedAnswerType);
+//        Log.d("selectedMaritalStatus", "onCreate: " + selectedMaritalStatus);
+//        Log.d("selectedYesOrNo", "onCreate: " + selectedYesOrNo);
+////        String noOfSon = null;
+////        Log.d("noOfSon", "onCreate: " + noOfSon);
+//        Log.d("noOfDaughters", "onCreate: " + noOfDaughters);
+//        Log.d("income", "onCreate: " + incomePerMonth);
+        if (!NoOfSons.getText().toString().isEmpty()) {
+            noOfSons = Integer.parseInt(NoOfSons.getText().toString());
+        } else {
+            noOfSons = 0;
+        }
+
+        String noOfSon = String.valueOf(noOfSons);
+        String noOfDougter = String.valueOf(noOfDaughters);
+        String income = String.valueOf(incomePerMonth);
+        progressBar = binding.progressBar;
+        progressBar.setVisibility(View.VISIBLE);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        ServeySectionRequest servey = new ServeySectionRequest();
+        servey.setQno1(selectedCaste);
+        servey.setQno2(selectedAnswerType);
+        servey.setQno3(selectedMaritalStatus);
+        servey.setQno4(selectedYesOrNo);
+        servey.setQno5A(String.valueOf(Integer.parseInt(noOfSon)));
+        servey.setQno5B(String.valueOf(Integer.parseInt(noOfDougter)));
+        servey.setQno6(String.valueOf(Integer.parseInt(income)));
+        Call<JsonObject> call = apiService.postServeySection5Data(demoGraphicsID, servey, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (progressBar.isShown())
+                    progressBar.setVisibility(View.GONE);
+                JsonObject userResponse = response.body();
+                if (response.isSuccessful()) {
+                    Log.d("response", "onResponse: " + userResponse);
+                    Util.showToast(activity, "Successfully data saved");
+                    Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+                    PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+    public void onClickPreviousSection(View v) {
+        startActivity(new Intent(activity, Section2Activity.class));
+
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public String getSelectedCaste() {
+
+        return selectedCaste;
+    }
+
+
+}
