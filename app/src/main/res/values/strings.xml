@@ -127,6 +127,7 @@ NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT
     <string name="weekly">Weekly</string>
     <string name="daily_or_almost_daily">Daily or almost daily</string>
     <string name="select_village">Select Village</string>
+    <string name="add_member">Add Member</string>
     <!--    <string name="_15a">15A</string>-->
     <!--    <string name="specify">Specify</string>-->
     <!--    <string name="_16">16</string>-->

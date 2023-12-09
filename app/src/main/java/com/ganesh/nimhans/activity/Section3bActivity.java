@@ -253,4 +253,7 @@ public class Section3bActivity extends AppCompatActivity {
         Intent intent = new Intent(Section3bActivity.this,ResultPage.class);
         startActivity(intent);
     }
+    public void onClickAddMember(View v) {
+        startActivity(new Intent(activity, Section3bActivity.class));
+    }
 }
