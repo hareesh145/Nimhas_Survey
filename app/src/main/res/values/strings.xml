@@ -253,4 +253,6 @@ NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT
         <item>Student</item>
         <item>Post-graduation and above</item>
     </string-array>
+    <string name="add_member">Add Member</string>
+    <string name="children_s_result">Children\'s Result</string>
 </resources>

@@ -61,4 +61,8 @@ public class Section11Activity extends AppCompatActivity {
         Intent intent = new Intent(Section11Activity.this,ResultPage.class);
         startActivity(intent);
     }
+    public void onClickChildrenResult(View v) {
+        Intent intent = new Intent(Section11Activity.this,ChildrenResult.class);
+        startActivity(intent);
+    }
 }
