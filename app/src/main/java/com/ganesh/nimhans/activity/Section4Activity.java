@@ -520,5 +520,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         finish();
     }
 
-
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section4Activity.this,ResultPage.class);
+        startActivity(intent);
+    }
 }

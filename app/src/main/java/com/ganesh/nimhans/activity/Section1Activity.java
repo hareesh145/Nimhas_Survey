@@ -6,7 +6,6 @@ import static com.ganesh.nimhans.utils.PreferenceConnector.VILLAGE;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,12 +24,14 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection1Binding;
 import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.ganesh.nimhans.utils.StateModel;
 import com.ganesh.nimhans.utils.Util;
+import com.google.gson.Gson;
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -53,10 +53,7 @@ public class Section1Activity extends AppCompatActivity {
     private String selectedConsentedForStusy;
 
     MyNimhans myGameApp;
-    HashMap<String, ArrayList<String>> allVillageNames;
-    HashMap<String, ArrayList<String>> pauriVillageNames;
-    HashMap<String, ArrayList<String>> almoraVillages;
-    HashMap<String, ArrayList<String>> nainitalVillages;
+    List<StateModel> stateModels;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +90,15 @@ public class Section1Activity extends AppCompatActivity {
 //        setVisibleBasedOnConsent(false);
 
 
+        String jsonFromAsset = Util.loadJSONFromAsset(this);
+
+        StateModel[] stateModel = new Gson().fromJson(jsonFromAsset, StateModel[].class);
+
+        stateModels = Arrays.asList(stateModel);
+
+
+        Log.d("TAG", "onCreate: " + stateModels);
+
         locale.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -102,71 +108,47 @@ public class Section1Activity extends AppCompatActivity {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedConsentedForStusy = selectedValue;
-//            if (selectedValue.equals("Yes")) {
-//                setVisibleBasedOnConsent(true);
-//            } else {
-//                setVisibleBasedOnConsent(false);
-//            }
         });
         district.setOnCheckedChangeListener((group, checkedId) -> {
+
+                binding.taluka.setText("");
+                binding.city.setText("");
+
+
             updateTalukaSpinner(checkedId);
-            if (!binding.taluka.getText().toString().isEmpty()) {
-                binding.taluka.selectItemByIndex(0);
-            }
-            if (!binding.city.getText().toString().isEmpty()) {
-                binding.city.setSelected(false);
-            }
         });
 
-        allVillageNames = Util.getAllVillageNames();
-        pauriVillageNames = Util.getPauriVillageNames();
-        almoraVillages = Util.getalmorahVillageNames();
-        nainitalVillages = Util.getnainitalVillageNames();
 
         binding.taluka.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>)
                 (oldIndex, oldItem, newIndex, newItem) -> {
-                    setVillages(newItem);
+                    binding.city.setItems(filterVillages(newItem));
                 });
 
 
     }
 
-//    private void setVisibleBasedOnConsent(boolean isConsent) {
-//        if (isConsent) {
-//            binding.consentBelowSection.setVisibility(View.VISIBLE);
-//        } else {
-//            binding.consentBelowSection.setVisibility(View.GONE);
-//        }
-//    }
-
-    private void setVillages(String talukaName) {
-        if (!talukaName.equals("Select Taluka")) {
-            switch (binding.district.getCheckedRadioButtonId()) {
-                case R.id.dehradun:
-                    ArrayList<String> villageNames = allVillageNames.get(talukaName);
-                    if (villageNames.size() > 0) {
-                        binding.city.setItems(villageNames);
-                    }
-                    break;
-                case R.id.pauri:
-                    ArrayList<String> pauriVillageNameList = pauriVillageNames.get(talukaName);
-                    binding.city.setItems(pauriVillageNameList);
-
-                    break;
-                case R.id.almora:
-                    ArrayList<String> almoraVillageNameList = almoraVillages.get(talukaName);
-                    binding.city.setItems(almoraVillageNameList);
-                    break;
-                case R.id.nainital:
-                    ArrayList<String> ninatalVillageNameList = nainitalVillages.get(talukaName);
-                    if (ninatalVillageNameList.size() > 0) {
-                        binding.city.setItems(ninatalVillageNameList);
-                    }
-                    break;
+    private ArrayList<String> filterVillages(String subDistrictName) {
+        ArrayList<String> villagesList = new ArrayList<>();
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.subDistrictName.equals(subDistrictName) && !villagesList.contains(stateModel.villageName)) {
+                villagesList.add(stateModel.villageName);
             }
-
         }
+        return villagesList;
     }
+
+    private ArrayList<String> filterTalukas(String districtName) {
+        ArrayList<String> talukasList = new ArrayList<>();
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.districtName.equals(districtName) && !talukasList.contains(stateModel.subDistrictName)) {
+                talukasList.add(stateModel.subDistrictName);
+            }
+        }
+        return talukasList;
+    }
+
 
     public void onClickNextSection(View v) {
 
@@ -190,7 +172,7 @@ public class Section1Activity extends AppCompatActivity {
         String mobileNumberValue = mobileNumber.getText().toString();
         String specifyValue = "";
         String selectedTotleVisites = "";
-       // Log.d("taluka", "onClickNextSection: " + talukaValue);
+        // Log.d("taluka", "onClickNextSection: " + talukaValue);
         Log.d("district", "onClickNextSection: " + selectedDistrict);
         Log.d("houseHoldNumberValue", "onClickNextSection: " + houseHoldNumberValue);
         Log.d("selectedlocale", "onClickNextSection: " + selectedlocale);
@@ -234,10 +216,15 @@ public class Section1Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section1Activity.this, ResultPage.class);
+        startActivity(intent);
+    }
+
     private void updateTalukaSpinner(int checkedId) {
         String selectedDistrict = getDistrictFromRadioButton(checkedId);
         this.selectedDistrict = selectedDistrict;
-        List<String> talukaValues = getTalukaValues(selectedDistrict);
+        List<String> talukaValues = filterTalukas(selectedDistrict);
         binding.taluka.setItems(talukaValues);
 
     }
@@ -250,79 +237,6 @@ public class Section1Activity extends AppCompatActivity {
         return "";
     }
 
-    private List<String> getTalukaValues(String district) {
-        switch (district) {
-            case "Pauri":
-                return getPauriGarhwalTalukaValues();
-            case "Almora":
-                return getAlmoraTalukaValues();
-            case "Nainital":
-                return getNainitalTalukaValues();
-            case "Dehradun":
-            default:
-                return getDehradunTalukaValues();
-        }
-    }
-
-    private List<String> getDehradunTalukaValues() {
-        List<String> values = new ArrayList<>();
-        values.add("Select Taluka");
-        values.add("Chakrata");
-        values.add("Tyuni");
-        values.add("Kalsi");
-        values.add("Vikas Nagar");
-        values.add("Dehradun");
-        values.add("Rishikesh");
-        return values;
-    }
-
-    private List<String> getPauriGarhwalTalukaValues() {
-        List<String> values = new ArrayList<>();
-        values.add("Select Taluka");
-        values.add("Chakisain");
-        values.add("Chaubatta Khal");
-        values.add("Dhoomakot");
-        values.add("Jakhanikhal");
-        values.add("Kotdwara");
-        values.add("Lansdowne");
-        values.add("Pauri");
-        values.add("Rikhanikhal");
-        values.add("Satpuli");
-        values.add("Srinagar");
-        values.add("Thailisain");
-        values.add("Yamkeshwar");
-
-        return values;
-    }
-
-    private List<String> getAlmoraTalukaValues() {
-        List<String> values = new ArrayList<>();
-        values.add("Select Taluka");
-        values.add("Almora");
-        values.add("Bhanoli");
-        values.add("Bhikiasain");
-        values.add("Chaukhutiya");
-        values.add("Dwarahat");
-        values.add("Jainti");
-        values.add("Ranikhet");
-        values.add("Someshwar");
-        values.add("Sult");
-        return values;
-    }
-
-    private List<String> getNainitalTalukaValues() {
-        List<String> values = new ArrayList<>();
-        values.add("Select Taluka");
-        values.add("Betalghat");
-        values.add("Dhari");
-        values.add("Haldwani");
-        values.add("Kaladhungi");
-        values.add("Kosya Kutauli");
-        values.add("Lalkuan");
-        values.add("Nainital");
-        values.add("Ramnagar");
-        return values;
-    }
 
     private final DatePickerDialog.OnDateSetListener dateSetListener =
             new DatePickerDialog.OnDateSetListener() {
@@ -367,9 +281,6 @@ public class Section1Activity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         dateOfViewEditText.setText(sdf.format(calendar.getTime()));
     }
-
-
-
 
 
 }

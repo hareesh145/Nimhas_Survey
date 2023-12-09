@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -251,6 +250,9 @@ public class Section5Activity extends AppCompatActivity {
         finish();
 
     }
-
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section5Activity.this,ResultPage.class);
+        startActivity(intent);
+    }
 
 }

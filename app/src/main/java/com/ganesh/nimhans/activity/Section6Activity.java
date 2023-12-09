@@ -145,7 +145,10 @@ public class Section6Activity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section5Activity.class));
         finish();
     }
-
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section6Activity.this,ResultPage.class);
+        startActivity(intent);
+    }
     public void setQuestionOption(int questionNo, int option) {
         integerHashMap.put(questionNo, option);
     }

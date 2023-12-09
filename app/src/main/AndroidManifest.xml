@@ -88,6 +88,9 @@
             android:name=".activity.Section13Activity"
             android:exported="true"/>
         <activity
+            android:name=".activity.ResultPage"
+            android:exported="true" />
+        <activity
             android:name=".activity.CreateUserActivity"
             android:exported="true"/>
         <activity

@@ -160,5 +160,8 @@ public class Section3cActivity extends AppCompatActivity {
         finish();
     }
 
-
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section3cActivity.this,ResultPage.class);
+        startActivity(intent);
+    }
 }

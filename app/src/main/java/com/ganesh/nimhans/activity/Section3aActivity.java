@@ -83,18 +83,42 @@ public class Section3aActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
             Log.d("selectedCaste", "Selected value: " + selectedCaste);
+            switch (checkedId){
+                case R.id.other_religion:
+                    binding.Specify.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.Specify.setVisibility(View.GONE);
+                    break;
+            }
         });
         AnswerType.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedAnswerType = selectedValue;
             Log.d("selectedAnswerType", "Selected value: " + selectedAnswerType);
+            switch (checkedId){
+                case R.id.notWilling:
+                    binding.castTribe.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.castTribe.setVisibility(View.GONE);
+                    break;
+            }
         });
         MaritalStatus.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus = selectedValue;
             Log.d("selectedMaritalStatus", "Selected value: " + selectedMaritalStatus);
+            switch (checkedId){
+                case R.id.other:
+                    binding.Specify2.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.Specify2.setVisibility(View.GONE);
+                    break;
+            }
         });
         YesOrNo.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
@@ -189,7 +213,10 @@ public class Section3aActivity extends AppCompatActivity {
         startActivity(new Intent(activity, Section2Activity.class));
 
     }
-
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section3aActivity.this,ResultPage.class);
+        startActivity(intent);
+    }
     public String getPhoneNo() {
         return phoneNo;
     }

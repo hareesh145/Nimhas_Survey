@@ -80,4 +80,8 @@ public class Section7aActivity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section6Activity.class));
         finish();
     }
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section7aActivity.this,ResultPage.class);
+        startActivity(intent);
+    }
 }

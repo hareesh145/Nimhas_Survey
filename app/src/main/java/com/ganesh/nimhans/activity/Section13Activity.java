@@ -11,14 +11,11 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
-import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection13Binding;
 import com.ganesh.nimhans.utils.Util;
 
@@ -55,54 +52,15 @@ public class Section13Activity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
 
 
-        binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton radioButton = findViewById(checkedId);
-                String selectedValue = radioButton.getText().toString();
-                selectedResultCode = selectedValue;
-                Log.d("resultCode", "Selected value: " + selectedValue);
 
-                switch (checkedId) {
-                    case R.id.c:
-                    case R.id.h:
-                        binding.commentResultCode.setVisibility(View.VISIBLE);
-                        break;
-                    case R.id.b:
-                        binding.commentResultCode.setVisibility(View.GONE);
-                        break;
-
-                }
-
-            }
-        });
-        binding.visit.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton radioButton = findViewById(checkedId);
-                String selectedValue = radioButton.getText().toString();
-                selectedVisit = selectedValue;
-
-                switch (radioButton.getId()) {
-                    case R.id.first_visit:
-                        binding.totalVisits.setText("1");
-                        break;
-                    case R.id.second_visit:
-                        binding.totalVisits.setText("2");
-                        break;
-                    case R.id.thired_visit:
-                        binding.totalVisits.setText("3");
-                        break;
-                }
-            }
-        });
     }
 
     public void onClickSubmit(View v) {
         Util.showToast(activity, "Successfully data saved");
         Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
         finishAffinity();
-        startActivity(new Intent(this, ActivitySurvey.class));
+        Intent intent = new Intent(Section13Activity.this,ResultPage.class);
+        startActivity(intent);
     }
 
     public void showDatePickerDialog1(View v) {
@@ -122,7 +80,6 @@ public class Section13Activity extends AppCompatActivity {
     private void updateLabel() {
         String myFormat = "yyyy-MM-dd";
         SimpleDateFormat sdf1 = new SimpleDateFormat(myFormat, Locale.US);
-        binding.dateOfVisit.setText(sdf1.format(dateOfVisitCalendar.getTime()));
     }
 
 

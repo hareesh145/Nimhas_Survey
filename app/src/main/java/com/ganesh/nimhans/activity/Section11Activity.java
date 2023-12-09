@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
-import com.ganesh.nimhans.databinding.ActivitySection10Binding;
 import com.ganesh.nimhans.databinding.ActivitySection11Binding;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
@@ -57,5 +56,9 @@ public class Section11Activity extends AppCompatActivity {
     public void onClickPreviousSection(View v) {
 //        startActivity(new Intent(activity, Section10Activity.class));
         finish();
+    }
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section11Activity.this,ResultPage.class);
+        startActivity(intent);
     }
 }

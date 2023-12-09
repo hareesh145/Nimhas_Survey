@@ -218,4 +218,8 @@ public class Section8Activity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section7bActivity.class));
         finish();
     }
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section8Activity.this,ResultPage.class);
+        startActivity(intent);
+    }
 }
