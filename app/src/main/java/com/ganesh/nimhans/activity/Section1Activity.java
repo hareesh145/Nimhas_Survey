@@ -351,6 +351,10 @@ public class Section1Activity extends AppCompatActivity {
             }
         };
         new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+        DatePickerDialog datePickerDialog =new DatePickerDialog(this);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
+
     }
 
     private void updateEditText() {

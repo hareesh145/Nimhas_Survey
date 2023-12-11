@@ -2,6 +2,7 @@ package com.ganesh.nimhans.activity;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityResultPageBinding;
+import com.ganesh.nimhans.utils.Util;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -83,5 +85,8 @@ public class ResultPage extends AppCompatActivity {
         SimpleDateFormat sdf1 = new SimpleDateFormat(myFormat, Locale.US);
         binding.dateOfVisit.setText(sdf1.format(dateOfVisitCalendar.getTime()));
     }
-
+    public void onClickSubmit(View v) {
+        Intent intent = new Intent(ResultPage.this,ActivitySurvey.class);
+        startActivity(intent);
+    }
 }

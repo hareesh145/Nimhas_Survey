@@ -55,7 +55,7 @@ public class Section13Activity extends AppCompatActivity {
 
     }
 
-    public void onClickSubmit(View v) {
+    public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
         Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
         finishAffinity();
@@ -145,5 +145,8 @@ public class Section13Activity extends AppCompatActivity {
         };
         new DatePickerDialog(this, dateSetListener, myCalendar2.get(Calendar.YEAR), myCalendar2.get(Calendar.MONTH), myCalendar2.get(Calendar.DAY_OF_MONTH)).show();
     }
+    public void onClickPreviousSection(View v) {
+        startActivity(new Intent(activity, Section12Activity.class));
 
+    }
 }

@@ -110,7 +110,32 @@
                         android:text="Interview Pending"
                         android:textAlignment="textStart" />
                 </RadioGroup>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickPreviousSection}"
+                            android:text="Previous Section"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:padding="15dp"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickNextSection}"
+                            android:text="Next Section"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                    </LinearLayout>
                 </LinearLayout>
+
             </ScrollView>
         </LinearLayout>
     </FrameLayout>
