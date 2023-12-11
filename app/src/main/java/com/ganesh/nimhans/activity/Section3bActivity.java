@@ -7,6 +7,8 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -137,6 +139,35 @@ public class Section3bActivity extends AppCompatActivity {
         tobacco = selectedTobacco;
         nicotineUsed = selectedNicotineUsed;
 
+        Name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    if (!s.toString().isEmpty()) {
+                        binding.whatIsRelationTxt.setText("10. What is the relationship of (" + s + ") to you?");
+                        binding.isNameMaleOrFemale.setText("Is (" + s + ") a male or female?");
+                        binding.howOldAge.setText("How old is ("+s+")?");
+                    } else {
+                        binding.whatIsRelationTxt.setText("10. What is the relationship of (NAME) to you?");
+                        binding.isNameMaleOrFemale.setText("Is (NAME) a male or female?");
+                        binding.howOldAge.setText("How old is (NAME)?");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     public void onClickNextSection(View v) {
@@ -249,10 +280,12 @@ public class Section3bActivity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section3aActivity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3bActivity.this,ResultPage.class);
+        Intent intent = new Intent(Section3bActivity.this, ResultPage.class);
         startActivity(intent);
     }
+
     public void onClickAddMember(View v) {
         startActivity(new Intent(activity, Section3bActivity.class));
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <!-- Data -->
@@ -60,7 +59,8 @@
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -68,7 +68,9 @@
                         android:gravity="center"
                         android:text="Section 3: Socio-Demographic characteristics"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -136,6 +138,7 @@
                             android:layoutDirection="rtl"
                             android:text="Buddhist"
                             android:textAlignment="textStart" />
+
                         <RadioButton
                             android:id="@+id/other_religion"
                             android:layout_width="fill_parent"
@@ -153,10 +156,10 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
-                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -185,21 +188,23 @@
 
 
                     <LinearLayout
+                        android:id="@+id/castTribe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:id="@+id/castTribe"
-                        android:visibility="gone"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:layout_marginBottom="5dp"
                             android:text="Caste/Tribe"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
+
                         <EditText
                             android:id="@+id/Specify1"
                             android:layout_width="match_parent"
@@ -210,6 +215,7 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/AnswerType"
                         android:layout_width="fill_parent"
@@ -293,6 +299,7 @@
                             android:layoutDirection="rtl"
                             android:text="Widowed/Divorced /Separated"
                             android:textAlignment="textStart" />
+
                         <RadioButton
                             android:id="@+id/other"
                             android:layout_width="fill_parent"
@@ -309,10 +316,10 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
-                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -438,8 +445,8 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
                             android:hint="Number of Son’s"
-                            android:padding="10dp"
                             android:inputType="number"
+                            android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -493,8 +500,8 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
                             android:hint="Number of Daughter’s"
-                            android:padding="10dp"
                             android:inputType="number"
+                            android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -545,42 +552,49 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
                             android:hint="Total monthly Income"
-                            android:padding="10dp"
                             android:inputType="number"
                             android:maxLength="6"
+                            android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/button_bg_login"
                         android:onClick="@{handlers::onClickGoToResult}"
                         android:padding="15dp"
+
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/white" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:padding="15dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="15dp"
                             android:onClick="@{handlers::onClickPreviousSection}"
+                            android:padding="15dp"
                             android:text="Previous Section"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
                             android:gravity="right"
-                            android:padding="15dp"
-                            android:layout_marginTop="20dp"
                             android:onClick="@{handlers::onClickNextSection}"
+                            android:padding="15dp"
                             android:text="Next Section"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />

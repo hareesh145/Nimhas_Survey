@@ -23,17 +23,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection1Binding;
+import com.ganesh.nimhans.model.DemoGraphicsrequest;
+import com.ganesh.nimhans.model.DemoGraphyResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.StateModel;
 import com.ganesh.nimhans.utils.Util;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Section1Activity extends AppCompatActivity {
     Activity activity;
@@ -54,6 +64,7 @@ public class Section1Activity extends AppCompatActivity {
 
     MyNimhans myGameApp;
     List<StateModel> stateModels;
+    private String demoGraphicsId;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,8 +122,8 @@ public class Section1Activity extends AppCompatActivity {
         });
         district.setOnCheckedChangeListener((group, checkedId) -> {
 
-                binding.taluka.setText("");
-                binding.city.setText("");
+            binding.taluka.setText("");
+            binding.city.setText("");
 
 
             updateTalukaSpinner(checkedId);
@@ -124,7 +135,52 @@ public class Section1Activity extends AppCompatActivity {
                     binding.city.setItems(filterVillages(newItem));
                 });
 
+        binding.city.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>)
+                (oldIndex, oldItem, newIndex, newItem) -> {
+                    if (!newItem.isEmpty()) {
+                        setHouseHoldNumber(newItem);
+                        checkRuralUrban(newItem);
+                    }
+                });
 
+
+    }
+
+    private void checkRuralUrban(String newItem) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.villageName.equals(newItem)) {
+                if (stateModel.rural_Urban.equals("Urabn")) {
+                    binding.locale.check(R.id.urban);
+                } else {
+                    binding.locale.check(R.id.rural);
+                }
+            }
+        }
+    }
+
+    private void setHouseHoldNumber(String newItem) {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        binding.progressBar.setVisibility(View.VISIBLE);
+        apiService.getHouseHoldNumber().enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                binding.progressBar.setVisibility(View.GONE);
+                if (response.isSuccessful()) {
+                    binding.hhn.setText(String.valueOf(response.body().get("houseHoldNo")));
+                } else {
+                    binding.hhn.setText("3");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
+                binding.hhn.setText("3");
+                t.printStackTrace();
+            }
+        });
+        binding.hhn.setText("");
     }
 
     private ArrayList<String> filterVillages(String subDistrictName) {
@@ -185,35 +241,61 @@ public class Section1Activity extends AppCompatActivity {
 //        Log.d("date", "onClickNextSection: " + datePickerfield);
 //        Log.d("timepicker", "onClickNextSection: " + timepicker);
         Log.d("totalVisits.getText().toString()", "onClickNextSection: ");
+        // Intent intent = new Intent(this, Section2Activity.class);
 
-
-        Intent intent = new Intent(this, Section2Activity.class);
-
-        intent.putExtra("state", stateValue);
-        intent.putExtra("district", selectedDistrict);
-        intent.putExtra("taluka", talukaValue);
-        intent.putExtra("cityOrTownOrVillage", cityValue);
-        intent.putExtra("houseHoldNo", houseHoldNumberValue);
-        intent.putExtra("locale", selectedlocale);
-        intent.putExtra("respodentName", nameOfRespondentValue);
-        intent.putExtra("address", addressValue);
-        intent.putExtra("mobileno", mobileNumberValue);
-        intent.putExtra("interviewDate", dateOfViewEditText.getText().toString());
-        intent.putExtra("consentedForStudy", selectedConsentedForStusy);
-        intent.putExtra("visit", "");
-        intent.putExtra("date", "");
-        intent.putExtra("resultCode", "");
-        intent.putExtra("specify", specifyValue);
-        intent.putExtra("nextAgainDate", "");
-        intent.putExtra("nextAgainTime", "");
-        intent.putExtra("totaleVisits", selectedTotleVisites);
 
         PreferenceConnector.writeString(this, DISTRICT, selectedDistrict);
         PreferenceConnector.writeString(this, TALUKA, talukaValue);
         PreferenceConnector.writeString(this, VILLAGE, binding.city.getText().toString());
 
 
-        startActivity(intent);
+        String userValue = PreferenceConnector.readString(this, PreferenceConnector.LOGIN_ID, "");
+        String codeOfUserValue = PreferenceConnector.readString(this, PreferenceConnector.LOGIN_ID, "");
+        String myFormat = "yyyy-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        String currentDate = sdf.format(new Date());
+//        startActivity(intent);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<DemoGraphyResponse> call = apiService.postDemography(new DemoGraphicsrequest(stateValue, selectedDistrict, talukaValue, cityValue, houseHoldNumberValue,
+                selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
+                "", "", "", specifyValue, "", "",
+                "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        call.enqueue(new Callback<DemoGraphyResponse>() {
+            @Override
+            public void onResponse(Call<DemoGraphyResponse> call, Response<DemoGraphyResponse> response) {
+                if (binding.progressBar.isShown())
+                    binding.progressBar.setVisibility(View.GONE);
+                DemoGraphyResponse userResponse = response.body();
+                if (response.isSuccessful()) {
+                    demoGraphicsId = userResponse.getDemographicsId();
+                    System.out.println("deeee" + userResponse.getDemographicsId());
+                    activity.finish();
+                    Util.showToast(activity, "Successfully data saved");
+                    Intent i = new Intent(activity, Section3aActivity.class);
+                    Bundle bundle = new Bundle();
+
+//Add your data to bundle
+                    bundle.putString("demoo", demoGraphicsId);
+
+//Add the bundle to the intent
+                    i.putExtras(bundle);
+
+//Fire that second activity
+                    startActivity(i);
+
+
+                } else {
+                    Util.showToast(activity, "Failed to saved the data");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DemoGraphyResponse> call, Throwable t) {
+
+            }
+        });
+
+
     }
 
     public void onClickGoToResult(View v) {

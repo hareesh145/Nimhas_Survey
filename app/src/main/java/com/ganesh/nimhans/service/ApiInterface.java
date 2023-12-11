@@ -81,6 +81,9 @@ public interface ApiInterface {
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection9AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
+    @GET("location/060/00300/044609")
+    Call<JsonObject> getHouseHoldNumber();
+
 
     @GET("survey-section/{id}")
     Call<JsonObject> getSurveyReports(@Path("id") Integer itemId, @Header("Authorization") String authHeader);
