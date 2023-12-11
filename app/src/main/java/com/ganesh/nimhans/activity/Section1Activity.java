@@ -162,7 +162,8 @@ public class Section1Activity extends AppCompatActivity {
     private void setHouseHoldNumber(String newItem) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         binding.progressBar.setVisibility(View.VISIBLE);
-        apiService.getHouseHoldNumber().enqueue(new Callback<JsonObject>() {
+
+        apiService.getHouseHoldNumber(getSelectedDistrictCode(getDistrictFromRadioButton(binding.district.getCheckedRadioButtonId())),getSelectedTalukaCode(binding.taluka.getText().toString()),getSelectedVillageCode(binding.city.getText().toString()),PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 binding.progressBar.setVisibility(View.GONE);
@@ -340,7 +341,6 @@ public class Section1Activity extends AppCompatActivity {
             };
 
     public void showDatePickerDialog(View v) {
-
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -351,7 +351,7 @@ public class Section1Activity extends AppCompatActivity {
             }
         };
         new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
-        DatePickerDialog datePickerDialog =new DatePickerDialog(this);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this);
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
 
@@ -368,5 +368,34 @@ public class Section1Activity extends AppCompatActivity {
         dateOfViewEditText.setText(sdf.format(calendar.getTime()));
     }
 
+    private String getSelectedVillageCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.villageName.equals(selectedVillage)) {
+                return stateModel.villageCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedTalukaCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.subDistrictName.equals(selectedVillage)) {
+                return stateModel.subDistrictCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedDistrictCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.districtName.equals(selectedVillage)) {
+                return stateModel.districtCode;
+            }
+        }
+        return "";
+    }
 
 }

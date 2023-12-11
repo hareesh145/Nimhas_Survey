@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -39,7 +40,7 @@ public class Section3bActivity extends AppCompatActivity {
     private ActivitySection3bBinding binding;
     String phoneNo, pswd;
     ProgressBar progressBar;
-
+    LinearLayout mental_layout,specify4layout;
     EditText Specify3, NoOfPersons, NoOfPersons1, Name, Age,
             Specify4;
     RadioGroup Gender, MaritalStatus1, AnswerType1;
@@ -79,7 +80,8 @@ public class Section3bActivity extends AppCompatActivity {
         NoOfPersons1 = binding.NoOfPeople1;
         Name = binding.Name;
         Age = binding.age;
-
+        specify4layout = binding.specify4layout;
+        mental_layout = binding.mentalLayout;
         Specify4 = binding.Specify4;
         Gender = binding.gender;
         MaritalStatus1 = binding.maritalStatus1;
@@ -105,6 +107,16 @@ public class Section3bActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedTobacco = selectedValue;
             Log.d("selectedAnswerType1", "Selected value: " + selectedTobacco);
+            switch (checkedId){
+                case R.id.yes:
+                    binding.mentalLayout.setVisibility(View.VISIBLE);
+                    binding.specify4layout.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.mentalLayout.setVisibility(View.GONE);
+                    binding.specify4layout.setVisibility(View.GONE);
+                    break;
+            }
         });
         binding.answerType2.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);

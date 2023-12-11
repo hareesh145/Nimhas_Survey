@@ -78,18 +78,24 @@ public interface ApiInterface {
 
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection8AData(@Path("id") Integer itemId, @Body ServeySection8Request serveySection5Request, @Header("Authorization") String authHeader);
+
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection9AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
+
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection10AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
+
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection11AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
+
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection12AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
+
     @PUT("survey-section/{id}")
     Call<JsonObject> putServeySection13AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
-    @GET("location/060/00300/044609")
-    Call<JsonObject> getHouseHoldNumber();
+
+    @GET("location/{districtCode}/{talukaCode}/{villageCode}")
+    Call<JsonObject> getHouseHoldNumber(@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode,@Header("Authorization") String authHeader);
 
 
     @GET("survey-section/{id}")

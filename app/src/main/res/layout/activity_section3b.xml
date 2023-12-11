@@ -430,6 +430,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/mental_layout"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
@@ -455,6 +457,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:id="@+id/specify4layout"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
