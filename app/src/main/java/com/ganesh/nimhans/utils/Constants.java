@@ -8,7 +8,10 @@ public class Constants {
     public static String SURVEY_ID = "surveyId";
     public static String AGE_ID = "age";
     public static String FAMILY_COUNT = "FAMILY_COUNT";
-    public static String NO_OF_PEOPLE="NO_OF_PEOPLE";
+    public static String NO_OF_PEOPLE = "NO_OF_PEOPLE";
+
+    public static String REPEAT_COUNT = "REPEAT_COUNT";
+    public static String LINE_NO = "LINE_NO";
 
 
 }

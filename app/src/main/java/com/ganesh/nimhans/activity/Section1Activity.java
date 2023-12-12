@@ -1,6 +1,7 @@
 package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.PreferenceConnector.DISTRICT;
+import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 import static com.ganesh.nimhans.utils.PreferenceConnector.TALUKA;
 import static com.ganesh.nimhans.utils.PreferenceConnector.VILLAGE;
 
@@ -163,7 +164,7 @@ public class Section1Activity extends AppCompatActivity {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         binding.progressBar.setVisibility(View.VISIBLE);
 
-        apiService.getHouseHoldNumber(getSelectedDistrictCode(getDistrictFromRadioButton(binding.district.getCheckedRadioButtonId())),getSelectedTalukaCode(binding.taluka.getText().toString()),getSelectedVillageCode(binding.city.getText().toString()),PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+        apiService.getHouseHoldNumber(getSelectedDistrictCode(getDistrictFromRadioButton(binding.district.getCheckedRadioButtonId())), getSelectedTalukaCode(binding.taluka.getText().toString()), getSelectedVillageCode(binding.city.getText().toString()), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 binding.progressBar.setVisibility(View.GONE);
@@ -248,6 +249,7 @@ public class Section1Activity extends AppCompatActivity {
         PreferenceConnector.writeString(this, DISTRICT, selectedDistrict);
         PreferenceConnector.writeString(this, TALUKA, talukaValue);
         PreferenceConnector.writeString(this, VILLAGE, binding.city.getText().toString());
+        PreferenceConnector.writeString(this, NAME_OF_RESPONDENT, binding.notr.getText().toString());
 
 
         String userValue = PreferenceConnector.readString(this, PreferenceConnector.LOGIN_ID, "");
@@ -255,9 +257,10 @@ public class Section1Activity extends AppCompatActivity {
         String myFormat = "yyyy-MM-dd";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         String currentDate = sdf.format(new Date());
-//        startActivity(intent);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<DemoGraphyResponse> call = apiService.postDemography(new DemoGraphicsrequest(stateValue, selectedDistrict, talukaValue, cityValue, houseHoldNumberValue,
+
+        Call<DemoGraphyResponse> call = apiService.postDemography(new DemoGraphicsrequest(getSelectedStateCode(stateValue), getSelectedDistrictCode(selectedDistrict), getSelectedTalukaCode(talukaValue),
+                getSelectedVillageCode(cityValue), houseHoldNumberValue,
                 selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
                 "", "", "", specifyValue, "", "",
                 "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
@@ -350,7 +353,9 @@ public class Section1Activity extends AppCompatActivity {
                 updateCalender();
             }
         };
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)); datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000); datePickerDialog.show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.show();
 
     }
 
@@ -390,6 +395,16 @@ public class Section1Activity extends AppCompatActivity {
                 stateModels) {
             if (stateModel.districtName.equals(selectedVillage)) {
                 return stateModel.districtCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedStateCode(String selectedState) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.stateName.equals(selectedState)) {
+                return stateModel.stateCode;
             }
         }
         return "";

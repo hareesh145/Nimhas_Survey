@@ -259,6 +259,7 @@
                             android:background="@drawable/edit_text_border"
                             android:hint="House hold Number"
                             android:inputType="number"
+                            android:focusable="false"
                             android:maxLength="4"
                             android:padding="10dp"
                             android:textAllCaps="false"

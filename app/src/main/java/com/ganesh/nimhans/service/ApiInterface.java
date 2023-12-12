@@ -17,9 +17,11 @@ import com.ganesh.nimhans.model.ServeySectionRequest;
 import com.ganesh.nimhans.model.UserRequest;
 import com.ganesh.nimhans.model.UserResponse;
 import com.ganesh.nimhans.model.ViewUserResponse;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -100,7 +102,11 @@ public interface ApiInterface {
 
 
     @POST("house-hold/{id}")
-    Call<JsonObject> saveHouseHold(@Path("id") Integer id, @Body HouseHoldModel houseHoldModel,@Header("Authorization") String authHeader);
+    Call<JsonObject> saveHouseHold(@Path("id") Integer id, @Body HouseHoldModel houseHoldModel, @Header("Authorization") String authHeader);
+
+    //http://49.207.248.113:4009/survey-app/house-hold/childrens/80
+    @GET("house-hold/childrens/{id}")
+    Call<List<EligibleResponse>> getHouseHoldChilderns(@Path("id") Integer id, @Header("Authorization") String authHeader);
 
     @GET("survey-section/{id}")
     Call<JsonObject> getSurveyReports(@Path("id") Integer itemId, @Header("Authorization") String authHeader);
