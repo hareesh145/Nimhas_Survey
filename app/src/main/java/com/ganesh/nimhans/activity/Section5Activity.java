@@ -91,12 +91,28 @@ public class Section5Activity extends AppCompatActivity {
 
             switch (radioButton.getId()) {
                 case R.id.yes2:
+                    binding.question66B.setVisibility(View.GONE);
+                    binding.question66BDesc.setVisibility(View.GONE);
+                    binding.question66C.setVisibility(View.GONE);
+                    binding.question66CDesc.setVisibility(View.GONE);
                     binding.alcoholProducts.setVisibility(View.GONE);
+                    binding.question66D.setVisibility(View.GONE);
+                    binding.question66DDesc.setVisibility(View.GONE);
                     binding.cannabis.setVisibility(View.GONE);
+                    binding.question66E.setVisibility(View.GONE);
+                    binding.question66EDesc.setVisibility(View.GONE);
                     binding.cocaine.setVisibility(View.GONE);
+                    binding.question66F.setVisibility(View.GONE);
+                    binding.question66FDesc.setVisibility(View.GONE);
                     binding.amphetamine.setVisibility(View.GONE);
+                    binding.question66G.setVisibility(View.GONE);
+                    binding.question66GDesc.setVisibility(View.GONE);
                     binding.inhalants.setVisibility(View.GONE);
+                    binding.question66I.setVisibility(View.GONE);
+                    binding.question66IDesc.setVisibility(View.GONE);
                     binding.sedatives.setVisibility(View.GONE);
+                    binding.question66J.setVisibility(View.GONE);
+                    binding.question66JDesc.setVisibility(View.GONE);
                     binding.hallucinogens.setVisibility(View.GONE);
                     binding.opioids.setVisibility(View.GONE);
                     break;
@@ -135,7 +151,11 @@ public class Section5Activity extends AppCompatActivity {
         } else {
             serveySection5Request.setQno67c(1);
         }
-        serveySection5Request.setQno67d(questionOptionsMap.get("67d"));
+        if (questionOptionsMap.get("67d") != null) {
+            serveySection5Request.setQno67d(questionOptionsMap.get("67d"));
+        } else {
+            serveySection5Request.setQno67d(1);
+        }
         serveySection5Request.setQno67e(questionOptionsMap.get("67e"));
         serveySection5Request.setQno67f(questionOptionsMap.get("67f"));
         serveySection5Request.setQno67g(questionOptionsMap.get("67g"));

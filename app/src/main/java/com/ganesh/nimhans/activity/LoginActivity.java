@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onClickLogin(View v) {
         if (!Util.isNetworkConnected(this)) {
-            Util.showLongToast(this,"Please Check Internet Connection",false);
+            Util.showLongToast(this, "Please Check Internet Connection", false);
             return;
         }
 
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (loginResponse.getRole().equals("SUPERVISOR"))
                         startActivity(new Intent(activity, DashboardActivity.class));
                     else
-                        startActivity(new Intent(activity, ActivitySurvey.class));
+                        startActivity(new Intent(activity, Section1Activity.class));
                     activity.finish();
                     return;
                 } else {

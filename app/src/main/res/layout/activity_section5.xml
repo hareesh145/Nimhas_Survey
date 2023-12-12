@@ -192,6 +192,7 @@
                         android:textAlignment="textStart" />
                 </RadioGroup>
 
+
                 <TextView
                     android:id="@+id/question_66_b"
                     android:layout_width="wrap_content"
