@@ -1,5 +1,7 @@
 package com.ganesh.nimhans.activity;
 
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.databinding.ActivitySection13Binding;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Util;
 
 import java.util.Calendar;
@@ -39,6 +42,7 @@ public class Section13Activity extends AppCompatActivity {
     private String time;
     private String datePickerfield;
     EditText specify, datePicker2, timePicker;
+    private EligibleResponse eligibleResponse;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +54,7 @@ public class Section13Activity extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
         phoneNo = myGameApp.getUserPhoneNo();
-
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
 
 
     }

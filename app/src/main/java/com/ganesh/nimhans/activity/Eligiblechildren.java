@@ -43,7 +43,7 @@ public class Eligiblechildren extends AppCompatActivity {
                         binding.progressBar.setVisibility(View.GONE);
                         try {
                             if (response.isSuccessful()) {
-                                binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body()));
+                                binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body(),demoGraphicsID,surveyID));
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

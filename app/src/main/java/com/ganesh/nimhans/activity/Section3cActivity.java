@@ -2,12 +2,13 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -19,16 +20,15 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection3cBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
-import com.ganesh.nimhans.service.ApiClient;
-import com.ganesh.nimhans.service.ApiInterface;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.ganesh.nimhans.utils.StateModel;
 import com.ganesh.nimhans.utils.Util;
-import com.google.gson.JsonObject;
+import com.google.gson.Gson;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.Arrays;
+import java.util.List;
 
 public class Section3cActivity extends AppCompatActivity {
     Activity activity;
@@ -48,6 +48,9 @@ public class Section3cActivity extends AppCompatActivity {
     private int surveyID;
     String ageValue;
 
+    EligibleResponse eligibleResponse;
+    private List<StateModel> stateModels;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySection3cBinding.inflate(getLayoutInflater());
@@ -56,8 +59,17 @@ public class Section3cActivity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
-        ageValue = getIntent().getStringExtra(Constants.AGE_ID);
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        demoGraphicsID = Long.parseLong(String.valueOf(eligibleResponse.surveySection.demographics.demographicsId));
+
+        ageValue = String.valueOf(eligibleResponse.qno12);
+
+
+        String jsonFromAsset = Util.loadJSONFromAsset(this);
+
+        StateModel[] stateModel = new Gson().fromJson(jsonFromAsset, StateModel[].class);
+
+        stateModels = Arrays.asList(stateModel);
 
         YesOrNo = findViewById(R.id.yesOrNo1);
         InterviewStatus = findViewById(R.id.interviewStatus);
@@ -126,31 +138,40 @@ public class Section3cActivity extends AppCompatActivity {
         serveySection5Request.setQno18I(selectedYesOrNo);
         serveySection5Request.setQno18J(selectedInterviewStatus);
 
-        binding.progressBar.setVisibility(View.VISIBLE);
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> call = apiService.putServeySection3CData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-        call.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (binding.progressBar.isShown())
-                    binding.progressBar.setVisibility(View.GONE);
-                JsonObject userResponse = response.body();
-                if (response.isSuccessful()) {
-                    Log.d("response", "onResponse: " + userResponse);
-                    Util.showToast(activity, "Successfully data saved");
-                    Intent intent = new Intent(Section3cActivity.this, Section4Activity.class);
-                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    intent.putExtra(SURVEY_ID, surveyID);
-                    intent.putExtra(AGE_ID,ageValue);
-                    startActivity(intent);
-                }
-            }
 
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                binding.progressBar.setVisibility(View.GONE);
-            }
-        });
+        Intent intent = new Intent(Section3cActivity.this, Section4Activity.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        startActivity(intent);
+
+//        binding.progressBar.setVisibility(View.VISIBLE);
+//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//        Call<JsonObject> call = apiService.putServeySection3CData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+//        call.enqueue(new Callback<JsonObject>() {
+//            @Override
+//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//                if (binding.progressBar.isShown())
+//                    binding.progressBar.setVisibility(View.GONE);
+//                JsonObject userResponse = response.body();
+//                if (response.isSuccessful()) {
+//                    Log.d("response", "onResponse: " + userResponse);
+//                    Util.showToast(activity, "Successfully data saved");
+//                    Intent intent = new Intent(Section3cActivity.this, Section4Activity.class);
+//                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//                    intent.putExtra(SURVEY_ID, surveyID);
+//                    intent.putExtra(AGE_ID, ageValue);
+//                    startActivity(intent);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JsonObject> call, Throwable t) {
+//                binding.progressBar.setVisibility(View.GONE);
+//            }
+//        });
 
 
     }
@@ -161,7 +182,48 @@ public class Section3cActivity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3cActivity.this,ResultPage.class);
+        Intent intent = new Intent(Section3cActivity.this, ResultPage.class);
         startActivity(intent);
+    }
+
+
+    private String getSelectedVillageCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.villageName.equals(selectedVillage)) {
+                return stateModel.villageCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedTalukaCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.subDistrictName.equals(selectedVillage)) {
+                return stateModel.subDistrictCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedDistrictCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.districtName.equals(selectedVillage)) {
+                return stateModel.districtCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedStateCode(String selectedState) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.stateName.equals(selectedState)) {
+                return stateModel.stateCode;
+            }
+        }
+        return "";
     }
 }

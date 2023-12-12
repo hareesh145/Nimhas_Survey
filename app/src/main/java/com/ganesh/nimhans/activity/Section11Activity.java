@@ -2,6 +2,7 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.databinding.ActivitySection11Binding;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
 
@@ -27,6 +29,7 @@ public class Section11Activity extends AppCompatActivity {
     private String ageValue;
     private int surveyID;
     private long demoGraphicsID;
+    private EligibleResponse eligibleResponse;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class Section11Activity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         phoneNo = myGameApp.getUserPhoneNo();
 
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
@@ -50,6 +53,7 @@ public class Section11Activity extends AppCompatActivity {
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 
     }

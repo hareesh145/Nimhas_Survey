@@ -60,41 +60,41 @@ public interface ApiInterface {
     Call<JsonObject> putServeySection3BData(@Path("id") Integer itemId, @Body ServeySection3bRequest serveySection3bRequest, @Header("Authorization") String authHeader);
 
 
-    @PUT("survey-section/{id}")
+    @POST("survey-questions/{id}")
     Call<JsonObject> putServeySection3CData(@Path("id") Integer itemId, @Body ServeySection3cRequest serveySection5Request, @Header("Authorization") String authHeader);
 
 
-    @PUT("survey-section/{id}")
+    @POST("survey-questions/{id}")
     Call<JsonObject> putServeySection4Data(@Path("id") Integer itemId, @Body ServeySection4Request serveySection5Request, @Header("Authorization") String authHeader);
 
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection5Data(@Path("id") Integer itemId, @Body ServeySection5Request serveySection5Request, @Header("Authorization") String authHeader);
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection6Data(@Path("id") Integer itemId, @Body ServeySection6Request serveySection5Request, @Header("Authorization") String authHeader);
 
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection7AData(@Path("id") Integer itemId, @Body ServeySection7aRequest serveySection5Request, @Header("Authorization") String authHeader);
 
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection8AData(@Path("id") Integer itemId, @Body ServeySection8Request serveySection5Request, @Header("Authorization") String authHeader);
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection9AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection10AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection11AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection12AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
-    @PUT("survey-section/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection13AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
     @GET("location/{districtCode}/{talukaCode}/{villageCode}")

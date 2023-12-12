@@ -2,7 +2,9 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,7 +20,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection4Binding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.ServeySection4Request;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -95,6 +99,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     private int selectedRestlessness;
     private int surveyID;
     private String ageValue;
+    EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +172,9 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         phoneNo = myGameApp.getUserPhoneNo();
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
+
         Anxiety.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -422,6 +431,18 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
 
     public void checkRCADSValue() {
         ServeySection4Request serveySection5Request = new ServeySection4Request();
+
+        serveySection5Request.setQno18A(serveySection3cRequest.getQno18A());
+        serveySection5Request.setQno18B(serveySection3cRequest.getQno18B());
+        serveySection5Request.setQno18C(serveySection3cRequest.getQno18C());
+        serveySection5Request.setQno18D(serveySection3cRequest.getQno18D());
+        serveySection5Request.setQno18E(serveySection3cRequest.getQno18E());
+        serveySection5Request.setQno18F(serveySection3cRequest.getQno18F());
+        serveySection5Request.setQno18G(serveySection3cRequest.getQno18G());
+        serveySection5Request.setQno18H(serveySection3cRequest.getQno18H());
+        serveySection5Request.setQno18I(serveySection3cRequest.getQno18I());
+        serveySection5Request.setQno18J(serveySection3cRequest.getQno18J());
+
         serveySection5Request.setQno19(selectedAnxiety);
         serveySection5Request.setQno20(selectedFeelingSad);
         serveySection5Request.setQno21(selectedFunnyFeeling);
@@ -475,7 +496,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
 
         binding.progressBar.setVisibility(View.VISIBLE);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> call = apiService.putServeySection4Data(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        Call<JsonObject> call = apiService.putServeySection4Data(eligibleResponse.houseHoldId, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -512,6 +533,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
     }
 
@@ -521,7 +543,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section4Activity.this,ResultPage.class);
+        Intent intent = new Intent(Section4Activity.this, ResultPage.class);
         startActivity(intent);
     }
 }

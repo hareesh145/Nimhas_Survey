@@ -31,10 +31,19 @@
 
 
         <TextView
-            android:id="@+id/child_parent_name"
+            android:id="@+id/child_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/child_name"
+            android:layout_margin="10dp"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/child_parent_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/child_age"
             android:layout_margin="10dp"
             android:textSize="14sp" />
 

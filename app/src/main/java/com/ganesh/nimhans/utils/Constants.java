@@ -13,5 +13,9 @@ public class Constants {
     public static String REPEAT_COUNT = "REPEAT_COUNT";
     public static String LINE_NO = "LINE_NO";
 
+    public static String ELIGIBLE_RESPONDENT = "ELIGIBLE_RESPONDENT";
+
+    public static String SURVEY_SECTION3C="SURVEY_SECTION3C";
+
 
 }

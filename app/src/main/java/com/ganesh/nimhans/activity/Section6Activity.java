@@ -2,6 +2,7 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -17,6 +18,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.Section6Adapter;
 import com.ganesh.nimhans.databinding.ActivitySection6Binding;
 import com.ganesh.nimhans.model.ServeySection6Request;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -43,7 +45,7 @@ public class Section6Activity extends AppCompatActivity {
 
     HashMap<Integer, Integer> integerHashMap = new HashMap<>();
     private String ageValue;
-
+    private EligibleResponse eligibleResponse;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySection6Binding.inflate(getLayoutInflater());
@@ -52,6 +54,7 @@ public class Section6Activity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
@@ -81,7 +84,7 @@ public class Section6Activity extends AppCompatActivity {
         serveySection6Request.setQno76(integerHashMap.get(76));
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         binding.progressBar.setVisibility(View.VISIBLE);
-        Call<JsonObject> call = apiService.putServeySection6Data(surveyID, serveySection6Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        Call<JsonObject> call = apiService.putServeySection6Data(eligibleResponse.houseHoldId, serveySection6Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
 
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -113,6 +116,7 @@ public class Section6Activity extends AppCompatActivity {
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 
 //        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);

@@ -1,6 +1,8 @@
 package com.ganesh.nimhans.model;
 
-public class ServeySection3cRequest {
+import java.io.Serializable;
+
+public class ServeySection3cRequest implements Serializable {
 
 
     private String qno18A;

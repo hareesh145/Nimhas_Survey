@@ -2,6 +2,7 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -18,6 +19,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection8Binding;
 import com.ganesh.nimhans.model.ServeySection8Request;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -40,6 +42,7 @@ public class Section8Activity extends AppCompatActivity {
     private String respondentTxt;
     private int surveyID;
     private long demoGraphicsID;
+    private EligibleResponse eligibleResponse;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,8 @@ public class Section8Activity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
+
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
 
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
@@ -94,7 +99,7 @@ public class Section8Activity extends AppCompatActivity {
         serveySection8Request.setQno112(getChecked112Value(binding.question112.getCheckedRadioButtonId()));
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         binding.progressBar.setVisibility(View.VISIBLE);
-        apiService.putServeySection8AData(surveyID, serveySection8Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+        apiService.putServeySection8AData(eligibleResponse.houseHoldId, serveySection8Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 binding.progressBar.setVisibility(View.GONE);
@@ -210,6 +215,7 @@ public class Section8Activity extends AppCompatActivity {
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 
     }
