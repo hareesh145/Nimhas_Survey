@@ -7,6 +7,8 @@ public class Constants {
     public static String DEMO_GRAPHIC_ID = "DEMO_GRAPHIC_ID";
     public static String SURVEY_ID = "surveyId";
     public static String AGE_ID = "age";
+    public static String FAMILY_COUNT = "FAMILY_COUNT";
+    public static String NO_OF_PEOPLE="NO_OF_PEOPLE";
 
 
 }

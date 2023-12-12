@@ -2,6 +2,8 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.FAMILY_COUNT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_PEOPLE;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -23,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection3bBinding;
+import com.ganesh.nimhans.model.HouseHoldModel;
 import com.ganesh.nimhans.model.ServeySection3bRequest;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
@@ -30,6 +33,8 @@ import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
 import com.google.gson.JsonObject;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,8 +45,8 @@ public class Section3bActivity extends AppCompatActivity {
     private ActivitySection3bBinding binding;
     String phoneNo, pswd;
     ProgressBar progressBar;
-    LinearLayout mental_layout,specify4layout;
-    EditText Specify3, NoOfPersons, NoOfPersons1, Name, Age,
+    LinearLayout mental_layout, specify4layout;
+    EditText Specify3, NoOfPersons,  Name, Age,
             Specify4;
     RadioGroup Gender, MaritalStatus1, AnswerType1;
     String selectedGender;
@@ -52,7 +57,6 @@ public class Section3bActivity extends AppCompatActivity {
     String selectedIllness;
 
     String noOfPeople;
-    String lineNo;
     String houseHoldMember;
     String houseHoldNumberValue;
     String relationShip;
@@ -67,6 +71,9 @@ public class Section3bActivity extends AppCompatActivity {
     Long demoGraphicsID;
     private int surveyID;
 
+    String[] selectedTypeOfProblem;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySection3bBinding.inflate(getLayoutInflater());
@@ -77,7 +84,6 @@ public class Section3bActivity extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
         Specify3 = binding.Specify3;
         NoOfPersons = binding.NoOfPeople;
-        NoOfPersons1 = binding.NoOfPeople1;
         Name = binding.Name;
         Age = binding.age;
         specify4layout = binding.specify4layout;
@@ -89,6 +95,13 @@ public class Section3bActivity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+
+        if (getIntent().hasExtra(NO_OF_PEOPLE)) {
+            binding.totalNoOfPeople.setVisibility(View.GONE);
+            binding.NoOfPeople.setText(String.valueOf(getIntent().getIntExtra(NO_OF_PEOPLE, 0)));
+        } else {
+            binding.totalNoOfPeople.setVisibility(View.VISIBLE);
+        }
 
         Gender.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
@@ -107,7 +120,7 @@ public class Section3bActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedTobacco = selectedValue;
             Log.d("selectedAnswerType1", "Selected value: " + selectedTobacco);
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.yes:
                     binding.mentalLayout.setVisibility(View.VISIBLE);
                     binding.specify4layout.setVisibility(View.VISIBLE);
@@ -139,8 +152,9 @@ public class Section3bActivity extends AppCompatActivity {
                 selectedNicotineUsed = selectedValue;
             }
         });
+
+
         noOfPeople = NoOfPersons.getText().toString();
-        lineNo = NoOfPersons1.getText().toString();
         houseHoldMember = Name.getText().toString();
         houseHoldNumberValue = houseHoldMember;
 
@@ -161,11 +175,11 @@ public class Section3bActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
                     if (!s.toString().isEmpty()) {
-                        binding.whatIsRelationTxt.setText("10. What is the relationship of (" + s + ") to you?");
+                        binding.whatIsRelationTxt.setText("What is the relationship of (" + s + ") to you?");
                         binding.isNameMaleOrFemale.setText("Is (" + s + ") a male or female?");
-                        binding.howOldAge.setText("How old is ("+s+")?");
+                        binding.howOldAge.setText("How old is (" + s + ")?");
                     } else {
-                        binding.whatIsRelationTxt.setText("10. What is the relationship of (NAME) to you?");
+                        binding.whatIsRelationTxt.setText("What is the relationship of (NAME) to you?");
                         binding.isNameMaleOrFemale.setText("Is (NAME) a male or female?");
                         binding.howOldAge.setText("How old is (NAME)?");
                     }
@@ -184,7 +198,7 @@ public class Section3bActivity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Log.d("noOfPeople", "onClickNextSection: " + NoOfPersons.getText().toString());
-        Log.d("lineNo", "onClickNextSection: " + lineNo);
+        Log.d("lineNo", "onClickNextSection: " + binding.lineNo.getText().toString());
 //        Log.d("", "onClickNextSection: "+);
         Log.d("houseHoldMember", "onClickNextSection: " + houseHoldMember);
         Log.d("houseHoldNumberValue", "onClickNextSection: " + houseHoldNumberValue);
@@ -210,8 +224,8 @@ public class Section3bActivity extends AppCompatActivity {
             serveySection5Request.setQno7(0);
         }
 
-        if (!lineNo.isEmpty()) {
-            serveySection5Request.setQno8(Integer.parseInt(lineNo));
+        if (!binding.lineNo.getText().toString().isEmpty()) {
+            serveySection5Request.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
         } else {
             serveySection5Request.setQno8(0);
         }
@@ -288,8 +302,6 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-//        startActivity(new Intent(activity, DashboardActivity.class));
-//        startActivity(new Intent(activity, Section3aActivity.class));
         finish();
     }
 
@@ -299,6 +311,81 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickAddMember(View v) {
-        startActivity(new Intent(activity, Section3bActivity.class));
+        ArrayList<String> selectedTypeOfProblems = new ArrayList<>();
+
+        String alchol = null;
+        if (binding.alcohol.isChecked()) {
+            alchol = binding.alcohol.getText().toString();
+        }
+        if (alchol != null) {
+            selectedTypeOfProblems.add(alchol);
+        }
+        String tobacoo = null;
+        if (binding.tobacco.isChecked()) {
+            tobacoo = binding.tobacco.getText().toString();
+        }
+        if (tobacoo != null) {
+            selectedTypeOfProblems.add(tobacoo);
+        }
+
+        String substanceUse = null;
+        if (binding.substanceUse.isChecked()) {
+            substanceUse = binding.substanceUse.getText().toString();
+        }
+        if (substanceUse != null) {
+            selectedTypeOfProblems.add(substanceUse);
+        }
+
+        if (selectedTypeOfProblems.size() > 0) {
+            selectedTypeOfProblem = new String[selectedTypeOfProblems.size()];
+            selectedTypeOfProblem = selectedTypeOfProblems.toArray(selectedTypeOfProblem);
+        }
+
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        HouseHoldModel houseHoldModel = new HouseHoldModel();
+        houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
+        houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
+        houseHoldModel.setQno9(binding.Name.getText().toString());
+        houseHoldModel.setQno10(binding.relation.getText().toString());
+        houseHoldModel.setQno11(getGendarSelection());
+
+        if (!binding.age.getText().toString().isEmpty()) {
+            houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
+        }
+        houseHoldModel.setQno13(selectedMaritalStatus1);
+        houseHoldModel.setQno14(binding.occupation.getText().toString());
+        houseHoldModel.setQno15(binding.education.getSelectedItem().toString());
+        houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
+        houseHoldModel.setQno16A(binding.Specify4.getText().toString());
+        houseHoldModel.setQno17(selectedAnswerType2);
+        if (selectedTypeOfProblems.size() > 0)
+            houseHoldModel.setQno17A(selectedTypeOfProblem);
+
+        Call<JsonObject> apiCall = apiInterface.saveHouseHold(1, houseHoldModel, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+
+        apiCall.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Intent intent = new Intent(activity, Section3bActivity.class);
+                int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
+                if (familyCount == 0) {
+                    PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
+                } else {
+                    familyCount = familyCount - 1;
+                    PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, familyCount);
+                }
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
+
+
     }
 }

@@ -59,6 +59,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
 
@@ -81,39 +82,46 @@
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="7. Total number of people in the household"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <EditText
-                        android:id="@+id/NoOfPeople"
+                    <LinearLayout
+                        android:id="@+id/total_no_of_people"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="Enter the number of People"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Total number of people in the household"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/NoOfPeople"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Enter the number of People"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="8. Line No"
+                        android:text="Line No"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
                     <EditText
-                        android:id="@+id/NoOfPeople1"
+                        android:id="@+id/line_no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
@@ -130,7 +138,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="9. Name of the household member"
+                        android:text="Name of the household member"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -151,7 +159,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="10. What is the relationship of (NAME) to you?"
+                        android:text="What is the relationship of (NAME) to you?"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -180,14 +188,6 @@
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="11."
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <TextView
                             android:id="@+id/is_name_male_or_female"
@@ -211,7 +211,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Male"
+                            android:text="Male"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -220,7 +220,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Female"
+                            android:text="Female"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -229,14 +229,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="12."
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <TextView
                             android:id="@+id/how_old_age"
@@ -269,14 +261,6 @@
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="13"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -335,7 +319,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="14. Occupation"
+                        android:text="Occupation"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -361,7 +345,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="15. Education"
+                        android:text="Education"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -383,14 +367,6 @@
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="16"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -427,22 +403,13 @@
                     </RadioGroup>
 
                     <LinearLayout
+                        android:id="@+id/mental_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/mental_layout"
-                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="16A"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -454,21 +421,13 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/specify4layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:id="@+id/specify4layout"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text=" "
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <EditText
                             android:id="@+id/Specify4"
@@ -488,14 +447,6 @@
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="17"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -544,14 +495,6 @@
                             android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:text="17A"
-                                android:textAllCaps="false"
-                                android:textColor="#000000" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -563,7 +506,7 @@
                         </LinearLayout>
 
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/alcohol"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -573,7 +516,7 @@
                             android:text="Alcohol"
                             android:textAlignment="textStart" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/tobacco"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -583,7 +526,7 @@
                             android:text="Tobacco"
                             android:textAlignment="textStart" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/substanceUse"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -634,7 +577,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginTop="20dp"
                             android:onClick="@{handlers::onClickPreviousSection}"
-                            android:padding="15dp"
+                            android:padding="10dp"
                             android:text="Previous Section"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />
@@ -645,7 +588,7 @@
                             android:layout_marginTop="20dp"
                             android:gravity="right"
                             android:onClick="@{handlers::onClickNextSection}"
-                            android:padding="15dp"
+                            android:padding="10dp"
                             android:text="Next Section"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />

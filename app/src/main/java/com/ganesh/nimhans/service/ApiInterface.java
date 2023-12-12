@@ -2,6 +2,7 @@ package com.ganesh.nimhans.service;
 
 import com.ganesh.nimhans.model.DemoGraphicsrequest;
 import com.ganesh.nimhans.model.DemoGraphyResponse;
+import com.ganesh.nimhans.model.HouseHoldModel;
 import com.ganesh.nimhans.model.LoginRequest;
 import com.ganesh.nimhans.model.LoginResponse;
 import com.ganesh.nimhans.model.ServeySection3bRequest;
@@ -95,8 +96,11 @@ public interface ApiInterface {
     Call<JsonObject> putServeySection13AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
     @GET("location/{districtCode}/{talukaCode}/{villageCode}")
-    Call<JsonObject> getHouseHoldNumber(@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode,@Header("Authorization") String authHeader);
+    Call<JsonObject> getHouseHoldNumber(@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode, @Header("Authorization") String authHeader);
 
+
+    @POST("house-hold/{id}")
+    Call<JsonObject> saveHouseHold(@Path("id") Integer id, @Body HouseHoldModel houseHoldModel,@Header("Authorization") String authHeader);
 
     @GET("survey-section/{id}")
     Call<JsonObject> getSurveyReports(@Path("id") Integer itemId, @Header("Authorization") String authHeader);
