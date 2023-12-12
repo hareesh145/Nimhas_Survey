@@ -46,6 +46,7 @@ public class Section6Activity extends AppCompatActivity {
     HashMap<Integer, Integer> integerHashMap = new HashMap<>();
     private String ageValue;
     private EligibleResponse eligibleResponse;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySection6Binding.inflate(getLayoutInflater());
@@ -112,12 +113,39 @@ public class Section6Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-        Intent intent = new Intent(activity, Section7aActivity.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        startActivity(intent);
+
+        if (Integer.parseInt(ageValue) <= 17) {
+            if (Integer.parseInt(ageValue) >= 1 && Integer.parseInt(ageValue) <= 2) {
+                Intent intent = new Intent(activity, Section7aActivity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
+            } else if (Integer.parseInt(ageValue) >= 2) {
+                //If the age is greater than 2
+                Intent intent = new Intent(activity, Section7bActivity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
+            }
+        } else {
+            //IF the Age is 18
+            Intent intent = new Intent(activity, Section7bActivity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            startActivity(intent);
+        }
+//        Intent intent = new Intent(activity, Section7aActivity.class);
+//        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//        intent.putExtra(SURVEY_ID, surveyID);
+//        intent.putExtra(AGE_ID, ageValue);
+//        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+//        startActivity(intent);
 
 //        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 //        Call<JsonObject> call = apiService.putServeySection5Data(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
@@ -149,10 +177,12 @@ public class Section6Activity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section5Activity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section6Activity.this,ResultPage.class);
+        Intent intent = new Intent(Section6Activity.this, ResultPage.class);
         startActivity(intent);
     }
+
     public void setQuestionOption(int questionNo, int option) {
         integerHashMap.put(questionNo, option);
     }
