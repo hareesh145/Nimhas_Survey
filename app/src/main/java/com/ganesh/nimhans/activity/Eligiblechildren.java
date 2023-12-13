@@ -3,7 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,18 +32,25 @@ public class Eligiblechildren extends AppCompatActivity {
         binding = ActivityEligibleChildrenListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
-        binding.progressBar.setVisibility(View.VISIBLE);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         apiInterface.getHouseHoldChilderns(surveyID, PreferenceConnector.readString(this, PreferenceConnector.TOKEN, ""))
                 .enqueue(new Callback<List<EligibleResponse>>() {
                     @Override
                     public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
-                        binding.progressBar.setVisibility(View.GONE);
                         try {
+                            Log.d("TAG", "onResponse: " + response.body());
                             if (response.isSuccessful()) {
-                                binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body(),demoGraphicsID,surveyID));
+                                binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body(), demoGraphicsID, surveyID));
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -52,8 +59,9 @@ public class Eligiblechildren extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
-                        binding.progressBar.setVisibility(View.GONE);
+
                     }
                 });
+
     }
 }

@@ -45,6 +45,22 @@ public class Section11Activity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
+
+        binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateRCADSScore();
+            }
+        });
+    }
+
+    private void calculateRCADSScore() {
+        binding.majorDepressionTxt.setText("0");
+        binding.socialPhobiaTxt.setText("0");
+        binding.panicDisorderTxt.setText("0");
+        binding.separationAnxietyTxt.setText("0");
+        binding.generalizedAnxietyTxt.setText("0");
+        binding.obsessiveCompulsiveTxt.setText("0");
     }
 
     public void onClickNextSection(View v) {
@@ -57,16 +73,18 @@ public class Section11Activity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
     public void onClickPreviousSection(View v) {
-//        startActivity(new Intent(activity, Section10Activity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section11Activity.this,ResultPage.class);
+        Intent intent = new Intent(Section11Activity.this, ResultPage.class);
         startActivity(intent);
     }
+
     public void onClickChildrenResult(View v) {
-        Intent intent = new Intent(Section11Activity.this,ChildrenResult.class);
+        Intent intent = new Intent(Section11Activity.this, ChildrenResult.class);
         startActivity(intent);
     }
 }

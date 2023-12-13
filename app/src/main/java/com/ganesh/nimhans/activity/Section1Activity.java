@@ -66,6 +66,7 @@ public class Section1Activity extends AppCompatActivity {
     MyNimhans myGameApp;
     List<StateModel> stateModels;
     private String demoGraphicsId;
+    int houseHoldNumberValue = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,7 +170,8 @@ public class Section1Activity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 binding.progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
-                    binding.hhn.setText(String.valueOf(response.body().get("houseHoldNo")));
+                    houseHoldNumberValue = response.body().get("houseHoldNo").getAsInt();
+                    binding.hhn.setText("000"+houseHoldNumberValue);
                 } else {
                     binding.hhn.setText("3");
                 }
@@ -260,7 +262,7 @@ public class Section1Activity extends AppCompatActivity {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         Call<DemoGraphyResponse> call = apiService.postDemography(new DemoGraphicsrequest(getSelectedStateCode(stateValue), getSelectedDistrictCode(selectedDistrict), getSelectedTalukaCode(talukaValue),
-                getSelectedVillageCode(cityValue), houseHoldNumberValue,
+                getSelectedVillageCode(cityValue), String.valueOf(this.houseHoldNumberValue),
                 selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
                 "", "", "", specifyValue, "", "",
                 "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));

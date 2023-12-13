@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <!-- Data -->
@@ -3144,6 +3143,15 @@
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/rcads_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/bg_btn_background"
+                        android:text="@string/calculate_rcads_score"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -3154,6 +3162,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/social_phobia_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -3164,6 +3173,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/panic_disorder_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -3174,6 +3184,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/major_depression_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -3184,6 +3195,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/separation_anxiety_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -3194,6 +3206,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/generalized_anxiety_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -3204,6 +3217,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/obsessive_compulsive_txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
@@ -3211,31 +3225,35 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:onClick="@{handlers::onClickGoToResult}"
-                        android:padding="15dp"
-                        android:text="@string/go_to_result"
-                        android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
-                    <TextView
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right"
-                        android:onClick="@{handlers::onClickChildrenResult}"
-                        android:padding="15dp"
-                        android:text="@string/children_s_result"
-                        android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
-                </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickGoToResult}"
+                            android:padding="15dp"
+                            android:text="@string/go_to_result"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:gravity="right"
+                            android:onClick="@{handlers::onClickChildrenResult}"
+                            android:padding="15dp"
+                            android:text="@string/children_s_result"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
