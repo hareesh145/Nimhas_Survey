@@ -214,10 +214,7 @@ public class Section1Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
 
-        if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
-            Intent intent = new Intent(Section1Activity.this, ResultPage.class);
-            startActivity(intent);
-        }
+
 
         String stateValue = state.getText().toString();
         String talukaValue = binding.taluka.getText().toString();
@@ -280,18 +277,24 @@ public class Section1Activity extends AppCompatActivity {
                         System.out.println("deeee" + userResponse.getDemographicsId());
                         activity.finish();
                         Util.showToast(activity, "Successfully data saved");
-                        Intent i = new Intent(activity, Section3aActivity.class);
-                        Bundle bundle = new Bundle();
+                        if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
+                            Intent intent = new Intent(Section1Activity.this, ResultPage.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString("demoo", demoGraphicsId);
+                            startActivity(intent);
+                        }else {
+                            Intent i = new Intent(activity, Section3aActivity.class);
+                            Bundle bundle = new Bundle();
 
 //Add your data to bundle
-                        bundle.putString("demoo", demoGraphicsId);
+                            bundle.putString("demoo", demoGraphicsId);
 
 //Add the bundle to the intent
-                        i.putExtras(bundle);
+                            i.putExtras(bundle);
 
 //Fire that second activity
-                        startActivity(i);
-
+                            startActivity(i);
+                        }
 
                     } else {
                         Util.showToast(activity, "Failed to saved the data");

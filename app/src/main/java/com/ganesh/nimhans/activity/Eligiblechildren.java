@@ -59,7 +59,7 @@ public class Eligiblechildren extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
-
+                        t.printStackTrace();
                     }
                 });
 

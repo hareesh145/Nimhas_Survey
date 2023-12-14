@@ -153,6 +153,7 @@ public class Section3aActivity extends AppCompatActivity {
                 binding.Sons.setEnabled(true);
                 binding.noOfDaughtsField.setEnabled(true);
                 binding.noOfSonsField.setEnabled(true);
+                binding.que5Layout.setVisibility(View.VISIBLE);
             }
         });
         String demoGraphicsId = getIntent().getStringExtra("demoGraphicsId");

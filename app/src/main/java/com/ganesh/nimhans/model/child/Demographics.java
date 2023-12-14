@@ -13,7 +13,7 @@ public class Demographics implements Serializable {
     public String locale;
     public String respodentName;
     public String address;
-    public int mobileno;
+    public String mobileno;
     public String interviewDate;
     public String consentedForStudy;
     public String visit;
