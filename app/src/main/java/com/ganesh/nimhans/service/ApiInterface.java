@@ -5,12 +5,14 @@ import com.ganesh.nimhans.model.DemoGraphyResponse;
 import com.ganesh.nimhans.model.HouseHoldModel;
 import com.ganesh.nimhans.model.LoginRequest;
 import com.ganesh.nimhans.model.LoginResponse;
+import com.ganesh.nimhans.model.ServeySection10Request;
 import com.ganesh.nimhans.model.ServeySection3bRequest;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.ServeySection4Request;
 import com.ganesh.nimhans.model.ServeySection5Request;
 import com.ganesh.nimhans.model.ServeySection6Request;
 import com.ganesh.nimhans.model.ServeySection7aRequest;
+import com.ganesh.nimhans.model.ServeySection7bRequest;
 import com.ganesh.nimhans.model.ServeySection8Request;
 import com.ganesh.nimhans.model.ServeySection9Request;
 import com.ganesh.nimhans.model.ServeySectionRequest;
@@ -78,6 +80,9 @@ public interface ApiInterface {
     @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection7AData(@Path("id") Integer itemId, @Body ServeySection7aRequest serveySection5Request, @Header("Authorization") String authHeader);
 
+    @PUT("survey-questions/{id}")
+    Call<JsonObject> putServeySection7bData(@Path("id") Integer itemId, @Body ServeySection7bRequest serveySection5Request, @Header("Authorization") String authHeader);
+
 
     @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection8AData(@Path("id") Integer itemId, @Body ServeySection8Request serveySection5Request, @Header("Authorization") String authHeader);
@@ -86,7 +91,7 @@ public interface ApiInterface {
     Call<JsonObject> putServeySection9AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
 
     @PUT("survey-questions/{id}")
-    Call<JsonObject> putServeySection10AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);
+    Call<JsonObject> putServeySection10AData(@Path("id") Integer itemId, @Body ServeySection10Request serveySection5Request, @Header("Authorization") String authHeader);
 
     @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection11AData(@Path("id") Integer itemId, @Body ServeySection9Request serveySection5Request, @Header("Authorization") String authHeader);

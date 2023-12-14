@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <!-- Data -->
@@ -90,6 +89,7 @@
                         android:textColor="#000000" />
 
                     <EditText
+                        android:id="@+id/check_age_child"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
@@ -133,16 +133,18 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/section10_respondent_grp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/mother_btn"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Mother"
+                            android:text="Mother"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -150,7 +152,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Father"
+                            android:text="Father"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -158,11 +160,12 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Guardian"
+                            android:text="Guardian"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
                     <EditText
+                        android:id="@+id/section10_respondent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
@@ -170,7 +173,9 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+
                     <LinearLayout
+                        android:id="@+id/question_139"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -196,40 +201,45 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_139_grp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_139_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_139_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_139_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_139_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -260,40 +270,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_140"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_140_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_140_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_140_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_140_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -324,40 +339,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_141"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_141_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_141_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_141_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_141_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -388,40 +408,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_142"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_142_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_142_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_142_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_142_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -452,40 +477,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_143"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_143_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_143_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_143_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_143_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -516,40 +546,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_144"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_144_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_144_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_144_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_144_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -580,40 +615,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_145"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_145_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_145_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_145_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_145_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -644,40 +684,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_146"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_146_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_146_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_146_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_146_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -708,40 +753,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_147"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_147_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_147_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_147_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_147_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -772,40 +822,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_148"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_148_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_148_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_148_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_148_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -836,40 +891,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_149"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_149_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_149_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_149_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_149_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -900,40 +960,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_150"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_150_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_150_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_150_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_150_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -964,40 +1029,45 @@
 
 
                     <RadioGroup
+                        android:id="@+id/question_151"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_151_a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="0. Never"
+                            android:text="Never"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_151_b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Occasionally"
+                            android:text="Occasionally"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_151_c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Often"
+                            android:text="Often"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_151_d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Very Often"
+                            android:text="Very Often"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1035,48 +1105,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_152"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_152a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_152b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_152c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_152d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_152e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1106,48 +1182,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_153"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_153a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_153b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_153c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_153d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_153e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1177,48 +1259,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_154"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_154a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_154b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_154c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_154d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_154e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1248,48 +1336,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_155"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_155a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_155b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_155c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_155d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_155e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1319,48 +1413,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_156"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_156a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_156b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_156c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_156d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_156e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1390,48 +1490,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_157"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_157a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_157b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_157c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_157d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_157e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1461,48 +1567,54 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_158"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_158a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_158b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_158c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_158d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_158e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1532,51 +1644,56 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/question_159"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/question_159a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Excellent "
+                            android:text="Excellent "
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_159b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. Above Average"
+                            android:text="Above Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_159c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. Average"
+                            android:text="Average"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_159d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. Somewhat of a Problem"
+                            android:text="Somewhat of a Problem"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/question_159e"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. Problematic"
+                            android:text="Problematic"
                             android:textAlignment="textStart" />
                     </RadioGroup>
-
 
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -1606,6 +1723,7 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -1615,6 +1733,7 @@
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

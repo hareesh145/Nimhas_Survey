@@ -193,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:orientation="vertical"
-                        android:visibility="gone">
+                        android:visibility="visible">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -320,7 +320,11 @@
                         android:textAllCaps="false"
                         android:textColor="#000000"
                         android:visibility="gone" />
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/que_4_layout"
+                    android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -370,7 +374,12 @@
                             android:text="No"
                             android:textAlignment="textStart" />
                     </RadioGroup>
-
+                </LinearLayout>
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/que_5_layout"
+                       android:orientation="vertical">
                     <LinearLayout
                         android:id="@+id/question_5_section"
                         android:layout_width="match_parent"
@@ -392,7 +401,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="How many sons and daughter do you have?"
+                            android:text="How many  Son(S) Daughter(S) do you have?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -418,7 +427,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Son's"
+                            android:text=" Son(S)"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -444,9 +453,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Number of Son’s"
+                            android:hint="Number of  Son(S)"
                             android:inputType="number"
                             android:padding="10dp"
+                            android:maxLength="1"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -472,7 +482,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Daughter’s"
+                            android:text="Daughter(S)"
 
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -499,13 +509,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Number of Daughter’s"
+                            android:hint="Number of Daughter(S)"
                             android:inputType="number"
                             android:padding="10dp"
+                            android:maxLength="1"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
-
+                   </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

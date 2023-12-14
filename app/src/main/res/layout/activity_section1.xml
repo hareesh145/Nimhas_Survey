@@ -296,6 +296,7 @@
                         android:id="@+id/locale"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:enabled="true"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
@@ -341,6 +342,8 @@
                             android:background="@drawable/edit_text_border"
                             android:hint="Name of the Respondent"
                             android:padding="10dp"
+                            android:inputType="textPersonName"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

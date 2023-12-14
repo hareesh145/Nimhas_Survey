@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -38,6 +39,7 @@ public class Section3aActivity extends AppCompatActivity {
 
     MyNimhans myGameApp;
     EditText Specify, Specify0, Specify1, Specify2, NoOfSons, NoOfDaughters, IncomePerMonth;
+    LinearLayout que_5_layout,que_4_layout;
 
 
     RadioGroup Caste, AnswerType, MaritalStatus, YesOrNo;
@@ -66,6 +68,8 @@ public class Section3aActivity extends AppCompatActivity {
         IncomePerMonth = findViewById(R.id.Income);
         Caste = findViewById(R.id.Caste);
         AnswerType = findViewById(R.id.AnswerType);
+        que_5_layout = findViewById(R.id.que_5_layout);
+        que_4_layout = findViewById(R.id.que_4_layout);
         MaritalStatus = findViewById(R.id.maritalStatus);
         YesOrNo = findViewById(R.id.yesOrNo);
 //        Specify =binding.Specify;
@@ -97,14 +101,14 @@ public class Section3aActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedAnswerType = selectedValue;
             Log.d("selectedAnswerType", "Selected value: " + selectedAnswerType);
-            switch (checkedId){
+           /* switch (checkedId){
                 case R.id.notWilling:
                     binding.castTribe.setVisibility(View.VISIBLE);
                     break;
                 default:
                     binding.castTribe.setVisibility(View.GONE);
                     break;
-            }
+            }*/
         });
         MaritalStatus.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
@@ -115,8 +119,14 @@ public class Section3aActivity extends AppCompatActivity {
                 case R.id.other:
                     binding.Specify2.setVisibility(View.VISIBLE);
                     break;
+                case R.id.NotMarried:
+                    binding.que5Layout.setVisibility(View.GONE);
+                    binding.que4Layout.setVisibility(View.GONE);
+                    break;
                 default:
                     binding.Specify2.setVisibility(View.GONE);
+                    binding.que5Layout.setVisibility(View.VISIBLE);
+                    binding.que4Layout.setVisibility(View.VISIBLE);
                     break;
             }
         });
@@ -133,6 +143,7 @@ public class Section3aActivity extends AppCompatActivity {
                 binding.noOfDaughtsField.setEnabled(false);
                 binding.noOfSonsField.setEnabled(false);
                 binding.daughters.setEnabled(false);
+                binding.que5Layout.setVisibility(View.GONE);
                 binding.Sons.setEnabled(false);
             } else {
                 binding.question5Section.setEnabled(true);

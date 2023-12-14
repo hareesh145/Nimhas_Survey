@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -126,6 +127,7 @@ public class Section1Activity extends AppCompatActivity {
 
             binding.taluka.setText("");
             binding.city.setText("");
+            binding.hhn.setText("");
 
 
             updateTalukaSpinner(checkedId);
@@ -144,8 +146,8 @@ public class Section1Activity extends AppCompatActivity {
                         checkRuralUrban(newItem);
                     }
                 });
-
-
+        binding.rural.setClickable(false);
+        binding.urban.setClickable(false);
     }
 
     private void checkRuralUrban(String newItem) {
@@ -213,23 +215,22 @@ public class Section1Activity extends AppCompatActivity {
     public void onClickNextSection(View v) {
 
         if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
-            Util.showLongToast(this, "Thanks for Participant", false);
-            finish();
-            return;
+            Intent intent = new Intent(Section1Activity.this, ResultPage.class);
+            startActivity(intent);
         }
 
         String stateValue = state.getText().toString();
         String talukaValue = binding.taluka.getText().toString();
+        String mobileNumberValue = isValidPhoneNumber(mobileNumber.getText().toString());
         String cityValue;
         if (binding.city.getText().toString().equals(getString(R.string.select_village))) {
             cityValue = "";
         } else {
             cityValue = binding.city.getText().toString();
         }
-        String houseHoldNumberValue = houseHoldNumber.getText().toString();
+
         String nameOfRespondentValue = nameOfRespondent.getText().toString();
         String addressValue = address.getText().toString();
-        String mobileNumberValue = mobileNumber.getText().toString();
         String specifyValue = "";
         String selectedTotleVisites = "";
         // Log.d("taluka", "onClickNextSection: " + talukaValue);
@@ -238,7 +239,7 @@ public class Section1Activity extends AppCompatActivity {
         Log.d("selectedlocale", "onClickNextSection: " + selectedlocale);
         Log.d("nameOfRespondentValue", "onClickNextSection: " + nameOfRespondentValue);
         Log.d("addressValue", "onClickNextSection: " + addressValue);
-        Log.d("mobileNumberValue", "onClickNextSection: " + mobileNumberValue);
+        Log.d("mobileNumberValue", "mobileNumberValue: " + mobileNumberValue);
         Log.d("doi", "onClickNextSection: " + dateOfViewEditText.getText().toString());
         Log.d("selectedConsentedForStusy", "onClickNextSection: " + selectedConsentedForStusy);
 //        Log.d("selectedVisit", "onClickNextSection: " + selectedVisit);
@@ -261,45 +262,51 @@ public class Section1Activity extends AppCompatActivity {
         String currentDate = sdf.format(new Date());
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
+
         Call<DemoGraphyResponse> call = apiService.postDemography(new DemoGraphicsrequest(getSelectedStateCode(stateValue), getSelectedDistrictCode(selectedDistrict), getSelectedTalukaCode(talukaValue),
                 getSelectedVillageCode(cityValue), String.valueOf(this.houseHoldNumberValue),
                 selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
                 "", "", "", specifyValue, "", "",
                 "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-        call.enqueue(new Callback<DemoGraphyResponse>() {
-            @Override
-            public void onResponse(Call<DemoGraphyResponse> call, Response<DemoGraphyResponse> response) {
-                if (binding.progressBar.isShown())
-                    binding.progressBar.setVisibility(View.GONE);
-                DemoGraphyResponse userResponse = response.body();
-                if (response.isSuccessful()) {
-                    demoGraphicsId = userResponse.getDemographicsId();
-                    System.out.println("deeee" + userResponse.getDemographicsId());
-                    activity.finish();
-                    Util.showToast(activity, "Successfully data saved");
-                    Intent i = new Intent(activity, Section3aActivity.class);
-                    Bundle bundle = new Bundle();
+        if (!mobileNumberValue.trim().equals("") && mobileNumberValue.length() >=10) {
+            call.enqueue(new Callback<DemoGraphyResponse>() {
+                @Override
+                public void onResponse(Call<DemoGraphyResponse> call, Response<DemoGraphyResponse> response) {
+                    if (binding.progressBar.isShown())
+                        binding.progressBar.setVisibility(View.GONE);
+                    DemoGraphyResponse userResponse = response.body();
+                    if (response.isSuccessful()) {
+                        demoGraphicsId = userResponse.getDemographicsId();
+                        System.out.println("deeee" + userResponse.getDemographicsId());
+                        activity.finish();
+                        Util.showToast(activity, "Successfully data saved");
+                        Intent i = new Intent(activity, Section3aActivity.class);
+                        Bundle bundle = new Bundle();
 
 //Add your data to bundle
-                    bundle.putString("demoo", demoGraphicsId);
+                        bundle.putString("demoo", demoGraphicsId);
 
 //Add the bundle to the intent
-                    i.putExtras(bundle);
+                        i.putExtras(bundle);
 
 //Fire that second activity
-                    startActivity(i);
+                        startActivity(i);
 
 
-                } else {
-                    Util.showToast(activity, "Failed to saved the data");
+                    } else {
+                        Util.showToast(activity, "Failed to saved the data");
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<DemoGraphyResponse> call, Throwable t) {
+                @Override
+                public void onFailure(Call<DemoGraphyResponse> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+        }else {
+            Toast.makeText(getApplicationContext(),"Please enter the valid Mobile number",Toast.LENGTH_SHORT).show();
+        }
+
 
 
     }
@@ -411,5 +418,14 @@ public class Section1Activity extends AppCompatActivity {
         }
         return "";
     }
+    private String isValidPhoneNumber(String phone) {
 
+        if (!phone.trim().equals("") && phone.length() >=10) {
+
+        }else {
+            Toast.makeText(getApplicationContext(),"Please enter the valid Mobile number",Toast.LENGTH_SHORT).show();
+        }
+
+        return phone;
+    }
 }

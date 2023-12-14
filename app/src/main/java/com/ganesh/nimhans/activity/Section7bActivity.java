@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,22 +19,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection7bBinding;
+import com.ganesh.nimhans.model.ServeySection7bRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Section7bActivity extends AppCompatActivity {
     Activity activity;
     private ActivitySection7bBinding binding;
     String phoneNo, pswd;
     ProgressBar progressBar;
-    ImageView eye_contact_image,social_smile_image,Remain_aloof_image,reach_out_image,engage_solitary_image,not_maintain_image,sustain_conversation_image,engage_stereotyped_image,inanimate_objects_image,respond_objects_image;
-    TextView eye_contact,social_smile,Remain_aloof,reach_out,engage_solitary,not_maintain,sustain_conversation,engage_stereotyped,inanimate_objects,respond_objects;
+    ImageView eye_contact_image, social_smile_image, Remain_aloof_image, reach_out_image, engage_solitary_image, not_maintain_image, sustain_conversation_image, engage_stereotyped_image, inanimate_objects_image, respond_objects_image;
+    TextView eye_contact, social_smile, Remain_aloof, reach_out, engage_solitary, not_maintain, sustain_conversation, engage_stereotyped, inanimate_objects, respond_objects;
     MyNimhans myGameApp;
     private long demoGraphicsID;
     private int surveyID;
     private EligibleResponse eligibleResponse;
     private String ageValue;
+    private String respondentTxt;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,18 +91,76 @@ public class Section7bActivity extends AppCompatActivity {
                 checkRCADSScore();
             }
         });
+
+        binding.iasqRespondendtGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.mother_btn:
+                        respondentTxt = "Mother";
+                        break;
+                    case R.id.father_btn:
+                        respondentTxt = "Father";
+                        break;
+                    case R.id.gaurdian_btn:
+                        respondentTxt = "Guardian";
+                        break;
+                }
+            }
+        });
     }
 
     private void checkRCADSScore() {
-        binding.iasqResultTxt.setText("0");
+        ServeySection7bRequest serveySection7bRequest = new ServeySection7bRequest();
+        if (respondentTxt == null) {
+            respondentTxt = binding.iasqRespondendtTxt.getText().toString();
+        }
+        serveySection7bRequest.iasqRespondent = respondentTxt;
+        serveySection7bRequest.qno98 = getCheckedID(binding.q98.getCheckedRadioButtonId(), R.id.q98a, R.id.q98b);
+        serveySection7bRequest.qno99 = getCheckedID(binding.q99.getCheckedRadioButtonId(), R.id.q99a, R.id.q99b);
+        serveySection7bRequest.qno100 = getCheckedID(binding.q100.getCheckedRadioButtonId(), R.id.q100a, R.id.q100b);
+
+        serveySection7bRequest.qno101 = getCheckedID(binding.q101.getCheckedRadioButtonId(), R.id.q101a, R.id.q101b);
+        serveySection7bRequest.qno102 = getCheckedID(binding.q102.getCheckedRadioButtonId(), R.id.q102a, R.id.q102b);
+        serveySection7bRequest.qno103 = getCheckedID(binding.q103.getCheckedRadioButtonId(), R.id.q103a, R.id.q103b);
+        serveySection7bRequest.qno104 = getCheckedID(binding.q104.getCheckedRadioButtonId(), R.id.q104a, R.id.q104b);
+        serveySection7bRequest.qno105 = getCheckedID(binding.q105.getCheckedRadioButtonId(), R.id.q105a, R.id.q105b);
+        serveySection7bRequest.qno106 = getCheckedID(binding.q106.getCheckedRadioButtonId(), R.id.q106a, R.id.q106b);
+        serveySection7bRequest.qno107 = getCheckedID(binding.q107.getCheckedRadioButtonId(), R.id.q107a, R.id.q107b);
+
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        apiInterface.putServeySection7bData(eligibleResponse.houseHoldId, serveySection7bRequest, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (response.isSuccessful()){
+                    binding.iasqResultTxt.setText(response.body().get("iasqResult").getAsString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+
+    private int getCheckedID(int checkedID, int yes_id, int no_id) {
+        if (checkedID == yes_id) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
     public void onClickNextSection(View v) {
         Intent intent = new Intent(activity, Section8Activity.class);
         Util.showToast(activity, "Successfully data saved");
         intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_ID,surveyID);
-        intent.putExtra(DEMO_GRAPHIC_ID,demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 
@@ -101,78 +170,89 @@ public class Section7bActivity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section7aActivity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section7bActivity.this,ResultPage.class);
+        Intent intent = new Intent(Section7bActivity.this, ResultPage.class);
         startActivity(intent);
     }
-    public void onClickEyeContact(View v){
-        if (eye_contact.getVisibility() == View.GONE){
+
+    public void onClickEyeContact(View v) {
+        if (eye_contact.getVisibility() == View.GONE) {
             eye_contact.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             eye_contact.setVisibility(View.GONE);
         }
 
     }
-    public void onClickSocialSmile(View v){
-        if (social_smile.getVisibility() == View.GONE){
+
+    public void onClickSocialSmile(View v) {
+        if (social_smile.getVisibility() == View.GONE) {
             social_smile.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             social_smile.setVisibility(View.GONE);
         }
     }
-    public void onClickRemainAloof(View v){
-        if (Remain_aloof.getVisibility() == View.GONE){
+
+    public void onClickRemainAloof(View v) {
+        if (Remain_aloof.getVisibility() == View.GONE) {
             Remain_aloof.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             Remain_aloof.setVisibility(View.GONE);
         }
     }
-    public void onClickReachOut(View v){
-        if (reach_out.getVisibility() == View.GONE){
+
+    public void onClickReachOut(View v) {
+        if (reach_out.getVisibility() == View.GONE) {
             reach_out.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             reach_out.setVisibility(View.GONE);
         }
     }
-    public void onClickEngageSolitary(View v){
-        if (engage_solitary.getVisibility() == View.GONE){
+
+    public void onClickEngageSolitary(View v) {
+        if (engage_solitary.getVisibility() == View.GONE) {
             engage_solitary.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             engage_solitary.setVisibility(View.GONE);
         }
     }
-    public void onClickNotMaintain(View v){
-        if (not_maintain.getVisibility() == View.GONE){
+
+    public void onClickNotMaintain(View v) {
+        if (not_maintain.getVisibility() == View.GONE) {
             not_maintain.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             not_maintain.setVisibility(View.GONE);
         }
     }
-    public void onClickSustainConversation(View v){
-        if (sustain_conversation.getVisibility() == View.GONE){
+
+    public void onClickSustainConversation(View v) {
+        if (sustain_conversation.getVisibility() == View.GONE) {
             sustain_conversation.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             sustain_conversation.setVisibility(View.GONE);
         }
     }
-    public void onClickEngageStereotyped(View v){
-        if (engage_stereotyped.getVisibility() == View.GONE){
+
+    public void onClickEngageStereotyped(View v) {
+        if (engage_stereotyped.getVisibility() == View.GONE) {
             engage_stereotyped.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             engage_stereotyped.setVisibility(View.GONE);
         }
     }
-    public void onClickInanimateObjects(View v){
-        if (inanimate_objects.getVisibility() == View.GONE){
+
+    public void onClickInanimateObjects(View v) {
+        if (inanimate_objects.getVisibility() == View.GONE) {
             inanimate_objects.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             inanimate_objects.setVisibility(View.GONE);
         }
     }
-    public void onClickRespondObjects(View v){
-        if (respond_objects.getVisibility() == View.GONE){
+
+    public void onClickRespondObjects(View v) {
+        if (respond_objects.getVisibility() == View.GONE) {
             respond_objects.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             respond_objects.setVisibility(View.GONE);
         }
     }
