@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (loginResponse.getRole().equals("SUPERVISOR"))
                         startActivity(new Intent(activity, DashboardActivity.class));
                     else
-                        startActivity(new Intent(activity, Section1Activity.class));
+                        startActivity(new Intent(activity, ActivitySurvey.class));
                     activity.finish();
                     return;
                 } else {

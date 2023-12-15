@@ -108,6 +108,10 @@ public class Section5Activity extends AppCompatActivity {
                     binding.question66G.setVisibility(View.GONE);
                     binding.question66GDesc.setVisibility(View.GONE);
                     binding.inhalants.setVisibility(View.GONE);
+
+                    binding.question66H.setVisibility(View.GONE);
+                    binding.question66HDesc.setVisibility(View.GONE);
+
                     binding.question66I.setVisibility(View.GONE);
                     binding.question66IDesc.setVisibility(View.GONE);
                     binding.sedatives.setVisibility(View.GONE);
@@ -115,8 +119,41 @@ public class Section5Activity extends AppCompatActivity {
                     binding.question66JDesc.setVisibility(View.GONE);
                     binding.hallucinogens.setVisibility(View.GONE);
                     binding.opioids.setVisibility(View.GONE);
+                    binding.Specify16.setVisibility(View.GONE);
+                    binding.Specify9.setVisibility(View.GONE);
                     break;
                 case R.id.no3:
+                    binding.question66B.setVisibility(View.VISIBLE);
+                    binding.question66BDesc.setVisibility(View.VISIBLE);
+                    binding.question66C.setVisibility(View.VISIBLE);
+                    binding.question66CDesc.setVisibility(View.VISIBLE);
+                    binding.alcoholProducts.setVisibility(View.VISIBLE);
+                    binding.question66D.setVisibility(View.VISIBLE);
+                    binding.question66DDesc.setVisibility(View.VISIBLE);
+                    binding.cannabis.setVisibility(View.VISIBLE);
+                    binding.question66E.setVisibility(View.VISIBLE);
+                    binding.question66EDesc.setVisibility(View.VISIBLE);
+                    binding.cocaine.setVisibility(View.VISIBLE);
+                    binding.question66F.setVisibility(View.VISIBLE);
+                    binding.question66FDesc.setVisibility(View.VISIBLE);
+                    binding.amphetamine.setVisibility(View.VISIBLE);
+                    binding.question66G.setVisibility(View.VISIBLE);
+                    binding.question66GDesc.setVisibility(View.VISIBLE);
+                    binding.inhalants.setVisibility(View.VISIBLE);
+
+                    binding.question66H.setVisibility(View.VISIBLE);
+                    binding.question66HDesc.setVisibility(View.VISIBLE);
+                    binding.hallucinogens.setVisibility(View.VISIBLE);
+
+                    binding.question66I.setVisibility(View.VISIBLE);
+                    binding.question66IDesc.setVisibility(View.VISIBLE);
+                    binding.sedatives.setVisibility(View.VISIBLE);
+                    binding.question66J.setVisibility(View.VISIBLE);
+                    binding.question66JDesc.setVisibility(View.VISIBLE);
+                    binding.hallucinogens.setVisibility(View.VISIBLE);
+                    binding.opioids.setVisibility(View.VISIBLE);
+                    binding.Specify16.setVisibility(View.VISIBLE);
+                    binding.Specify9.setVisibility(View.VISIBLE);
                     break;
             }
         });
@@ -124,6 +161,7 @@ public class Section5Activity extends AppCompatActivity {
 
 
     private void checkRCADSScore() {
+
         ServeySection5Request serveySection5Request = new ServeySection5Request();
         serveySection5Request.setQno66a(binding.tobaccoProduct.getCheckedRadioButtonId() == R.id.no3 ? 0 : 3);
         serveySection5Request.setQno66b(binding.alcoholProducts.getCheckedRadioButtonId() == R.id.no4 ? 0 : 3);
@@ -156,7 +194,11 @@ public class Section5Activity extends AppCompatActivity {
         } else {
             serveySection5Request.setQno67d(1);
         }
-        serveySection5Request.setQno67e(questionOptionsMap.get("67e"));
+        if (questionOptionsMap.get("67e")!=null) {
+            serveySection5Request.setQno67e(questionOptionsMap.get("67e"));
+        }else{
+            serveySection5Request.setQno67e(1);
+        }
         serveySection5Request.setQno67f(questionOptionsMap.get("67f"));
         serveySection5Request.setQno67g(questionOptionsMap.get("67g"));
         serveySection5Request.setQno67h(questionOptionsMap.get("67h"));
