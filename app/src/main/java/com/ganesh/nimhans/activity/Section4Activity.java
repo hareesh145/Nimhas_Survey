@@ -432,8 +432,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     public void checkRCADSValue() {
         ServeySection4Request serveySection5Request = new ServeySection4Request();
 
-        serveySection5Request.setQno18A(serveySection3cRequest.getQno18A());
-        serveySection5Request.setQno18B(serveySection3cRequest.getQno18B());
+        serveySection5Request.setQno18A("");
+        serveySection5Request.setQno18B("1234");
         serveySection5Request.setQno18C(serveySection3cRequest.getQno18C());
         serveySection5Request.setQno18D(serveySection3cRequest.getQno18D());
         serveySection5Request.setQno18E(serveySection3cRequest.getQno18E());
@@ -503,15 +503,43 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
                 JsonObject userResponse = response.body();
+
                 if (response.isSuccessful()) {
                     Log.d("response", "onResponse: " + userResponse);
                     try {
-                        binding.SP15.setText(userResponse.get("socialPhobia").getAsString());
-                        binding.PD25.setText(userResponse.get("panicDisorder").getAsString());
-                        binding.MD20.setText(userResponse.get("majorDepression").getAsString());
-                        binding.SA35.setText(userResponse.get("separationAnxiety").getAsString());
-                        binding.GA45.setText(userResponse.get("generalizedAnxiety").getAsString());
-                        binding.OC34.setText(userResponse.get("obsessiveCompulsive").getAsString());
+                        if (userResponse.get("socialPhobia").getAsInt() >= 65) {
+                            binding.SP15.setText("1");
+                        } else {
+                            binding.SP15.setText("0");
+                        }
+                        if (userResponse.get("panicDisorder").getAsInt() >= 65) {
+                            binding.PD25.setText("1");
+                        } else {
+                            binding.PD25.setText("0");
+                        }
+
+                        if (userResponse.get("majorDepression").getAsInt() >= 65) {
+                            binding.MD20.setText("1");
+                        } else {
+                            binding.MD20.setText("0");
+                        }
+                        if (userResponse.get("separationAnxiety").getAsInt() >= 65) {
+                            binding.SA35.setText("1");
+                        } else {
+                            binding.SA35.setText("0");
+                        }
+
+                        if (userResponse.get("generalizedAnxiety").getAsInt() >= 65) {
+                            binding.GA45.setText("1");
+                        } else {
+                            binding.GA45.setText("0");
+                        }
+
+                        if (userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
+                            binding.OC34.setText("1");
+                        } else {
+                            binding.OC34.setText("0");
+                        }
                     } catch (Exception e) {
 
                     }

@@ -73,7 +73,7 @@ public class Section7aActivity extends AppCompatActivity {
         } else {
             serveySection7aRequest.setMchatRespondent(binding.otherTxt.getText().toString());
         }
-//        serveySection7aRequest.setQno78();
+
 
         serveySection7aRequest.setQno79(getCheckedID(binding.question79Options.getCheckedRadioButtonId(), R.id.question_79_yes,R.id.question_79_no));
         serveySection7aRequest.setQno80(getCheckedID(binding.question80Options.getCheckedRadioButtonId(), R.id.question_80_yes,R.id.question_80_no));

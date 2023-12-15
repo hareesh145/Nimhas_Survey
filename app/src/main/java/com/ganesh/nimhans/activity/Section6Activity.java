@@ -115,14 +115,14 @@ public class Section6Activity extends AppCompatActivity {
         Util.showToast(activity, "Successfully data saved");
 
         if (Integer.parseInt(ageValue) <= 17) {
-            if (Integer.parseInt(ageValue) >= 1 && Integer.parseInt(ageValue) <= 2) {
+            if (Integer.parseInt(ageValue) >= 1 && Integer.parseInt(ageValue) <= 17) {
                 Intent intent = new Intent(activity, Section7aActivity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                 intent.putExtra(SURVEY_ID, surveyID);
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
-            } else if (Integer.parseInt(ageValue) >= 2) {
+            } else if (Integer.parseInt(ageValue) >= 3 && Integer.parseInt(ageValue) <= 17) {
                 //If the age is greater than 2
                 Intent intent = new Intent(activity, Section7bActivity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
