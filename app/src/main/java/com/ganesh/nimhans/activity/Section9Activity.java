@@ -121,7 +121,6 @@ public class Section9Activity extends AppCompatActivity {
                             binding.inAttentionSubsetScore.setText(userResponse.get("inattentionSubsetScore").getAsString());
                             binding.hyperactivitySubsetScore.setText(userResponse.get("hyperAcctivitySubsetScore").getAsString());
                             binding.oddSubsetScore.setText(userResponse.get("oddSubsetScore").getAsString());
-                            binding.adhdResult.setText(userResponse.get("adhdScore").getAsString());
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -130,7 +129,6 @@ public class Section9Activity extends AppCompatActivity {
                     binding.inAttentionSubsetScore.setText("0");
                     binding.hyperactivitySubsetScore.setText("0");
                     binding.oddSubsetScore.setText("0");
-                    binding.adhdResult.setText("0");
                     e.printStackTrace();
                 }
             }
@@ -141,7 +139,6 @@ public class Section9Activity extends AppCompatActivity {
                 binding.inAttentionSubsetScore.setText("0");
                 binding.hyperactivitySubsetScore.setText("0");
                 binding.oddSubsetScore.setText("0");
-                binding.adhdResult.setText("0");
             }
         });
     }

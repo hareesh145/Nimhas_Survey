@@ -99,7 +99,17 @@ public class Section7aActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()){
-                    binding.merchantResult.setText(response.body().get("mchatResult").getAsString());
+                    try {
+                        if (response.body().get("mchatResult").getAsInt()>=3) {
+                            binding.merchantResult.setText("1");
+                        }else{
+                            binding.merchantResult.setText("0");
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        binding.merchantResult.setText("0");
+                    }
+
                 }
             }
 

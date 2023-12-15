@@ -1993,24 +1993,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="ADHD Result"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <EditText
-                        android:id="@+id/adhd_result"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="Score"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:onClick="@{handlers::onClickGoToResult}"
                         android:padding="15dp"

@@ -108,10 +108,15 @@ public class Section8Activity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         Log.d("response", "onResponse: " + userResponse);
                         try {
-                            binding.sldResult.setText(userResponse.get("sldResult").getAsString());
+                            if (userResponse.get("sldResult").getAsInt()>=4) {
+                                binding.sldResult.setText("1");
+                            } else {
+                                binding.sldResult.setText("0");
+                            }
 
                         } catch (Exception e) {
                             e.printStackTrace();
+                            binding.sldResult.setText("0");
                         }
                     }
                 } catch (Exception e) {
@@ -224,8 +229,9 @@ public class Section8Activity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section7bActivity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section8Activity.this,ResultPage.class);
+        Intent intent = new Intent(Section8Activity.this, ResultPage.class);
         startActivity(intent);
     }
 }

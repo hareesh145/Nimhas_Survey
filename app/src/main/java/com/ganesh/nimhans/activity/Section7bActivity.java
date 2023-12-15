@@ -133,7 +133,17 @@ public class Section7bActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()){
-                    binding.iasqResultTxt.setText(response.body().get("iasqResult").getAsString());
+                    try {
+                        if (response.body().get("iasqResult").getAsInt()>=1) {
+                            binding.iasqResultTxt.setText("1");
+                        }else{
+                            binding.iasqResultTxt.setText("0");
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                        binding.iasqResultTxt.setText("0");
+                    }
+
                 }
             }
 
