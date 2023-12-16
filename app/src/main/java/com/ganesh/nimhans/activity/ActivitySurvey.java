@@ -223,4 +223,8 @@ public class ActivitySurvey extends AppCompatActivity {
             //resume tasks needing this permission
         }
     }
+    public void onClickPendinglist(View v) {
+        Intent intent = new Intent(ActivitySurvey.this, PendingList.class);
+        startActivity(intent);
+    }
 }

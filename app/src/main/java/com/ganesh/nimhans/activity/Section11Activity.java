@@ -68,14 +68,6 @@ public class Section11Activity extends AppCompatActivity {
         });
     }
 
-    /* private void calculateRCADSScore() {
-         binding.majorDepressionTxt.setText("0");
-         binding.socialPhobiaTxt.setText("0");
-         binding.panicDisorderTxt.setText("0");
-         binding.separationAnxietyTxt.setText("0");
-         binding.generalizedAnxietyTxt.setText("0");
-         binding.obsessiveCompulsiveTxt.setText("0");
-     }*/
     private void checkRCADSScore() {
         ServeySection11Request serveySection11Request = new ServeySection11Request();
         int checkedRadioButtonId = binding.section11RespondentGrp.getCheckedRadioButtonId();

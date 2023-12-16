@@ -82,6 +82,15 @@
                 android:onClick="@{handlers::onClickReports}"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="@drawable/button_bg_login"
+                android:text="Pending List"
+                android:onClick="@{handlers::onClickPendinglist}"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </FrameLayout>

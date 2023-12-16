@@ -95,10 +95,15 @@ public class Section6Activity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("response", "onResponse: " + userResponse);
                     try {
-                        binding.idScannerResult.setText(userResponse.get("idResult").getAsString());
+                        if (userResponse.get("idResult").getAsInt()>=4) {
+                            binding.idScannerResult.setText("1");
+                        } else {
+                            binding.idScannerResult.setText("0");
+                        }
 
                     } catch (Exception e) {
                         e.printStackTrace();
+                        binding.idScannerResult.setText("0");
                     }
                 }
 

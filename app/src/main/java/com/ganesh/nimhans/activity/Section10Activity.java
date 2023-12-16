@@ -86,6 +86,8 @@ public class Section10Activity extends AppCompatActivity {
     }
 
     private void checkRCADSScore() {
+        int behaviorResult = 0;
+        int perfomanceResult = 0;
         ServeySection10Request serveySection10Request = new ServeySection10Request();
         int checkedRadioButtonId = binding.section10RespondentGrp.getCheckedRadioButtonId();
         if (checkedRadioButtonId == -1) {
@@ -93,32 +95,68 @@ public class Section10Activity extends AppCompatActivity {
         } else {
             serveySection10Request.setSection10Respondent(respondentTxt);
         }
+        behaviorResult = behaviorResult + getCheckedIDValue(binding.question139Grp.getCheckedRadioButtonId(), R.id.question_139_a, R.id.question_139_b, R.id.question_139_c, R.id.question_139_d);
         serveySection10Request.setQno139(getCheckedIDValue(binding.question139Grp.getCheckedRadioButtonId(), R.id.question_139_a, R.id.question_139_b, R.id.question_139_c, R.id.question_139_d));
+        behaviorResult = behaviorResult + getCheckedIDValue(binding.question140.getCheckedRadioButtonId(), R.id.question_140_a, R.id.question_140_b, R.id.question_140_c, R.id.question_140_d);
         serveySection10Request.setQno140(getCheckedIDValue(binding.question140.getCheckedRadioButtonId(), R.id.question_140_a, R.id.question_140_b, R.id.question_140_c, R.id.question_140_d));
+        behaviorResult = behaviorResult + getCheckedIDValue(binding.question141.getCheckedRadioButtonId(), R.id.question_141_a, R.id.question_141_b, R.id.question_141_c, R.id.question_141_d);
+
         serveySection10Request.setQno141(getCheckedIDValue(binding.question141.getCheckedRadioButtonId(), R.id.question_141_a, R.id.question_141_b, R.id.question_141_c, R.id.question_141_d));
+        behaviorResult = behaviorResult + getCheckedIDValue(binding.question142.getCheckedRadioButtonId(), R.id.question_142_a, R.id.question_142_b, R.id.question_142_c, R.id.question_142_d);
         serveySection10Request.setQno142(getCheckedIDValue(binding.question142.getCheckedRadioButtonId(), R.id.question_142_a, R.id.question_142_b, R.id.question_142_c, R.id.question_142_d));
+        behaviorResult = behaviorResult + getCheckedIDValue(binding.question143.getCheckedRadioButtonId(), R.id.question_143_a, R.id.question_143_b, R.id.question_143_c, R.id.question_143_d);
         serveySection10Request.setQno143(getCheckedIDValue(binding.question143.getCheckedRadioButtonId(), R.id.question_143_a, R.id.question_143_b, R.id.question_143_c, R.id.question_143_d));
-        serveySection10Request.setQno144(getCheckedIDValue(binding.question144.getCheckedRadioButtonId(), R.id.question_144_a, R.id.question_144_b, R.id.question_144_c, R.id.question_144_d));
-        serveySection10Request.setQno145(getCheckedIDValue(binding.question145.getCheckedRadioButtonId(), R.id.question_145_a, R.id.question_145_b, R.id.question_145_c, R.id.question_145_d));
-        serveySection10Request.setQno146(getCheckedIDValue(binding.question146.getCheckedRadioButtonId(), R.id.question_146_a, R.id.question_146_b, R.id.question_146_c, R.id.question_146_d));
-        serveySection10Request.setQno147(getCheckedIDValue(binding.question147.getCheckedRadioButtonId(), R.id.question_147_a, R.id.question_147_b, R.id.question_147_c, R.id.question_147_d));
-        serveySection10Request.setQno148(getCheckedIDValue(binding.question148.getCheckedRadioButtonId(), R.id.question_148_a, R.id.question_148_b, R.id.question_148_c, R.id.question_148_d));
-        serveySection10Request.setQno149(getCheckedIDValue(binding.question149.getCheckedRadioButtonId(), R.id.question_149_a, R.id.question_149_b, R.id.question_149_c, R.id.question_149_d));
-        serveySection10Request.setQno150(getCheckedIDValue(binding.question150.getCheckedRadioButtonId(), R.id.question_150_a, R.id.question_150_b, R.id.question_150_c, R.id.question_150_d));
-        serveySection10Request.setQno151(getCheckedIDValue(binding.question151.getCheckedRadioButtonId(), R.id.question_151_a, R.id.question_151_b, R.id.question_151_c, R.id.question_151_d));
-        serveySection10Request.setQno152(getCheckedID150Value(binding.question152.getCheckedRadioButtonId(), R.id.question_152a, R.id.question_152b, R.id.question_152c, R.id.question_152d, R.id.question_152e));
-        serveySection10Request.setQno153(getCheckedID150Value(binding.question153.getCheckedRadioButtonId(), R.id.question_153a, R.id.question_153b, R.id.question_153c, R.id.question_153d, R.id.question_153e));
-        serveySection10Request.setQno154(getCheckedID150Value(binding.question154.getCheckedRadioButtonId(), R.id.question_154a, R.id.question_154b, R.id.question_154c, R.id.question_154d, R.id.question_154e));
-        serveySection10Request.setQno155(getCheckedID150Value(binding.question155.getCheckedRadioButtonId(), R.id.question_155a, R.id.question_155b, R.id.question_155c, R.id.question_155d, R.id.question_155e));
-        serveySection10Request.setQno156(getCheckedID150Value(binding.question156.getCheckedRadioButtonId(), R.id.question_156a, R.id.question_156b, R.id.question_156c, R.id.question_156d, R.id.question_156e));
-        serveySection10Request.setQno157(getCheckedID150Value(binding.question157.getCheckedRadioButtonId(), R.id.question_157a, R.id.question_157b, R.id.question_157c, R.id.question_157d, R.id.question_157e));
-        serveySection10Request.setQno158(getCheckedID150Value(binding.question158.getCheckedRadioButtonId(), R.id.question_158a, R.id.question_158b, R.id.question_158c, R.id.question_158d, R.id.question_158e));
+        int q144Result = getCheckedIDValue(binding.question144.getCheckedRadioButtonId(), R.id.question_144_a, R.id.question_144_b, R.id.question_144_c, R.id.question_144_d);
+        behaviorResult = behaviorResult + q144Result;
+        serveySection10Request.setQno144(q144Result);
+        int q145Result = getCheckedIDValue(binding.question145.getCheckedRadioButtonId(), R.id.question_145_a, R.id.question_145_b, R.id.question_145_c, R.id.question_145_d);
+        behaviorResult = behaviorResult + q145Result;
+        serveySection10Request.setQno145(q145Result);
+
+        int q146Result = getCheckedIDValue(binding.question146.getCheckedRadioButtonId(), R.id.question_146_a, R.id.question_146_b, R.id.question_146_c, R.id.question_146_d);
+        behaviorResult = behaviorResult + q146Result;
+        serveySection10Request.setQno146(q144Result);
+        int q147Result = getCheckedIDValue(binding.question147.getCheckedRadioButtonId(), R.id.question_147_a, R.id.question_147_b, R.id.question_147_c, R.id.question_147_d);
+        serveySection10Request.setQno147(q147Result);
+        int q148Result = getCheckedIDValue(binding.question148.getCheckedRadioButtonId(), R.id.question_148_a, R.id.question_148_b, R.id.question_148_c, R.id.question_148_d);
+        behaviorResult = behaviorResult + q148Result;
+        serveySection10Request.setQno148(q148Result);
+        int q149Result = getCheckedIDValue(binding.question149.getCheckedRadioButtonId(), R.id.question_149_a, R.id.question_149_b, R.id.question_149_c, R.id.question_149_d);
+        behaviorResult = behaviorResult + q149Result;
+        serveySection10Request.setQno149(q149Result);
+        int q150result = getCheckedIDValue(binding.question150.getCheckedRadioButtonId(), R.id.question_150_a, R.id.question_150_b, R.id.question_150_c, R.id.question_150_d);
+        behaviorResult = behaviorResult + q150result;
+        serveySection10Request.setQno150(q150result);
+        int q151Result = getCheckedIDValue(binding.question151.getCheckedRadioButtonId(), R.id.question_151_a, R.id.question_151_b, R.id.question_151_c, R.id.question_151_d);
+
+        serveySection10Request.setQno151(q151Result);
+
+        int q152Result = getCheckedID150Value(binding.question152.getCheckedRadioButtonId(), R.id.question_152a, R.id.question_152b, R.id.question_152c, R.id.question_152d, R.id.question_152e);
+        perfomanceResult = perfomanceResult + q152Result;
+        serveySection10Request.setQno152(q152Result);
+        int q153Result = getCheckedID150Value(binding.question153.getCheckedRadioButtonId(), R.id.question_153a, R.id.question_153b, R.id.question_153c, R.id.question_153d, R.id.question_153e);
+        serveySection10Request.setQno153(q153Result);
+        perfomanceResult = perfomanceResult + q153Result;
+        int q154Result = getCheckedID150Value(binding.question154.getCheckedRadioButtonId(), R.id.question_154a, R.id.question_154b, R.id.question_154c, R.id.question_154d, R.id.question_154e);
+        serveySection10Request.setQno154(q154Result);
+        perfomanceResult = perfomanceResult + q154Result;
+        int q155Result = getCheckedID150Value(binding.question155.getCheckedRadioButtonId(), R.id.question_155a, R.id.question_155b, R.id.question_155c, R.id.question_155d, R.id.question_155e);
+        perfomanceResult = perfomanceResult + q155Result;
+        serveySection10Request.setQno155(q155Result);
+        int q156Result = getCheckedID150Value(binding.question156.getCheckedRadioButtonId(), R.id.question_156a, R.id.question_156b, R.id.question_156c, R.id.question_156d, R.id.question_156e);
+        perfomanceResult = perfomanceResult + q155Result;
+        serveySection10Request.setQno155(q155Result);
+        serveySection10Request.setQno156(q156Result);
+        int q157Result = getCheckedID150Value(binding.question157.getCheckedRadioButtonId(), R.id.question_157a, R.id.question_157b, R.id.question_157c, R.id.question_157d, R.id.question_157e);
+        serveySection10Request.setQno157(q157Result);
+        int q150Restly = getCheckedID150Value(binding.question158.getCheckedRadioButtonId(), R.id.question_158a, R.id.question_158b, R.id.question_158c, R.id.question_158d, R.id.question_158e);
+        serveySection10Request.setQno158(q150Restly);
         serveySection10Request.setQno159(getCheckedID150Value(binding.question159.getCheckedRadioButtonId(), R.id.question_159a, R.id.question_159b, R.id.question_159c, R.id.question_159d, R.id.question_159e));
         ApiInterface apiClient = ApiClient.getClient().create(ApiInterface.class);
         apiClient.putServeySection10AData(eligibleResponse.houseHoldId, serveySection10Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     binding.cdResult.setText(response.body().get("cdResult").getAsString());
                 }
             }
@@ -129,6 +167,7 @@ public class Section10Activity extends AppCompatActivity {
             }
         });
     }
+
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
