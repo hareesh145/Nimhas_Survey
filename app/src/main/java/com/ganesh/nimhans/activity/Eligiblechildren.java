@@ -14,7 +14,11 @@ import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.ganesh.nimhans.utils.StateModel;
+import com.ganesh.nimhans.utils.Util;
+import com.google.gson.Gson;
 
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,6 +29,7 @@ public class Eligiblechildren extends AppCompatActivity {
     ActivityEligibleChildrenListBinding binding;
     private long demoGraphicsID;
     private int surveyID;
+    private List<StateModel> stateModels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,12 @@ public class Eligiblechildren extends AppCompatActivity {
         binding = ActivityEligibleChildrenListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        String jsonFromAsset = Util.loadJSONFromAsset(this);
+
+        StateModel[] stateModel = new Gson().fromJson(jsonFromAsset, StateModel[].class);
+
+        stateModels = Arrays.asList(stateModel);
 
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
@@ -50,7 +61,7 @@ public class Eligiblechildren extends AppCompatActivity {
                         try {
                             Log.d("TAG", "onResponse: " + response.body());
                             if (response.isSuccessful()) {
-                                binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body(), demoGraphicsID, surveyID));
+                                binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body(), demoGraphicsID, surveyID,stateModels));
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

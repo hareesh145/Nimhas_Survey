@@ -17,6 +17,7 @@ public class Constants {
 
     public static String SURVEY_SECTION3C="SURVEY_SECTION3C";
     public static final String MARITAL_STATUS="MARITAL_STATUS";
+    public static final String NO_OF_CHILDERNS="no_of_childerns";
 
 
 }

@@ -1046,6 +1046,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q125c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1054,6 +1055,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q125d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1706,6 +1708,7 @@
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/q135a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1714,6 +1717,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q135b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1722,6 +1726,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q135c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1730,6 +1735,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q135d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1764,11 +1770,13 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/q136"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/q136a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1777,6 +1785,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q136b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1785,6 +1794,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q136c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1793,6 +1803,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q136d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1827,11 +1838,13 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/q137"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/q137a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1840,6 +1853,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q137b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1848,6 +1862,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q137c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1856,6 +1871,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q137d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1890,11 +1906,13 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/q138"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/q138a"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1903,6 +1921,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q138b"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1911,6 +1930,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q138c"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1919,6 +1939,7 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/q138d"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -1926,6 +1947,15 @@
                             android:text="Very much"
                             android:textAlignment="textStart" />
                     </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/rcads_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="RCADS Self Screener : 0">
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/rcads_score"

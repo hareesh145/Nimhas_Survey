@@ -1,7 +1,9 @@
 package com.ganesh.nimhans.adapter;
 
+import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.activity.Section3cActivity;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.utils.StateModel;
 
 import java.util.List;
 
@@ -26,12 +29,14 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
     private final List<EligibleResponse> eligibleResponses;
     private final long demoGraphicsID;
     private final int surveyID;
+    private List<StateModel> stateModels;
 
-    public EligibleChildAdapter(Activity activity, List<EligibleResponse> eligibleResponses, long demoGraphicsID, int surveyID) {
+    public EligibleChildAdapter(Activity activity, List<EligibleResponse> eligibleResponses, long demoGraphicsID, int surveyID, List<StateModel> stateModels) {
         this.activity = activity;
         this.eligibleResponses = eligibleResponses;
         this.demoGraphicsID = demoGraphicsID;
         this.surveyID = surveyID;
+        this.stateModels = stateModels;
     }
 
     @NonNull
@@ -51,7 +56,7 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
     }
 
     class EligibleChildHolder extends RecyclerView.ViewHolder {
-        TextView child_parent_name, child_name, child_id, child_age,district,taluka,village,address;
+        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address;
 
         public EligibleChildHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +76,8 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
                     intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()));
                     intent.putExtra(SURVEY_ID, surveyID);
                     intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                    intent.putExtra(AGE_ID, eligibleResponses.get(getAdapterPosition()).qno12);
                     activity.startActivity(intent);
                 }
             });
@@ -82,10 +89,51 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
             child_name.setText("Child Name : " + eligibleResponse.qno9);
             child_age.setText("Age : " + eligibleResponse.qno12);
             child_id.setText("Child ID : " + eligibleResponse.surveySection.demographics.randamId + "" + eligibleResponse.qno8);
-            district.setText("State & District : " + eligibleResponse.surveySection.demographics.state + "&" +eligibleResponse.surveySection.demographics.district);
-            taluka.setText("Taluka & Village : " + eligibleResponse.surveySection.demographics.taluka + "&" +eligibleResponse.surveySection.demographics.cityOrTownOrVillage);
+            district.setText("State & District : " + getSelectedStateName(eligibleResponse.surveySection.demographics.state) + "&" + getSelectedDistrictName(eligibleResponse.surveySection.demographics.district));
+            taluka.setText("Taluka & Village : " + getSelectedTalukaName(eligibleResponse.surveySection.demographics.taluka) + "&" + getSelectedVillageName(eligibleResponse.surveySection.demographics.cityOrTownOrVillage));
             /*village.setText("Village Name : " + eligibleResponse.surveySection.demographics.cityOrTownOrVillage);*/
             address.setText("Address: " + eligibleResponse.surveySection.demographics.address);
+        }
+
+
+        private String getSelectedVillageName(String selectedVillage) {
+            for (StateModel stateModel :
+                    stateModels) {
+                if (stateModel.villageCode.equals(selectedVillage)) {
+                    return stateModel.villageName;
+                }
+            }
+            return "";
+        }
+
+        private String getSelectedTalukaName(String selectedVillage) {
+            for (StateModel stateModel :
+                    stateModels) {
+                if (stateModel.subDistrictCode.equals(selectedVillage)) {
+                    return stateModel.subDistrictName;
+                }
+            }
+            return "";
+        }
+
+        private String getSelectedDistrictName(String selectedVillage) {
+            for (StateModel stateModel :
+                    stateModels) {
+                if (stateModel.districtCode.equals(selectedVillage)) {
+                    return stateModel.districtName;
+                }
+            }
+            return "";
+        }
+
+        private String getSelectedStateName(String selectedState) {
+            for (StateModel stateModel :
+                    stateModels) {
+                if (stateModel.stateCode.equals(selectedState)) {
+                    return stateModel.stateName;
+                }
+            }
+            return "";
         }
     }
 }

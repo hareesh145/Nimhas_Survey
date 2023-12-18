@@ -180,7 +180,6 @@
                         app:spinner_divider_size="0.4dp"
                         app:spinner_item_array="@array/relation_ship_array"
                         app:spinner_popup_animation="dropdown"
-                        app:spinner_preference_name="Self"
                         app:spinner_popup_background="@color/white" />
 
                     <LinearLayout
@@ -280,40 +279,32 @@
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
-                            android:id="@+id/currentlyMarried"
+                            android:id="@+id/NotMarried"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Currently married"
+                            android:text="Never Married"
                             android:textAlignment="textStart" />
 
                         <RadioButton
-                            android:id="@+id/widowed"
+                            android:id="@+id/Married"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Widowed"
+                            android:text="Married"
                             android:textAlignment="textStart" />
 
                         <RadioButton
-                            android:id="@+id/separated"
+                            android:id="@+id/WorDorS"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Divorced/Separated/Deserted"
+                            android:text="Widowed/Divorced /Separated"
                             android:textAlignment="textStart" />
 
-                        <RadioButton
-                            android:id="@+id/never"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Never married"
-                            android:textAlignment="textStart" />
                     </RadioGroup>
 
                     <TextView

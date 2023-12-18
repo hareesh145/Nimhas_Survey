@@ -176,7 +176,7 @@
                         android:layout_height="45dp"
                         android:layout_below="@+id/injectableDrugSubstance1"
                         android:background="@drawable/bg_btn_background"
-                        android:text="@string/calculate_rcads_score"
+                        android:text="@string/calculate"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 

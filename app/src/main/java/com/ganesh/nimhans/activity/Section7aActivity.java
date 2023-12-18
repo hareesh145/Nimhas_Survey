@@ -70,9 +70,9 @@ public class Section7aActivity extends AppCompatActivity {
         section7_respondent.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
-            stringParent_guardian= selectedValue;
+            stringParent_guardian = selectedValue;
             Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.guardian:
                     binding.otherTxt.setVisibility(View.VISIBLE);
                     break;
@@ -95,37 +95,37 @@ public class Section7aActivity extends AppCompatActivity {
         }
 
 
-        serveySection7aRequest.setQno79(getCheckedID(binding.question79Options.getCheckedRadioButtonId(), R.id.question_79_yes,R.id.question_79_no));
-        serveySection7aRequest.setQno80(getCheckedID(binding.question80Options.getCheckedRadioButtonId(), R.id.question_80_yes,R.id.question_80_no));
-        serveySection7aRequest.setQno81(getCheckedID(binding.question81Options.getCheckedRadioButtonId(), R.id.question_81_yes,R.id.question_81_no));
-        serveySection7aRequest.setQno82(getCheckedID(binding.question82Options.getCheckedRadioButtonId(), R.id.question_82_yes,R.id.question_82_no));
-        serveySection7aRequest.setQno83(getCheckedID(binding.question83Options.getCheckedRadioButtonId(), R.id.question_83_yes,R.id.question_83_no));
-        serveySection7aRequest.setQno84(getCheckedID(binding.question84Options.getCheckedRadioButtonId(), R.id.question_84_yes,R.id.question_84_no));
-        serveySection7aRequest.setQno85(getCheckedID(binding.question85Options.getCheckedRadioButtonId(), R.id.question_85_yes,R.id.question_85_no));
-        serveySection7aRequest.setQno86(getCheckedID(binding.question86Options.getCheckedRadioButtonId(), R.id.question_86_yes,R.id.question_86_no));
-        serveySection7aRequest.setQno87(getCheckedID(binding.question87Options.getCheckedRadioButtonId(), R.id.question_87_yes,R.id.question_87_no));
-        serveySection7aRequest.setQno88(getCheckedID(binding.question88Options.getCheckedRadioButtonId(), R.id.question_88_yes,R.id.question_88_no));
-        serveySection7aRequest.setQno89(getCheckedID(binding.question89Options.getCheckedRadioButtonId(), R.id.question_89_yes,R.id.question_89_no));
-        serveySection7aRequest.setQno90(getCheckedID(binding.question90Options.getCheckedRadioButtonId(), R.id.question_90_yes,R.id.question_90_no));
-        serveySection7aRequest.setQno91(getCheckedID(binding.question91Options.getCheckedRadioButtonId(), R.id.question_91_yes,R.id.question_91_no));
-        serveySection7aRequest.setQno92(getCheckedID(binding.question92Options.getCheckedRadioButtonId(), R.id.question_92_yes,R.id.question_92_no));
-        serveySection7aRequest.setQno93(getCheckedID(binding.question93Options.getCheckedRadioButtonId(), R.id.question_93_yes,R.id.question_93_no));
-        serveySection7aRequest.setQno94(getCheckedID(binding.question94Options.getCheckedRadioButtonId(), R.id.question_94_yes,R.id.question_94_no));
-        serveySection7aRequest.setQno95(getCheckedID(binding.question95Options.getCheckedRadioButtonId(), R.id.question_95_yes,R.id.question_95_no));
-        serveySection7aRequest.setQno96(getCheckedID(binding.question96Options.getCheckedRadioButtonId(), R.id.question_96_yes,R.id.question_96_no));
-        serveySection7aRequest.setQno97(getCheckedID(binding.question97Options.getCheckedRadioButtonId(), R.id.question_97_yes,R.id.question_97_no));
+        serveySection7aRequest.setQno79(getCheckedID(binding.question79Options.getCheckedRadioButtonId(), R.id.question_79_yes, R.id.question_79_no));
+        serveySection7aRequest.setQno80(getCheckedID(binding.question80Options.getCheckedRadioButtonId(), R.id.question_80_yes, R.id.question_80_no));
+        serveySection7aRequest.setQno81(getCheckedID(binding.question81Options.getCheckedRadioButtonId(), R.id.question_81_yes, R.id.question_81_no));
+        serveySection7aRequest.setQno82(getCheckedID(binding.question82Options.getCheckedRadioButtonId(), R.id.question_82_yes, R.id.question_82_no));
+        serveySection7aRequest.setQno83(getCheckedID(binding.question83Options.getCheckedRadioButtonId(), R.id.question_83_yes, R.id.question_83_no));
+        serveySection7aRequest.setQno84(getCheckedID(binding.question84Options.getCheckedRadioButtonId(), R.id.question_84_yes, R.id.question_84_no));
+        serveySection7aRequest.setQno85(getCheckedID(binding.question85Options.getCheckedRadioButtonId(), R.id.question_85_yes, R.id.question_85_no));
+        serveySection7aRequest.setQno86(getCheckedID(binding.question86Options.getCheckedRadioButtonId(), R.id.question_86_yes, R.id.question_86_no));
+        serveySection7aRequest.setQno87(getCheckedID(binding.question87Options.getCheckedRadioButtonId(), R.id.question_87_yes, R.id.question_87_no));
+        serveySection7aRequest.setQno88(getCheckedID(binding.question88Options.getCheckedRadioButtonId(), R.id.question_88_yes, R.id.question_88_no));
+        serveySection7aRequest.setQno89(getCheckedID(binding.question89Options.getCheckedRadioButtonId(), R.id.question_89_yes, R.id.question_89_no));
+        serveySection7aRequest.setQno90(getCheckedID(binding.question90Options.getCheckedRadioButtonId(), R.id.question_90_yes, R.id.question_90_no));
+        serveySection7aRequest.setQno91(getCheckedID(binding.question91Options.getCheckedRadioButtonId(), R.id.question_91_yes, R.id.question_91_no));
+        serveySection7aRequest.setQno92(getCheckedID(binding.question92Options.getCheckedRadioButtonId(), R.id.question_92_yes, R.id.question_92_no));
+        serveySection7aRequest.setQno93(getCheckedID(binding.question93Options.getCheckedRadioButtonId(), R.id.question_93_yes, R.id.question_93_no));
+        serveySection7aRequest.setQno94(getCheckedID(binding.question94Options.getCheckedRadioButtonId(), R.id.question_94_yes, R.id.question_94_no));
+        serveySection7aRequest.setQno95(getCheckedID(binding.question95Options.getCheckedRadioButtonId(), R.id.question_95_yes, R.id.question_95_no));
+        serveySection7aRequest.setQno96(getCheckedID(binding.question96Options.getCheckedRadioButtonId(), R.id.question_96_yes, R.id.question_96_no));
+        serveySection7aRequest.setQno97(getCheckedID(binding.question97Options.getCheckedRadioButtonId(), R.id.question_97_yes, R.id.question_97_no));
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         apiInterface.putServeySection7AData(eligibleResponse.houseHoldId, serveySection7aRequest, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
-                        if (response.body().get("mchatResult").getAsInt()>=3) {
-                            binding.merchantResult.setText("1");
-                        }else{
-                            binding.merchantResult.setText("0");
+                        int screenPositiveNegative = 0;
+                        if (response.body().get("mchatResult").getAsInt() >= 3) {
+                            screenPositiveNegative = 1;
                         }
-                    }catch (Exception e){
+                        binding.merchantResult.setText(calculateMerchantResult() + " - " + response.body().get("mchatResult") + " - " + screenPositiveNegative);
+                    } catch (Exception e) {
                         e.printStackTrace();
                         binding.merchantResult.setText("0");
                     }
@@ -141,12 +141,52 @@ public class Section7aActivity extends AppCompatActivity {
 
     }
 
+    private int calculateMerchantResult() {
+        return getSelectedYesAs1(binding.question78Options.getCheckedRadioButtonId(), binding.question78Yes.getId()) +
+                getSelectedYesAs1(binding.question80Options.getCheckedRadioButtonId(), binding.question80Yes.getId()) +
+                getSelectedYesAs1(binding.question81Options.getCheckedRadioButtonId(), binding.question81Yes.getId()) +
+                getSelectedYesAs1(binding.question83Options.getCheckedRadioButtonId(), binding.question83Yes.getId()) +
+                getSelectedYesAs1(binding.question84Options.getCheckedRadioButtonId(), binding.question84Yes.getId()) +
+                getSelectedYesAs1(binding.question85Options.getCheckedRadioButtonId(), binding.question85Yes.getId()) +
+                getSelectedYesAs1(binding.question86Options.getCheckedRadioButtonId(), binding.question86Yes.getId()) +
+                getSelectedYesAs1(binding.question87Options.getCheckedRadioButtonId(), binding.question87Yes.getId()) +
+                getSelectedYesAs1(binding.question88Options.getCheckedRadioButtonId(), binding.question88Yes.getId()) +
+                getSelectedYesAs1(binding.question90Options.getCheckedRadioButtonId(), binding.question90Yes.getId()) +
+                getSelectedYesAs1(binding.question91Options.getCheckedRadioButtonId(), binding.question91Yes.getId()) +
+                getSelectedYesAs1(binding.question92Options.getCheckedRadioButtonId(), binding.question92Yes.getId()) +
+                getSelectedYesAs1(binding.question93Options.getCheckedRadioButtonId(), binding.question93Yes.getId()) +
+                getSelectedYesAs1(binding.question94Options.getCheckedRadioButtonId(), binding.question94Yes.getId()) +
+                getSelectedYesAs1(binding.question95Options.getCheckedRadioButtonId(), binding.question95Yes.getId()) +
+                getSelectedYesAs1(binding.question96Options.getCheckedRadioButtonId(), binding.question96Yes.getId()) +
+                getSelectedYesAs1(binding.question97Options.getCheckedRadioButtonId(), binding.question97Yes.getId()) +
+                getSelectedYesAs0(binding.question79Options.getCheckedRadioButtonId(), binding.question79Yes.getId()) +
+                getSelectedYesAs0(binding.question82Options.getCheckedRadioButtonId(), binding.question82Yes.getId()) +
+                getSelectedYesAs0(binding.question89Options.getCheckedRadioButtonId(), binding.question89Yes.getId());
+
+    }
+
+    private int getSelectedYesAs1(int checkedID, int yes_id) {
+        if (checkedID == yes_id) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    private int getSelectedYesAs0(int checkedID, int yes_id) {
+        if (checkedID == yes_id) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
 
     private int getCheckedID(int checkedID, int yes_id, int no_id) {
         if (checkedID == yes_id) {
             return 1;
         } else {
-            return 2;
+            return 0;
         }
     }
 
@@ -167,8 +207,9 @@ public class Section7aActivity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section6Activity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section7aActivity.this,ResultPage.class);
+        Intent intent = new Intent(Section7aActivity.this, ResultPage.class);
         startActivity(intent);
     }
 }

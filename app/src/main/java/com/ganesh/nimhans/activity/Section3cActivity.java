@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -81,7 +82,7 @@ public class Section3cActivity extends AppCompatActivity {
             selecteddistrictUK = selectedValue;
 
         });
-        YesOrNo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* YesOrNo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = findViewById(checkedId);
@@ -89,7 +90,7 @@ public class Section3cActivity extends AppCompatActivity {
                 selectedYesOrNo = selectedValue;
 
             }
-        });
+        });*/
         InterviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -145,9 +146,15 @@ public class Section3cActivity extends AppCompatActivity {
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
-
-//        binding.progressBar.setVisibility(View.VISIBLE);
+        if (YesOrNo.getCheckedRadioButtonId() == R.id.no2) {
+            Intent intentno = new Intent(Section3cActivity.this, Eligiblechildren.class);
+            startActivity(intentno);
+        }else {
+            startActivity(intent);
+        }
+/*//        binding.progressBar.setVisibility(View.VISIBLE);
 //        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 //        Call<JsonObject> call = apiService.putServeySection3CData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
 //        call.enqueue(new Callback<JsonObject>() {
@@ -171,7 +178,7 @@ public class Section3cActivity extends AppCompatActivity {
 //            public void onFailure(Call<JsonObject> call, Throwable t) {
 //                binding.progressBar.setVisibility(View.GONE);
 //            }
-//        });
+//        });*/
 
 
     }

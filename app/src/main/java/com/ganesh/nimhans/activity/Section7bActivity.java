@@ -82,7 +82,7 @@ public class Section7bActivity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
-        iasq_respondendt_txt= findViewById(R.id.iasq_respondendt_txt);
+        iasq_respondendt_txt = findViewById(R.id.iasq_respondendt_txt);
 
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
@@ -138,14 +138,15 @@ public class Section7bActivity extends AppCompatActivity {
         apiInterface.putServeySection7bData(eligibleResponse.houseHoldId, serveySection7bRequest, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     try {
-                        if (response.body().get("iasqResult").getAsInt()>=1) {
+                        int screenPositiveNegative = 0;
+                        if (response.body().get("iasqResult").getAsInt() >= 1) {
                             binding.iasqResultTxt.setText("1");
-                        }else{
-                            binding.iasqResultTxt.setText("0");
+                            screenPositiveNegative = 1;
                         }
-                    }catch (Exception e) {
+                        binding.iasqResultTxt.setText(calculateIASQResult() + " - " + response.body().get("iasqResult") + " - " + screenPositiveNegative);
+                    } catch (Exception e) {
                         e.printStackTrace();
                         binding.iasqResultTxt.setText("0");
                     }
@@ -158,8 +159,27 @@ public class Section7bActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    private int calculateIASQResult() {
+        return getSelectedYesAs1(binding.q98.getCheckedRadioButtonId(), binding.q98a.getId()) +
+                getSelectedYesAs1(binding.q99.getCheckedRadioButtonId(), binding.q99a.getId()) +
+                getSelectedYesAs1(binding.q100.getCheckedRadioButtonId(), binding.q100a.getId()) +
+                getSelectedYesAs1(binding.q101.getCheckedRadioButtonId(), binding.q101a.getId()) +
+                getSelectedYesAs1(binding.q102.getCheckedRadioButtonId(), binding.q102a.getId()) +
+                getSelectedYesAs1(binding.q103.getCheckedRadioButtonId(), binding.q103a.getId()) +
+                getSelectedYesAs1(binding.q104.getCheckedRadioButtonId(), binding.q104a.getId()) +
+                getSelectedYesAs1(binding.q105.getCheckedRadioButtonId(), binding.q105a.getId()) +
+                getSelectedYesAs1(binding.q106.getCheckedRadioButtonId(), binding.q106a.getId()) +
+                getSelectedYesAs1(binding.q107.getCheckedRadioButtonId(), binding.q107a.getId());
+    }
 
+    private int getSelectedYesAs1(int checkedID, int yes_id) {
+        if (checkedID == yes_id) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
 
@@ -183,7 +203,6 @@ public class Section7bActivity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-//        startActivity(new Intent(activity, Section7aActivity.class));
         finish();
     }
 

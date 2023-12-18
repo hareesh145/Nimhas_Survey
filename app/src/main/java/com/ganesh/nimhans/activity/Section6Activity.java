@@ -63,7 +63,7 @@ public class Section6Activity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
-        PARENTS_GUARDIAN =findViewById(R.id.PARENTS_GUARDIAN);
+        PARENTS_GUARDIAN = findViewById(R.id.PARENTS_GUARDIAN);
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
 
@@ -84,7 +84,7 @@ public class Section6Activity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             stringParent_guardian = selectedValue;
             Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.guardian_rb:
                     binding.specifyRespo.setVisibility(View.VISIBLE);
                     break;
@@ -93,6 +93,11 @@ public class Section6Activity extends AppCompatActivity {
                     break;
             }
         });
+    }
+
+    private int calculateIDResult() {
+        // (Q.74, Q.75, Q.76, Q.77)
+        return integerHashMap.get(74) + integerHashMap.get(75) + integerHashMap.get(76) + integerHashMap.get(77);
     }
 
     private void calculateRCadsScore() {
@@ -114,12 +119,11 @@ public class Section6Activity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("response", "onResponse: " + userResponse);
                     try {
-                        if (userResponse.get("idResult").getAsInt()>=4) {
-                            binding.idScannerResult.setText("1");
-                        } else {
-                            binding.idScannerResult.setText("0");
+                        int screenPositiveNegative = 0;
+                        if (userResponse.get("idResult").getAsInt() >= 4) {
+                            screenPositiveNegative = 1;
                         }
-
+                        binding.idScannerResult.setText(calculateIDResult() + " - " + userResponse.get("idResult") + " - " + screenPositiveNegative);
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.idScannerResult.setText("0");

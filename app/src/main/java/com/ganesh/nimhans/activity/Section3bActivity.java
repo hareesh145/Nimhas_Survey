@@ -72,7 +72,7 @@ public class Section3bActivity extends AppCompatActivity {
     MyNimhans myGameApp;
     Long demoGraphicsID;
     private int surveyID;
-    private int maritalState;
+    private String maritalState;
 
     String[] selectedTypeOfProblem;
     int repeatCount = 0;
@@ -100,7 +100,7 @@ public class Section3bActivity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
-
+        maritalState = getIntent().getStringExtra(MARITAL_STATUS);
         if (getIntent().hasExtra(NO_OF_PEOPLE)) {
             binding.totalNoOfPeople.setVisibility(View.GONE);
             binding.NoOfPeople.setText(String.valueOf(getIntent().getIntExtra(NO_OF_PEOPLE, 0)));
@@ -115,6 +115,11 @@ public class Section3bActivity extends AppCompatActivity {
             binding.whatIsRelationTxt.setText("What is the relationship of (" + nameOfRespondent + ") to you?");
             binding.isNameMaleOrFemale.setText("Is (" + nameOfRespondent + ") a male or female?");
             binding.howOldAge.setText("How old is (" + nameOfRespondent + ")?");
+            binding.relation.selectItemByIndex(0);
+            int checkedID = getCheckedID(maritalState);
+            if (checkedID != -1) {
+                binding.maritalStatus1.check(checkedID);
+            }
         }
 
         Log.d("TAG", "onCreate: " + repeatCount);
@@ -253,6 +258,17 @@ public class Section3bActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private int getCheckedID(String maritalState) {
+        if (maritalState.equals("Never Married")) {
+            return R.id.NotMarried;
+        } else if (maritalState.equals("Married")) {
+            return R.id.Married;
+        } else if (maritalState.equals("Widowed/Divorced /Separated")) {
+            return R.id.WorDorS;
+        }
+        return -1;
     }
 
     public void onClickNextSection(View v) {

@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -432,8 +433,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     public void checkRCADSValue() {
         ServeySection4Request serveySection4Request = new ServeySection4Request();
 
-        serveySection4Request.setQno18A("H67rt");
-        serveySection4Request.setQno18B("0123456789");
+        serveySection4Request.setQno18A("" + getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+        serveySection4Request.setQno18B(eligibleResponse.surveySection.demographics.randamId + "" + eligibleResponse.qno8);
         serveySection4Request.setQno18C(serveySection3cRequest.getQno18C());
         serveySection4Request.setQno18D(serveySection3cRequest.getQno18D());
         serveySection4Request.setQno18E(serveySection3cRequest.getQno18E());
@@ -507,41 +508,56 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 if (response.isSuccessful()) {
                     Log.d("response", "onResponse: " + userResponse);
                     try {
-                        if (userResponse.get("socialPhobia").getAsInt() >= 65) {
-                            binding.SP15.setText("1");
+                        binding.SP15.setText(calculateSocialPhobia() + " - " + userResponse.get("socialPhobia"));
+//                        if (userResponse.get("socialPhobia").getAsInt() >= 65) {
+//
+//                        } else {
+//                            binding.SP15.setText("0");
+//                        }
+                        binding.PD25.setText(calculatePanicDisorder() + " - " + userResponse.get("panicDisorder"));
+//                        if (userResponse.get("panicDisorder").getAsInt() >= 65) {
+//                            binding.PD25.setText("1");
+//                        } else {
+//                            binding.PD25.setText("0");
+//                        }
+                        binding.MD20.setText(calculateMajorDepression() + " - " + userResponse.get("majorDepression"));
+//                        if (userResponse.get("majorDepression").getAsInt() >= 65) {
+//                            binding.MD20.setText("1");
+//                        } else {
+//                            binding.MD20.setText("0");
+//                        }
+                        binding.SA35.setText(calculateSA() + " - " + userResponse.get("separationAnxiety"));
+//                        if (userResponse.get("separationAnxiety").getAsInt() >= 65) {
+//                            binding.SA35.setText("1");
+//                        } else {
+//                            binding.SA35.setText("0");
+//                        }
+                        binding.GA45.setText(calculateGA() + " - " + userResponse.get("generalizedAnxiety"));
+//                        if (userResponse.get("generalizedAnxiety").getAsInt() >= 65) {
+//                            binding.GA45.setText("1");
+//                        } else {
+//                            binding.GA45.setText("0");
+//                        }
+                        binding.OC34.setText(calculateOC() + " - " + userResponse.get("obsessiveCompulsive"));
+//                        if (userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
+//                            binding.OC34.setText("1");
+//                        } else {
+//                            binding.OC34.setText("0");
+//                        }
+
+                        if (userResponse.get("socialPhobia").getAsInt() >= 65
+                                || userResponse.get("panicDisorder").getAsInt() >= 65
+                                || userResponse.get("separationAnxiety").getAsInt() >= 65
+                                || userResponse.get("majorDepression").getAsInt() >= 65
+                                || userResponse.get("generalizedAnxiety").getAsInt() >= 65
+                                || userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
+                            binding.rcadsResult.setText("RCADS Self Screener : 1");
                         } else {
-                            binding.SP15.setText("0");
-                        }
-                        if (userResponse.get("panicDisorder").getAsInt() >= 65) {
-                            binding.PD25.setText("1");
-                        } else {
-                            binding.PD25.setText("0");
+                            binding.rcadsResult.setText("RCADS Self Screener : 0");
                         }
 
-                        if (userResponse.get("majorDepression").getAsInt() >= 65) {
-                            binding.MD20.setText("1");
-                        } else {
-                            binding.MD20.setText("0");
-                        }
-                        if (userResponse.get("separationAnxiety").getAsInt() >= 65) {
-                            binding.SA35.setText("1");
-                        } else {
-                            binding.SA35.setText("0");
-                        }
-
-                        if (userResponse.get("generalizedAnxiety").getAsInt() >= 65) {
-                            binding.GA45.setText("1");
-                        } else {
-                            binding.GA45.setText("0");
-                        }
-
-                        if (userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
-                            binding.OC34.setText("1");
-                        } else {
-                            binding.OC34.setText("0");
-                        }
                     } catch (Exception e) {
-
+                        e.printStackTrace();
                     }
 
                 }
@@ -553,6 +569,45 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                     binding.progressBar.setVisibility(View.GONE);
             }
         });
+    }
+
+    private int calculateOC() {
+        //(Q.28+Q.34+Q.41+Q.49+Q.60+Q.62)
+        return selectedSillyThoughts + selectedCrossCheckOCD + selectedRemoveBadThoughtfromHead
+                + selectedSuperstition + selectedOCD + selectedRitualisticBehavior;
+    }
+
+    private int calculateGA() {
+//        (Q.19+Q.31+Q.40+Q.45+Q.53+Q.55)
+        return selectedAnxiety + selectedFeelingAwful + selectedNegativeThoughts + selectedBadHallucination + selectedAnticipatoryAnxiety
+                + selectedMorbidContemplation;
+    }
+
+    private int calculateSA() {
+//        (Q.23+Q.27+Q.35+Q.36+Q.51+Q.63+Q.64)
+        return selectedFeelingAfraid + selectedWorryAboutParents + selectedScaryWhileSleep + selectedAfraidGoingSchool
+                + selectedAgoraphobia + selectedNighttimeAnxiety + selectedSeparationAnxiety1;
+    }
+
+    private int calculateMajorDepression() {
+//        (Q.20+Q.24+Q.29+Q.33+Q.37+Q.39+Q.43+Q.47+Q.58+Q.65)
+        return selectedFeelingSad + selectedNoFun + selectedSleepingProblem + selectedAppetiteProblem
+                + selectedNoEnergy + selectedFeelingTired + selectedCantThink
+                + selectedFeelingWorthless + selectedImmobility + selectedRestlessness;
+    }
+
+    private int calculateSocialPhobia() {
+        //Q.22+Q.25+Q.26+Q.30+Q.38+Q.48+Q.50+Q.56+Q. 61
+        return selectedFeelingWorry + selectedFeelingScared + selectedFeelingAngry +
+                selectedBadAtSchool + selectedFeelingFoolish + selectedAfraidOfMistakes
+                + selectedSocialAnxietyDisorder + selectedGlossophobia + selectedSocialAnxiety;
+    }
+
+    private int calculatePanicDisorder() {
+        //(Q.21+Q.32+Q.42+Q.44+Q.46+Q.52+Q.54+Q.57+Q. 59)
+        return selectedFunnyFeeling + selectedBreatheLessnessSuddenly +
+                selectedHeartBeatHigh + selectedShevirinhg + selectedFeelingShaky
+                + selectedApprehension + selectedSuddenSyncope + selectedPalpitations + selectedAnxietyAboutAnxiety;
     }
 
     public void onClickNextSection(View v) {

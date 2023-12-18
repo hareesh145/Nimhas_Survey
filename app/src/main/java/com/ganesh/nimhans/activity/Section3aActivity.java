@@ -243,9 +243,10 @@ public class Section3aActivity extends AppCompatActivity {
                     Util.showToast(activity, "Successfully data saved");
                     Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
                     intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    intent.putExtra(MARITAL_STATUS,  radioButton.getText());
+                    intent.putExtra(MARITAL_STATUS,  selectedMaritalStatus);
                     Log.e("MARITAL_STATUS","MARITAL_STATUS :"+ radioButton.getText());
                     intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+
                     PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
                     startActivity(intent);
                 }

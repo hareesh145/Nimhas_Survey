@@ -112,11 +112,11 @@ public class Section8Activity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         Log.d("response", "onResponse: " + userResponse);
                         try {
+                            int screenPositiveNegative = 0;
                             if (userResponse.get("sldResult").getAsInt()>=4) {
-                                binding.sldResult.setText("1");
-                            } else {
-                                binding.sldResult.setText("0");
+                                screenPositiveNegative = 1;
                             }
+                            binding.sldResult.setText(calculateSLDResult()+" - "+userResponse.get("sldResult")+" - "+screenPositiveNegative);
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -135,6 +135,15 @@ public class Section8Activity extends AppCompatActivity {
                 binding.sldResult.setText("0");
             }
         });
+    }
+
+    private int calculateSLDResult(){
+
+        return getChecked108Value(binding.question108.getCheckedRadioButtonId())+
+                getChecked109Value(binding.question109.getCheckedRadioButtonId())+
+                getChecked110Value(binding.question110.getCheckedRadioButtonId())+
+                getChecked111Value(binding.question111.getCheckedRadioButtonId())+
+                getChecked112Value(binding.question112.getCheckedRadioButtonId());
     }
 
     private int getChecked108Value(int checkedRadioButtonId) {
