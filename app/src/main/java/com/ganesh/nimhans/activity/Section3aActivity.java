@@ -1,11 +1,15 @@
 package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -36,7 +40,7 @@ public class Section3aActivity extends AppCompatActivity {
     String phoneNo, pswd;
     Section2Activity sec2;
     ProgressBar progressBar;
-
+    RadioButton radioButton;
     MyNimhans myGameApp;
     EditText Specify, Specify0, Specify1, Specify2, NoOfSons, NoOfDaughters, IncomePerMonth;
     LinearLayout que_5_layout,que_4_layout;
@@ -47,6 +51,7 @@ public class Section3aActivity extends AppCompatActivity {
     Long demoGraphicsID;
     int noOfSons;
     int noOfDaughters;
+    String repeatCount ;
     int incomePerMonth;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +87,38 @@ public class Section3aActivity extends AppCompatActivity {
 //        AnswerType = binding.AnswerType;
 //        MaritalStatus = binding.maritalStatus;
 //        YesOrNo = binding.yesOrNo;
+        binding.Specify1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+
+                    if (!s.toString().isEmpty()) {
+                        repeatCount = Specify1.getText().toString();
+                        binding.AnswerType.setVisibility(View.VISIBLE);
+                        if (s.toString().length() > 0) {
+                            binding.AnswerType.setVisibility(View.GONE);
+                        } else {
+                            binding.AnswerType.setVisibility(View.VISIBLE);
+                        }
+                    } else {
+                        binding.AnswerType.setVisibility(View.VISIBLE);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         Caste.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -111,7 +148,7 @@ public class Section3aActivity extends AppCompatActivity {
             }*/
         });
         MaritalStatus.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton radioButton = findViewById(checkedId);
+           radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus = selectedValue;
             Log.d("selectedMaritalStatus", "Selected value: " + selectedMaritalStatus);
@@ -206,6 +243,8 @@ public class Section3aActivity extends AppCompatActivity {
                     Util.showToast(activity, "Successfully data saved");
                     Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
                     intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(MARITAL_STATUS,  radioButton.getText());
+                    Log.e("MARITAL_STATUS","MARITAL_STATUS :"+ radioButton.getText());
                     intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
                     PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
                     startActivity(intent);

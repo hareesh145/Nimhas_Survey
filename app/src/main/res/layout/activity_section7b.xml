@@ -57,6 +57,7 @@
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
+                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
@@ -66,9 +67,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 7: Screening for AUTISM SPECTRUM DISORDER (IASQ)"
+                        android:text="Section 7: Screening for Autism spectrun disorder (IASQ)"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -93,6 +95,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Number"
+                        android:focusable="false"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -143,6 +146,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="1. Mother"
+                            android:id="@+id/mother_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -151,6 +155,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="2. Father"
+                            android:id="@+id/father_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -159,6 +164,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="3. Guardian"
+                            android:id="@+id/gaurdian_btn"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -169,6 +175,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -890,7 +897,7 @@ i-Info button to be provided and when clicked below information to be shown.
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/bg_btn_background"
-                        android:text="@string/calculate_rcads_score"
+                        android:text="@string/calculate"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 

@@ -318,8 +318,8 @@ public class Section5Activity extends AppCompatActivity {
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
-            } else if (Integer.parseInt(ageValue) >= 2) {
-                //If the age is greater than 2
+            } else if (Integer.parseInt(ageValue) > 2) {
+                //If the age is greater than 3
                 Intent intent = new Intent(activity, Section7bActivity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                 intent.putExtra(SURVEY_ID, surveyID);

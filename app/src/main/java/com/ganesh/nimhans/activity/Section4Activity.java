@@ -432,8 +432,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     public void checkRCADSValue() {
         ServeySection4Request serveySection4Request = new ServeySection4Request();
 
-        serveySection4Request.setQno18A("");
-        serveySection4Request.setQno18B("1234");
+        serveySection4Request.setQno18A("H67rt");
+        serveySection4Request.setQno18B("0123456789");
         serveySection4Request.setQno18C(serveySection3cRequest.getQno18C());
         serveySection4Request.setQno18D(serveySection3cRequest.getQno18D());
         serveySection4Request.setQno18E(serveySection3cRequest.getQno18E());

@@ -33,6 +33,7 @@ public class PreferenceConnector {
 
     public static final String NAME_OF_RESPONDENT="NAME_OF_RESPONDENT";
 
+
     public static SharedPreferences getPreferences(Context context) {
         return context.getSharedPreferences(PREF_NAME, MODE);
 

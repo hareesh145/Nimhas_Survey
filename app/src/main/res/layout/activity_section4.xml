@@ -58,6 +58,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
 
@@ -68,7 +69,8 @@
                         android:padding="10dp"
                         android:text="Section 4: Anxiety and Depression (RCADS)"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -87,8 +89,8 @@
                         android:editable="false"
                         android:hint="15"
                         android:padding="10dp"
-
                         android:textAllCaps="false"
+                        android:focusable="false"
                         android:textColor="#000000" />
 
                     <TextView
@@ -3438,6 +3440,15 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="RCADS Self Screener : 0">
+
+                    </TextView>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

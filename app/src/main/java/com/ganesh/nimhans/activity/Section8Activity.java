@@ -43,6 +43,7 @@ public class Section8Activity extends AppCompatActivity {
     private int surveyID;
     private long demoGraphicsID;
     private EligibleResponse eligibleResponse;
+    RadioGroup respondent_grp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,12 +75,15 @@ public class Section8Activity extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.mother_btn:
                         respondentTxt = "Mother";
+                        binding.respondent.setVisibility(View.GONE);
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
+                        binding.respondent.setVisibility(View.GONE);
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";
+                        binding.respondent.setVisibility(View.VISIBLE);
                         break;
                 }
             }

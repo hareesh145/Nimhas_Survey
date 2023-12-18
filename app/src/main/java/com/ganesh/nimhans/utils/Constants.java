@@ -16,6 +16,7 @@ public class Constants {
     public static String ELIGIBLE_RESPONDENT = "ELIGIBLE_RESPONDENT";
 
     public static String SURVEY_SECTION3C="SURVEY_SECTION3C";
+    public static final String MARITAL_STATUS="MARITAL_STATUS";
 
 
 }

@@ -27,11 +27,10 @@
     <string name="string_text22">INTERVIEW PARTIALLY COMPLETED</string>
     <string name="string_text23">RESPONDENT REFUSED TO TAKE PART</string>
     <string name="go_to_result">Go To Result</string>
-    <string name="section5_intro">INTRODUCTION (PLEASE READ TO PATIENTS)
-Thank you for agreeing to take part in this brief interview about alcohol, tobacco products and other drugs. I am going to ask you some questions about your experience of using these substances across your lifetime and in the past three months. These substances can be smoked, swallowed, snorted, inhaled, injected or ta ken in the form of pills (show drug card). Some of the substances listed may be prescribed by a doctor (like amphetamines, sedatives, pain medications). For this interview, we will not record medications that are used as prescribed by your doctor. However, if you have taken such medications for reasons other than prescription, or taken them more frequently or at higher doses than prescribed, please let me know. While we are also interested in knowing about your use of various illicit drugs, please be assured that information on such use will be treated as strictly confidential.
-NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT
-(if completing follow- up please cross check the patient’s answers with the answers given for Q1 at baseline. Any differences on this question should be queried)
-</string>
+    <string name="section5_intro">INTRODUCTION (PLEASE READ TO PATIENTS)</string>
+    <string name="section5_intro2">Thank you for agreeing to take part in this brief interview about alcohol, tobacco products and other drugs. I am going to ask you some questions about your experience of using these substances across your lifetime and in the past three months. These substances can be smoked, swallowed, snorted, inhaled, injected or ta ken in the form of pills (show drug card). Some of the substances listed may be prescribed by a doctor (like amphetamines, sedatives, pain medications). For this interview, we will not record medications that are used as prescribed by your doctor. However, if you have taken such medications for reasons other than prescription, or taken them more frequently or at higher doses than prescribed, please let me know. While we are also interested in knowing about your use of various illicit drugs, please be assured that information on such use will be treated as strictly confidential.</string>
+    <string name="section5_intro1">NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT</string>
+    <string name="section5_intro3">(if completing follow- up please cross check the patient’s answers with the answers given for Q1 at baseline. Any differences on this question should be queried)</string>
 
     <string name="section_EPIDEMIOLOGICAL_SURVEY">EPIDEMIOLOGICAL SURVEY OF AUTISM, ID AND COMMON MENTAL DISORDERS AMONG CHILDREN AND ADOLESCENTS IN UTTARAKHAND
 </string>
@@ -255,4 +254,5 @@ NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT
         <item>Post-graduation and above</item>
     </string-array>
     <string name="children_s_result">Children\'s Result</string>
+    <string name="calculate">Calculate</string>
 </resources>

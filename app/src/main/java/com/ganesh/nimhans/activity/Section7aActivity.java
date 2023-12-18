@@ -8,9 +8,11 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,12 +37,14 @@ public class Section7aActivity extends AppCompatActivity {
     private ActivitySection7aBinding binding;
     String phoneNo, pswd;
     ProgressBar progressBar;
+    RadioGroup section7_respondent;
 
     MyNimhans myGameApp;
     private long demoGraphicsID;
     private int surveyID;
     private String ageValue;
     private EligibleResponse eligibleResponse;
+    String stringParent_guardian;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +59,7 @@ public class Section7aActivity extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         phoneNo = myGameApp.getUserPhoneNo();
+        section7_respondent = findViewById(R.id.section7_respondent);
         binding.childAge.setText(ageValue);
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +67,21 @@ public class Section7aActivity extends AppCompatActivity {
                 checkRCADSScore();
             }
         });
+        section7_respondent.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            stringParent_guardian= selectedValue;
+            Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
+            switch (checkedId){
+                case R.id.guardian:
+                    binding.otherTxt.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.otherTxt.setVisibility(View.GONE);
+                    break;
+            }
+        });
+
     }
 
     private void checkRCADSScore() {

@@ -58,6 +58,7 @@
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
                         android:textAllCaps="false"
+                        android:visibility="gone"
                         android:textColor="@color/app_bg_champ" />
 
                     <TextView
@@ -65,9 +66,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 7: Screening for AUTISM SPECTRUM DISORDER (MCHAT)"
+                        android:text="Section 7: Screening for Autism spectrun disorder (MCHAT)"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -84,6 +86,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Number"
+                        android:focusable="false"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -162,6 +165,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
+                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -1212,7 +1216,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/bg_btn_background"
-                        android:text="@string/calculate_rcads_score"
+                        android:text="@string/calculate"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 

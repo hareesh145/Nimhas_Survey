@@ -57,6 +57,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
 
@@ -67,7 +68,8 @@
                         android:padding="10dp"
                         android:text="Section 9:  Attention-Deficit / Hyperactivity Disorder (ADHD)"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -94,6 +96,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Number"
                         android:padding="10dp"
+                        android:focusable="false"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -172,6 +175,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -1928,7 +1932,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:background="@drawable/bg_btn_background"
-                        android:text="@string/calculate_rcads_score"
+                        android:text="@string/calculate"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 

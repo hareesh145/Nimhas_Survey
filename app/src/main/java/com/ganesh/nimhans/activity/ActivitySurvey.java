@@ -71,7 +71,6 @@ public class ActivitySurvey extends AppCompatActivity {
 
     public void onClickSurvey(View v) {
         startActivity(new Intent(activity, Section1Activity.class));
-
     }
 
 

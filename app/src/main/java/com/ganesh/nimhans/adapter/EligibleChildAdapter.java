@@ -51,7 +51,7 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
     }
 
     class EligibleChildHolder extends RecyclerView.ViewHolder {
-        TextView child_parent_name, child_name, child_id, child_age;
+        TextView child_parent_name, child_name, child_id, child_age,district,taluka,village,address;
 
         public EligibleChildHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +59,10 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
             child_name = itemView.findViewById(R.id.child_name);
             child_id = itemView.findViewById(R.id.child_id);
             child_age = itemView.findViewById(R.id.child_age);
+            district = itemView.findViewById(R.id.district);
+            taluka = itemView.findViewById(R.id.taluka);
+            village = itemView.findViewById(R.id.village);
+            address = itemView.findViewById(R.id.address);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,6 +82,10 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
             child_name.setText("Child Name : " + eligibleResponse.qno9);
             child_age.setText("Age : " + eligibleResponse.qno12);
             child_id.setText("Child ID : " + eligibleResponse.surveySection.demographics.randamId + "" + eligibleResponse.qno8);
+            district.setText("State & District : " + eligibleResponse.surveySection.demographics.state + "&" +eligibleResponse.surveySection.demographics.district);
+            taluka.setText("Taluka & Village : " + eligibleResponse.surveySection.demographics.taluka + "&" +eligibleResponse.surveySection.demographics.cityOrTownOrVillage);
+            /*village.setText("Village Name : " + eligibleResponse.surveySection.demographics.cityOrTownOrVillage);*/
+            address.setText("Address: " + eligibleResponse.surveySection.demographics.address);
         }
     }
 }

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,7 +60,24 @@ public class Section11Activity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
-
+        binding.section11RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.mother_btn:
+                        binding.section11Respondent.setVisibility(View.GONE);
+                        break;
+                    case R.id.father_btn:
+                        respondentTxt = "Father";
+                        binding.section11Respondent.setVisibility(View.GONE);
+                        break;
+                    case R.id.gaurdian_btn:
+                        respondentTxt = "Guardian";
+                        binding.section11Respondent.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.FAMILY_COUNT;
 import static com.ganesh.nimhans.utils.Constants.LINE_NO;
+import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_PEOPLE;
 import static com.ganesh.nimhans.utils.Constants.REPEAT_COUNT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
@@ -48,6 +49,7 @@ public class Section3bActivity extends AppCompatActivity {
     LinearLayout mental_layout, specify4layout;
     EditText Specify3, NoOfPersons, Name, Age,
             Specify4;
+    RadioButton radioButton;
     RadioGroup Gender, MaritalStatus1, AnswerType1;
     String selectedGender;
     String selectedMaritalStatus1 = "";
@@ -70,9 +72,11 @@ public class Section3bActivity extends AppCompatActivity {
     MyNimhans myGameApp;
     Long demoGraphicsID;
     private int surveyID;
+    private int maritalState;
 
     String[] selectedTypeOfProblem;
     int repeatCount = 0;
+    int getMaritalState = 0;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,8 +121,10 @@ public class Section3bActivity extends AppCompatActivity {
 
         if (repeatCount > 1) {
             binding.addMember.setVisibility(View.VISIBLE);
+            binding.nextbutton.setVisibility(View.GONE);
         } else {
             binding.addMember.setVisibility(View.GONE);
+            binding.nextbutton.setVisibility(View.VISIBLE);
         }
 
         binding.NoOfPeople.addTextChangedListener(new TextWatcher() {
@@ -135,12 +141,15 @@ public class Section3bActivity extends AppCompatActivity {
                         repeatCount = Integer.parseInt(binding.NoOfPeople.getText().toString());
                         if (Integer.parseInt(s.toString()) > 1) {
                             binding.addMember.setVisibility(View.VISIBLE);
+                            binding.nextbutton.setVisibility(View.GONE);
                         } else {
                             binding.addMember.setVisibility(View.GONE);
+                            binding.nextbutton.setVisibility(View.VISIBLE);
                         }
                     } else {
                         binding.lineNo.setText("");
                         binding.addMember.setVisibility(View.GONE);
+                        binding.nextbutton.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -160,7 +169,7 @@ public class Section3bActivity extends AppCompatActivity {
             Log.d("selectedGender", "Selected value: " + selectedGender);
         });
         MaritalStatus1.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton radioButton = findViewById(checkedId);
+            radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus1 = selectedValue;
             Log.d("selectedMaritalStatus1", "Selected value: " + selectedMaritalStatus1);

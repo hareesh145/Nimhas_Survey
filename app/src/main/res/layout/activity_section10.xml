@@ -57,6 +57,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
 
@@ -96,6 +97,7 @@
                         android:hint="Number"
                         android:padding="10dp"
                         android:textAllCaps="false"
+                        android:focusable="false"
                         android:textColor="#000000" />
 
                     <TextView
@@ -153,6 +155,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Father"
+                            android:id="@+id/father_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -161,6 +164,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Guardian"
+                            android:id="@+id/gaurdian_btn"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -171,6 +175,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -1076,6 +1081,9 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         android:text="Performance"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="150dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 

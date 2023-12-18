@@ -78,17 +78,19 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:background="@drawable/button_bg_login"
-                android:text="Get Reports"
                 android:onClick="@{handlers::onClickReports}"
+                android:text="Get Reports"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pending_list_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:background="@drawable/button_bg_login"
-                android:text="Pending List"
                 android:onClick="@{handlers::onClickPendinglist}"
+                android:text="Pending List"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 

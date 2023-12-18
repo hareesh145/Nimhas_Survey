@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
@@ -45,6 +46,7 @@ public class Section7bActivity extends AppCompatActivity {
     private EligibleResponse eligibleResponse;
     private String ageValue;
     private String respondentTxt;
+    EditText iasq_respondendt_txt;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +82,7 @@ public class Section7bActivity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
+        iasq_respondendt_txt= findViewById(R.id.iasq_respondendt_txt);
 
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
@@ -98,12 +101,15 @@ public class Section7bActivity extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.mother_btn:
                         respondentTxt = "Mother";
+                        binding.iasqRespondendtTxt.setVisibility(View.GONE);
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
+                        binding.iasqRespondendtTxt.setVisibility(View.GONE);
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";
+                        binding.iasqRespondendtTxt.setVisibility(View.VISIBLE);
                         break;
                 }
             }

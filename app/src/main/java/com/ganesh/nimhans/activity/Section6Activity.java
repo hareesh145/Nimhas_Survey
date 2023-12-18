@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
+import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.Section6Adapter;
 import com.ganesh.nimhans.databinding.ActivitySection6Binding;
 import com.ganesh.nimhans.model.ServeySection6Request;
@@ -42,7 +45,8 @@ public class Section6Activity extends AppCompatActivity {
     MyNimhans myGameApp;
     private long demoGraphicsID;
     private int surveyID;
-
+    String stringParent_guardian;
+    RadioGroup PARENTS_GUARDIAN;
     HashMap<Integer, Integer> integerHashMap = new HashMap<>();
     private String ageValue;
     private EligibleResponse eligibleResponse;
@@ -59,6 +63,7 @@ public class Section6Activity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
+        PARENTS_GUARDIAN =findViewById(R.id.PARENTS_GUARDIAN);
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
 
@@ -72,6 +77,20 @@ public class Section6Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 calculateRCadsScore();
+            }
+        });
+        PARENTS_GUARDIAN.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            stringParent_guardian = selectedValue;
+            Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
+            switch (checkedId){
+                case R.id.guardian_rb:
+                    binding.specifyRespo.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.specifyRespo.setVisibility(View.GONE);
+                    break;
             }
         });
     }
