@@ -151,41 +151,58 @@ public class Section11Activity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // binding.cdResult.setText(response.body().get("cdResult").getAsString());
                     try {
-                        if (userResponse.get("socialPhobia").getAsInt() >= 65) {
+                        binding.socialPhobiaTxt.setText(calculateSocialPhobia() + " - " + userResponse.get("socialPhobia"));
+                       /* if (userResponse.get("socialPhobia").getAsInt() >= 65) {
                             binding.socialPhobiaTxt.setText("1");
                         } else {
                             binding.socialPhobiaTxt.setText("0");
-                        }
-                        if (userResponse.get("panicDisorder").getAsInt() >= 65) {
+                        }*/
+                        binding.panicDisorderTxt.setText(calculatePanicDisorder() + " - " + userResponse.get("panicDisorder"));
+                       /* if (userResponse.get("panicDisorder").getAsInt() >= 65) {
                             binding.panicDisorderTxt.setText("1");
                         } else {
                             binding.panicDisorderTxt.setText("0");
-                        }
+                        }*/
+                        binding.majorDepressionTxt.setText(calculateMajorDepression() + " - " + userResponse.get("majorDepression"));
 
-                        if (userResponse.get("majorDepression").getAsInt() >= 65) {
+                       /* if (userResponse.get("majorDepression").getAsInt() >= 65) {
                             binding.majorDepressionTxt.setText("1");
                         } else {
                             binding.majorDepressionTxt.setText("0");
-                        }
-                        if (userResponse.get("separationAnxiety").getAsInt() >= 65) {
+                        }*/
+                        binding.separationAnxietyTxt.setText(calculateSA() + " - " + userResponse.get("separationAnxiety"));
+                       /* if (userResponse.get("separationAnxiety").getAsInt() >= 65) {
                             binding.separationAnxietyTxt.setText("1");
                         } else {
                             binding.separationAnxietyTxt.setText("0");
                         }
-
-                        if (userResponse.get("generalizedAnxiety").getAsInt() >= 65) {
+*/
+                        binding.generalizedAnxietyTxt.setText(calculateGA() + " - " + userResponse.get("generalizedAnxiety"));
+                       /* if (userResponse.get("generalizedAnxiety").getAsInt() >= 65) {
                             binding.generalizedAnxietyTxt.setText("1");
                         } else {
                             binding.generalizedAnxietyTxt.setText("0");
-                        }
+                        }*/
+                        binding.obsessiveCompulsiveTxt.setText(calculateOC() + " - " + userResponse.get("obsessiveCompulsive"));
 
-                        if (userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
+                        /*if (userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
                             binding.obsessiveCompulsiveTxt.setText("1");
                         } else {
                             binding.obsessiveCompulsiveTxt.setText("0");
+                        }*/
+
+                        if (userResponse.get("socialPhobia").getAsInt() >= 65
+                                || userResponse.get("panicDisorder").getAsInt() >= 65
+                                || userResponse.get("separationAnxiety").getAsInt() >= 65
+                                || userResponse.get("majorDepression").getAsInt() >= 65
+                                || userResponse.get("generalizedAnxiety").getAsInt() >= 65
+                                || userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
+                            binding.rcadsResult.setText("RCADS Self Screener : 1");
+                        } else {
+                            binding.rcadsResult.setText("RCADS Self Screener : 0");
                         }
                     } catch (Exception e) {
-
+                        e.printStackTrace();
                     }
                 }
             }
@@ -197,6 +214,49 @@ public class Section11Activity extends AppCompatActivity {
         });
     }
 
+
+    private int calculateMajorDepression() {
+        //(Q.164+Q.168+Q.176+Q.177+Q.192+Q.204+Q.205)
+        return getCheckedIDValue(binding.question164.getCheckedRadioButtonId(), R.id.question_164_a, R.id.question_164_b,
+                R.id.question_164_c, R.id.question_164_d) +
+                getCheckedIDValue(binding.question168.getCheckedRadioButtonId(), R.id.question_168_a, R.id.question_168_b,
+                        R.id.question_168_c, R.id.question_168_d) +
+                getCheckedIDValue(binding.question176.getCheckedRadioButtonId(), R.id.question_176_a, R.id.question_176_b,
+                        R.id.question_176_c, R.id.question_176_d) +
+                getCheckedIDValue(binding.question171.getCheckedRadioButtonId(), R.id.question_171_a, R.id.question_171_b,
+                        R.id.question_171_c, R.id.question_171_d) +
+                getCheckedIDValue(binding.question177.getCheckedRadioButtonId(), R.id.question_177_a, R.id.question_177_b,
+                        R.id.question_177_c, R.id.question_177_d) +
+                getCheckedIDValue(binding.question192.getCheckedRadioButtonId(), R.id.question_192_a, R.id.question_192_b,
+                        R.id.question_192_c, R.id.question_192_d) +
+                getCheckedIDValue(binding.question204.getCheckedRadioButtonId(), R.id.question_204_a, R.id.question_204_b,
+                        R.id.question_204_c, R.id.question_204_d) +
+                getCheckedIDValue(binding.question205.getCheckedRadioButtonId(), R.id.question_205_a, R.id.question_205_b,
+                        R.id.question_205_c, R.id.question_205_d);
+    }
+
+    private int calculateSocialPhobia() {
+        // (Q.163+Q.166+Q.167+Q.171+Q.179+Q.189+Q.191+Q.197+Q. 202)
+        return getCheckedIDValue(binding.question163.getCheckedRadioButtonId(), R.id.question_163_a, R.id.question_163_b,
+                R.id.question_163_c, R.id.question_163_d) +
+                getCheckedIDValue(binding.question166.getCheckedRadioButtonId(), R.id.question_166_a, R.id.question_166_b,
+                        R.id.question_166_c, R.id.question_166_d) +
+                getCheckedIDValue(binding.question167.getCheckedRadioButtonId(), R.id.question_167_a, R.id.question_167_b,
+                        R.id.question_167_c, R.id.question_167_d) +
+                getCheckedIDValue(binding.question171.getCheckedRadioButtonId(), R.id.question_171_a, R.id.question_171_b,
+                        R.id.question_171_c, R.id.question_171_d) +
+                getCheckedIDValue(binding.question179.getCheckedRadioButtonId(), R.id.question_179_a, R.id.question_179_b,
+                        R.id.question_179_c, R.id.question_179_d) +
+                getCheckedIDValue(binding.question189.getCheckedRadioButtonId(), R.id.question_189_a, R.id.question_189_b,
+                        R.id.question_189_c, R.id.question_189_d) +
+                getCheckedIDValue(binding.question191.getCheckedRadioButtonId(), R.id.question_191_a, R.id.question_191_b,
+                        R.id.question_191_c, R.id.question_191_d) +
+                getCheckedIDValue(binding.question197.getCheckedRadioButtonId(), R.id.question_197_a, R.id.question_197_b,
+                        R.id.question_197_c, R.id.question_197_d) +
+                getCheckedIDValue(binding.question202.getCheckedRadioButtonId(), R.id.question_202_a, R.id.question_202_b,
+                        R.id.question_202_c, R.id.question_202_d);
+    }
+
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, Section12Activity.class);
@@ -206,6 +266,50 @@ public class Section11Activity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 
+    }
+
+    private int calculatePanicDisorder() {
+//        (Q.162+Q.173+Q.183+Q.185+Q.187+Q.193+Q.195+Q.198+Q. 200)
+        return getCheckedIDValue(binding.question162.getCheckedRadioButtonId(), R.id.question_162_a, R.id.question_162_b, R.id.question_162_c, R.id.question_162_d) +
+                getCheckedIDValue(binding.question173.getCheckedRadioButtonId(), R.id.question_173_a, R.id.question_173_b, R.id.question_173_c, R.id.question_173_d) +
+                getCheckedIDValue(binding.question183.getCheckedRadioButtonId(), R.id.question_183_a, R.id.question_183_b, R.id.question_183_c, R.id.question_183_d) +
+                getCheckedIDValue(binding.question185.getCheckedRadioButtonId(), R.id.question_185_a, R.id.question_185_b, R.id.question_185_c, R.id.question_185_d) +
+                getCheckedIDValue(binding.question187.getCheckedRadioButtonId(), R.id.question_187_a, R.id.question_187_b, R.id.question_187_c, R.id.question_187_d) +
+                getCheckedIDValue(binding.question193.getCheckedRadioButtonId(), R.id.question_193_a, R.id.question_193_b, R.id.question_193_c, R.id.question_193_d) +
+                getCheckedIDValue(binding.question195.getCheckedRadioButtonId(), R.id.question_195_a, R.id.question_195_b, R.id.question_195_c, R.id.question_195_d) +
+                getCheckedIDValue(binding.question198.getCheckedRadioButtonId(), R.id.question_198_a, R.id.question_198_b, R.id.question_198_c, R.id.question_198_d) +
+                getCheckedIDValue(binding.question200.getCheckedRadioButtonId(), R.id.question_200_a, R.id.question_200_b, R.id.question_200_c, R.id.question_200_d);
+    }
+
+    private int calculateSA() {
+//        (Q.164+Q.168+Q.176+Q.177+Q.192+Q.204+Q.205)
+        return getCheckedIDValue(binding.question164.getCheckedRadioButtonId(), R.id.question_164_a, R.id.question_164_b, R.id.question_164_c, R.id.question_164_d) +
+                getCheckedIDValue(binding.question168.getCheckedRadioButtonId(), R.id.question_168_a, R.id.question_168_b, R.id.question_168_c, R.id.question_168_d) +
+                getCheckedIDValue(binding.question176.getCheckedRadioButtonId(), R.id.question_176_a, R.id.question_176_b, R.id.question_176_c, R.id.question_176_d) +
+                getCheckedIDValue(binding.question177.getCheckedRadioButtonId(), R.id.question_177_a, R.id.question_177_b, R.id.question_177_c, R.id.question_177_d) +
+                getCheckedIDValue(binding.question192.getCheckedRadioButtonId(), R.id.question_192_a, R.id.question_192_b, R.id.question_192_c, R.id.question_192_d) +
+                getCheckedIDValue(binding.question204.getCheckedRadioButtonId(), R.id.question_204_a, R.id.question_204_b, R.id.question_204_c, R.id.question_204_d) +
+                getCheckedIDValue(binding.question205.getCheckedRadioButtonId(), R.id.question_205_a, R.id.question_205_b, R.id.question_205_c, R.id.question_205_d);
+    }
+
+    private int calculateOC() {
+//        (Q.169+Q.175+Q.182+Q.190+Q.201+Q.203)
+        return getCheckedIDValue(binding.question169.getCheckedRadioButtonId(), R.id.question_169_a, R.id.question_169_b, R.id.question_169_c, R.id.question_169_d) +
+                getCheckedIDValue(binding.question175.getCheckedRadioButtonId(), R.id.question_175_a, R.id.question_175_b, R.id.question_175_c, R.id.question_175_d) +
+                getCheckedIDValue(binding.question182.getCheckedRadioButtonId(), R.id.question_182_a, R.id.question_182_b, R.id.question_182_c, R.id.question_182_d) +
+                getCheckedIDValue(binding.question190.getCheckedRadioButtonId(), R.id.question_190_a, R.id.question_190_b, R.id.question_190_c, R.id.question_190_d) +
+                getCheckedIDValue(binding.question201.getCheckedRadioButtonId(), R.id.question_201_a, R.id.question_201_b, R.id.question_201_c, R.id.question_201_d) +
+                getCheckedIDValue(binding.question203.getCheckedRadioButtonId(), R.id.question_203_a, R.id.question_203_b, R.id.question_203_c, R.id.question_203_d);
+    }
+
+    public int calculateGA() {
+//        (Q.160+Q.172+Q.181+Q.186+Q.195+Q.196)
+        return getCheckedIDValue(binding.question160Grp.getCheckedRadioButtonId(), R.id.question_160_a, R.id.question_160_b, R.id.question_160_c, R.id.question_160_d) +
+                getCheckedIDValue(binding.question172.getCheckedRadioButtonId(), R.id.question_172_a, R.id.question_172_b, R.id.question_172_c, R.id.question_172_d) +
+                getCheckedIDValue(binding.question181.getCheckedRadioButtonId(), R.id.question_181_a, R.id.question_181_b, R.id.question_181_c, R.id.question_181_d) +
+                getCheckedIDValue(binding.question186.getCheckedRadioButtonId(), R.id.question_186_a, R.id.question_186_b, R.id.question_186_c, R.id.question_186_d) +
+                getCheckedIDValue(binding.question195.getCheckedRadioButtonId(), R.id.question_195_a, R.id.question_195_b, R.id.question_195_c, R.id.question_195_d) +
+                getCheckedIDValue(binding.question196.getCheckedRadioButtonId(), R.id.question_196_a, R.id.question_196_b, R.id.question_196_c, R.id.question_196_d);
     }
 
     public void onClickPreviousSection(View v) {

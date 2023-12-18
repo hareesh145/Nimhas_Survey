@@ -88,9 +88,10 @@ public class Section10Activity extends AppCompatActivity {
 
     }
 
+    int behaviorResult = 0;
+    int perfomanceResult = 0;
+
     private void checkRCADSScore() {
-        int behaviorResult = 0;
-        int perfomanceResult = 0;
         ServeySection10Request serveySection10Request = new ServeySection10Request();
         int checkedRadioButtonId = binding.section10RespondentGrp.getCheckedRadioButtonId();
         if (checkedRadioButtonId == -1) {
@@ -131,7 +132,7 @@ public class Section10Activity extends AppCompatActivity {
         behaviorResult = behaviorResult + q150result;
         serveySection10Request.setQno150(q150result);
         int q151Result = getCheckedIDValue(binding.question151.getCheckedRadioButtonId(), R.id.question_151_a, R.id.question_151_b, R.id.question_151_c, R.id.question_151_d);
-
+        behaviorResult = behaviorResult + q151Result;
         serveySection10Request.setQno151(q151Result);
 
         int q152Result = getCheckedID150Value(binding.question152.getCheckedRadioButtonId(), R.id.question_152a, R.id.question_152b, R.id.question_152c, R.id.question_152d, R.id.question_152e);
@@ -147,20 +148,29 @@ public class Section10Activity extends AppCompatActivity {
         perfomanceResult = perfomanceResult + q155Result;
         serveySection10Request.setQno155(q155Result);
         int q156Result = getCheckedID150Value(binding.question156.getCheckedRadioButtonId(), R.id.question_156a, R.id.question_156b, R.id.question_156c, R.id.question_156d, R.id.question_156e);
-        perfomanceResult = perfomanceResult + q155Result;
-        serveySection10Request.setQno155(q155Result);
+        perfomanceResult = perfomanceResult + q156Result;
         serveySection10Request.setQno156(q156Result);
+
         int q157Result = getCheckedID150Value(binding.question157.getCheckedRadioButtonId(), R.id.question_157a, R.id.question_157b, R.id.question_157c, R.id.question_157d, R.id.question_157e);
+        perfomanceResult = perfomanceResult + q157Result;
         serveySection10Request.setQno157(q157Result);
-        int q150Restly = getCheckedID150Value(binding.question158.getCheckedRadioButtonId(), R.id.question_158a, R.id.question_158b, R.id.question_158c, R.id.question_158d, R.id.question_158e);
-        serveySection10Request.setQno158(q150Restly);
-        serveySection10Request.setQno159(getCheckedID150Value(binding.question159.getCheckedRadioButtonId(), R.id.question_159a, R.id.question_159b, R.id.question_159c, R.id.question_159d, R.id.question_159e));
+        int q158R = getCheckedID150Value(binding.question158.getCheckedRadioButtonId(), R.id.question_158a, R.id.question_158b, R.id.question_158c, R.id.question_158d, R.id.question_158e);
+        perfomanceResult = perfomanceResult + q158R;
+        serveySection10Request.setQno158(q158R);
+        int q159R = getCheckedID150Value(binding.question159.getCheckedRadioButtonId(), R.id.question_159a, R.id.question_159b, R.id.question_159c, R.id.question_159d, R.id.question_159e);
+        perfomanceResult = perfomanceResult + q159R;
+        serveySection10Request.setQno159(q159R);
+
         ApiInterface apiClient = ApiClient.getClient().create(ApiInterface.class);
         apiClient.putServeySection10AData(eligibleResponse.houseHoldId, serveySection10Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
-                    binding.cdResult.setText(response.body().get("cdResult").getAsString());
+                    int screenPositiveNegative = 0;
+                    if (behaviorResult >= 2 && perfomanceResult >= 4) {
+                        screenPositiveNegative = 1;
+                    }
+                    binding.cdResult.setText(behaviorResult + " - " + perfomanceResult + " - " + response.body().get("cdResult").getAsString() + " - " + screenPositiveNegative);
                 }
             }
 
