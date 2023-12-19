@@ -170,7 +170,7 @@ public class Section10Activity extends AppCompatActivity {
                     if (behaviorResult >= 2 && perfomanceResult >= 4) {
                         screenPositiveNegative = 1;
                     }
-                    binding.cdResult.setText(behaviorResult + " - " + perfomanceResult + " - " + response.body().get("cdResult").getAsString() + " - " + screenPositiveNegative);
+                    binding.cdResult.setText("" + screenPositiveNegative);
                 }
             }
 

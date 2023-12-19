@@ -223,8 +223,6 @@ public class Section11Activity extends AppCompatActivity {
                         R.id.question_168_c, R.id.question_168_d) +
                 getCheckedIDValue(binding.question176.getCheckedRadioButtonId(), R.id.question_176_a, R.id.question_176_b,
                         R.id.question_176_c, R.id.question_176_d) +
-                getCheckedIDValue(binding.question171.getCheckedRadioButtonId(), R.id.question_171_a, R.id.question_171_b,
-                        R.id.question_171_c, R.id.question_171_d) +
                 getCheckedIDValue(binding.question177.getCheckedRadioButtonId(), R.id.question_177_a, R.id.question_177_b,
                         R.id.question_177_c, R.id.question_177_d) +
                 getCheckedIDValue(binding.question192.getCheckedRadioButtonId(), R.id.question_192_a, R.id.question_192_b,

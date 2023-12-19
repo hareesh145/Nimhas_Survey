@@ -121,10 +121,10 @@ public class Section7aActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     try {
                         int screenPositiveNegative = 0;
-                        if (response.body().get("mchatResult").getAsInt() >= 3) {
+                        if (calculateMerchantResult() >= 3) {
                             screenPositiveNegative = 1;
                         }
-                        binding.merchantResult.setText(calculateMerchantResult() + " - " + response.body().get("mchatResult") + " - " + screenPositiveNegative);
+                        binding.merchantResult.setText(""+screenPositiveNegative);
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.merchantResult.setText("0");

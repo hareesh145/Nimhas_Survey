@@ -57,9 +57,9 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -94,9 +94,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
+                        android:focusable="false"
                         android:hint="Number"
                         android:padding="10dp"
-                        android:focusable="false"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -175,9 +175,9 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1949,7 +1949,6 @@
                     </RadioGroup>
 
 
-
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/rcads_score"
                         android:layout_width="match_parent"
@@ -2022,9 +2021,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:padding="10dp"
+                        android:text="RCADS Self Screener : 0"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="RCADS Self Screener : 0"/>
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -2035,6 +2035,7 @@
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

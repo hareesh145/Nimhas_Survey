@@ -269,12 +269,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
             Log.d("selectedSleepingProblem", "Selected value: " + selectedSleepingProblem);
         });
 
-        binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkRCADSValue();
-            }
-        });
+        binding.rcadsScore.setOnClickListener(v -> checkRCADSValue());
 
         CrossCheckOCD.setOnCheckedChangeListener(this);
         ScaryWhileSleep.setOnCheckedChangeListener(this);
@@ -300,6 +295,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         MorbidContemplation.setOnCheckedChangeListener(this);
         Glossophobia.setOnCheckedChangeListener(this);
         Palpitations.setOnCheckedChangeListener(this);
+        NighttimeAnxiety.setOnCheckedChangeListener(this);
         binding.immobility.setOnCheckedChangeListener(this);
         binding.anxietyAboutAnxiety.setOnCheckedChangeListener(this);
         binding.OCD.setOnCheckedChangeListener(this);
@@ -526,7 +522,9 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
 //                        } else {
 //                            binding.MD20.setText("0");
 //                        }
-                        binding.SA35.setText(calculateSA() + " - " + userResponse.get("separationAnxiety"));
+                        int calculateSA = calculateSA();
+                        Log.d("TAG", "onResponse: " + calculateSA);
+                        binding.SA35.setText(calculateSA + " - " + userResponse.get("separationAnxiety"));
 //                        if (userResponse.get("separationAnxiety").getAsInt() >= 65) {
 //                            binding.SA35.setText("1");
 //                        } else {

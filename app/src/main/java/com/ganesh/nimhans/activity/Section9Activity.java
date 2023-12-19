@@ -226,17 +226,21 @@ public class Section9Activity extends AppCompatActivity {
                             int calculateISSResult = calculateISSResult();
                             int calculateHssResult = calculateHssResult();
                             int calculateOSSResult = calculateOSSResult();
-                            binding.inAttentionSubsetScore.setText(calculateISSResult + " - " + userResponse.get("inattentionSubsetScore").getAsString());
-                            binding.hyperactivitySubsetScore.setText(calculateHssResult + " - " + userResponse.get("hyperAcctivitySubsetScore").getAsString());
-                            binding.oddSubsetScore.setText(calculateOSSResult + " - " + userResponse.get("oddSubsetScore").getAsString());
-
-                            if (calculateISSResult >= 13
-                                    || calculateHssResult >= 13
-                                    || calculateOSSResult >= 8) {
-                                binding.rcadsResult.setText("RCADS Self Screener : 1");
-                            } else {
-                                binding.rcadsResult.setText("RCADS Self Screener : 0");
+                            int screenPositiveNegativeISS = 0;
+                            if (calculateISSResult >= 13) {
+                                screenPositiveNegativeISS = 1;
                             }
+                            int screenPositiveNegativeHss = 0;
+                            if (calculateHssResult >= 13) {
+                                screenPositiveNegativeHss = 1;
+                            }
+                            int screenPositiveNegativeOss = 0;
+                            if (calculateOSSResult >= 8) {
+                                screenPositiveNegativeOss = 1;
+                            }
+                            binding.inAttentionSubsetScore.setText(calculateISSResult + " - " + screenPositiveNegativeISS);
+                            binding.hyperactivitySubsetScore.setText(calculateHssResult + " - " + screenPositiveNegativeHss);
+                            binding.oddSubsetScore.setText(calculateOSSResult + " - " + screenPositiveNegativeOss);
 
 
                         } catch (Exception e) {

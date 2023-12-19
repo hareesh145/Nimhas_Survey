@@ -120,10 +120,10 @@ public class Section6Activity extends AppCompatActivity {
                     Log.d("response", "onResponse: " + userResponse);
                     try {
                         int screenPositiveNegative = 0;
-                        if (userResponse.get("idResult").getAsInt() >= 4) {
+                        if (calculateIDResult() >= 4) {
                             screenPositiveNegative = 1;
                         }
-                        binding.idScannerResult.setText(calculateIDResult() + " - " + userResponse.get("idResult") + " - " + screenPositiveNegative);
+                        binding.idScannerResult.setText(""+screenPositiveNegative);
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.idScannerResult.setText("0");
