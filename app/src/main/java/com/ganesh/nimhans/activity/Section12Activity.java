@@ -8,6 +8,8 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
@@ -114,6 +116,59 @@ public class Section12Activity extends AppCompatActivity {
                 } else {
                     binding.options216219.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+
+        binding.modesOfTravel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.others_travel) {
+                    binding.othersSpecify218.setVisibility(View.VISIBLE);
+                } else {
+                    binding.othersSpecify218.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        binding.othersSpecify210.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().isEmpty()) {
+                    binding.didNotSeekCare.setVisibility(View.VISIBLE);
+                } else {
+                    binding.didNotSeekCare.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        binding.othersSpecify212.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().isEmpty()) {
+                    binding.mentalHealthCare.setVisibility(View.VISIBLE);
+                } else {
+                    binding.mentalHealthCare.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 

@@ -362,7 +362,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:layout_marginStart="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
                             android:layoutDirection="rtl"
                             android:text="@string/did_not_seek_care_in_last_12_months"
                             android:textAlignment="textStart" />
@@ -466,8 +467,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:layout_marginStart="30dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
                             android:layoutDirection="rtl"
+
                             android:text="@string/mental_health"
                             android:textAlignment="textStart" />
 
@@ -896,12 +899,13 @@ MARK IN KILOMETERS"
                     </RadioGroup>
 
                     <EditText
-                        android:id="@+id/others_specify_216"
+                        android:id="@+id/others_specify_218"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -950,7 +954,7 @@ MARK IN KILOMETERS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="A. AT LEAST ONCE A MONTH"
+                            android:text="@string/at_least_once_a_month"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1014,7 +1018,7 @@ MARK IN KILOMETERS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="AT LEAST ONCE IN 3 MONTHS"
+                            android:text="@string/at_least_once_in_3_months"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1077,7 +1081,7 @@ MARK IN KILOMETERS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="WHENEVER YOU NEED PSYCHO-SOCIAL SUPPORT"
+                            android:text="@string/whenever_you_need_psycho_social_support"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

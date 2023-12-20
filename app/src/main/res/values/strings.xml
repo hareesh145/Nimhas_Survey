@@ -268,6 +268,9 @@
     <string name="very_difficult">Very Difficult</string>
     <string name="not_possible">Not Possible</string>
     <string name="neither_heard_nor_visited">Neither Heard Nor Visited</string>
+    <string name="at_least_once_a_month">At Least Once A Month</string>
+    <string name="at_least_once_in_3_months">At Least Once In 3 Months</string>
+    <string name="whenever_you_need_psycho_social_support">Whenever You Need Psycho-social Support</string>
 
     <string-array name="illness_dropdown">
         <item>Govt./Municipal Hospital</item>
