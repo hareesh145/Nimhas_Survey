@@ -45,6 +45,6 @@ public class ChildrenResult extends AppCompatActivity {
 
     }
     public void onClickNextSection(View v) {
-        startActivity(new Intent(activity, Section3bActivity.class));
+        startActivity(new Intent(activity, ResultPage.class));
     }
 }

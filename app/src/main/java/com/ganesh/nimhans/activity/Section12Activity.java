@@ -20,6 +20,7 @@ import com.ganesh.nimhans.databinding.ActivitySection12Binding;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
+import com.skydoves.powerspinner.OnSpinnerItemSelectedListener;
 
 public class Section12Activity extends AppCompatActivity {
     Activity activity;
@@ -48,6 +49,32 @@ public class Section12Activity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
+
+        binding.illnessCare207.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>) (oldIndex, oldItem, newIndex, newItem) -> {
+            if (newItem.equals("Others")) {
+                binding.othersSpecify207.setVisibility(View.VISIBLE);
+            } else {
+                binding.othersSpecify207.setVisibility(View.GONE);
+            }
+        });
+
+        binding.illnessCare208.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>) (oldIndex, oldItem, newIndex, newItem) -> {
+            if (newItem.equals("Others")) {
+                binding.othersSpecify208.setVisibility(View.VISIBLE);
+            } else {
+                binding.othersSpecify208.setVisibility(View.GONE);
+            }
+        });
+
+        binding.illnessCare211.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>) (oldIndex, oldItem, newIndex, newItem) -> {
+            if (newItem.equals("Others")) {
+                binding.othersSpecify211.setVisibility(View.VISIBLE);
+            } else {
+                binding.othersSpecify211.setVisibility(View.GONE);
+            }
+        });
+
+
         binding.section12RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -63,6 +90,29 @@ public class Section12Activity extends AppCompatActivity {
                         respondentTxt = "Guardian";
                         binding.section12Respondent.setVisibility(View.VISIBLE);
                         break;
+                }
+            }
+        });
+
+
+        binding.options209.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.yes_209) {
+                    binding.options210213.setVisibility(View.VISIBLE);
+                } else {
+                    binding.options210213.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        binding.heardVisitedOptions.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.nor_visited) {
+                    binding.options216219.setVisibility(View.GONE);
+                } else {
+                    binding.options216219.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -84,8 +134,9 @@ public class Section12Activity extends AppCompatActivity {
 //        startActivity(new Intent(activity, Section11Activity.class));
         finish();
     }
+
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section12Activity.this,ResultPage.class);
+        Intent intent = new Intent(Section12Activity.this, ResultPage.class);
         startActivity(intent);
     }
 }

@@ -65,7 +65,7 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="14"
-                            android:visibility="invisible"
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -75,6 +75,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
                             android:focusable="false"
+                            android:visibility="gone"
                             android:hint="Date Picker"
                             android:inputType="date"
                             android:onClick="showDatePickerDialog1"
@@ -96,7 +97,7 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="15"
-                            android:visibility="invisible"
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -104,9 +105,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Result Code :"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:text="Result :"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                     <RadioGroup
@@ -220,6 +223,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -247,6 +251,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -297,6 +302,7 @@
                             android:focusable="false"
                             android:hint="Time Picker"
                             android:inputType="time"
+                            android:visibility="gone"
                             android:onClick="showTimePickerDialog"
                             android:padding="10dp"
                             android:textAllCaps="false"
@@ -325,6 +331,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
                             android:hint="Total Visits"
+                            android:visibility="gone"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />

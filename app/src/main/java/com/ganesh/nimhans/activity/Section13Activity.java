@@ -13,11 +13,13 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
+import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection13Binding;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Util;
@@ -56,6 +58,18 @@ public class Section13Activity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
 
+        binding.options220.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.no_220) {
+                    binding.q221.setVisibility(View.GONE);
+                    binding.options221.setVisibility(View.GONE);
+                } else {
+                    binding.q221.setVisibility(View.VISIBLE);
+                    binding.options221.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 
@@ -63,7 +77,7 @@ public class Section13Activity extends AppCompatActivity {
         Util.showToast(activity, "Successfully data saved");
         Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
         finishAffinity();
-        Intent intent = new Intent(Section13Activity.this,ResultPage.class);
+        Intent intent = new Intent(Section13Activity.this, ResultPage.class);
         startActivity(intent);
     }
 
@@ -149,6 +163,7 @@ public class Section13Activity extends AppCompatActivity {
         };
         new DatePickerDialog(this, dateSetListener, myCalendar2.get(Calendar.YEAR), myCalendar2.get(Calendar.MONTH), myCalendar2.get(Calendar.DAY_OF_MONTH)).show();
     }
+
     public void onClickPreviousSection(View v) {
         startActivity(new Intent(activity, Section12Activity.class));
 

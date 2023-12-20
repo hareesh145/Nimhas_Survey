@@ -144,7 +144,7 @@ public class Section7bActivity extends AppCompatActivity {
                         if (calculateIASQResult() >= 1) {
                             screenPositiveNegative = 1;
                         }
-                        binding.iasqResultTxt.setText("" + screenPositiveNegative);
+                        binding.iasqResultTxt.setText(calculateIASQResult() + " - "  + screenPositiveNegative);
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.iasqResultTxt.setText("0");

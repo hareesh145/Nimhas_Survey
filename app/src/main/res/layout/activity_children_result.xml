@@ -121,6 +121,7 @@
                             android:layout_marginTop="20dp"
                             android:onClick="@{handlers::onClickPreviousSection}"
                             android:text="Previous Section"
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />
                         <TextView

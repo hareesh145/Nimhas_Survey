@@ -12,23 +12,71 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
-
         <TextView
             android:id="@+id/child_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:textStyle="bold"
             android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/child_id"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/taluka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/district"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/village"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/taluka"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/village"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/child_parent_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/child_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/child_id"
+            android:layout_below="@+id/child_parent_name"
             android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="14sp" />
-
 
         <TextView
             android:id="@+id/child_age"
@@ -36,51 +84,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/child_name"
             android:layout_margin="10dp"
-            android:textSize="14sp" />
-
-
-        <TextView
-            android:id="@+id/child_parent_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/child_age"
-            android:layout_margin="10dp"
-            android:textSize="14sp" />
-        <TextView
-            android:id="@+id/district"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_below="@+id/child_parent_name"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/taluka"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/district"
-            android:layout_margin="10dp"
-            android:textSize="14sp" />
-
-
-        <TextView
-            android:id="@+id/village"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/child_name"
-            android:visibility="gone"
-            android:layout_margin="10dp"
-            android:textSize="14sp" />
-
-
-        <TextView
-            android:id="@+id/address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/taluka"
-            android:layout_margin="10dp"
-            android:textSize="14sp" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -246,13 +246,36 @@
         <item>Select Education</item>
         <item>Illiterate</item>
         <item>Pre- Primary</item>
+        <item>Primary</item>
         <item>Middle school</item>
         <item>High school</item>
         <item>Intermediate</item>
         <item>Degree/diploma</item>
-        <item>Student</item>
         <item>Post-graduation and above</item>
     </string-array>
     <string name="children_s_result">Children\'s Result</string>
     <string name="calculate">Calculate</string>
+    <string name="did_not_seek_care_in_last_12_months">Did Not Seek Care In Last 12 Months</string>
+    <string name="mental_health">Mental Health</string>
+    <string name="heard_not_visited">Heard Not Visited</string>
+    <string name="visited">Visited</string>
+    <string name="public_buses">Public Buses</string>
+    <string name="auto_rickshaw">Auto Rickshaw</string>
+    <string name="train">Train</string>
+    <string name="private_buses">Private Buses</string>
+    <string name="taxis">Taxis</string>
+    <string name="some_what_possible">Some What Possible</string>
+    <string name="very_difficult">Very Difficult</string>
+    <string name="not_possible">Not Possible</string>
+    <string name="neither_heard_nor_visited">Neither Heard Nor Visited</string>
+
+    <string-array name="illness_dropdown">
+        <item>Govt./Municipal Hospital</item>
+        <item>Private Hospital/Private Doctor/Clinic</item>
+        <item>Ngo/Trust Hospital/Clinic</item>
+        <item>Vaidya/Hakim/Homeopath</item>
+        <item>Traditional Healer</item>
+        <item>Pharmacy/Drugstore</item>
+        <item>Others</item>
+    </string-array>
 </resources>

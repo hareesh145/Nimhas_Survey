@@ -85,13 +85,13 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
         }
 
         public void bind(EligibleResponse eligibleResponse) {
-            child_parent_name.setText("Parent Name : " + eligibleResponse.surveySection.demographics.respodentName);
+            child_parent_name.setText("Name of HoH : " + eligibleResponse.surveySection.demographics.respodentName);
             child_name.setText("Child Name : " + eligibleResponse.qno9);
             child_age.setText("Age : " + eligibleResponse.qno12);
             child_id.setText("Child ID : " + eligibleResponse.surveySection.demographics.randamId + "" + eligibleResponse.qno8);
-            district.setText("State & District : " + getSelectedStateName(eligibleResponse.surveySection.demographics.state) + "&" + getSelectedDistrictName(eligibleResponse.surveySection.demographics.district));
-            taluka.setText("Taluka & Village : " + getSelectedTalukaName(eligibleResponse.surveySection.demographics.taluka) + "&" + getSelectedVillageName(eligibleResponse.surveySection.demographics.cityOrTownOrVillage));
-            /*village.setText("Village Name : " + eligibleResponse.surveySection.demographics.cityOrTownOrVillage);*/
+            district.setText("District : " + getSelectedDistrictName(eligibleResponse.surveySection.demographics.district));
+            taluka.setText("Taluka  : " + getSelectedTalukaName(eligibleResponse.surveySection.demographics.taluka));
+            village.setText("Village : " + getSelectedVillageName(eligibleResponse.surveySection.demographics.cityOrTownOrVillage));
             address.setText("Address: " + eligibleResponse.surveySection.demographics.address);
         }
 

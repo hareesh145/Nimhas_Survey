@@ -149,7 +149,7 @@ public class Section3cActivity extends AppCompatActivity {
         intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
         if (YesOrNo.getCheckedRadioButtonId() == R.id.no2) {
-            Intent intentno = new Intent(Section3cActivity.this, Eligiblechildren.class);
+            Intent intentno = new Intent(Section3cActivity.this, ChildrenResult.class);
             startActivity(intentno);
         }else {
             startActivity(intent);

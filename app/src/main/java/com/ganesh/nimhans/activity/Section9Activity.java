@@ -53,13 +53,11 @@ public class Section9Activity extends AppCompatActivity {
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
-        binding.checkAge.setText(ageValue);
         phoneNo = myGameApp.getUserPhoneNo();
-
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
-
+        binding.checkAge.setText(ageValue);
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

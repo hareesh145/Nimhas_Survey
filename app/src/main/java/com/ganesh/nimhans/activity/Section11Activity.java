@@ -60,7 +60,7 @@ public class Section11Activity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
-        binding.checkAge.setText("" + ageValue);
+        binding.checkAge.setText(ageValue);
         binding.section11RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

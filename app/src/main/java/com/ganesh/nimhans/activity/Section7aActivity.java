@@ -121,10 +121,11 @@ public class Section7aActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     try {
                         int screenPositiveNegative = 0;
-                        if (calculateMerchantResult() >= 3) {
+                        int merchantRawResult = calculateMerchantResult();
+                        if ( merchantRawResult>= 3) {
                             screenPositiveNegative = 1;
                         }
-                        binding.merchantResult.setText(""+screenPositiveNegative);
+                        binding.merchantResult.setText(merchantRawResult +" - " +screenPositiveNegative);
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.merchantResult.setText("0");
@@ -212,4 +213,5 @@ public class Section7aActivity extends AppCompatActivity {
         Intent intent = new Intent(Section7aActivity.this, ResultPage.class);
         startActivity(intent);
     }
+
 }

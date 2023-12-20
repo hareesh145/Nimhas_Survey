@@ -58,9 +58,9 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -106,49 +106,49 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/section12RespondentGrp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/section12RespondentGrp"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/mother_btn"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="1. Mother"
-                            android:id="@+id/mother_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/father_btn"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:id="@+id/father_btn"
                             android:text="2. Father"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/gaurdian_btn"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="3. Guardian"
-                            android:id="@+id/gaurdian_btn"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
                     <EditText
+                        android:id="@+id/section12Respondent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
-                        android:id="@+id/section12Respondent"
-                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -175,14 +175,36 @@
                             android:textColor="#000000" />
                     </LinearLayout>
 
-                    <EditText
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/illness_care_207"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="Select illness Care"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_color="@color/black"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_item_array="@array/illness_dropdown"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white" />
+
+                    <EditText
+                        android:id="@+id/others_specify_207"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="15dp"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -209,14 +231,36 @@
                             android:textColor="#000000" />
                     </LinearLayout>
 
-                    <EditText
+                    <com.skydoves.powerspinner.PowerSpinnerView
+                        android:id="@+id/illness_care_208"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="Select illness Care"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        app:spinner_arrow_tint="@color/black"
+                        app:spinner_divider_color="@color/black"
+                        app:spinner_divider_size="0.4dp"
+                        app:spinner_item_array="@array/illness_dropdown"
+                        app:spinner_popup_animation="dropdown"
+                        app:spinner_popup_background="@color/white" />
+
+                    <EditText
+                        android:id="@+id/others_specify_208"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="15dp"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -245,179 +289,239 @@
 
 
                     <RadioGroup
+                        android:id="@+id/options_209"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/yes_209"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Yes"
+                            android:text="Yes"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/no_209"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. No"
+                            android:text="No"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
                     <LinearLayout
+                        android:id="@+id/options_210_213"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="210."
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="MHow many times have you sought services or information from a doctor or a nurse for these services in the last 12 months?"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="Specify"
-                        android:padding="10dp"
-                        android:maxLength="2"
-                        android:inputType="number"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="210."
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="MHow many times have you sought services or information from a doctor or a nurse for these services in the last 12 months?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="211."
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-
-                        <TextView
+                        <EditText
+                            android:id="@+id/others_specify_210"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Specify"
+                            android:inputType="number"
+                            android:maxLength="2"
                             android:padding="10dp"
-                            android:text="Thinking about your last visit, where did you go?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="Specify"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="212."
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="When you last saw a doctor or a nurse, what was the main reason for going?"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="Specify"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:text="213."
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="At this facility did you see any posters on MENTAL HEALTH?"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-
-                    <RadioGroup
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp">
 
                         <RadioButton
-                            android:layout_width="fill_parent"
+                            android:id="@+id/did_not_seek_care"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:layout_marginStart="30dp"
                             android:layoutDirection="rtl"
-                            android:text="1. Yes"
+                            android:text="@string/did_not_seek_care_in_last_12_months"
                             android:textAlignment="textStart" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="211."
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Thinking about your last visit, where did you go?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <com.skydoves.powerspinner.PowerSpinnerView
+                            android:id="@+id/illness_care_211"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Select illness Care"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            app:spinner_arrow_tint="@color/black"
+                            app:spinner_divider_color="@color/black"
+                            app:spinner_divider_size="0.4dp"
+                            app:spinner_item_array="@array/illness_dropdown"
+                            app:spinner_popup_animation="dropdown"
+                            app:spinner_popup_background="@color/white" />
+
+                        <EditText
+                            android:id="@+id/others_specify_211"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Specify"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="212."
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="When you last saw a doctor or a nurse, what was the main reason for going?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+
+                        <EditText
+                            android:id="@+id/others_specify_212"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Specify"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
                         <RadioButton
-                            android:layout_width="fill_parent"
+                            android:id="@+id/mental_health_care"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:layout_marginStart="30dp"
                             android:layoutDirection="rtl"
-                            android:text="2. No"
+                            android:text="@string/mental_health"
                             android:textAlignment="textStart" />
 
-                    </RadioGroup>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="213."
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="At this facility did you see any posters on MENTAL HEALTH?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+
+                        <RadioGroup
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="1. Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="2. No"
+                                android:textAlignment="textStart" />
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -532,9 +636,75 @@
                             android:textColor="#000000" />
                     </LinearLayout>
 
+                    <RadioGroup
+                        android:id="@+id/heard_visited_options"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp">
+
+                        <RadioButton
+                            android:id="@+id/have_not_visited"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="@string/heard_not_visited"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/visited"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="@string/visited"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/nor_visited"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="@string/neither_heard_nor_visited"
+                            android:textAlignment="textStart" />
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/options_216_219"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="216."
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="What are all the services available at these clinics?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -632,9 +802,9 @@ MARK IN KILOMETERS"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Number"
-                        android:padding="10dp"
                         android:inputType="number"
                         android:maxLength="3"
+                        android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -665,57 +835,68 @@ MARK IN KILOMETERS"
 
 
                     <RadioGroup
+                        android:id="@+id/modes_of_travel"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
+                            android:id="@+id/public_buses"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. PUBLIC BUSES "
+                            android:text="@string/public_buses"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/auto_rickshaw"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. AUTO RICKSHAW "
+                            android:text="@string/auto_rickshaw"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/train"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. TRAIN"
+                            android:text="@string/train"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/private_buses"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. PRIVATE BUSES"
+                            android:text="@string/private_buses"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/taxis"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="5. TAXIS"
+                            android:text="@string/taxis"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/others_travel"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Other"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="96. Other" />
-
                     <EditText
+                        android:id="@+id/others_specify_216"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
@@ -785,7 +966,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Easy"
+                            android:text="Easy"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -793,7 +974,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. SOME WHAT POSSIBLE"
+                            android:text="@string/some_what_possible"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -801,7 +982,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. VERY DIFFICULT"
+                            android:text="@string/very_difficult"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -809,7 +990,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. NOT POSSIBLE"
+                            android:text="@string/not_possible"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -848,7 +1029,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Easy"
+                            android:text="Easy"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -856,7 +1037,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. SOME WHAT POSSIBLE"
+                            android:text="@string/some_what_possible"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -864,7 +1045,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. VERY DIFFICULT"
+                            android:text="@string/very_difficult"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -872,7 +1053,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. NOT POSSIBLE"
+                            android:text="@string/not_possible"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -911,7 +1092,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="1. Easy"
+                            android:text="Easy"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -919,7 +1100,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="2. SOME WHAT POSSIBLE"
+                            android:text="@string/some_what_possible"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -927,7 +1108,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="3. VERY DIFFICULT"
+                            android:text="@string/very_difficult"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -935,9 +1116,12 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="4. NOT POSSIBLE"
+                            android:text="@string/not_possible"
                             android:textAlignment="textStart" />
                     </RadioGroup>
+
+                    </LinearLayout>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -947,6 +1131,7 @@ MARK IN KILOMETERS"
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

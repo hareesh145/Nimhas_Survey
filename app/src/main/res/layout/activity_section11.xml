@@ -3477,7 +3477,7 @@
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="RCADS Self Screener : 0"/>
+                        android:text="RCADS Self Screener : "/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
