@@ -163,7 +163,18 @@
                         android:text="What is the relationship of (NAME) to you?"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
-
+                    <EditText
+                        android:id="@+id/self_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:background="@drawable/edit_text_border"
+                        android:text="Self"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:textColor="@color/black" />
                     <com.skydoves.powerspinner.PowerSpinnerView
                         android:id="@+id/relation"
                         android:layout_width="match_parent"
@@ -174,6 +185,7 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
+                        android:visibility="gone"
                         android:textColorHint="@color/black"
                         app:spinner_arrow_tint="@color/black"
                         app:spinner_divider_color="@color/black"
@@ -352,6 +364,11 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -530,7 +547,7 @@
                             android:textAlignment="textStart" />
                         <!--                    </RadioGroup>-->
                     </LinearLayout>
-
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

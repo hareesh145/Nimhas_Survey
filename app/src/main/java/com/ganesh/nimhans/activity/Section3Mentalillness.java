@@ -1,5 +1,8 @@
 package com.ganesh.nimhans.activity;
 
+import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,7 +51,7 @@ public class Section3Mentalillness extends AppCompatActivity {
         specify4layout = binding.specify4layout;
         mental_layout = binding.mentalLayout;
         Specify4 = binding.Specify4;
-        AnswerType1.setOnCheckedChangeListener((group, checkedId) -> {
+        binding.answerType1.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedTobacco = selectedValue;
@@ -98,6 +101,8 @@ public class Section3Mentalillness extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Intent intent = new Intent(Section3Mentalillness.this, Eligiblechildren.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
         startActivity(intent);
     }
 

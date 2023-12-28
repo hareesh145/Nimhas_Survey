@@ -3386,6 +3386,12 @@
                             android:id="@+id/question_206_d"
                             android:textAlignment="textStart" />
                     </RadioGroup>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/rcads_score"
@@ -3478,6 +3484,7 @@
                         android:textSize="20dp"
                         android:textStyle="bold"
                         android:text="RCADS Self Screener : "/>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3502,6 +3509,7 @@
                             android:gravity="right"
                             android:onClick="@{handlers::onClickChildrenResult}"
                             android:padding="15dp"
+                            android:visibility="gone"
                             android:text="@string/children_s_result"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />

@@ -82,6 +82,15 @@
                 android:text="Get Reports"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="@drawable/button_bg_login"
+                android:onClick="@{handlers::onClickHouseholdReports}"
+                android:text="Household Reports"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pending_list_btn"

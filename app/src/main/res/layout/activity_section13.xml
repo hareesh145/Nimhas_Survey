@@ -612,11 +612,20 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Other"
+                            android:text="Others"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
-
+                    <EditText
+                        android:id="@+id/others_specify_222"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="Specify"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
                     <RadioGroup
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"

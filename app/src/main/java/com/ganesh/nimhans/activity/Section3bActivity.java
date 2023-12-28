@@ -103,6 +103,8 @@ public class Section3bActivity extends AppCompatActivity {
         maritalState = getIntent().getStringExtra(MARITAL_STATUS);
         if (getIntent().hasExtra(NO_OF_PEOPLE)) {
             binding.totalNoOfPeople.setVisibility(View.GONE);
+            binding.relation.setVisibility(View.VISIBLE);
+            binding.selfEdittext.setVisibility(View.GONE);
             binding.NoOfPeople.setText(String.valueOf(getIntent().getIntExtra(NO_OF_PEOPLE, 0)));
             Log.d("TAG", "onCreate: " + binding.NoOfPeople.getText().toString());
             binding.lineNo.setText(String.valueOf(getIntent().getIntExtra(LINE_NO, 0)));
@@ -110,6 +112,7 @@ public class Section3bActivity extends AppCompatActivity {
         } else {
             //First time gets invoked
             binding.totalNoOfPeople.setVisibility(View.VISIBLE);
+            binding.relation.setVisibility(View.GONE);
             String nameOfRespondent = PreferenceConnector.readString(this, PreferenceConnector.NAME_OF_RESPONDENT, "");
             binding.Name.setText(nameOfRespondent);
             binding.whatIsRelationTxt.setText("What is the relationship of (" + nameOfRespondent + ") to you?");

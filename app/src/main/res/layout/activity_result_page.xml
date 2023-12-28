@@ -187,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Other"
+                            android:text="Others"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -196,6 +196,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView

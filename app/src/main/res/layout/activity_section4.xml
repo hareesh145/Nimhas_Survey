@@ -3316,7 +3316,11 @@
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
-
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/rcads_score"
                         android:layout_width="match_parent"
@@ -3453,6 +3457,7 @@
                         android:text="RCADS Self Screener : ">
 
                     </TextView>
+</LinearLayout>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

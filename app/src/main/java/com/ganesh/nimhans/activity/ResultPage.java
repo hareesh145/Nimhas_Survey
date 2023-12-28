@@ -52,11 +52,10 @@ public class ResultPage extends AppCompatActivity {
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
                 switch (checkedId) {
-                    case R.id.c:
                     case R.id.h:
                         binding.commentResultCode.setVisibility(View.VISIBLE);
                         break;
-                    case R.id.b:
+                    default:
                         binding.commentResultCode.setVisibility(View.GONE);
                         break;
 

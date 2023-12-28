@@ -339,7 +339,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="MHow many times have you sought services or information from a doctor or a nurse for these services in the last 12 months?"
+                                android:text="How many times have you sought services or information from a doctor or a nurse for these services in the last 12 months?"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -449,8 +449,30 @@
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
-
-
+                        <RadioGroup
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/question212"
+                            android:layout_marginLeft="30dp">
+                        <RadioButton
+                            android:id="@+id/mental_health_care"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="30dp"
+                            android:layoutDirection="rtl"
+                            android:text="@string/mental_health"
+                            android:textAlignment="textStart" />
+                        <RadioButton
+                            android:id="@+id/other"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="30dp"
+                            android:layoutDirection="rtl"
+                            android:text="Others"
+                            android:textAlignment="textStart" />
+                        </RadioGroup>
                         <EditText
                             android:id="@+id/others_specify_212"
                             android:layout_width="match_parent"
@@ -459,21 +481,9 @@
                             android:background="@drawable/edit_text_border"
                             android:hint="Specify"
                             android:padding="10dp"
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
-
-                        <RadioButton
-                            android:id="@+id/mental_health_care"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginLeft="30dp"
-                            android:layout_marginTop="15dp"
-                            android:layoutDirection="rtl"
-
-                            android:text="@string/mental_health"
-                            android:textAlignment="textStart" />
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

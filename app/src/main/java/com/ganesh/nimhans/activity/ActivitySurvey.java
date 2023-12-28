@@ -21,6 +21,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySurveyBinding;
 import com.ganesh.nimhans.model.Book;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -114,6 +115,46 @@ public class ActivitySurvey extends AppCompatActivity {
         });
     }
 
+    public void onClickHouseholdReports(View view) {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
+                PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        binding.progressBar.setVisibility(View.VISIBLE);
+        call.enqueue(new Callback<List<EligibleResponse>>() {
+            @Override
+            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+                if (binding.progressBar.isShown())
+                    binding.progressBar.setVisibility(View.GONE);
+                List<EligibleResponse> loginResponse = response.body();
+
+                Log.d("TAG", "::::::::: " + loginResponse);
+                HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
+                HSSFSheet hssfSheet = hssfWorkbook.createSheet("Survey");
+                HSSFRow hssfRow = hssfSheet.createRow(0);
+                HSSFRow dataRow = hssfSheet.createRow(1);
+                int i = 0;
+//                for (Map.Entry<String, JsonElement> entry : loginResponse.entrySet()) {
+//                    if (i < 200) {
+//                        HSSFCell hssfCell = hssfRow.createCell(i);
+//                        hssfCell.setCellValue(entry.getKey());
+//                        HSSFCell dataCell = dataRow.createCell(i);
+//                        dataCell.setCellValue(String.valueOf(loginResponse.get(entry.getKey())));
+//                        i++;
+//                    }
+//                }
+//                saveWorkBookHousehold(hssfWorkbook);
+            }
+
+            @Override
+            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+                if (binding.progressBar.isShown())
+                    binding.progressBar.setVisibility(View.GONE);
+                Util.showToast(activity, getResources().getString(R.string.service_error));
+                System.out.println("failed Obj: " + t);
+            }
+        });
+    }
+
     private void saveWorkBook(HSSFWorkbook hssfWorkbook) {
         StorageManager storageManager = (StorageManager) getSystemService(STORAGE_SERVICE);
         StorageVolume storageVolume = storageManager.getStorageVolumes().get(0); // internal storage
@@ -123,6 +164,32 @@ public class ActivitySurvey extends AppCompatActivity {
 //            fileOutput = new File(storageVolume.getDirectory().getPath() + "/Download/SurveyData.xlsx");
 //        } else {
         String csvFile = "SurveyData.xls";
+        sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        directory = new File(sd.getAbsolutePath());
+        fileOutput = new File(directory, csvFile);
+//        }
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(fileOutput);
+            hssfWorkbook.write(fileOutputStream);
+            fileOutputStream.close();
+            Toast.makeText(this, "Report Downloaded Please check in Downloads SurveyData.xlsx", Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+            Toast.makeText(this, "File Creation Failed", Toast.LENGTH_LONG).show();
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void saveWorkBookHousehold(HSSFWorkbook hssfWorkbook) {
+        StorageManager storageManager = (StorageManager) getSystemService(STORAGE_SERVICE);
+        StorageVolume storageVolume = storageManager.getStorageVolumes().get(0); // internal storage
+
+        File fileOutput = null;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+//            fileOutput = new File(storageVolume.getDirectory().getPath() + "/Download/SurveyData.xlsx");
+//        } else {
+        String csvFile = "HouseHoldReport.xls";
         sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         directory = new File(sd.getAbsolutePath());
         fileOutput = new File(directory, csvFile);

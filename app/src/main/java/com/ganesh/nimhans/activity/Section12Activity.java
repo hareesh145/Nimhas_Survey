@@ -107,6 +107,16 @@ public class Section12Activity extends AppCompatActivity {
                 }
             }
         });
+        binding.question212.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.other) {
+                    binding.othersSpecify212.setVisibility(View.VISIBLE);
+                } else {
+                    binding.othersSpecify212.setVisibility(View.GONE);
+                }
+            }
+        });
 
         binding.heardVisitedOptions.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

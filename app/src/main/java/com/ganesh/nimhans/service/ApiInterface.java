@@ -117,6 +117,10 @@ public interface ApiInterface {
     @GET("house-hold/childrens/{id}")
     Call<List<EligibleResponse>> getHouseHoldChilderns(@Path("id") Integer id, @Header("Authorization") String authHeader);
 
+    @GET("house-hold/childrens")
+    Call<List<EligibleResponse>> getAllHouseHoldChilderns(@Header("Authorization") String authHeader);
+
+
     @GET("survey-section/{id}")
     Call<JsonObject> getSurveyReports(@Path("id") Integer itemId, @Header("Authorization") String authHeader);
 
