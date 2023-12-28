@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection3MentalillnessBinding;
+import com.ganesh.nimhans.utils.Constants;
 
 public class Section3Mentalillness extends AppCompatActivity {
     Activity activity;
@@ -51,6 +52,10 @@ public class Section3Mentalillness extends AppCompatActivity {
         specify4layout = binding.specify4layout;
         mental_layout = binding.mentalLayout;
         Specify4 = binding.Specify4;
+
+        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
+        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+
         binding.answerType1.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();

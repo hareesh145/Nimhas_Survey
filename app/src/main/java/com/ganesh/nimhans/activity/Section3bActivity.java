@@ -102,6 +102,7 @@ public class Section3bActivity extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         maritalState = getIntent().getStringExtra(MARITAL_STATUS);
         if (getIntent().hasExtra(NO_OF_PEOPLE)) {
+            binding.maritalStatus1.setClickable(true);
             binding.totalNoOfPeople.setVisibility(View.GONE);
             binding.relation.setVisibility(View.VISIBLE);
             binding.selfEdittext.setVisibility(View.GONE);
@@ -122,6 +123,7 @@ public class Section3bActivity extends AppCompatActivity {
             int checkedID = getCheckedID(maritalState);
             if (checkedID != -1) {
                 binding.maritalStatus1.check(checkedID);
+                binding.maritalStatus1.setClickable(false);
             }
         }
 
