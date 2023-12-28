@@ -122,7 +122,7 @@ public class ActivitySurvey extends AppCompatActivity {
 //        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
 //            fileOutput = new File(storageVolume.getDirectory().getPath() + "/Download/SurveyData.xlsx");
 //        } else {
-        String csvFile = "SurveyData.xlsx";
+        String csvFile = "SurveyData.xls";
         sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         directory = new File(sd.getAbsolutePath());
         fileOutput = new File(directory, csvFile);
@@ -222,8 +222,9 @@ public class ActivitySurvey extends AppCompatActivity {
             //resume tasks needing this permission
         }
     }
+
     public void onClickPendinglist(View v) {
-        Intent intent = new Intent(ActivitySurvey.this, PendingList.class);
+        Intent intent = new Intent(ActivitySurvey.this, PendingDataSearch.class);
         startActivity(intent);
     }
 }

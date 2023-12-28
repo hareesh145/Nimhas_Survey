@@ -61,8 +61,8 @@ public class Section3cActivity extends AppCompatActivity {
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
-        demoGraphicsID = Long.parseLong(String.valueOf(eligibleResponse.surveySection.demographics.demographicsId));
 
+        demoGraphicsID = Long.parseLong(String.valueOf(eligibleResponse.surveySection.demographics.demographicsId));
         ageValue = String.valueOf(eligibleResponse.qno12);
 
 
@@ -151,7 +151,7 @@ public class Section3cActivity extends AppCompatActivity {
         if (YesOrNo.getCheckedRadioButtonId() == R.id.no2) {
             Intent intentno = new Intent(Section3cActivity.this, ChildrenResult.class);
             startActivity(intentno);
-        }else {
+        } else {
             startActivity(intent);
         }
 /*//        binding.progressBar.setVisibility(View.VISIBLE);

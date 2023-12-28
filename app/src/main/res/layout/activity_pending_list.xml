@@ -7,7 +7,7 @@
         <!-- Data -->
         <variable
             name="handlers"
-            type="com.ganesh.nimhans.activity.PendingList" />
+            type="com.ganesh.nimhans.activity.PendingListScreen" />
 
     </data>
 
@@ -31,6 +31,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
+                android:layout_marginBottom="14dp"
                 android:background="@color/app_bg_champ">
 
                 <TextView
@@ -40,7 +41,6 @@
                     android:text="Pending list"
                     android:textColor="@color/white" />
             </RelativeLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"

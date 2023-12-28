@@ -378,7 +378,7 @@ public class Section3bActivity extends AppCompatActivity {
         apiCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Intent intent = new Intent(activity, Eligiblechildren.class);
+                Intent intent = new Intent(activity, Section3Mentalillness.class);
                 int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                 if (familyCount == 0) {
                     PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);

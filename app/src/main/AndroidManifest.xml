@@ -49,6 +49,9 @@
             android:name=".activity.Section3aActivity"
             android:exported="true" />
         <activity
+            android:name=".activity.Section3Mentalillness"
+            android:exported="true" />
+        <activity
             android:name=".activity.Section3bActivity"
             android:exported="true" />
         <activity
@@ -97,7 +100,7 @@
             android:name=".activity.Eligiblechildren"
             android:exported="true" />
         <activity
-            android:name=".activity.PendingList"
+            android:name=".activity.PendingListScreen"
             android:exported="true" />
         <activity
             android:name=".activity.PendingDataSearch"

@@ -23,6 +23,7 @@ import com.ganesh.nimhans.model.UserRequest;
 import com.ganesh.nimhans.model.UserResponse;
 import com.ganesh.nimhans.model.ViewUserResponse;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.model.child.PendingListModel;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -119,6 +120,12 @@ public interface ApiInterface {
     @GET("survey-section/{id}")
     Call<JsonObject> getSurveyReports(@Path("id") Integer itemId, @Header("Authorization") String authHeader);
 
+    //@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode, @Header("Authorization") String authHeader
+    @GET("survey-questions/inprogres/{code}")
+//05061003108003176
+    Call<List<PendingListModel>> getInprogressTasks(@Path("code") String code, @Header("Authorization") String authHeader);
 
+//    0500310061800317
+//    0506000304045257
 }
 

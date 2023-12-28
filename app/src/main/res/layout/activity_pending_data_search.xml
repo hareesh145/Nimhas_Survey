@@ -64,9 +64,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="1"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/state"
@@ -92,9 +92,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="2"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -162,9 +162,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="3"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <com.skydoves.powerspinner.PowerSpinnerView
                             android:id="@+id/taluka"
@@ -196,9 +196,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="4"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <com.skydoves.powerspinner.PowerSpinnerView
                             android:id="@+id/city"
@@ -217,24 +217,16 @@
                             app:spinner_popup_animation="dropdown"
                             app:spinner_popup_background="@color/white" />
                     </LinearLayout>
-                    <LinearLayout
+
+                    <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
-                            android:gravity="right"
-                            android:onClick="@{handlers::onClickSearch}"
-                            android:padding="15dp"
-                            android:text="Search"
-                            android:textAllCaps="false"
-                            android:textColor="@color/app_bg_champ" />
-                    </LinearLayout>
+                        android:layout_margin="30dp"
+                        android:background="@drawable/button_bg_login"
+                        android:onClick="@{handlers::onClickSearch}"
+                        android:text="Search"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

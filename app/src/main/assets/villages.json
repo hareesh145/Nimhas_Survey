@@ -83,7 +83,7 @@
     "District Name": "Dehradun",
     "Sub District Code": "00304",
     "Sub District Name": "Dehradun",
-    "Village Code": 800312,
+    "Village Code": "800312",
     "Village Name": "Doiwala (NP)",
     "Rural\/Urban": "Urban"
   },
@@ -94,7 +94,7 @@
     "District Name": "Dehradun",
     "Sub District Code": "00304",
     "Sub District Name": "Dehradun",
-    "Village Code": 800310,
+    "Village Code": "800310",
     "Village Name": "Dehradun (CB)",
     "Rural\/Urban": "Urban"
   },
@@ -105,7 +105,7 @@
     "District Name": "Dehradun",
     "Sub District Code": "00304",
     "Sub District Name": "Dehradun",
-    "Village Code": 800309,
+    "Village Code": "800309",
     "Village Name": "Dehradun (M.Corp + OG)",
     "Rural\/Urban": "Urban"
   },
@@ -215,7 +215,7 @@
     "District Name": "Dehradun",
     "Sub District Code": "00305",
     "Sub District Name": "Rishikesh",
-    "Village Code": 800313,
+    "Village Code": "800313",
     "Village Name": "Rishikesh (MB)",
     "Rural\/Urban": "Urabn"
   },
@@ -325,7 +325,7 @@
     "District Name": "Pauri",
     "Sub District Code": "00313",
     "Sub District Name": "Kotdwara",
-    "Village Code": 800319,
+    "Village Code": "800319",
     "Village Name": "Kotdwara (MB + OG)",
     "Rural\/Urban": "Urban"
   },
@@ -413,7 +413,7 @@
     "District Name": "Pauri",
     "Sub District Code": "00307",
     "Sub District Name": "Pauri",
-    "Village Code": 800299,
+    "Village Code": "800299",
     "Village Name": "Devaprayag (NP) (Part)",
     "Rural\/Urban": "urban"
   },
@@ -424,7 +424,7 @@
     "District Name": "Pauri",
     "Sub District Code": "00307",
     "Sub District Name": "Pauri",
-    "Village Code": 800316,
+    "Village Code": "800316",
     "Village Name": "Pauri (MB)",
     "Rural\/Urban": "urban"
   },
@@ -435,7 +435,7 @@
     "District Name": "Pauri",
     "Sub District Code": "00310",
     "Sub District Name": "Lansdowne",
-    "Village Code": 800317,
+    "Village Code": "800317",
     "Village Name": "Lansdowne (CB)",
     "Rural\/Urban": "Urban"
   },
@@ -479,7 +479,7 @@
     "District Name": "Almora",
     "Sub District Code": "00329",
     "Sub District Name": "Dwarahat",
-    "Village Code": 52662,
+    "Village Code": "52662",
     "Village Name": "Parkote",
     "Rural\/Urban": "Rural"
   },
@@ -523,7 +523,7 @@
     "District Name": "Almora",
     "Sub District Code": "00329",
     "Sub District Name": "Dwarahat",
-    "Village Code": 800325,
+    "Village Code": "800325",
     "Village Name": "Dwarahat (NP)",
     "Rural\/Urban": "Urban"
   },
@@ -534,7 +534,7 @@
     "District Name": "Almora",
     "Sub District Code": "00328",
     "Sub District Name": "Ranikhet",
-    "Village Code": 800324,
+    "Village Code": "800324",
     "Village Name": "Ranikhet (CB)",
     "Rural\/Urban": "Urban"
   },
@@ -545,7 +545,7 @@
     "District Name": "Almora (Nainital)",
     "Sub District Code": "00340",
     "Sub District Name": "Dwarahat (Nainital)",
-    "Village Code": 800333,
+    "Village Code": "800333",
     "Village Name": "Bhowali (MB)",
     "Rural\/Urban": "Urban"
   },
@@ -633,7 +633,7 @@
     "District Name": "Almora",
     "Sub District Code": "00330",
     "Sub District Name": "Almora",
-    "Village Code": 800326,
+    "Village Code": "800326",
     "Village Name": "Almora (CB)",
     "Rural\/Urban": "Urban"
   },
@@ -655,7 +655,7 @@
     "District Name": "Almora",
     "Sub District Code": "00330",
     "Sub District Name": "Almora",
-    "Village Code": 800327,
+    "Village Code": "800327",
     "Village Name": "Almora (MB)",
     "Rural\/Urban": "Urban"
   },
@@ -765,7 +765,7 @@
     "District Name": "Nainital",
     "Sub District Code": "00342",
     "Sub District Name": "Haldwani",
-    "Village Code": 800335,
+    "Village Code": "800335",
     "Village Name": "Haldwani-cum-Kathgodam (MB + OG)",
     "Rural\/Urban": "Urban"
   },
@@ -853,7 +853,7 @@
     "District Name": "Nainital",
     "Sub District Code": "00340",
     "Sub District Name": "Nainital",
-    "Village Code": 800332,
+    "Village Code": "800332",
     "Village Name": "Nainital (CB)",
     "Rural\/Urban": "Urban"
   },
@@ -864,7 +864,7 @@
     "District Name": "Nainital",
     "Sub District Code": "00340",
     "Sub District Name": "Nainital",
-    "Village Code": 800334,
+    "Village Code": "800334",
     "Village Name": "Bhimtal (NP)",
     "Rural\/Urban": "Urban"
   },
@@ -875,7 +875,7 @@
     "District Name": "Nainital",
     "Sub District Code": "00340",
     "Sub District Name": "Nainital",
-    "Village Code": 800331,
+    "Village Code": "800331",
     "Village Name": "Nainital (MB)",
     "Rural\/Urban": "Urban"
   }

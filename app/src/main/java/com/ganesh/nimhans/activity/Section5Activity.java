@@ -46,10 +46,10 @@ public class Section5Activity extends AppCompatActivity {
     MyNimhans myGameApp;
     private long demoGraphicsID;
     private int surveyID;
-
+    String selectedtobaccoProduct,selectedAlcoholicProduct,selectedcannabisProduct,selectedcocaineProduct,selectedamphetamineProduct,selectedinhalantsProduct,selectedSedativesProduct,selectedhallucinogensProduct,selecteopioidsProduct,selecteothersProduct;
     private HashMap<String, Integer> questionOptionsMap = new HashMap<>();
     private String ageValue;
-    QuestionAdapter questionAdapter;
+
     private EligibleResponse eligibleResponse;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,390 @@ public class Section5Activity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         binding.ageAndMark.setText(ageValue);
         phoneNo = myGameApp.getUserPhoneNo();
-        ArrayList<Question> allQuestions = QuestionUtils.getAllQuestions();
+        binding.tobaccoProduct.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+             selectedtobaccoProduct = selectedValue;
+            Log.d("selectedCaste", "Selected value: " + selectedtobaccoProduct);
+            switch (checkedId){
+                case R.id.yes2:
+                    binding.tobaccoProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.tobaccoProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+
+        binding.tobaccoProduct167a.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedtobaccoProduct = selectedValue;
+            Log.d("selectedtobaccoProduct", "Selected value: " + selectedtobaccoProduct);
+            switch (checkedId){
+                case R.id.never67a:
+                    binding.tobaccoQues68a.setVisibility(View.GONE);
+                    binding.tobaccoQues68aRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69a.setVisibility(View.GONE);
+                    binding.tobaccoQues69aRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70a.setVisibility(View.GONE);
+                    binding.tobaccoQues70aRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68a.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68aRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69a.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69aRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70a.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70aRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.alcoholic.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedAlcoholicProduct = selectedValue;
+            Log.d("selectedAlcoholicProduct", "Selected value: " + selectedAlcoholicProduct);
+            switch (checkedId){
+                case R.id.yes266b:
+                    binding.alcoholProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.alcoholProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167b.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedAlcoholicProduct = selectedValue;
+            Log.d("selectedAlcoholicProduct", "Selected value: " + selectedAlcoholicProduct);
+            switch (checkedId){
+                case R.id.never67b:
+                    binding.tobaccoQues68b.setVisibility(View.GONE);
+                    binding.tobaccoQues68bRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69b.setVisibility(View.GONE);
+                    binding.tobaccoQues69bRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70b.setVisibility(View.GONE);
+                    binding.tobaccoQues70bRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68b.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68bRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69b.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69bRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70b.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70bRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.cannabis.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedcannabisProduct = selectedValue;
+            Log.d("selectedamphetamineProduct", "Selected value: " + selectedamphetamineProduct);
+            switch (checkedId){
+                case R.id.yes266c:
+                    binding.cannabisProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.cannabisProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167c.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedAlcoholicProduct = selectedValue;
+            Log.d("selectedAlcoholicProduct", "Selected value: " + selectedcannabisProduct);
+            switch (checkedId){
+                case R.id.never67c:
+                    binding.tobaccoQues68c.setVisibility(View.GONE);
+                    binding.tobaccoQues68cRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69c.setVisibility(View.GONE);
+                    binding.tobaccoQues69cRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70c.setVisibility(View.GONE);
+                    binding.tobaccoQues70cRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68c.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68cRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69c.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69cRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70c.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70cRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.cocaine.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedcocaineProduct = selectedValue;
+            Log.d("selectedcocaineProduct", "Selected value: " + selectedcocaineProduct);
+            switch (checkedId){
+                case R.id.yes266d:
+                    binding.cocaineProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.cocaineProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167d.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedcocaineProduct = selectedValue;
+            Log.d("selectedcocaineProduct", "Selected value: " + selectedcocaineProduct);
+            switch (checkedId){
+                case R.id.never67d:
+                    binding.tobaccoQues68d.setVisibility(View.GONE);
+                    binding.tobaccoQues68dRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69d.setVisibility(View.GONE);
+                    binding.tobaccoQues69dRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70d.setVisibility(View.GONE);
+                    binding.tobaccoQues70dRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68d.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68dRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69d.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69dRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70d.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70dRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.amphetamine.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedamphetamineProduct = selectedValue;
+            Log.d("selectedamphetamineProduct", "Selected value: " + selectedamphetamineProduct);
+            switch (checkedId){
+                case R.id.yes266e:
+                    binding.amphetamineProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.amphetamineProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167e.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedamphetamineProduct = selectedValue;
+            Log.d("selectedamphetamineProduct", "Selected value: " + selectedamphetamineProduct);
+            switch (checkedId){
+                case R.id.never67e:
+                    binding.tobaccoQues68e.setVisibility(View.GONE);
+                    binding.tobaccoQues68eRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69e.setVisibility(View.GONE);
+                    binding.tobaccoQues69eRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70e.setVisibility(View.GONE);
+                    binding.tobaccoQues70eRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68e.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68eRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69e.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69eRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70e.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70eRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.inhalants.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedinhalantsProduct = selectedValue;
+            Log.d("selectedinhalantsProduct", "Selected value: " + selectedinhalantsProduct);
+            switch (checkedId){
+                case R.id.yes266f:
+                    binding.inhalantsProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.inhalantsProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167f.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedinhalantsProduct = selectedValue;
+            Log.d("selectedinhalantsProduct", "Selected value: " + selectedinhalantsProduct);
+            switch (checkedId){
+                case R.id.never67f:
+                    binding.tobaccoQues68f.setVisibility(View.GONE);
+                    binding.tobaccoQues68fRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69f.setVisibility(View.GONE);
+                    binding.tobaccoQues69fRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70f.setVisibility(View.GONE);
+                    binding.tobaccoQues70fRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68f.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68fRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69f.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69fRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70f.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70fRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.sedatives.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedSedativesProduct = selectedValue;
+            Log.d("selectedSedativesProduct", "Selected value: " + selectedSedativesProduct);
+            switch (checkedId){
+                case R.id.yes266g:
+                    binding.sedativesProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.sedativesProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167g.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedSedativesProduct = selectedValue;
+            Log.d("selectedSedativesProduct", "Selected value: " + selectedSedativesProduct);
+            switch (checkedId){
+                case R.id.never67g:
+                    binding.tobaccoQues68g.setVisibility(View.GONE);
+                    binding.tobaccoQues68gRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69G.setVisibility(View.GONE);
+                    binding.tobaccoQues69gRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70g.setVisibility(View.GONE);
+                    binding.tobaccoQues70gRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68g.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68gRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69G.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69gRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70g.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70gRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.hallucinogens.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedhallucinogensProduct = selectedValue;
+            Log.d("selectedhallucinogensProduct", "Selected value: " + selectedhallucinogensProduct);
+            switch (checkedId){
+                case R.id.yes266h:
+                    binding.hallucinogensProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.hallucinogensProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167h.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedhallucinogensProduct = selectedValue;
+            Log.d("selectedhallucinogensProduct", "Selected value: " + selectedhallucinogensProduct);
+            switch (checkedId){
+                case R.id.never67h:
+                    binding.tobaccoQues68h.setVisibility(View.GONE);
+                    binding.tobaccoQues68hRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69h.setVisibility(View.GONE);
+                    binding.tobaccoQues69hRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70h.setVisibility(View.GONE);
+                    binding.tobaccoQues70hRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68h.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68hRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69h.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69hRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70h.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70hRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.opioids.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selecteopioidsProduct = selectedValue;
+            Log.d("selecteopioidsProduct", "Selected value: " + selecteopioidsProduct);
+            switch (checkedId){
+                case R.id.yes266i:
+                    binding.opioidsProductsQueAll.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.opioidsProductsQueAll.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167i.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selecteopioidsProduct = selectedValue;
+            Log.d("selecteopioidsProduct", "Selected value: " + selecteopioidsProduct);
+            switch (checkedId){
+                case R.id.never67i:
+                    binding.tobaccoQues68i.setVisibility(View.GONE);
+                    binding.tobaccoQues68iRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69i.setVisibility(View.GONE);
+                    binding.tobaccoQues69iRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70i.setVisibility(View.GONE);
+                    binding.tobaccoQues70iRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68i.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68iRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69i.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69iRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70i.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70iRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        binding.others.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selecteothersProduct = selectedValue;
+            Log.d("selecteothersProduct", "Selected value: " + selecteothersProduct);
+            switch (checkedId){
+                case R.id.yes266j:
+                    binding.othersProductsQueAll.setVisibility(View.VISIBLE);
+                    binding.Specify1.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.othersProductsQueAll.setVisibility(View.GONE);
+                    binding.Specify1.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.alcoholProduct167j.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selecteothersProduct = selectedValue;
+            Log.d("selecteothersProduct", "Selected value: " + selecteothersProduct);
+            switch (checkedId){
+                case R.id.never67j:
+                    binding.tobaccoQues68j.setVisibility(View.GONE);
+                    binding.tobaccoQues68jRb.setVisibility(View.GONE);
+                    binding.tobaccoQues69j.setVisibility(View.GONE);
+                    binding.tobaccoQues69jRb.setVisibility(View.GONE);
+                    binding.tobaccoQues70j.setVisibility(View.GONE);
+                    binding.tobaccoQues70jRb.setVisibility(View.GONE);
+                    break;
+                default:
+                    binding.tobaccoQues68j.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues68jRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69j.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues69jRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70j.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70jRb.setVisibility(View.VISIBLE);
+                    break;
+            }
+        });
+        /*ArrayList<Question> allQuestions = QuestionUtils.getAllQuestions();
         questionAdapter = new QuestionAdapter(this, allQuestions);
         binding.questionOptionsList.setAdapter(questionAdapter);
         for (Question question : allQuestions) {
@@ -156,143 +539,7 @@ public class Section5Activity extends AppCompatActivity {
                     binding.Specify9.setVisibility(View.VISIBLE);
                     break;
             }
-        });
-    }
-
-
-    private void checkRCADSScore() {
-
-        ServeySection5Request serveySection5Request = new ServeySection5Request();
-        serveySection5Request.setQno66a(binding.tobaccoProduct.getCheckedRadioButtonId() == R.id.no3 ? 0 : 3);
-        serveySection5Request.setQno66b(binding.alcoholProducts.getCheckedRadioButtonId() == R.id.no4 ? 0 : 3);
-        serveySection5Request.setQno66c(binding.cannabis.getCheckedRadioButtonId() == R.id.no5 ? 0 : 3);
-        serveySection5Request.setQno66d(binding.cocaine.getCheckedRadioButtonId() == R.id.no6 ? 0 : 3);
-        serveySection5Request.setQno66e(binding.amphetamine.getCheckedRadioButtonId() == R.id.no7 ? 0 : 3);
-        serveySection5Request.setQno66f(binding.inhalants.getCheckedRadioButtonId() == R.id.no8 ? 0 : 3);
-        serveySection5Request.setQno66g(binding.sedatives.getCheckedRadioButtonId() == R.id.no9 ? 0 : 3);
-        serveySection5Request.setQno66h(binding.hallucinogens.getCheckedRadioButtonId() == R.id.no10 ? 0 : 3);
-        serveySection5Request.setQno66i(binding.opioids.getCheckedRadioButtonId() == R.id.no11 ? 0 : 3);
-        serveySection5Request.setQno66j(binding.Specify16.getCheckedRadioButtonId() == R.id.no12 ? 0 : 3);
-        if (questionOptionsMap.get("67a") != null) {
-            serveySection5Request.setQno67a(questionOptionsMap.get("67a"));
-        } else {
-            serveySection5Request.setQno67a(1);
-        }
-        if (questionOptionsMap.get("67b") != null) {
-            serveySection5Request.setQno67b(questionOptionsMap.get("67b"));
-        } else {
-            serveySection5Request.setQno67b(1);
-        }
-
-        if (questionOptionsMap.get("67c") != null) {
-            serveySection5Request.setQno67c(questionOptionsMap.get("67c"));
-        } else {
-            serveySection5Request.setQno67c(1);
-        }
-        if (questionOptionsMap.get("67d") != null) {
-            serveySection5Request.setQno67d(questionOptionsMap.get("67d"));
-        } else {
-            serveySection5Request.setQno67d(1);
-        }
-        if (questionOptionsMap.get("67e")!=null) {
-            serveySection5Request.setQno67e(questionOptionsMap.get("67e"));
-        }else{
-            serveySection5Request.setQno67e(1);
-        }
-        serveySection5Request.setQno67f(questionOptionsMap.get("67f"));
-        serveySection5Request.setQno67g(questionOptionsMap.get("67g"));
-        serveySection5Request.setQno67h(questionOptionsMap.get("67h"));
-        serveySection5Request.setQno67i(questionOptionsMap.get("67i"));
-
-        serveySection5Request.setQno68a(questionOptionsMap.get("68a"));
-        serveySection5Request.setQno68b(questionOptionsMap.get("68b"));
-        serveySection5Request.setQno68c(questionOptionsMap.get("68c"));
-        serveySection5Request.setQno68d(questionOptionsMap.get("68d"));
-        serveySection5Request.setQno68e(questionOptionsMap.get("68e"));
-        serveySection5Request.setQno68f(questionOptionsMap.get("68f"));
-        serveySection5Request.setQno68g(questionOptionsMap.get("68g"));
-        serveySection5Request.setQno68h(questionOptionsMap.get("68h"));
-        serveySection5Request.setQno68i(questionOptionsMap.get("68i"));
-
-        serveySection5Request.setQno69a(questionOptionsMap.get("69a"));
-        serveySection5Request.setQno69b(questionOptionsMap.get("69b"));
-        serveySection5Request.setQno69c(questionOptionsMap.get("69c"));
-        serveySection5Request.setQno69d(questionOptionsMap.get("69d"));
-        serveySection5Request.setQno69e(questionOptionsMap.get("69e"));
-        serveySection5Request.setQno69f(questionOptionsMap.get("69f"));
-        serveySection5Request.setQno69g(questionOptionsMap.get("69g"));
-        serveySection5Request.setQno69h(questionOptionsMap.get("69h"));
-        serveySection5Request.setQno69i(questionOptionsMap.get("69i"));
-
-        serveySection5Request.setQno70a(questionOptionsMap.get("70a"));
-        serveySection5Request.setQno70b(questionOptionsMap.get("70b"));
-        serveySection5Request.setQno70c(questionOptionsMap.get("70c"));
-        serveySection5Request.setQno70d(questionOptionsMap.get("70d"));
-        serveySection5Request.setQno70e(questionOptionsMap.get("70e"));
-        serveySection5Request.setQno70f(questionOptionsMap.get("70f"));
-        serveySection5Request.setQno70g(questionOptionsMap.get("70g"));
-        serveySection5Request.setQno70h(questionOptionsMap.get("70h"));
-        serveySection5Request.setQno70i(questionOptionsMap.get("70i"));
-
-        serveySection5Request.setQno71a(questionOptionsMap.get("71a"));
-        serveySection5Request.setQno71b(questionOptionsMap.get("71b"));
-        serveySection5Request.setQno71c(questionOptionsMap.get("71c"));
-        serveySection5Request.setQno71d(questionOptionsMap.get("71d"));
-        serveySection5Request.setQno71e(questionOptionsMap.get("71e"));
-        serveySection5Request.setQno71f(questionOptionsMap.get("71f"));
-        serveySection5Request.setQno71g(questionOptionsMap.get("71g"));
-        serveySection5Request.setQno71h(questionOptionsMap.get("71h"));
-        serveySection5Request.setQno71i(questionOptionsMap.get("71i"));
-
-        serveySection5Request.setQno72a(questionOptionsMap.get("72a"));
-        serveySection5Request.setQno72b(questionOptionsMap.get("72b"));
-        serveySection5Request.setQno72c(questionOptionsMap.get("72c"));
-        serveySection5Request.setQno72d(questionOptionsMap.get("72d"));
-        serveySection5Request.setQno72e(questionOptionsMap.get("72e"));
-        serveySection5Request.setQno72f(questionOptionsMap.get("72f"));
-        serveySection5Request.setQno72g(questionOptionsMap.get("72g"));
-        serveySection5Request.setQno72h(questionOptionsMap.get("72h"));
-        serveySection5Request.setQno72i(questionOptionsMap.get("72i"));
-
-        switch (binding.injectableDrugSubstance1.getCheckedRadioButtonId()) {
-            case R.id.no18:
-                serveySection5Request.setQno73(0);
-                break;
-            case R.id.yes32:
-                serveySection5Request.setQno73(6);
-                break;
-            case R.id.yes33:
-                serveySection5Request.setQno73(3);
-                break;
-        }
-
-        binding.progressBar.setVisibility(View.VISIBLE);
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> call = apiService.putServeySection5Data(eligibleResponse.houseHoldId, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-        call.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (binding.progressBar.isShown())
-                    binding.progressBar.setVisibility(View.GONE);
-                JsonObject userResponse = response.body();
-                if (response.isSuccessful()) {
-                    Log.d("response", "onResponse: " + userResponse);
-                    try {
-                        binding.alcoholSubstance.setText(userResponse.get("alcoholScore").getAsString());
-                        binding.otherSubstance.setText(userResponse.get("otherScore").getAsString());
-                        binding.injectableDrugSubstance.setText(userResponse.get("injectableScore").getAsString());
-                        binding.assistResult.setText(userResponse.get("assistResult").getAsString());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-            }
-        });
+        });*/
     }
 
     public void onClickNextSection(View v) {

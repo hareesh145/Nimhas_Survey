@@ -271,6 +271,10 @@
     <string name="at_least_once_a_month">At Least Once A Month</string>
     <string name="at_least_once_in_3_months">At Least Once In 3 Months</string>
     <string name="whenever_you_need_psycho_social_support">Whenever You Need Psycho-social Support</string>
+    <string name="yes_in_the_past_3_months">Yes, in the past 3 months</string>
+    <string name="yes_but_not_in_the_past_3_months">Yes, but not in the past 3 months</string>
+    <string name="once_or_monthly">Once or Monthly</string>
+    <string name="no_never">No, Never</string>
 
     <string-array name="illness_dropdown">
         <item>Govt./Municipal Hospital</item>
