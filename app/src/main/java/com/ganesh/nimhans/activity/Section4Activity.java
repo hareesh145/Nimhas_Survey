@@ -610,10 +610,10 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-
-        if (Integer.parseInt(ageValue) <= 17) {
+        checkRCADSValue();
+        if (Float.parseFloat(ageValue) <= 17.0f) {
             //If the age is less than 17
-            if (Integer.parseInt(ageValue) >= 10) {
+            if (Float.parseFloat(ageValue) >= 10.0f) {
                 //If the age is greater than 10
                 Intent intent = new Intent(Section4Activity.this, Section5Activity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
@@ -621,7 +621,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
-            } else if (Integer.parseInt(ageValue) >= 6) {
+            } else if (Float.parseFloat(ageValue) >= 6.0f) {
                 //If the age is greater than 6
                 Intent intent = new Intent(Section4Activity.this, Section6Activity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
@@ -629,15 +629,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
-            } else if (Integer.parseInt(ageValue) >= 1 && Integer.parseInt(ageValue) <= 2) {
-                //If the age is greater than 1 & less than 2
-                Intent intent = new Intent(Section4Activity.this, Section7aActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else if (Integer.parseInt(ageValue) > 2) {
+            } else if (Float.parseFloat(ageValue) >= 4.0f) {
                 //If the age is greater than 3 Krishna
                 Intent intent = new Intent(Section4Activity.this, Section7bActivity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
@@ -645,46 +637,15 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
-            } /*else if (Integer.parseInt(ageValue) >= 8) {
-                Intent intent = new Intent(Section4Activity.this, Section8Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else if (Integer.parseInt(ageValue) >= 4) {
-                Intent intent = new Intent(Section4Activity.this, Section9Activity.class);
+            } else if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                //If the age is greater than 1 & less than 2
+                Intent intent = new Intent(Section4Activity.this, Section7aActivity.class);
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                 intent.putExtra(SURVEY_ID, surveyID);
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
             }
-            else if (Integer.parseInt(ageValue) >= 6 && Integer.parseInt(ageValue) <= 12) {
-                Intent intent = new Intent(Section4Activity.this, Section10Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            }
-            else if (Integer.parseInt(ageValue) >= 8) {
-                Intent intent = new Intent(Section4Activity.this, Section11Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            }*/
-        } else {
-            //IF the Age is 18
-            // Not required
-           /* Intent intent = new Intent(Section4Activity.this, Section7bActivity.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            startActivity(intent);*/
         }
     }
 

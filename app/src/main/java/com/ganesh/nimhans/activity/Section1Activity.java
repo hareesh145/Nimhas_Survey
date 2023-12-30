@@ -154,9 +154,9 @@ public class Section1Activity extends AppCompatActivity {
         for (StateModel stateModel :
                 stateModels) {
             if (stateModel.villageName.equals(newItem)) {
-                if (stateModel.rural_Urban.equals("Urabn")) {
+                if (stateModel.rural_Urban.equals("Urban")) {
                     binding.locale.check(R.id.urban);
-                } else {
+                } else if (stateModel.rural_Urban.equals("Rural")){
                     binding.locale.check(R.id.rural);
                 }
             }

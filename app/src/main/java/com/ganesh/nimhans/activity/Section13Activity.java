@@ -1,13 +1,28 @@
 package com.ganesh.nimhans.activity;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static androidx.fragment.app.FragmentManager.TAG;
+import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -15,16 +30,24 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection13Binding;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class Section13Activity extends AppCompatActivity {
@@ -41,11 +64,14 @@ public class Section13Activity extends AppCompatActivity {
     private String selectedResultCode;
     private String timepicker;
     private String interviewDate;
+    Long demoGraphicsID;
+    private int surveyID;
     private String time;
     private String datePickerfield;
     EditText specify, datePicker2, timePicker;
     private EligibleResponse eligibleResponse;
-
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] permissionstorage = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySection13Binding.inflate(getLayoutInflater());
@@ -54,9 +80,29 @@ public class Section13Activity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-
         phoneNo = myGameApp.getUserPhoneNo();
+       // checkpermissions(this);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},00);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Section13Activity.this);
+        builder.setMessage("Message for Screenshot taking - \n" +
+                "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
+                "LIST ALL THE CONDITIONS FOR WHICH THE CHILD IS POSITIVE EXCEPT ASSIST (SECTION 5).\n" +
+                "The child needs to be referred to a psychiatrist for further evaluation.\n" +
+                "For Section 5 - \n" +
+                "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
+
+        builder.setTitle("Alert !");
+
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+            Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
+           // takeScreenshot(getWindow().getDecorView().getRootView());
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
+        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
 
         binding.options220.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -77,7 +123,9 @@ public class Section13Activity extends AppCompatActivity {
         Util.showToast(activity, "Successfully data saved");
         Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
         finishAffinity();
-        Intent intent = new Intent(Section13Activity.this, ResultPage.class);
+        Intent intent = new Intent(Section13Activity.this, ChildrenResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
         startActivity(intent);
     }
 
@@ -168,4 +216,43 @@ public class Section13Activity extends AppCompatActivity {
         startActivity(new Intent(activity, Section12Activity.class));
 
     }
+ /*   @SuppressLint("RestrictedApi")
+    protected File takeScreenshot(View view) {
+        Date date = new Date();
+        try {
+            String dirpath;
+            // Initialising the directory of storage
+           // dirpath= Section13Activity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString() ;
+            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toURI());
+            if (!file.exists()) {
+                boolean mkdir = file.mkdir();
+            }
+            // File name : keeping file name unique using data time.
+            String path = dirpath + "/"+ date.getTime() + ".jpeg";
+            view.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+            view.setDrawingCacheEnabled(false);
+            File imageurl = new File(path);
+            FileOutputStream outputStream = new FileOutputStream(imageurl);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
+            outputStream.flush();
+            outputStream.close();
+            Log.d(TAG, "takeScreenshot Path: "+imageurl);
+            Toast.makeText(Section13Activity.this,""+imageurl,Toast.LENGTH_LONG).show();
+            return imageurl;
+        } catch (FileNotFoundException io) {
+            io.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    // check weather storage permission is given or not
+    public static void checkpermissions(Activity activity) {
+        int permissions = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        // If storage permission is not given then request for External Storage Permission
+        if (permissions != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, permissionstorage, REQUEST_EXTERNAL_STORAGE);
+        }
+    }*/
 }

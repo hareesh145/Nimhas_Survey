@@ -204,7 +204,7 @@ public class ActivitySurvey extends AppCompatActivity {
         String csvFile = fileName;
         sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         directory = new File(sd.getAbsolutePath());
-        fileOutput = new File(directory, csvFile);
+        fileOutput= new File(Environment.getExternalStorageDirectory(),fileName);
 //        }
 
         try {
@@ -230,14 +230,14 @@ public class ActivitySurvey extends AppCompatActivity {
         String csvFile = "HouseHoldReport.xls";
         sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         directory = new File(sd.getAbsolutePath());
-        fileOutput = new File(directory, csvFile);
+        fileOutput= new File(Environment.getExternalStorageDirectory(),csvFile);
 //        }
 
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(fileOutput);
             hssfWorkbook.write(fileOutputStream);
             fileOutputStream.close();
-            Toast.makeText(this, "Report Downloaded Please check in Downloads SurveyData.xlsx", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Report Downloaded Please check in Downloads HouseHoldReport.xlsx", Toast.LENGTH_LONG).show();
 
         } catch (Exception e) {
             Toast.makeText(this, "File Creation Failed", Toast.LENGTH_LONG).show();

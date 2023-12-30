@@ -3,32 +3,22 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import com.ganesh.nimhans.MyNimhans;
-import com.ganesh.nimhans.R;
-import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
-import com.ganesh.nimhans.databinding.ActivityResultPageBinding;
-import com.ganesh.nimhans.model.ServeySectionRequest;
-import com.ganesh.nimhans.service.ApiClient;
-import com.ganesh.nimhans.service.ApiInterface;
-import com.ganesh.nimhans.utils.PreferenceConnector;
-import com.ganesh.nimhans.utils.Util;
-import com.google.gson.JsonObject;
+import androidx.appcompat.app.AppCompatActivity;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.ganesh.nimhans.MyNimhans;
+import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
+import com.ganesh.nimhans.utils.Constants;
 
 public class ChildrenResult extends AppCompatActivity {
     private ActivityChildrenResultBinding binding;
     Activity activity;
+    Long demoGraphicsID;
+    private int surveyID;
     MyNimhans myGameApp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +29,17 @@ public class ChildrenResult extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
+        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
+        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
     }
     public void onClickPreviousSection(View v) {
-        startActivity(new Intent(activity, Section11Activity.class));
+        startActivity(new Intent(activity, Section13Activity.class));
 
     }
     public void onClickNextSection(View v) {
-        startActivity(new Intent(activity, ResultPage.class));
+        Intent intent = new Intent(ChildrenResult.this, Eligiblechildren.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        startActivity(intent);
     }
 }
