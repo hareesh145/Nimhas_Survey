@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -183,14 +184,31 @@ public class Section10Activity extends AppCompatActivity {
 
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
+       /* Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, Section11Activity.class);
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
-
+*/
+        if (Float.parseFloat(ageValue) < 8.0f ) {
+            Intent intent = new Intent(Section10Activity.this, Section12Activity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }else if (Float.parseFloat(ageValue) >= 8.0f ) {
+            Intent intent = new Intent(Section10Activity.this, Section11Activity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }
     }
 
     public void onClickPreviousSection(View v) {

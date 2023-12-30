@@ -356,7 +356,11 @@
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
-
+                        <RadioGroup
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/question210"
+                            android:layout_marginLeft="30dp">
                         <RadioButton
                             android:id="@+id/did_not_seek_care"
                             android:layout_width="match_parent"
@@ -367,7 +371,7 @@
                             android:layoutDirection="rtl"
                             android:text="@string/did_not_seek_care_in_last_12_months"
                             android:textAlignment="textStart" />
-
+                        </RadioGroup>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -904,7 +908,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Other"
+                            android:text="Others"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 

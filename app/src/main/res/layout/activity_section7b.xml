@@ -763,13 +763,12 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
                             android:text="106."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="Show attachment to inanimate objects?"
@@ -822,9 +821,8 @@ i-Info button to be provided and when clicked below information to be shown.
                     </RadioGroup>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
@@ -832,26 +830,28 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
                             android:text="107."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Respond to objects/people unusually by smelling, touching or tasting?"
+                            android:text="Respond to objects/people unusually by smelling,touching or tasting?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
+                            android:layout_gravity="end"
                             android:id="@+id/respond_objects_image"
                             android:onClick="@{handlers::onClickRespondObjects}"
                             android:src="@drawable/baseline_info_24"></ImageView>
+
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -3,7 +3,9 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -191,13 +193,30 @@ public class Section7bActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Intent intent = new Intent(activity, Section8Activity.class);
+        /*Intent intent = new Intent(activity, Section8Activity.class);
         Util.showToast(activity, "Successfully data saved");
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        startActivity(intent);
+        startActivity(intent);*/
+        if (Float.parseFloat(ageValue) >= 4.0f && Float.parseFloat(ageValue) <= 7.0f) {
+            Intent intent = new Intent(Section7bActivity.this, Section9Activity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        } else if (Float.parseFloat(ageValue) >= 8.0f) {
+            Intent intent = new Intent(Section7bActivity.this, Section8Activity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }
 
     }
 

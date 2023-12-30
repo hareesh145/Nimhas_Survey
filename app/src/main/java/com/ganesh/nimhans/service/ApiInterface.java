@@ -24,6 +24,7 @@ import com.ganesh.nimhans.model.UserResponse;
 import com.ganesh.nimhans.model.ViewUserResponse;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.model.child.PendingListModel;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;

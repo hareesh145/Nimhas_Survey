@@ -17,10 +17,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.ganesh.nimhans.ConvertJsonToExcel;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySurveyBinding;
 import com.ganesh.nimhans.model.Book;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -36,6 +38,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,8 +56,6 @@ public class ActivitySurvey extends AppCompatActivity {
     ProgressBar progressBar;
 
     MyNimhans myGameApp;
-    private File directory;
-    private File sd;
     private File file;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,36 +156,49 @@ public class ActivitySurvey extends AppCompatActivity {
 
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> call = apiService.getSurveyReports(PreferenceConnector.readInteger(this, Constants.SURVEY_ID, 35),
+        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
                 PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
         binding.progressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<JsonObject>() {
+        call.enqueue(new Callback<List<EligibleResponse>>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
-                JsonObject loginResponse = response.body();
 
-                Log.d("TAG", "::::::::: " + loginResponse);
-                HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
-                HSSFSheet hssfSheet = hssfWorkbook.createSheet("HouseHold");
-                HSSFRow hssfRow = hssfSheet.createRow(0);
-                HSSFRow dataRow = hssfSheet.createRow(1);
-                int i = 0;
-                for (Map.Entry<String, JsonElement> entry : loginResponse.entrySet()) {
-                    if (i < 200) {
-                        HSSFCell hssfCell = hssfRow.createCell(i);
-                        hssfCell.setCellValue(entry.getKey());
-                        HSSFCell dataCell = dataRow.createCell(i);
-                        dataCell.setCellValue(String.valueOf(loginResponse.get(entry.getKey())));
-                        i++;
-                    }
+                try {
+                    ConvertJsonToExcel.writeObjects2ExcelFile(response.body(), "HouseHoldData.xls");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
-                saveWorkBook(hssfWorkbook, "HouseHoldData.xls");
+//                HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
+//                HSSFSheet hssfSheet = hssfWorkbook.createSheet("HouseHold");
+//                HSSFRow hssfRow = hssfSheet.createRow(0);
+//
+//
+//
+//
+//
+//                HSSFRow dataRow = hssfSheet.createRow(1);
+//                for (JsonElement jsonObject : loginResponse) {
+//                    Log.d("TAG", "::::::::: " + loginResponse);
+//                    if (jsonObject.isJsonObject()) {
+//                        int i = 0;
+//                        for (Map.Entry<String, JsonElement> entry : ((JsonObject) jsonObject).entrySet()) {
+//                            if (i < 30) {
+//                                HSSFCell hssfCell = hssfRow.createCell(i);
+//                                hssfCell.setCellValue(entry.getKey());
+//                                HSSFCell dataCell = dataRow.createCell(i);
+//                                dataCell.setCellValue(String.valueOf(((JsonObject) jsonObject).get(entry.getKey())));
+//                                i++;
+//                            }
+//                        }
+//                    }
+//                }
+//                saveWorkBook(hssfWorkbook, "HouseHoldData.xls");
             }
 
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
                 Util.showToast(activity, getResources().getString(R.string.service_error));
@@ -198,13 +212,8 @@ public class ActivitySurvey extends AppCompatActivity {
         StorageVolume storageVolume = storageManager.getStorageVolumes().get(0); // internal storage
 
         File fileOutput = null;
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-//            fileOutput = new File(storageVolume.getDirectory().getPath() + "/Download/SurveyData.xlsx");
-//        } else {
-        String csvFile = fileName;
-        sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        directory = new File(sd.getAbsolutePath());
-        fileOutput= new File(Environment.getExternalStorageDirectory(),fileName);
+
+        fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileName);
 //        }
 
         try {
@@ -228,9 +237,8 @@ public class ActivitySurvey extends AppCompatActivity {
 //            fileOutput = new File(storageVolume.getDirectory().getPath() + "/Download/SurveyData.xlsx");
 //        } else {
         String csvFile = "HouseHoldReport.xls";
-        sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        directory = new File(sd.getAbsolutePath());
-        fileOutput= new File(Environment.getExternalStorageDirectory(),csvFile);
+
+        fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), csvFile);
 //        }
 
         try {
@@ -277,27 +285,6 @@ public class ActivitySurvey extends AppCompatActivity {
 
 
         return bookList;
-    }
-
-    public void createExcelSheet(JsonObject loginResponse) {
-        if (isStoragePermissionGranted()) {
-            String csvFile = "Mytest.xls";
-            sd = Environment.getExternalStorageDirectory();
-            directory = new File(sd.getAbsolutePath());
-            file = new File(directory, csvFile);
-
-            try {
-//                WorkSheet workSheet = new WorkSheet.Builder(getApplicationContext(), file.getAbsolutePath())
-//                        .setSheet(getListOfObject(loginResponse))
-//                        .writeSheet();
-//                Toast.makeText(this, "File Saved !", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-
-            Toast.makeText(this, "Permission Denied !", Toast.LENGTH_SHORT).show();
-        }
     }
 
 

@@ -646,6 +646,33 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
             }
+            else if (Float.parseFloat(ageValue) >= 8.0f) {
+                Intent intent = new Intent(Section4Activity.this, Section8Activity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
+            }
+            else if (Float.parseFloat(ageValue) >= 10.0f) {
+                Intent intent = new Intent(Section4Activity.this, Section5Activity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
+            }
+            else if (Float.parseFloat(ageValue) >= 6.0f || Float.parseFloat(ageValue) <= 12.0f) {
+                Intent intent = new Intent(Section4Activity.this, Section10Activity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
+            }
         }
     }
 

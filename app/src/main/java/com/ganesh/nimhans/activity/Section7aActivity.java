@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -192,16 +193,24 @@ public class Section7aActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        binding.progressBar.setVisibility(View.VISIBLE);
+       /* binding.progressBar.setVisibility(View.VISIBLE);
         Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, Section7bActivity.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        startActivity(intent);
+        startActivity(intent);*/
 //        startActivity(new Intent(activity, Section7bActivity.class));
-
+        if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+            Intent intent = new Intent(Section7aActivity.this, Section12Activity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }
     }
 
     public void onClickPreviousSection(View v) {

@@ -784,7 +784,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Juvenile Justice Act(Care And Protection Of Children), 2015 \nHeard about it – provide salient features for them to opine/understand?"
+                            android:text="Juvenile Justice Act(Care And Protection Of Children), 2015 \n\nHeard about it – provide salient features for them to opine/understand?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

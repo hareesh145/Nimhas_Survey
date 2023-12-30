@@ -128,6 +128,16 @@ public class Section12Activity extends AppCompatActivity {
                 }
             }
         });
+        binding.question210.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.did_not_seek_care) {
+                    binding.othersSpecify210.setVisibility(View.GONE);
+                } else {
+                    binding.othersSpecify210.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         binding.modesOfTravel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
