@@ -262,7 +262,7 @@ public class Section3aActivity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-       // startActivity(new Intent(activity, Section1Activity.class));
+       //startActivity(new Intent(activity, Section1Activity.class));
         finish();
 
     }
@@ -279,5 +279,10 @@ public class Section3aActivity extends AppCompatActivity {
         return selectedCaste;
     }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(activity, Section1Activity.class));
+        finish();
+        super.onBackPressed();
+    }
 }

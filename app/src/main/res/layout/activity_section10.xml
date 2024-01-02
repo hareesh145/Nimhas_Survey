@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 10"
+                    android:text="Section 10 (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -66,9 +66,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 10: Conduct Disorder (Vanderbilt)"
+                        android:text="Conduct Disorder (Vanderbilt)"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
 
 
                     <TextView
@@ -106,6 +107,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"
                         android:textColor="#000000" />

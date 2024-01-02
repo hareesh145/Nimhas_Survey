@@ -2,6 +2,8 @@ package com.ganesh.nimhans.activity;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -11,13 +13,14 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TimePicker;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityResultPageBinding;
-import com.ganesh.nimhans.utils.Util;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -31,9 +34,12 @@ public class ResultPage extends AppCompatActivity {
     private String interviewDate;
     private String time;
     private String datePickerfield;
-    EditText specify, datePicker2, timePicker;
+    EditText specify, datePicker2, timePicker, date3;
     final Calendar dateOfVisitCalendar = Calendar.getInstance();
+    final Calendar myCalendar1 = Calendar.getInstance();
+    private Calendar calendar = Calendar.getInstance();
     final Calendar myCalendar2 = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,38 +60,95 @@ public class ResultPage extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.h:
                         binding.commentResultCode.setVisibility(View.VISIBLE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        break;
+                    case R.id.c:
+                        binding.commentResultCode.setVisibility(View.VISIBLE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        break;
+                    case R.id.b:
+                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                        binding.commentResultCode.setVisibility(View.GONE);
+                        break;
+                    case R.id.d:
+                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                        binding.commentResultCode.setVisibility(View.GONE);
                         break;
                     default:
                         binding.commentResultCode.setVisibility(View.GONE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
                         break;
 
                 }
 
             }
+
         });
 
     }
-    public void showDatePickerDialog1(View v) {
 
+    private final DatePickerDialog.OnDateSetListener dateSetListener =
+            new DatePickerDialog.OnDateSetListener() {
+                /**
+                 * @param view       the picker associated with the dialog
+                 * @param year       the selected year
+                 * @param month      the selected month (0-11 for compatibility with
+                 *                   {@link Calendar#MONTH})
+                 * @param dayOfMonth the selected day of the month (1-31, depending on
+                 *                   month)
+                 */
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calendar.set(Calendar.YEAR, year);
+                    calendar.set(Calendar.MONTH, month);
+                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                    updateEditText();
+                }
+            };
+
+    public void showDatePickerDialog2(View v) {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                dateOfVisitCalendar.set(Calendar.YEAR, year);
-                dateOfVisitCalendar.set(Calendar.MONTH, monthOfYear);
-                dateOfVisitCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel();
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateCalender();
             }
         };
-        new DatePickerDialog(this, dateSetListener, dateOfVisitCalendar.get(Calendar.YEAR), dateOfVisitCalendar.get(Calendar.MONTH), dateOfVisitCalendar.get(Calendar.DAY_OF_MONTH)).show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+
     }
 
-    private void updateLabel() {
-        String myFormat = "yyyy-MM-dd";
-        SimpleDateFormat sdf1 = new SimpleDateFormat(myFormat, Locale.US);
-        binding.dateOfVisit.setText(sdf1.format(dateOfVisitCalendar.getTime()));
+    private void updateEditText() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        binding.date3.setText(sdf.format(calendar.getTime()));
+        new DatePickerDialog(this, dateSetListener, myCalendar1.get(Calendar.YEAR), myCalendar1.get(Calendar.MONTH), myCalendar1.get(Calendar.DAY_OF_MONTH)).show();
     }
+
+    private void updateCalender() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        binding.date3.setText(sdf.format(calendar.getTime()));
+    }
+
     public void onClickSubmit(View v) {
-        Intent intent = new Intent(ResultPage.this,ActivitySurvey.class);
+        Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
         startActivity(intent);
+    }
+
+    public void showTimePickerDialog(View v) {
+        Calendar mcurrentTime = Calendar.getInstance();
+        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = mcurrentTime.get(Calendar.MINUTE);
+        TimePickerDialog mTimePicker;
+        mTimePicker = new TimePickerDialog(ResultPage.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                binding.time.setText(selectedHour + ":" + selectedMinute);
+            }
+        }, hour, minute, false);//Yes 24 hour time
+        mTimePicker.setTitle("Select Time");
+        mTimePicker.show();
     }
 }

@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 11"
+                    android:text="Section 11 (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -66,9 +66,10 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:textStyle="bold"
                         android:text="@string/section_11_title"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
 
 
                     <TextView
@@ -85,9 +86,10 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:textStyle="bold"
                         android:text="@string/check_the_age_of_the_child_and_mark"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/check_age"
@@ -105,6 +107,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:text="@string/interview_only_the_parents_guardian"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -681,7 +684,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Is physically mean to animals"
+                            android:text="My child worries when he/she thinks someone is angry with him/her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1095,7 +1098,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child suddenly feels as if he/she can't breathe when there is no reason for this."
+                            android:text="My child suddenly feels as if he/she can't breathe when there is no reason for this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1775,7 +1778,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child can't seem to get bad or silly thoughts out of his/her head."
+                            android:text="When my child has a problem, his/her heart beats really fast."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

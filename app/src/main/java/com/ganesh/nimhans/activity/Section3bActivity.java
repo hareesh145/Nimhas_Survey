@@ -76,6 +76,7 @@ public class Section3bActivity extends AppCompatActivity {
 
     String[] selectedTypeOfProblem;
     int repeatCount = 0;
+    int ageCount =0;
     int getMaritalState = 0;
 
 
@@ -110,6 +111,7 @@ public class Section3bActivity extends AppCompatActivity {
             Log.d("TAG", "onCreate: " + binding.NoOfPeople.getText().toString());
             binding.lineNo.setText(String.valueOf(getIntent().getIntExtra(LINE_NO, 0)));
             repeatCount = getIntent().getIntExtra(REPEAT_COUNT, 0);
+
         } else {
             //First time gets invoked
             binding.totalNoOfPeople.setVisibility(View.VISIBLE);
@@ -171,9 +173,40 @@ public class Section3bActivity extends AppCompatActivity {
                         binding.addMember.setVisibility(View.GONE);
                         binding.nextbutton.setVisibility(View.GONE);
                     }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        binding.age.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+              try {
+                  if (!s.toString().isEmpty()) {
+                      ageCount = Integer.parseInt(binding.age.getText().toString());
+                      if (Integer.parseInt(s.toString()) >= 6) {
+                          binding.qus131415.setVisibility(View.VISIBLE);
+                      } else {
+                          binding.qus131415.setVisibility(View.GONE);
+                      }
+                  } else {
+                      binding.qus131415.setVisibility(View.VISIBLE);
+                  }
+              }catch (Exception e){
+                  e.printStackTrace();
+              }
+
             }
 
             @Override
@@ -278,7 +311,7 @@ public class Section3bActivity extends AppCompatActivity {
     private int getCheckedID(String maritalState) {
         if (maritalState.equals("Never Married")) {
             return R.id.NotMarried;
-        } else if (maritalState.equals("Married")) {
+        } else if (maritalState.equals("Currently Married")) {
             return R.id.Married;
         } else if (maritalState.equals("Widowed/Divorced /Separated")) {
             return R.id.WorDorS;

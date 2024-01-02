@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 6"
+                    android:text="Section 6 (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 6: Screening for Intellectual Disability"
+                        android:text="Screening for Intellectual Disability"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -106,6 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:padding="10dp"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"

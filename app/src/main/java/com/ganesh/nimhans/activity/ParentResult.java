@@ -3,23 +3,29 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
+import com.ganesh.nimhans.databinding.ActivityParentResultBinding;
 import com.ganesh.nimhans.utils.Constants;
 
-public class ChildrenResult extends AppCompatActivity {
-    private ActivityChildrenResultBinding binding;
+public class ParentResult extends AppCompatActivity {
+    private ActivityParentResultBinding binding;
     Activity activity;
     Long demoGraphicsID;
     private int surveyID;
@@ -28,14 +34,15 @@ public class ChildrenResult extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityChildrenResultBinding.inflate(getLayoutInflater());
+        binding = ActivityParentResultBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         activity = this;
-        binding.setHandlers(this);
+        binding.setHandlers(ParentResult.this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -64,9 +71,21 @@ public class ChildrenResult extends AppCompatActivity {
 
     }
     public void onClickNextSection(View v) {
-        Intent intent = new Intent(ChildrenResult.this, Eligiblechildren.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        startActivity(intent);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},00);
+        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same. We will now proceed to the next child");
+        builder.setTitle("Alert !");
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+            Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
+            // takeScreenshot(getWindow().getDecorView().getRootView());
+            Intent intent = new Intent(ParentResult.this, Eligiblechildren.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            startActivity(intent);
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 }

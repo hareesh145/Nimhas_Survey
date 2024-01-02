@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 8"
+                    android:text="Section 8 (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -69,7 +69,7 @@
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:text="Section 8: Screening for Specific Learning Diabilities "
+                        android:text="Screening for Specific Learning Disabilities\n(NIMHANS-BRIEF SLD tool)"
                         android:textAllCaps="false"/>
 
 
@@ -110,6 +110,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"
                         android:textColor="#000000" />

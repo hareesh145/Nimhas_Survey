@@ -388,7 +388,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Are you aware of UDID?"
+                            android:text="Are you aware of Unique Disability ID (UDID)?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -435,7 +435,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you got UDID?"
+                            android:text="Have you got UDID card?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -486,11 +486,79 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+                    <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/yes_no_227"
+                        android:layout_marginLeft="30dp">
+
+                        <RadioButton
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:id="@+id/yes"
+                            android:text="1. Yes"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="2. No"
+                            android:id="@+id/no"
+                            android:textAlignment="textStart" />
+                    </RadioGroup>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:id="@+id/checkbox_227">
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Travel benefit" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Admission to special schools/ therapy centres" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Health insurance (Niramaya)" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Income tax benefits" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:id="@+id/others_222"
+                            android:onClick="@{handlers::onCheckboxClicked}"
+                            android:text="Others" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
@@ -518,6 +586,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -544,6 +613,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -552,6 +622,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="3."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -569,6 +640,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
@@ -597,6 +669,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -624,29 +697,10 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
-                    <RadioGroup
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp">
 
-                        <RadioButton
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="1. Yes"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="2. No"
-                            android:textAlignment="textStart" />
-                    </RadioGroup>
 
                     <EditText
                         android:layout_width="match_parent"
@@ -682,12 +736,71 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+                    <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/yes_no_228"
+                        android:layout_marginLeft="30dp">
 
+                        <RadioButton
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="1. Yes"
+                            android:id="@+id/yes228"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="2. No"
+                            android:id="@+id/no228"
+                            android:textAlignment="textStart" />
+                    </RadioGroup>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:id="@+id/checkbox_228">
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="National Trust Act, 1999" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Rights of Persons With Disabilities (RPWD) Act, 2016" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Mental Health Care Act, 2017" />
+
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Juvenile Justice Act(Care And Protection Of Children), 2015 \n\nHeard about it – provide salient features for them to opine/understand?" />
+
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -715,6 +828,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -741,6 +855,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
@@ -769,6 +884,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:orientation="horizontal">
 
                         <TextView
@@ -789,27 +905,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:textColor="#000000" />
                     </LinearLayout>
 
-                    <RadioGroup
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp">
 
-                        <RadioButton
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="1. Yes"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="2. No"
-                            android:textAlignment="textStart" />
-                    </RadioGroup>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

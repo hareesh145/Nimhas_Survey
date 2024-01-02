@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 3 : House Hold Table"
+                        android:text="House Hold Table"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -77,7 +77,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Now we would like to obtain some information about the people who currently live in your household. Please give me the names of the persons who live with you in your household, starting with yourself.PLEASE USE BELOW GIVEN CODES FOR FILLING THE DETAILS."
+                        android:text="Now we would like to obtain some information about the people who currently live in your household. Please give me the names of the persons who live with you in your household, starting with yourself."
                         android:textAlignment="gravity"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -266,104 +266,111 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-
-                        <TextView
+                        android:orientation="vertical"
+                        android:id="@+id/qus_13_14_15"
+                        android:visibility="visible">
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Marital status"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/maritalStatus1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/NotMarried"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Never Married"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/Married"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Currently Married"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/WorDorS"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Widowed/Divorced /Separated"
+                                android:textAlignment="textStart" />
+
+                        </RadioGroup>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
                             android:padding="10dp"
-                            android:text="Marital status"
+                            android:text="Occupation"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <com.skydoves.powerspinner.PowerSpinnerView
+                            android:id="@+id/occupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Select Occupation"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            app:spinner_arrow_tint="@color/black"
+                            app:spinner_divider_color="@color/black"
+                            app:spinner_divider_size="0.4dp"
+                            app:spinner_item_array="@array/occupation_array"
+                            app:spinner_popup_animation="dropdown"
+                            app:spinner_popup_background="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Education"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <Spinner
+                            android:id="@+id/education"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:entries="@array/education_array"
+                            android:hint="Select Education"
+                            android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
 
-                    <RadioGroup
-                        android:id="@+id/maritalStatus1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp">
-
-                        <RadioButton
-                            android:id="@+id/NotMarried"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Never Married"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/Married"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Married"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/WorDorS"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Widowed/Divorced /Separated"
-                            android:textAlignment="textStart" />
-
-                    </RadioGroup>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Occupation"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <com.skydoves.powerspinner.PowerSpinnerView
-                        android:id="@+id/occupation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="Select Occupation"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        app:spinner_arrow_tint="@color/black"
-                        app:spinner_divider_color="@color/black"
-                        app:spinner_divider_size="0.4dp"
-                        app:spinner_item_array="@array/occupation_array"
-                        app:spinner_popup_animation="dropdown"
-                        app:spinner_popup_background="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Education"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <Spinner
-                        android:id="@+id/education"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:entries="@array/education_array"
-                        android:hint="Select Education"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

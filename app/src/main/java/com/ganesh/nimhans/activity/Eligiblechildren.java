@@ -2,6 +2,9 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -60,7 +63,23 @@ public class Eligiblechildren extends AppCompatActivity {
                     public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
                         try {
                             Log.d("TAG", "onResponse: " + response.body());
+
                             if (response.isSuccessful()) {
+
+                                if (response.body().isEmpty()){
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(Eligiblechildren.this);
+                                    builder.setMessage("There are no eligible participants. Thank the respondent and move on to the next household");
+
+                                    builder.setTitle("Alert !");
+
+                                    builder.setCancelable(false);
+                                    builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                        Intent intent =new Intent(Eligiblechildren.this,ResultPage.class);
+                                        startActivity(intent);
+                                    });
+                                    AlertDialog alertDialog = builder.create();
+                                    alertDialog.show();
+                                }
                                 binding.EligibleList.setAdapter(new EligibleChildAdapter(Eligiblechildren.this, response.body(), demoGraphicsID, surveyID,stateModels));
                             }
                         } catch (Exception e) {

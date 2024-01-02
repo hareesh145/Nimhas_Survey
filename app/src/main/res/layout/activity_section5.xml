@@ -103,6 +103,7 @@
                          android:layout_below="@+id/ageAndMark"
                          android:gravity="center"
                          android:padding="10dp"
+                         android:visibility="gone"
                          android:text="Interview the child"
                          android:textStyle="bold"
                          android:textAllCaps="false"
@@ -136,6 +137,7 @@
                              android:layout_below="@+id/interview_child"
                              android:gravity="center|left"
                              android:padding="10dp"
+                             android:visibility="gone"
                              android:textStyle="bold"
                              android:text="@string/section5_intro1"
                              android:textAllCaps="false"
@@ -146,6 +148,7 @@
                              android:layout_below="@+id/interview_child"
                              android:gravity="center|left"
                              android:padding="10dp"
+                             android:visibility="gone"
                              android:text="@string/section5_intro3"
                              android:textAllCaps="false"
                              android:textColor="#000000" />

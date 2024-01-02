@@ -7,7 +7,7 @@
         <!-- Data -->
         <variable
             name="handlers"
-            type="com.ganesh.nimhans.activity.ChildrenResult" />
+            type="com.ganesh.nimhans.activity.ParentResult" />
 
     </data>
 
@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Children Result"
+                    android:text="Parent Result"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -50,75 +50,75 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
                     android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="18J"
-                        android:visibility="gone"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Status :"
-                        android:layout_marginLeft="15dp"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-                </LinearLayout>
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
 
-                <RadioGroup
-                    android:id="@+id/interviewStatus"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="18J"
+                            android:visibility="gone"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <RadioButton
-                        android:id="@+id/completed"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Status :"
+                            android:layout_marginLeft="15dp"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/interviewStatus"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layoutDirection="rtl"
-                        android:text="Interview Completed"
-                        android:textAlignment="textStart" />
+                        android:layout_marginLeft="30dp">
 
-                    <RadioButton
-                        android:id="@+id/partiallyCompleted"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layoutDirection="rtl"
-                        android:text="Interview Partially Completed"
-                        android:textAlignment="textStart" />
+                        <RadioButton
+                            android:id="@+id/completed"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Interview Completed"
+                            android:textAlignment="textStart" />
 
-                    <RadioButton
-                        android:id="@+id/pending"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layoutDirection="rtl"
-                        android:text="Interview Pending"
-                        android:textAlignment="textStart" />
-                    <RadioButton
-                        android:id="@+id/refused"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layoutDirection="rtl"
-                        android:text="Refused to take part"
-                        android:textAlignment="textStart" />
-                </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/partiallyCompleted"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Interview Partially Completed"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/pending"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Interview Pending"
+                            android:textAlignment="textStart" />
+                        <RadioButton
+                            android:id="@+id/refused"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Refused to take part"
+                            android:textAlignment="textStart" />
+                    </RadioGroup>
                     <EditText
                         android:id="@+id/specify1"
                         android:layout_width="match_parent"

@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 7b"
+                    android:text="Section 7b (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 7: Screening for Autism spectrun disorder (IASQ)"
+                        android:text="Screening for Autism spectrun disorder (IASQ)"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>
@@ -106,6 +106,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
+                        android:visibility="gone"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -185,15 +186,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
                             android:text="98."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -215,17 +215,36 @@
                         </ImageView>
 
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/eye_contact"
-                        android:text="• Does the child look at you when you call him/her?\n
-• While asking something does he/she look at you?\n
-• Does the child get fussy when forced to look at people?"
-                        android:textAllCaps="false"
+                        android:orientation="vertical"
                         android:visibility="gone"
-                        android:textColor="#000000" />
+                        android:id="@+id/qus_98_info">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/eye_contact"
+                            android:text="• Does the child look at you when you call him/her?"
+                            android:textAllCaps="false"
+                            android:visibility="visible"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• While asking something does he/she look at you?"
+                            android:textAllCaps="false"
+                            android:visibility="visible"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does the child get fussy when forced to look at people?"
+                            android:textAllCaps="false"
+                            android:visibility="visible"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q98"
                         android:layout_width="fill_parent"
@@ -255,14 +274,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:visibility="gone"
                             android:text="99."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -284,18 +302,43 @@
 
                         </ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:visibility="gone"
-                        android:id="@+id/social_smile"
-                        android:text="• Does the child smile in response to familiar people (Grandparents, relatives/friends)?\n
-• Does the child smile when someone greets him/her?\n
-•  Does he/she smile when father/mother returns home in the evening?\n
-• Does he/she greet others by smiling?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical"
+                        android:id="@+id/qus_99_info"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:id="@+id/social_smile"
+                            android:text="• Does the child smile in response to familiar people (Grandparents, relatives/friends)?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• Does the child smile when someone greets him/her?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="•  Does he/she smile when father/mother returns home in the evening?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• Does he/she greet others by smiling?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q99"
                         android:layout_width="fill_parent"
@@ -327,15 +370,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
                             android:text="100."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -354,21 +396,57 @@
                             android:onClick="@{handlers::onClickRemainAloof}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:visibility="gone"
-                        android:id="@+id/Remain_aloof"
-                        android:text="
-• Does the child prefer to be alone rather in a group?\n
-• Does the child like playing with a group of children?\n
-• Does the child want parents' presence while playing or doing any activity?\n
-• Does the child feel comfortable being in a group?\n
-• If he/she is engaged in group activity how does he/she react? Does he/she get irritated or fussy?\n
-• Does he/she ignore the presence of family members?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:id="@+id/qus_100_info"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:id="@+id/Remain_aloof"
+                            android:text="• Does the child prefer to be alone rather in a group?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• Does the child like playing with a group of children?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• Does the child want parent's presence while playing or doing any activity?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• Does the child feel comfortable being in a group?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• If he/she is engaged in group activity how does he/she react? Does he/she get irritated or fussy?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            android:text="• Does he/she ignore the presence of family members?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q100"
                         android:layout_width="fill_parent"
@@ -408,6 +486,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
+                            android:visibility="gone"
                             android:text="101."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -427,20 +506,45 @@
                             android:onClick="@{handlers::onClickReachOut}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/reach_out"
-                        android:visibility="gone"
-                        android:text="
-• Does he/she like being with family members? (Parents, siblings, grandparents)\n
-• Does he/she like playing with his/her siblings/friends?\n
-• Does he/she like going out with family members?\n
-• Does he/she run and hug parents/grandparents/close relatives when they return after a break?\n
-•Is he/she attached to only one family member and ignores others' presence?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical"
+                        android:id="@+id/qus_101_info"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/reach_out"
+                            android:text="• Does he/she like being with family members? (Parents, siblings, grandparents)"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she like playing with his/her siblings/friends?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she like going out with family members?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she run and hug parents/grandparents/close relatives when they return after a break?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="•Is he/she attached to only one family member and ignores others' presence?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q101"
                         android:layout_width="fill_parent"
@@ -471,7 +575,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -479,12 +582,13 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="1dp"
+                            android:visibility="gone"
                             android:text="102."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="Engage in solitary and repetitive play activities?"
@@ -498,20 +602,34 @@
                             android:onClick="@{handlers::onClickEngageSolitary}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/engage_solitary"
                         android:visibility="gone"
-                        android:text="
-• Does the child prefer playing the same game again and again for long duration?
-i-Info button to be provided and when clicked below information to be shown.
-(Like playing with crayons/cars/beads/strings)\n
-•  If the child's play is interrupted how does he/she react\n
-• If undisturbed how long does he/she continue the same activity? Does he/she have any fixated interests? (Like playing by keeping the cars in a line or stacking things). When interrupted how does he/she react?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical"
+                        android:id="@+id/qus_102_info">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/engage_solitary"
+                            android:text="• Does the child prefer playing the same game again and again for long duration?\n
+(Like playing with crayons/cars/beads/strings)"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• If the child's play is interrupted how does he/she react"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• If undisturbed how long does he/she continue the same activity? Does he/she have any fixated interests? (Like playing by keeping the cars in a line or stacking things). When interrupted how does he/she react?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q102"
                         android:layout_width="fill_parent"
@@ -543,7 +661,6 @@ i-Info button to be provided and when clicked below information to be shown.
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -552,6 +669,7 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="103."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -570,22 +688,57 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:onClick="@{handlers::onClickNotMaintain}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/not_maintain"
+                        android:id="@+id/qus_103_info"
                         android:visibility="gone"
-                        android:text="
-• Does the child have friends?\n
-• Does he/she know the names of his/her friends?\n
-•Does he/she prefer playing with any particular child?\n
-• Does he/she express the wish to play with his/her friends?\n
-• Does he/she like attending his/her friend's birthday parties?\n
-• Does he/she share his/her experiences with his/her friends?\n
-• Does he/she feel close to any particular child?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/not_maintain"
+                            android:text="• Does the child have friends?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she know the names of his/her friends?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="•Does he/she prefer playing with any particular child?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she express the wish to play with his/her friends?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she like attending his/her friend's birthday parties?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she share his/her experiences with his/her friends?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she feel close to any particular child?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                    </LinearLayout>
                     <RadioGroup
                         android:id="@+id/q103"
                         android:layout_width="fill_parent"
@@ -616,23 +769,22 @@ i-Info button to be provided and when clicked below information to be shown.
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="1dp"
+                            android:visibility="gone"
                             android:text="104."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
-                            android:padding="1dp"
-                            android:text="Is unable to initiate sustain conversation with others?"
+                            android:padding="10dp"
+                            android:text="Is unable to initiate or sustain conversation with others?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -643,20 +795,45 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:onClick="@{handlers::onClickSustainConversation}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:orientation="vertical"
                         android:visibility="gone"
-                        android:id="@+id/sustain_conversation"
-                        android:text="
-• Does the child interact on his/her own with others?\n
-• Does the child ask questions?\n
-• Can the child sustain conversation with others (family members, teachers, and friends)?\n
-• If yes, check the frequency and duration.\n
-• Does he/she respond mostly by nodding his/her head or by saying yes or no?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:id="@+id/qus_104_info">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sustain_conversation"
+                            android:text="• Does the child interact on his/her own with others?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does the child ask questions?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Can the child sustain conversation with others (family members, teachers, and friends)?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• If yes, check the frequency and duration."
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she respond mostly by nodding his/her head or by saying yes or no?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q104"
                         android:layout_width="fill_parent"
@@ -687,7 +864,6 @@ i-Info button to be provided and when clicked below information to be shown.
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -696,14 +872,15 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:gravity="center"
                             android:padding="1dp"
                             android:text="105."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
-                            android:padding="1dp"
-                            android:text="Engage stereotyped/repetitive motor mannerisms?"
+                            android:padding="10dp"
+                            android:text="Engage in stereotyped/repetitive motor mannerisms?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -714,17 +891,26 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:onClick="@{handlers::onClickEngageStereotyped}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/engage_stereotyped"
+                        android:orientation="vertical"
                         android:visibility="gone"
-                        android:text="
-• Does he/she engage in repetitive behaviours like hand flapping, head nodding, finger wiggling and body rocking?
-• Ask if the child uses any object while engaging in repetitive activities (spinning objects)."
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:id="@+id/qus_105_info">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does he/she engage in repetitive behaviours like hand flapping, head nodding, finger wiggling and body rocking?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Ask if the child uses any object while engaging in repetitive activities (spinning objects)."
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q105"
                         android:layout_width="fill_parent"
@@ -756,7 +942,6 @@ i-Info button to be provided and when clicked below information to be shown.
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -764,11 +949,12 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="106."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="Show attachment to inanimate objects?"
@@ -782,18 +968,33 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:onClick="@{handlers::onClickInanimateObjects}"
                             android:src="@drawable/baseline_info_24"></ImageView>
                     </LinearLayout>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:visibility="gone"
-                        android:id="@+id/inanimate_objects"
-                        android:text="
-• Does the child play with strings, threads/ wires?
-• Does the child want to keep any object/toy with him/herself throughout the day?
-• If parent tries to take it away how does he/she react?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical"
+                        android:id="@+id/qus_106_info"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/inanimate_objects"
+                            android:text="• Does the child play with strings, threads/ wires?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Does the child want to keep any object/toy with him/herself throughout the day?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• If parent tries to take it away how does he/she react?"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/q106"
                         android:layout_width="fill_parent"
@@ -823,7 +1024,6 @@ i-Info button to be provided and when clicked below information to be shown.
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -831,11 +1031,12 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="107."
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
-                            android:layout_width="300dp"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="Respond to objects/people unusually by smelling,touching or tasting?"
@@ -851,21 +1052,45 @@ i-Info button to be provided and when clicked below information to be shown.
                             android:src="@drawable/baseline_info_24"></ImageView>
 
                     </LinearLayout>
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:visibility="gone"
+                      android:orientation="vertical"
+                      android:id="@+id/qus_107_info">
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/respond_objects"
+                          android:text="• Does the child put everything in his/her mouth? (even inedible objects-toys, pens, pencils, crayons)"
+                          android:textAllCaps="false"
+                          android:textColor="#000000" />
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="• Does the child like to smell things? (Dresses, hair, people)"
+                          android:textAllCaps="false"
+                          android:textColor="#000000" />
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="• Does the child touch/hug other people?"
+                          android:textAllCaps="false"
+                          android:textColor="#000000" />
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="• Does he/she express dislike when someone tries to touch him/her?"
+                          android:textAllCaps="false"
+                          android:textColor="#000000" />
+                      <TextView
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:text="• Does the child like to eat food of a particular taste?"
+                          android:textAllCaps="false"
+                          android:textColor="#000000" />
+                  </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:visibility="gone"
-                        android:id="@+id/respond_objects"
-                        android:text="
-• Does the child put everything in his/her mouth? (even inedible objects-toys, pens, pencils, crayons)\n
-• Does the child like to smell things? (Dresses, hair, people)\n
-• Does the child touch/hug other people?\n
-• Does he/she express dislike when someone tries to touch him/her?\n
-• Does the child like to eat food of a particular taste?"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
                     <RadioGroup
                         android:id="@+id/q107"
                         android:layout_width="fill_parent"

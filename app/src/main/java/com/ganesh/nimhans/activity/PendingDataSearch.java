@@ -63,7 +63,7 @@ public class PendingDataSearch extends AppCompatActivity {
         String selectedVillageCode = getSelectedVillageCode(binding.city.getText().toString());
         Intent intent = new Intent(this, PendingListScreen.class);
 //        intent.putExtra("selectedCode", selectedStateCode + getSelectedTalukaCode(binding.taluka.getText().toString()) + districtCode + selectedVillageCode);
-        intent.putExtra("selectedCode","05061003108003176");
+            intent.putExtra("selectedCode","05061003108003176");
         startActivity(intent);
     }
 

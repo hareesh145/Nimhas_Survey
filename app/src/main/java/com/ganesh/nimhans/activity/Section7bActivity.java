@@ -76,7 +76,6 @@ public class Section7bActivity extends AppCompatActivity {
         sustain_conversation_image = findViewById(R.id.sustain_conversation_image);
         sustain_conversation = findViewById(R.id.sustain_conversation);
         engage_stereotyped_image = findViewById(R.id.engage_stereotyped_image);
-        engage_stereotyped = findViewById(R.id.engage_stereotyped);
         inanimate_objects_image = findViewById(R.id.inanimate_objects_image);
         inanimate_objects = findViewById(R.id.inanimate_objects);
         respond_objects_image = findViewById(R.id.respond_objects_image);
@@ -230,83 +229,83 @@ public class Section7bActivity extends AppCompatActivity {
     }
 
     public void onClickEyeContact(View v) {
-        if (eye_contact.getVisibility() == View.GONE) {
-            eye_contact.setVisibility(View.VISIBLE);
+        if (binding.qus98Info.getVisibility() == View.GONE) {
+            binding.qus98Info.setVisibility(View.VISIBLE);
         } else {
-            eye_contact.setVisibility(View.GONE);
+            binding.qus98Info.setVisibility(View.GONE);
         }
 
     }
 
     public void onClickSocialSmile(View v) {
-        if (social_smile.getVisibility() == View.GONE) {
-            social_smile.setVisibility(View.VISIBLE);
+        if (binding.qus99Info.getVisibility() == View.GONE) {
+            binding.qus99Info.setVisibility(View.VISIBLE);
         } else {
-            social_smile.setVisibility(View.GONE);
+            binding.qus99Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickRemainAloof(View v) {
-        if (Remain_aloof.getVisibility() == View.GONE) {
-            Remain_aloof.setVisibility(View.VISIBLE);
+        if (binding.qus100Info.getVisibility() == View.GONE) {
+            binding.qus100Info.setVisibility(View.VISIBLE);
         } else {
-            Remain_aloof.setVisibility(View.GONE);
+            binding.qus100Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickReachOut(View v) {
-        if (reach_out.getVisibility() == View.GONE) {
-            reach_out.setVisibility(View.VISIBLE);
+        if (binding.qus101Info.getVisibility() == View.GONE) {
+            binding.qus101Info.setVisibility(View.VISIBLE);
         } else {
-            reach_out.setVisibility(View.GONE);
+            binding.qus101Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickEngageSolitary(View v) {
-        if (engage_solitary.getVisibility() == View.GONE) {
-            engage_solitary.setVisibility(View.VISIBLE);
+        if (binding.qus102Info.getVisibility() == View.GONE) {
+            binding.qus102Info.setVisibility(View.VISIBLE);
         } else {
-            engage_solitary.setVisibility(View.GONE);
+            binding.qus102Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickNotMaintain(View v) {
-        if (not_maintain.getVisibility() == View.GONE) {
-            not_maintain.setVisibility(View.VISIBLE);
+        if (binding.qus103Info.getVisibility() == View.GONE) {
+            binding.qus103Info.setVisibility(View.VISIBLE);
         } else {
-            not_maintain.setVisibility(View.GONE);
+            binding.qus103Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickSustainConversation(View v) {
-        if (sustain_conversation.getVisibility() == View.GONE) {
-            sustain_conversation.setVisibility(View.VISIBLE);
+        if (binding.qus104Info.getVisibility() == View.GONE) {
+            binding.qus104Info.setVisibility(View.VISIBLE);
         } else {
-            sustain_conversation.setVisibility(View.GONE);
+            binding.qus104Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickEngageStereotyped(View v) {
-        if (engage_stereotyped.getVisibility() == View.GONE) {
-            engage_stereotyped.setVisibility(View.VISIBLE);
+        if (binding.qus105Info.getVisibility() == View.GONE) {
+            binding.qus105Info.setVisibility(View.VISIBLE);
         } else {
-            engage_stereotyped.setVisibility(View.GONE);
+            binding.qus105Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickInanimateObjects(View v) {
-        if (inanimate_objects.getVisibility() == View.GONE) {
-            inanimate_objects.setVisibility(View.VISIBLE);
+        if (binding.qus106Info.getVisibility() == View.GONE) {
+            binding.qus106Info.setVisibility(View.VISIBLE);
         } else {
-            inanimate_objects.setVisibility(View.GONE);
+            binding.qus106Info.setVisibility(View.GONE);
         }
     }
 
     public void onClickRespondObjects(View v) {
-        if (respond_objects.getVisibility() == View.GONE) {
-            respond_objects.setVisibility(View.VISIBLE);
+        if (binding.qus107Info.getVisibility() == View.GONE) {
+            binding.qus107Info.setVisibility(View.VISIBLE);
         } else {
-            respond_objects.setVisibility(View.GONE);
+            binding.qus107Info.setVisibility(View.GONE);
         }
     }
 }

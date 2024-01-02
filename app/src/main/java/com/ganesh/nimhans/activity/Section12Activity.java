@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 
@@ -117,7 +119,16 @@ public class Section12Activity extends AppCompatActivity {
                 }
             }
         });
-
+        binding.question217.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.dont_know) {
+                    binding.km.setVisibility(View.VISIBLE);
+                } else {
+                    binding.km.setVisibility(View.VISIBLE);
+                }
+            }
+        });
         binding.heardVisitedOptions.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -193,15 +204,44 @@ public class Section12Activity extends AppCompatActivity {
         });
 
     }
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.others_218:
+                if (checked){
+                    binding.othersSpecify218.setVisibility(View.VISIBLE);
+                }
+                else {
+                    binding.othersSpecify218.setVisibility(View.GONE);
+                }
+                // Do your coding
 
+            // Perform your logic
+        }
+
+    }
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-        Intent intent = new Intent(activity, Section13Activity.class);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        startActivity(intent);
+
+        if (Float.parseFloat(ageValue) < 2.0f) {
+            Intent intent = new Intent(Section12Activity.this, ParentResult.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }else {
+            //if the result is +ve we need to navigat
+            Util.showToast(activity, "Successfully data saved");
+            Intent intent = new Intent(activity, Section13Activity.class);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            startActivity(intent);
+        }
 
     }
 

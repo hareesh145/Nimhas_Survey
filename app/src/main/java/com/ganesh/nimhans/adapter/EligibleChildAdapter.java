@@ -1,5 +1,6 @@
 package com.ganesh.nimhans.adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
@@ -7,6 +8,9 @@ import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +21,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ganesh.nimhans.R;
+import com.ganesh.nimhans.activity.Eligiblechildren;
+import com.ganesh.nimhans.activity.ResultPage;
+import com.ganesh.nimhans.activity.Section13Activity;
 import com.ganesh.nimhans.activity.Section3cActivity;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.StateModel;
@@ -68,6 +75,7 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
             taluka = itemView.findViewById(R.id.taluka);
             village = itemView.findViewById(R.id.village);
             address = itemView.findViewById(R.id.address);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

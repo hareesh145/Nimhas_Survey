@@ -3,8 +3,10 @@ package com.ganesh.nimhans.activity;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static androidx.fragment.app.FragmentManager.TAG;
+import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.Manifest;
@@ -25,9 +27,11 @@ import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -55,7 +59,7 @@ public class Section13Activity extends AppCompatActivity {
     private ActivitySection13Binding binding;
     String phoneNo, pswd;
     ProgressBar progressBar;
-
+    private String ageValue;
     MyNimhans myGameApp;
     public Section3aActivity sec3 = new Section3aActivity();
     final Calendar dateOfVisitCalendar = Calendar.getInstance();
@@ -64,6 +68,7 @@ public class Section13Activity extends AppCompatActivity {
     private String selectedResultCode;
     private String timepicker;
     private String interviewDate;
+    String selectedCaste;
     Long demoGraphicsID;
     private int surveyID;
     private String time;
@@ -79,6 +84,9 @@ public class Section13Activity extends AppCompatActivity {
         setContentView(view);
         activity = this;
         binding.setHandlers(this);
+        ageValue = getIntent().getStringExtra(Constants.AGE_ID);
+        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+        demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         phoneNo = myGameApp.getUserPhoneNo();
        // checkpermissions(this);
@@ -95,7 +103,7 @@ public class Section13Activity extends AppCompatActivity {
 
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-            Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
+           // Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
            // takeScreenshot(getWindow().getDecorView().getRootView());
         });
         AlertDialog alertDialog = builder.create();
@@ -116,17 +124,43 @@ public class Section13Activity extends AppCompatActivity {
                 }
             }
         });
-
+        binding.yesNo227.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedCaste = selectedValue;
+            switch (checkedId){
+                case R.id.yes:
+                    binding.checkbox227.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.checkbox227.setVisibility(View.GONE);
+                    break;
+            }
+        });
+        binding.yesNo228.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedCaste = selectedValue;
+            switch (checkedId){
+                case R.id.yes228:
+                    binding.checkbox228.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.checkbox228.setVisibility(View.GONE);
+                    break;
+            }
+        });
     }
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
         Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
         finishAffinity();
-        Intent intent = new Intent(Section13Activity.this, ChildrenResult.class);
+        Intent intent = new Intent(Section13Activity.this, ParentResult.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         startActivity(intent);
+
     }
 
     public void showDatePickerDialog1(View v) {
@@ -255,4 +289,22 @@ public class Section13Activity extends AppCompatActivity {
             ActivityCompat.requestPermissions(activity, permissionstorage, REQUEST_EXTERNAL_STORAGE);
         }
     }*/
+ public void onCheckboxClicked(View view) {
+     // Is the view now checked?
+     boolean checked = ((CheckBox) view).isChecked();
+     // Check which checkbox was clicked
+     switch(view.getId()) {
+         case R.id.others_222:
+             if (checked){
+                 binding.othersSpecify222.setVisibility(View.VISIBLE);
+             }
+             else {
+                 binding.othersSpecify222.setVisibility(View.GONE);
+             }
+             // Do your coding
+
+             // Perform your logic
+     }
+
+ }
 }

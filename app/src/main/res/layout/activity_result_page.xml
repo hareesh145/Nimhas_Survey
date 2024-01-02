@@ -197,6 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:visibility="gone"
+                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -205,7 +206,7 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="15A"
-                            android:visibility="invisible"
+                            android:visibility="gone"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -253,17 +254,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:id="@+id/next_visit_date_time"
+                        android:layout_marginLeft="30dp"
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:padding="10dp"
-                            android:visibility="invisible"
-                            android:text="16A"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
 
                         <EditText
                             android:id="@+id/date3"
@@ -271,9 +265,23 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
                             android:focusable="false"
-                            android:hint="Date Picker"
+                            android:hint="Next Visit Date"
                             android:inputType="date"
                             android:onClick="showDatePickerDialog2"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <EditText
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:focusable="false"
+                            android:layout_marginTop="10dp"
+                            android:hint="Time"
+                            android:inputType="time"
+                            android:visibility="visible"
+                            android:onClick="showTimePickerDialog"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -283,6 +291,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="30dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -290,24 +299,12 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:visibility="invisible"
+                            android:visibility="gone"
                             android:text="16B"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
-                        <EditText
-                            android:id="@+id/time"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/edit_text_border"
-                            android:focusable="false"
-                            android:hint="Time Picker"
-                            android:inputType="time"
-                            android:visibility="gone"
-                            android:onClick="showTimePickerDialog"
-                            android:padding="10dp"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
+
                     </LinearLayout>
 
                     <LinearLayout

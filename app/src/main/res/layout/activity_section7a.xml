@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 7a"
+                    android:text="Section 7a (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -58,15 +58,15 @@
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:visibility="gone"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 7: Screening for Autism spectrun disorder (MCHAT)"
+                        android:text="Screening for Autism spectrum disorder (MCHAT)"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -77,17 +77,17 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="Child Age"
-                        android:textStyle="bold"
+                        android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textAllCaps="false"/>
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/child_age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
-                        android:hint="Number"
                         android:focusable="false"
+                        android:hint="Number"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -99,7 +99,8 @@
                         android:padding="10dp"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -166,10 +167,10 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
-                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
 
                     <LinearLayout
@@ -1211,6 +1212,7 @@
                             android:textAlignment="textStart" />
 
                     </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1218,34 +1220,35 @@
                         android:visibility="gone">
 
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/rcads_score"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/bg_btn_background"
-                        android:text="@string/calculate"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white" />
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/rcads_score"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_btn_background"
+                            android:text="@string/calculate"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Mchat_asd_Screener"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Mchat_asd_Screener"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <EditText
-                        android:id="@+id/merchant_result"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="MCHAT Result"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <EditText
+                            android:id="@+id/merchant_result"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="MCHAT Result"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -1255,6 +1258,7 @@
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

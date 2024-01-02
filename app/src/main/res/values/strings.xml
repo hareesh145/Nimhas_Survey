@@ -27,8 +27,8 @@
     <string name="string_text22">INTERVIEW PARTIALLY COMPLETED</string>
     <string name="string_text23">RESPONDENT REFUSED TO TAKE PART</string>
     <string name="go_to_result">Go To Result</string>
-    <string name="section5_intro">INTRODUCTION (PLEASE READ TO PATIENTS)</string>
-    <string name="section5_intro2">Thank you for agreeing to take part in this brief interview about alcohol, tobacco products and other drugs. I am going to ask you some questions about your experience of using these substances across your lifetime and in the past three months. These substances can be smoked, swallowed, snorted, inhaled, injected or ta ken in the form of pills (show drug card). Some of the substances listed may be prescribed by a doctor (like amphetamines, sedatives, pain medications). For this interview, we will not record medications that are used as prescribed by your doctor. However, if you have taken such medications for reasons other than prescription, or taken them more frequently or at higher doses than prescribed, please let me know. While we are also interested in knowing about your use of various illicit drugs, please be assured that information on such use will be treated as strictly confidential.</string>
+    <string name="section5_intro">INTRODUCTION (PLEASE READ TO RESPONDENT)</string>
+    <string name="section5_intro2">Thank you for agreeing to take part in this brief interview about alcohol, tobacco products and other drugs. I am going to ask you some questions about your experience of using these substances across your lifetime and in the past three months. These substances can be smoked, swallowed, snorted, inhaled, injected or taken in the form of pills (show drug card). Some of the substances listed may be prescribed by a doctor (like amphetamines, sedatives, pain medications). For this interview, we will not record medications that are used as prescribed by your doctor. However, if you have taken such medications for reasons other than prescription, or taken them more frequently or at higher doses than prescribed, please let me know. While we are also interested in knowing about your use of various illicit drugs, please be assured that information on such use will be treated as strictly confidential.</string>
     <string name="section5_intro1">NOTE: BEFORE ASKING QUESTIONS, GIVE ASSIST RESPONSE CARD TO PATIENT</string>
     <string name="section5_intro3">(if completing follow- up please cross check the patient’s answers with the answers given for Q1 at baseline. Any differences on this question should be queried)</string>
 
@@ -38,8 +38,8 @@
     <string name="district">District</string>
 
 
-    <string name="section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist">Section 5: The Alcohol, Smoking and Substance Involvement Screening Test(ASSIST)</string>
-    <string name="section_5_title">Section 5</string>
+    <string name="section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist">The Alcohol, Smoking and Substance Involvement Screening Test (ASSIST)</string>
+    <string name="section_5_title">Section 5 (Interview only the child)</string>
     <string name="create_user">Create User</string>
     <string name="full_name">Full name</string>
     <string name="age">Age</string>
@@ -103,9 +103,9 @@
     <string name="_6_no_competent_respondent_at_home">6. No Competent Respondent at Home</string>
     <string name="_7_dwelling_vacant_not_a_dwelling_dwelling_destroyed">7. Dwelling Vacant/Not a Dwelling/Dwelling Destroyed</string>
     <string name="_8_other">8. Other</string>
-    <string name="parent_interview_title">PARENT INTERVIEW FORM TO BE ADMINISTERED TO ONE OF THE PARENTS PREFERABLY MOTHER.IF BOTH MOTHER AND FATHER ARE NOT ALIVE, ONLY THEN THE GUARDIAN OR CARETAKER NEEDS TO BE INTERVIEWED.</string>
-    <string name="section_11_title">Section 11: Anxiety and Depression (RCADS)</string>
-    <string name="check_the_age_of_the_child_and_mark">Check the age of the child and mark</string>
+    <string name="parent_interview_title">Parent interview form to be administered to one of the parents preferably mother.If both mother and father are not alive, only then the guardian or caretaker needs to be interviewed.</string>
+    <string name="section_11_title">Anxiety and Depression (RCADS)</string>
+    <string name="check_the_age_of_the_child_and_mark">Child age</string>
     <string name="interview_only_the_parents_guardian">INTERVIEW ONLY THE PARENTS/GUARDIAN</string>
     <string name="respondent">Respondent</string>
     <string name="mother">Mother</string>
@@ -212,11 +212,11 @@
 
 
     <string-array name="relation_ship_array">
-        <item>Self</item>
         <item>Wife/Husband</item>
         <item>Son/Daughter</item>
         <item>Son-in-law/Daughter-in-law</item>
-        <item>Grandchild</item>
+        <item>Grand Child</item>
+        <item>Grand Parent</item>
         <item>Father</item>
         <item>Mother</item>
         <item>Mother-in-law</item>
@@ -230,7 +230,6 @@
     </string-array>
 
     <string-array name="occupation_array">
-        <item>Select Occupation</item>
         <item>Cultivator</item>
         <item>Agricultural labourer</item>
         <item>Non-agricultural labourer</item>
@@ -243,7 +242,6 @@
     </string-array>
 
     <string-array name="education_array">
-        <item>Select Education</item>
         <item>Illiterate</item>
         <item>Pre- Primary</item>
         <item>Primary</item>
@@ -278,8 +276,8 @@
 
     <string-array name="illness_dropdown">
         <item>Govt./Municipal Hospital</item>
-        <item>Private Hospital/Private Doctor/Clinic</item>
         <item>Ngo/Trust Hospital/Clinic</item>
+        <item>Private Hospital/Private Doctor/Clinic</item>
         <item>Vaidya/Hakim/Homeopath</item>
         <item>Traditional Healer</item>
         <item>Pharmacy/Drugstore</item>
