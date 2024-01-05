@@ -151,6 +151,8 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Enter the Name"
                         android:padding="10dp"
+                        android:inputType="textPersonName"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -359,7 +361,7 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
-                        <Spinner
+                        <!--<Spinner
                             android:id="@+id/education"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -368,7 +370,23 @@
                             android:hint="Select Education"
                             android:padding="10dp"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000" />-->
+                        <com.skydoves.powerspinner.PowerSpinnerView
+                            android:id="@+id/education"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Select Education"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            app:spinner_arrow_tint="@color/black"
+                            app:spinner_divider_color="@color/black"
+                            app:spinner_divider_size="0.4dp"
+                            app:spinner_item_array="@array/education_array"
+                            app:spinner_popup_animation="dropdown"
+                            app:spinner_popup_background="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -596,6 +614,7 @@
                             android:layout_marginTop="20dp"
                             android:onClick="@{handlers::onClickPreviousSection}"
                             android:padding="10dp"
+                            android:visibility="gone"
                             android:text="Previous Section"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />

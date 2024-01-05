@@ -1,22 +1,33 @@
 package com.ganesh.nimhans.activity;
 
+import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
+
+import java.util.Calendar;
+import java.util.Locale;
 
 public class ChildrenResult extends AppCompatActivity {
     private ActivityChildrenResultBinding binding;
@@ -25,6 +36,10 @@ public class ChildrenResult extends AppCompatActivity {
     private int surveyID;
     MyNimhans myGameApp;
     String selectedResultCode;
+    private EligibleResponse eligibleResponse;
+    private String ageValue;
+    final Calendar myCalendar1 = Calendar.getInstance();
+    private Calendar calendar = Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +49,11 @@ public class ChildrenResult extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
+
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+        ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -47,9 +65,15 @@ public class ChildrenResult extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.refused:
                         binding.specify1.setVisibility(View.VISIBLE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        break;
+                    case R.id.partiallyCompleted:
+                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                        binding.specify1.setVisibility(View.GONE);
                         break;
                     default:
                         binding.specify1.setVisibility(View.GONE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
                         break;
 
                 }
@@ -64,9 +88,97 @@ public class ChildrenResult extends AppCompatActivity {
 
     }
     public void onClickNextSection(View v) {
-        Intent intent = new Intent(ChildrenResult.this, Eligiblechildren.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        startActivity(intent);
+        if (Float.parseFloat(ageValue) <= 17.0f) {
+            if (Float.parseFloat(ageValue) >= 6.0f) {
+                Intent intent = new Intent(activity, Section6Activity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
+            } else if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                //If the age is greater than 2 & less than 3
+                Intent intent = new Intent(activity, Section7aActivity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
+            } else if (Float.parseFloat(ageValue) >= 4.0f) {
+                //If the age is greater than 3 Krishna
+                Intent intent = new Intent(activity, Section7bActivity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
+            } else {
+                //IF the Age is 18
+                Intent intent = new Intent(activity, Section8Activity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
+            }
+        }
+    }
+    private final DatePickerDialog.OnDateSetListener dateSetListener =
+            new DatePickerDialog.OnDateSetListener() {
+                /**
+                 * @param view       the picker associated with the dialog
+                 * @param year       the selected year
+                 * @param month      the selected month (0-11 for compatibility with
+                 *                   {@link Calendar#MONTH})
+                 * @param dayOfMonth the selected day of the month (1-31, depending on
+                 *                   month)
+                 */
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calendar.set(Calendar.YEAR, year);
+                    calendar.set(Calendar.MONTH, month);
+                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                    updateEditText();
+                }
+            };
+
+    public void showDatePickerDialog2(View v) {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, monthOfYear);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateCalender();
+            }
+        };
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+
+    }
+
+    private void updateEditText() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        binding.date3.setText(sdf.format(calendar.getTime()));
+        new DatePickerDialog(this, dateSetListener, myCalendar1.get(Calendar.YEAR), myCalendar1.get(Calendar.MONTH), myCalendar1.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    private void updateCalender() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+        binding.date3.setText(sdf.format(calendar.getTime()));
+    }
+    public void showTimePickerDialog(View v) {
+        Calendar mcurrentTime = Calendar.getInstance();
+        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+        int minute = mcurrentTime.get(Calendar.MINUTE);
+        TimePickerDialog mTimePicker;
+        mTimePicker = new TimePickerDialog(ChildrenResult.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                binding.time.setText(selectedHour + ":" + selectedMinute);
+            }
+        }, hour, minute, false);//Yes 24 hour time
+        mTimePicker.setTitle("Select Time");
+        mTimePicker.show();
     }
 }

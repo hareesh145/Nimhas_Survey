@@ -54,10 +54,17 @@ public class ParentResult extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.refused:
                         binding.specify1.setVisibility(View.VISIBLE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        break;
+                    case R.id.partiallyCompleted:
+                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                        binding.specify1.setVisibility(View.GONE);
                         break;
                     default:
                         binding.specify1.setVisibility(View.GONE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
                         break;
+
 
                 }
 

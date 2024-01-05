@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <!-- Data -->
@@ -764,7 +763,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:id="@+id/checkbox_228">
                         <CheckBox
                             android:layout_width="match_parent"
@@ -772,6 +771,12 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="National Trust Act, 1999" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The national trust act of 1999 in india establishes the national trust for the welfare of persons with autism, cerebral palsy, mental retardation, and multiple disabilities. The primary objective is to empower and support individuals with such disabilities, promoting their full participation in society. The trust facilitates legal guardianship for those incapable of taking care of themselves and implements various welfare programs for their well-being. The benefits of the act are it provides crucial support mechanisms for persons with specific disabilities, ensuring their welfare and integration into society.">
+
+                        </TextView>
 
                         <CheckBox
                             android:layout_width="match_parent"
@@ -779,21 +784,33 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Rights of Persons With Disabilities (RPWD) Act, 2016" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The Rights of Persons with Disabilities (RPWD) Act of 2016 in India aims to enhance the rights and opportunities for individuals with disabilities. The benefits of this act are it provides equal opportunities in education, employment, and accessibility, promoting a barrier-free environment. Additionally, it mandates the creation of a National and State Disability Commission to address grievances and ensure the implementation of disability rights across the country.">
+                        </TextView>
                         <CheckBox
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Mental Health Care Act, 2017" />
-
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The Mental Healthcare Act of 2017 in India focuses on safeguarding the rights of individuals with mental illnesses. It decriminalizes suicide attempts, ensuring that those in distress receive compassionate care rather than legal repercussions. The legislation emphasizes the right to access mental healthcare services, promoting non-discrimination and confidentiality. Additionally, it establishes Mental Health Review Boards to oversee the protection of patients' rights and the quality of mental healthcare services. The benefits of The Mental Healthcare Act of 2017 include reducing the stigma surrounding mental health, protecting the rights of individuals through the elimination of legal penalties for suicide attempts.">
+                        </TextView>
                         <CheckBox
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Juvenile Justice Act(Care And Protection Of Children), 2015 \n\nHeard about it – provide salient features for them to opine/understand?" />
-
+                            android:text="Juvenile Justice Act(Care And Protection Of Children), 2015 ?" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The Juvenile Justice (Care and Protection of Children) Act, 2015 is an Indian legislation emphasizing a child-centric approach, distinguishing between juvenile and adult offenders, and promotes their rehabilitation through special provisions and juvenile justice boards. The Act aims to ensure the rights and well-being of children, balancing the principles of protection and rehabilitation within the legal framework. The Juvenile Justice (Care and Protection of Children) Act, 2015, benefits by ensuring the care, protection, and rehabilitation of children in conflict with the law, emphasizing their rights and well-being.">
+                        </TextView>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"

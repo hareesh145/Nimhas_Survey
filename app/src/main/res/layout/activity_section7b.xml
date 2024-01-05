@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Screening for Autism spectrun disorder (IASQ)"
+                        android:text="Screening for Autism spectrum disorder (IASQ)"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>

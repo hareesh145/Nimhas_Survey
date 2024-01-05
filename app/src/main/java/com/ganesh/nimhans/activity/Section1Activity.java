@@ -137,6 +137,8 @@ public class Section1Activity extends AppCompatActivity {
         binding.taluka.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>)
                 (oldIndex, oldItem, newIndex, newItem) -> {
                     binding.city.setItems(filterVillages(newItem));
+                    binding.city.setText(R.string.select_village);
+                    binding.hhn.setText("");
                 });
 
         binding.city.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>)
@@ -173,16 +175,26 @@ public class Section1Activity extends AppCompatActivity {
                 binding.progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     houseHoldNumberValue = response.body().get("houseHoldNo").getAsInt();
-                    binding.hhn.setText("000"+houseHoldNumberValue);
+                    if (houseHoldNumberValue <= 9){
+                        binding.hhn.setText("0"+houseHoldNumberValue);
+                    }else {
+                        binding.hhn.setText(""+houseHoldNumberValue);
+                    }
+
+
                 } else {
-                    binding.hhn.setText("3");
+                    if (!Util.isNetworkConnected(Section1Activity.this)) {
+                        Util.showLongToast(Section1Activity.this, "Please Check Internet Connection", false);
+                    }
+
                 }
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                binding.progressBar.setVisibility(View.GONE);
-                binding.hhn.setText("3");
+                if (!Util.isNetworkConnected(Section1Activity.this)) {
+                    Util.showLongToast(Section1Activity.this, "Please Check Internet Connection", false);
+                }
                 t.printStackTrace();
             }
         });

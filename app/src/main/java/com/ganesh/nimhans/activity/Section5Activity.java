@@ -8,6 +8,8 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -527,50 +529,43 @@ public class Section5Activity extends AppCompatActivity {
                     break;
             }
         });*/
+        binding.Specify1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    if (!s.toString().isEmpty()) {
+                        binding.pastThreeMonths.setText("In the past three months, how often have you used "+ s + "");
+
+                    } else {
+                        binding.pastThreeMonths.setText("In the past three months, how often have you used");
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-//        Intent intent = new Intent(activity, Section6Activity.class);
-//        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-//        intent.putExtra(SURVEY_ID, surveyID);
-//        intent.putExtra(AGE_ID, ageValue);
-//        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-//        startActivity(intent);
-        if (Float.parseFloat(ageValue) <= 17.0f) {
-            if (Float.parseFloat(ageValue) >= 6.0f) {
-                Intent intent = new Intent(activity, Section6Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
-                //If the age is greater than 2 & less than 3
-                Intent intent = new Intent(activity, Section7aActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else if (Float.parseFloat(ageValue) >= 4.0f) {
-                //If the age is greater than 3 Krishna
-                Intent intent = new Intent(activity, Section7bActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else {
-                //IF the Age is 18
-                Intent intent = new Intent(activity, Section8Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            }
-        }
+       Intent intent = new Intent(activity, ChildrenResult.class);
+       intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+       intent.putExtra(SURVEY_ID, surveyID);
+       intent.putExtra(AGE_ID, ageValue);
+       intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+      startActivity(intent);
+
     }
 
     public void updateQuestionOption(String question, int option) {
@@ -589,7 +584,7 @@ public class Section5Activity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section5Activity.this, ResultPage.class);
+        Intent intent = new Intent(Section5Activity.this, ChildrenResult.class);
         startActivity(intent);
     }
 

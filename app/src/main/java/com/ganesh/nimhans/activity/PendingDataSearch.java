@@ -61,9 +61,20 @@ public class PendingDataSearch extends AppCompatActivity {
         String selectedStateCode = getSelectedStateCode(stateValue);
         String districtCode = getSelectedDistrictCode(selectedDistrict);
         String selectedVillageCode = getSelectedVillageCode(binding.city.getText().toString());
+        String talukaCode = getSelectedTalukaCode(binding.taluka.getText().toString());
         Intent intent = new Intent(this, PendingListScreen.class);
-//        intent.putExtra("selectedCode", selectedStateCode + getSelectedTalukaCode(binding.taluka.getText().toString()) + districtCode + selectedVillageCode);
-            intent.putExtra("selectedCode","05061003108003176");
+        Log.d("TAG", "onClickSearch: selectedStateCode " + selectedStateCode);
+        Log.d("TAG", "onClickSearch: talukaCode " + talukaCode);
+        Log.d("TAG", "onClickSearch: districtCode " + districtCode);
+        Log.d("TAG", "onClickSearch: selectedVillageCode " + selectedVillageCode);
+
+        intent.putExtra("selectedCode", selectedStateCode + districtCode + talukaCode + "0" + selectedVillageCode);
+        //0500304060045208
+        //0506000304045208
+        //05061003108003176
+        //0506000304045257
+        //05060003040045229
+//        intent.putExtra("selectedCode", "05061003108003176");
         startActivity(intent);
     }
 

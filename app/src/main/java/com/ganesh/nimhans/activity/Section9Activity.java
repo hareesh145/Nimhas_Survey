@@ -319,7 +319,7 @@ public class Section9Activity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section9Activity.this, ResultPage.class);
+        Intent intent = new Intent(Section9Activity.this, ParentResult.class);
         startActivity(intent);
     }
 }

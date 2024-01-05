@@ -251,7 +251,7 @@ public class Section12Activity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section12Activity.this, ResultPage.class);
+        Intent intent = new Intent(Section12Activity.this, ParentResult.class);
         startActivity(intent);
     }
 }

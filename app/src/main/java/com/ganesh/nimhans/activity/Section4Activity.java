@@ -621,6 +621,13 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                 startActivity(intent);
+            } else if (Float.parseFloat(ageValue) < 10.0f) {
+                Intent intent = new Intent(Section4Activity.this, ChildrenResult.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                startActivity(intent);
             } else if (Float.parseFloat(ageValue) >= 6.0f) {
                 //If the age is greater than 6
                 Intent intent = new Intent(Section4Activity.this, Section6Activity.class);
@@ -681,7 +688,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section4Activity.this, ResultPage.class);
+        Intent intent = new Intent(Section4Activity.this, ChildrenResult.class);
         startActivity(intent);
     }
 }

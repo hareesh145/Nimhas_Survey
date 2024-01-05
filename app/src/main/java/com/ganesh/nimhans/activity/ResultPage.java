@@ -1,5 +1,8 @@
 package com.ganesh.nimhans.activity;
 
+import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 
@@ -21,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityResultPageBinding;
+import com.ganesh.nimhans.utils.Constants;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -39,7 +43,8 @@ public class ResultPage extends AppCompatActivity {
     final Calendar myCalendar1 = Calendar.getInstance();
     private Calendar calendar = Calendar.getInstance();
     final Calendar myCalendar2 = Calendar.getInstance();
-
+    Long demoGraphicsID;
+    private int surveyID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,8 @@ public class ResultPage extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
+        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
+        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -133,7 +140,9 @@ public class ResultPage extends AppCompatActivity {
     }
 
     public void onClickSubmit(View v) {
-        Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+        Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
         startActivity(intent);
     }
 

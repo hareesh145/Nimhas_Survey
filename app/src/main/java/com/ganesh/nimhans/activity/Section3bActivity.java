@@ -21,7 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.window.OnBackInvokedDispatcher;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
@@ -338,7 +340,7 @@ public class Section3bActivity extends AppCompatActivity {
 
         relationShip = binding.relation.getText().toString();
         occupation = binding.occupation.getText().toString();
-        education = binding.education.getSelectedItem().toString();
+        education = binding.education.getText().toString();
 
         ServeySection3bRequest serveySection5Request = new ServeySection3bRequest();
         if (!NoOfPersons.getText().toString().isEmpty()) {
@@ -363,7 +365,7 @@ public class Section3bActivity extends AppCompatActivity {
 
         serveySection5Request.setQno13(selectedMaritalStatus1);
         serveySection5Request.setQno14(binding.occupation.getText().toString());
-        serveySection5Request.setQno15(binding.education.getSelectedItem().toString());
+        serveySection5Request.setQno15(binding.education.getText().toString());
         serveySection5Request.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
         serveySection5Request.setQno16A(binding.Specify4.getText().toString());
         serveySection5Request.setQno17(selectedAnswerType2);
@@ -414,7 +416,7 @@ public class Section3bActivity extends AppCompatActivity {
         }
         houseHoldModel.setQno13(selectedMaritalStatus1);
         houseHoldModel.setQno14(binding.occupation.getText().toString());
-        houseHoldModel.setQno15(binding.education.getSelectedItem().toString());
+        houseHoldModel.setQno15(binding.education.getText().toString());
         houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
         houseHoldModel.setQno16A(binding.Specify4.getText().toString());
         houseHoldModel.setQno17(selectedAnswerType2);
@@ -426,7 +428,7 @@ public class Section3bActivity extends AppCompatActivity {
         apiCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Intent intent = new Intent(activity, Section3Mentalillness.class);
+                Intent intent = new Intent(activity, ResultPage.class);
                 int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                 if (familyCount == 0) {
                     PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
@@ -555,7 +557,7 @@ public class Section3bActivity extends AppCompatActivity {
             }
             houseHoldModel.setQno13(selectedMaritalStatus1);
             houseHoldModel.setQno14(binding.occupation.getText().toString());
-            houseHoldModel.setQno15(binding.education.getSelectedItem().toString());
+            houseHoldModel.setQno15(binding.education.getText().toString());
             houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
             houseHoldModel.setQno16A(binding.Specify4.getText().toString());
             houseHoldModel.setQno17(selectedAnswerType2);
@@ -592,4 +594,5 @@ public class Section3bActivity extends AppCompatActivity {
 
 
     }
-}
+
+   }

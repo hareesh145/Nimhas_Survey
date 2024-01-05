@@ -16,7 +16,6 @@
         android:layout_height="match_parent">
 
         <ProgressBar
-            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -66,7 +65,6 @@
                      <TextView
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
-                         android:layout_below="@+id/specify8"
                          android:gravity="center"
                          android:padding="10dp"
                          android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
@@ -77,7 +75,6 @@
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="match_parent"
-                         android:layout_below="@+id/section_5_substance_screening"
                          android:gravity="center"
                          android:padding="10dp"
                          android:text="Child Age"
@@ -89,7 +86,6 @@
                          android:id="@+id/ageAndMark"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
-                         android:layout_below="@+id/check_age_child"
                          android:background="@drawable/edit_text_border"
                          android:hint="13"
                          android:focusable="false"
@@ -100,7 +96,6 @@
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="match_parent"
-                         android:layout_below="@+id/ageAndMark"
                          android:gravity="center"
                          android:padding="10dp"
                          android:visibility="gone"
@@ -115,7 +110,6 @@
                          <TextView
                              android:layout_width="wrap_content"
                              android:layout_height="match_parent"
-                             android:layout_below="@+id/interview_child"
                              android:gravity="center|left"
                              android:textStyle="bold"
                              android:text="@string/section5_intro"
@@ -124,7 +118,6 @@
                          <TextView
                              android:layout_width="wrap_content"
                              android:layout_height="match_parent"
-                             android:layout_below="@+id/interview_child"
                              android:gravity="center|left"
                              android:padding="10dp"
                              android:text="@string/section5_intro2"
@@ -134,7 +127,6 @@
 
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:layout_below="@+id/interview_child"
                              android:gravity="center|left"
                              android:padding="10dp"
                              android:visibility="gone"
@@ -145,7 +137,6 @@
                          <TextView
                              android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
-                             android:layout_below="@+id/interview_child"
                              android:gravity="center|left"
                              android:padding="10dp"
                              android:visibility="gone"
@@ -166,6 +157,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
@@ -217,7 +209,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_toRightOf="@+id/question_66_a"
                         android:padding="10dp"
-                        android:text="Tobacco products (cigarettes, chewing tobacco, cigars, etc.)"
+                        android:text="In your life, have you ever used Tobacco products (cigarettes, chewing tobacco, cigars, etc.)?"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textColor="@color/black"/>
@@ -275,8 +267,7 @@
                               android:padding="10dp"
                               android:text="67A."
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold"/>
+                              android:textColor="@color/black"/>
 
                           <TextView
                               android:layout_width="match_parent"
@@ -284,10 +275,9 @@
                               android:layout_marginTop="10dp"
                               android:layout_marginBottom="5dp"
                               android:padding="10dp"
-                              android:text="In the past three months, how often have you used the substance?"
+                              android:text="In the past three months, how often have you used tobacco products you mentioned"
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold"/>
+                              android:textColor="@color/black"/>
                       </LinearLayout>
 
                       <LinearLayout
@@ -361,8 +351,7 @@
                               android:padding="10dp"
                               android:text="68A."
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold"/>
+                              android:textColor="@color/black"/>
 
                           <TextView
                               android:layout_width="match_parent"
@@ -370,10 +359,9 @@
                               android:layout_marginTop="10dp"
                               android:layout_marginBottom="5dp"
                               android:padding="10dp"
-                              android:text="During the past three months, how often have you had a strong desire or urge to use"
+                              android:text="During the past three months, how often have you had a strong desire or urge to use tobacco products"
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold" />
+                              android:textColor="@color/black"/>
                       </LinearLayout>
                       <LinearLayout
                           android:layout_width="match_parent"
@@ -444,8 +432,7 @@
                               android:padding="10dp"
                               android:text="69A."
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold" />
+                              android:textColor="@color/black" />
 
                           <TextView
                               android:layout_width="match_parent"
@@ -453,10 +440,9 @@
                               android:layout_marginTop="10dp"
                               android:layout_marginBottom="5dp"
                               android:padding="10dp"
-                              android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                              android:text="During the past three months, how often has your use of tobacco products led to health, social, legal or financial problems?"
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold" />
+                              android:textColor="@color/black" />
                       </LinearLayout>
 
                       <LinearLayout
@@ -518,6 +504,7 @@
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal"
+                          android:visibility="gone"
                           android:id="@+id/tobacco_ques70a">
                           <TextView
                               android:layout_width="wrap_content"
@@ -547,6 +534,7 @@
                           android:layout_height="wrap_content"
                           android:orientation="vertical"
                           android:id="@+id/tobaccoQues70aRb"
+                          android:visibility="gone"
                           android:layout_below="@+id/a_tobacco">
                           <RadioGroup
                               android:id="@+id/tobaccoProduct170a"
@@ -611,8 +599,7 @@
                               android:padding="10dp"
                               android:text="71A."
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold"/>
+                              android:textColor="@color/black" />
 
                           <TextView
                               android:layout_width="match_parent"
@@ -620,10 +607,9 @@
                               android:layout_marginTop="10dp"
                               android:layout_marginBottom="5dp"
                               android:padding="10dp"
-                              android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                              android:text="Has a friend or relative or anyone else ever expressed concern about your use of tobacco products"
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold"/>
+                              android:textColor="@color/black" />
                       </LinearLayout>
 
                       <LinearLayout
@@ -678,8 +664,7 @@
                               android:padding="10dp"
                               android:text="72A."
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold" />
+                              android:textColor="@color/black" />
 
                           <TextView
                               android:layout_width="match_parent"
@@ -688,8 +673,7 @@
                               android:layout_marginBottom="5dp"
                               android:padding="10dp"
                               android:textColor="@color/black"
-                              android:textStyle="bold"
-                              android:text="Have you ever tried to cut down on using but failed?"
+                              android:text="Have you ever tried and failed to control, cut down or stop using tobacco products"
                               android:textAllCaps="false" />
                       </LinearLayout>
 
@@ -768,7 +752,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Alcoholic beverages (beer, wine, spirits, etc.)"
+                            android:text="In your life, have you ever used Alcoholic beverages (beer, wine, spirits, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -826,8 +810,7 @@
                                 android:padding="10dp"
                                 android:text="67B."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -837,8 +820,7 @@
                                 android:padding="10dp"
                                 android:text="In the past three months, how often have you used the substance?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -913,8 +895,7 @@
                                 android:padding="10dp"
                                 android:text="68B."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -922,10 +903,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use alcohol beverages"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -996,8 +976,7 @@
                                 android:padding="10dp"
                                 android:text="69B."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1005,10 +984,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of alcohol beverages led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1080,8 +1058,7 @@
                                 android:padding="10dp"
                                 android:text="70B."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1089,10 +1066,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of alcohol beverages"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1163,8 +1139,7 @@
                                 android:padding="10dp"
                                 android:text="71B."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1172,10 +1147,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of alcohol beverages"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1230,8 +1204,7 @@
                                 android:padding="10dp"
                                 android:text="72B."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1240,8 +1213,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using alcohol beverages"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -1318,7 +1290,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Cannabis (marijuana, pot, grass, hash, etc.)"
+                            android:text="In your life, have you ever used Cannabis (marijuana, pot, grass, hash, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -1376,8 +1348,7 @@
                                 android:padding="10dp"
                                 android:text="67C."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1385,10 +1356,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used cannabis you mentioned?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1463,8 +1433,7 @@
                                 android:padding="10dp"
                                 android:text="68C."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:id="@+id/question_desc68c"
@@ -1473,10 +1442,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use cannabis"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1547,8 +1515,7 @@
                                 android:padding="10dp"
                                 android:text="69C."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1556,10 +1523,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of cannabis led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1634,8 +1600,7 @@
                                 android:padding="10dp"
                                 android:text="70C."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1643,10 +1608,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of cannabis"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1717,8 +1681,7 @@
                                 android:padding="10dp"
                                 android:text="71C."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1726,10 +1689,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of cannabis"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1785,8 +1747,7 @@
                                 android:padding="10dp"
                                 android:text="72C."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1795,8 +1756,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using cannabis ?"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -1874,7 +1834,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Cocaine (coke, crack, etc.) "
+                            android:text="In your life, have you ever used Cocaine (coke, crack cocaine, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -1932,8 +1892,7 @@
                                 android:padding="10dp"
                                 android:text="67D."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -1941,7 +1900,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used cocaine you mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"
                                 android:textStyle="bold"/>
@@ -2019,8 +1978,7 @@
                                 android:padding="10dp"
                                 android:text="68D."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2028,10 +1986,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use cocaine"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2101,8 +2058,7 @@
                                 android:padding="10dp"
                                 android:text="69D."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2110,7 +2066,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of cocaine led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
@@ -2184,8 +2140,7 @@
                                 android:padding="10dp"
                                 android:text="70D."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2193,10 +2148,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of cocaine"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2266,8 +2220,7 @@
                                 android:padding="10dp"
                                 android:text="71D."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2275,10 +2228,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of cocaine"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -2332,8 +2284,7 @@
                                 android:padding="10dp"
                                 android:text="72D."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2342,8 +2293,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using cocaine"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -2419,7 +2369,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Amphetamine-type stimulants (speed, meth, ecstasy, etc.)"
+                            android:text="In your life, have you ever used Amphetamine type stimulants (speed, diet pills, ecstasy, mdma, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -2477,8 +2427,7 @@
                                 android:padding="10dp"
                                 android:text="67E."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2486,10 +2435,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used amphetamine type stimulants you mentioned"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -2564,8 +2512,7 @@
                                 android:padding="10dp"
                                 android:text="68E."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:id="@+id/question_desc68e"
@@ -2574,10 +2521,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use amphetamine type stimulants"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2648,8 +2594,7 @@
                                 android:padding="10dp"
                                 android:text="69E."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2657,7 +2602,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of amphetamine type stimulants led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
@@ -2733,8 +2678,7 @@
                                 android:padding="10dp"
                                 android:text="70E."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2742,10 +2686,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of amphetamine type stimulants"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2816,8 +2759,7 @@
                                 android:padding="10dp"
                                 android:text="71E."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2825,10 +2767,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of amphetamine type stimulants"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -2883,8 +2824,7 @@
                                 android:padding="10dp"
                                 android:text="72E."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -2893,8 +2833,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using amphetamine type stimulants"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -2971,7 +2910,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Inhalants (nitrous, glue, petrol, paint thinner, etc.)"
+                            android:text="In your life, have you ever used Inhalants (nitrous, glue, petrol, paint thinner, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -3029,8 +2968,7 @@
                                 android:padding="10dp"
                                 android:text="67F."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3038,10 +2976,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used inhalants you mentioned"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -3116,8 +3053,7 @@
                                 android:padding="10dp"
                                 android:text="68F."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3125,10 +3061,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use inhalants"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3199,8 +3134,7 @@
                                 android:padding="10dp"
                                 android:text="69F."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3208,10 +3142,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of inhalants led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -3284,8 +3217,7 @@
                                 android:padding="10dp"
                                 android:text="70F."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3293,10 +3225,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of inhalants"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3367,8 +3298,7 @@
                                 android:padding="10dp"
                                 android:text="71F."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3376,10 +3306,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of inhalants"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -3434,8 +3363,7 @@
                                 android:padding="10dp"
                                 android:text="72F."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3444,8 +3372,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using inhalants"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -3522,7 +3449,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Sedatives or sleeping pills (diazepam, alprazolam, flunitrazepam, midazolam, etc.)"
+                            android:text="In your life, have you ever used Sedatives or sleeping pills (valium, serepax, alprax, nitravet, no. 10, avil, phenargan, rohypnol, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -3580,8 +3507,7 @@
                                 android:padding="10dp"
                                 android:text="67G."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3589,10 +3515,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used sedatives you mentioned"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -3667,8 +3592,7 @@
                                 android:padding="10dp"
                                 android:text="68G."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3676,10 +3600,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use sedatives"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3749,8 +3672,7 @@
                                 android:padding="10dp"
                                 android:text="69G."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3758,10 +3680,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of sedatives led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -3832,8 +3753,7 @@
                                 android:padding="10dp"
                                 android:text="70G."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3841,10 +3761,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of sedatives"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3914,8 +3833,7 @@
                                 android:padding="10dp"
                                 android:text="71G."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3923,10 +3841,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of sedatives"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -3981,8 +3898,7 @@
                                 android:padding="10dp"
                                 android:text="72G."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -3991,8 +3907,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using sedatives"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -4069,7 +3984,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Hallucinogens (LSD, acid, mushrooms, trips, ketamine, etc.)"
+                            android:text="In your life, have you ever used Hallucinogens (lsd, acid, mushrooms, pcp, special k, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -4127,8 +4042,7 @@
                                 android:padding="10dp"
                                 android:text="67H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4136,10 +4050,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In your life, have you ever used Hallucinogens (lsd, acid, mushrooms, pcp, special k, etc.)?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -4214,8 +4127,7 @@
                                 android:padding="10dp"
                                 android:text="68H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4223,10 +4135,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="In the past three months, how often have you used hallucinogens you mentioned"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -4296,8 +4207,7 @@
                                 android:padding="10dp"
                                 android:text="69H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4305,10 +4215,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of hallucinogens led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -4380,8 +4289,7 @@
                                 android:padding="10dp"
                                 android:text="70H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4389,10 +4297,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of hallucinogens"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -4461,8 +4368,7 @@
                                 android:padding="10dp"
                                 android:text="71H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4470,10 +4376,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of hallucinogens"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -4526,8 +4431,7 @@
                                 android:padding="10dp"
                                 android:text="72H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4536,8 +4440,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using hallucinogens"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -4614,7 +4517,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Opioids (heroin, morphine, methadone, buprenorphine, codeine, etc.)"
+                            android:text="In your life, have you ever used Opioids (heroin, morphine, buprenorphine, opium, methadone, tramadol, codeine, pentazocine, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -4672,8 +4575,7 @@
                                 android:padding="10dp"
                                 android:text="67I."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4681,10 +4583,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used opioids you mentioned?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -4759,8 +4660,7 @@
                                 android:padding="10dp"
                                 android:text="68I."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4768,10 +4668,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use opioids?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black"/>
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -4841,8 +4740,7 @@
                                 android:padding="10dp"
                                 android:text="69I."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4850,10 +4748,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
+                                android:text="During the past three months, how often has your use of opioids led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -4924,8 +4821,7 @@
                                 android:padding="10dp"
                                 android:text="70I."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -4933,10 +4829,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of opioids?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -5005,8 +4900,7 @@
                                 android:padding="10dp"
                                 android:text="71I."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5014,10 +4908,9 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of opioids?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -5070,8 +4963,7 @@
                                 android:padding="10dp"
                                 android:text="72I."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5080,8 +4972,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using opioids?"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -5157,7 +5048,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="Others"
+                            android:text="In your life, have you ever used any other drugs apart from those mentioned above?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -5226,10 +5117,10 @@
                                 android:padding="10dp"
                                 android:text="67J."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black"/>
 
                             <TextView
+                                android:id="@+id/past_three_months"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
@@ -5237,8 +5128,7 @@
                                 android:padding="10dp"
                                 android:text="In the past three months, how often have you used the substance?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -5313,8 +5203,7 @@
                                 android:padding="10dp"
                                 android:text="68J."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5324,8 +5213,7 @@
                                 android:padding="10dp"
                                 android:text="During the past three months, how often have you had a strong desire or urge to use"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -5395,8 +5283,7 @@
                                 android:padding="10dp"
                                 android:text="69J."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5406,8 +5293,7 @@
                                 android:padding="10dp"
                                 android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -5478,8 +5364,7 @@
                                 android:padding="10dp"
                                 android:text="70J."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5489,8 +5374,7 @@
                                 android:padding="10dp"
                                 android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -5559,8 +5443,7 @@
                                 android:padding="10dp"
                                 android:text="71J."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5570,8 +5453,7 @@
                                 android:padding="10dp"
                                 android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -5624,8 +5506,7 @@
                                 android:padding="10dp"
                                 android:text="72J."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -5634,7 +5515,6 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:textStyle="bold"
                                 android:text="Have you ever tried to cut down on using but failed?"
                                 android:textAllCaps="false" />
                         </LinearLayout>
