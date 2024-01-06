@@ -159,12 +159,12 @@ public class ActivitySurvey extends AppCompatActivity {
 //                System.out.println("failed Obj: " + t);
 //            }
 //        });
-        isHouseHoldReportsClicked = true;
-        if (isStoragePermissionGranted()) {
+//        isHouseHoldReportsClicked = true;
+//        if (isStoragePermissionGranted()) {
             getHouseHoldFormReports();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-        }
+//        } else {
+//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+//        }
     }
 
     private void getHouseHoldFormReports() {
