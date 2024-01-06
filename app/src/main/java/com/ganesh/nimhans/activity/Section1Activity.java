@@ -143,9 +143,11 @@ public class Section1Activity extends AppCompatActivity {
 
         binding.city.setOnSpinnerItemSelectedListener((OnSpinnerItemSelectedListener<String>)
                 (oldIndex, oldItem, newIndex, newItem) -> {
-                    if (!newItem.isEmpty()) {
-                        setHouseHoldNumber(newItem);
-                        checkRuralUrban(newItem);
+                    if (oldIndex != newIndex) {
+                        if (!newItem.isEmpty()) {
+                            setHouseHoldNumber(newItem);
+                            checkRuralUrban(newItem);
+                        }
                     }
                 });
         binding.rural.setClickable(false);
@@ -158,7 +160,7 @@ public class Section1Activity extends AppCompatActivity {
             if (stateModel.villageName.equals(newItem)) {
                 if (stateModel.rural_Urban.equals("Urban")) {
                     binding.locale.check(R.id.urban);
-                } else if (stateModel.rural_Urban.equals("Rural")){
+                } else if (stateModel.rural_Urban.equals("Rural")) {
                     binding.locale.check(R.id.rural);
                 }
             }
@@ -175,10 +177,10 @@ public class Section1Activity extends AppCompatActivity {
                 binding.progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     houseHoldNumberValue = response.body().get("houseHoldNo").getAsInt();
-                    if (houseHoldNumberValue <= 9){
-                        binding.hhn.setText("0"+houseHoldNumberValue);
-                    }else {
-                        binding.hhn.setText(""+houseHoldNumberValue);
+                    if (houseHoldNumberValue <= 9) {
+                        binding.hhn.setText("0" + houseHoldNumberValue);
+                    } else {
+                        binding.hhn.setText("" + houseHoldNumberValue);
                     }
 
 
@@ -225,7 +227,6 @@ public class Section1Activity extends AppCompatActivity {
 
 
     public void onClickNextSection(View v) {
-
 
 
         String stateValue = state.getText().toString();
@@ -277,7 +278,7 @@ public class Section1Activity extends AppCompatActivity {
                 selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
                 "", "", "", specifyValue, "", "",
                 "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-        if (!mobileNumberValue.trim().equals("") && mobileNumberValue.length() >=10) {
+        if (!mobileNumberValue.trim().equals("") && mobileNumberValue.length() >= 10) {
             call.enqueue(new Callback<DemoGraphyResponse>() {
                 @Override
                 public void onResponse(Call<DemoGraphyResponse> call, Response<DemoGraphyResponse> response) {
@@ -294,7 +295,7 @@ public class Section1Activity extends AppCompatActivity {
                             Bundle bundle = new Bundle();
                             bundle.putString("demoo", demoGraphicsId);
                             startActivity(intent);
-                        }else {
+                        } else {
                             Intent i = new Intent(activity, Section3aActivity.class);
                             Bundle bundle = new Bundle();
 
@@ -318,10 +319,9 @@ public class Section1Activity extends AppCompatActivity {
 
                 }
             });
-        }else {
-            Toast.makeText(getApplicationContext(),"Please enter the valid Mobile number",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the valid Mobile number", Toast.LENGTH_SHORT).show();
         }
-
 
 
     }
@@ -433,12 +433,13 @@ public class Section1Activity extends AppCompatActivity {
         }
         return "";
     }
+
     private String isValidPhoneNumber(String phone) {
 
-        if (!phone.trim().equals("") && phone.length() >=10) {
+        if (!phone.trim().equals("") && phone.length() >= 10) {
 
-        }else {
-            Toast.makeText(getApplicationContext(),"Please enter the valid Mobile number",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Please enter the valid Mobile number", Toast.LENGTH_SHORT).show();
         }
 
         return phone;

@@ -97,14 +97,13 @@ public class Section13Activity extends AppCompatActivity {
                 "LIST ALL THE CONDITIONS FOR WHICH THE CHILD IS POSITIVE EXCEPT ASSIST (SECTION 5).\n" +
                 "The child needs to be referred to a psychiatrist for further evaluation.\n" +
                 "For Section 5 - \n" +
-                "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
+                "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
 
         builder.setTitle("Alert !");
 
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
            // Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
-           // takeScreenshot(getWindow().getDecorView().getRootView());
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -134,6 +133,11 @@ public class Section13Activity extends AppCompatActivity {
                     break;
                 default:
                     binding.checkbox227.setVisibility(View.GONE);
+                    binding.TravelBenefit.setChecked(false);
+                    binding.specialSchools.setChecked(false);
+                    binding.HealthInsurance.setChecked(false);
+                    binding.incomeTax.setChecked(false);
+                    binding.others222.setChecked(false);
                     break;
             }
         });
@@ -147,6 +151,10 @@ public class Section13Activity extends AppCompatActivity {
                     break;
                 default:
                     binding.checkbox228.setVisibility(View.GONE);
+                    binding.NationalTrust.setChecked(false);
+                    binding.act2016.setChecked(false);
+                    binding.act2017.setChecked(false);
+                    binding.act2015.setChecked(false);
                     break;
             }
         });
@@ -307,4 +315,10 @@ public class Section13Activity extends AppCompatActivity {
      }
 
  }
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section13Activity.this, ParentResult.class);
+        startActivity(intent);
+    }
+
+
 }

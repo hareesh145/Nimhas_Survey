@@ -14,7 +14,7 @@ public class Constants {
     public static String LINE_NO = "LINE_NO";
 
     public static String ELIGIBLE_RESPONDENT = "ELIGIBLE_RESPONDENT";
-
+    public  static String RCADS_RESULT = "RCADS_RESULT";
     public static String SURVEY_SECTION3C="SURVEY_SECTION3C";
     public static final String MARITAL_STATUS="MARITAL_STATUS";
     public static final String NO_OF_CHILDERNS="no_of_childerns";

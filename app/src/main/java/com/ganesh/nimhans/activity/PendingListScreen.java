@@ -1,6 +1,7 @@
 package com.ganesh.nimhans.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,20 +45,30 @@ public class PendingListScreen extends AppCompatActivity {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
-
+        binding.progressBar.setVisibility(View.VISIBLE);
         apiService.getInprogressTasks(selectedCode, PreferenceConnector.readString(this, PreferenceConnector.TOKEN, ""))
                 .enqueue(new Callback<List<PendingListModel>>() {
                     @Override
                     public void onResponse(Call<List<PendingListModel>> call, Response<List<PendingListModel>> response) {
+                        binding.progressBar.setVisibility(View.VISIBLE);
                         if (response.isSuccessful()) {
-                            PendingListAdapter pendingListAdapter = new PendingListAdapter(PendingListScreen.this, response.body(), stateModels);
-                            binding.pendingList.setAdapter(pendingListAdapter);
+                            if (response.body() != null && response.body().size() > 0) {
+                                PendingListAdapter pendingListAdapter = new PendingListAdapter(PendingListScreen.this, response.body(), stateModels);
+                                binding.pendingList.setAdapter(pendingListAdapter);
+                                binding.pendingList.setVisibility(View.VISIBLE);
+                                binding.noPendingData.setVisibility(View.GONE);
+                            } else {
+                                binding.pendingList.setVisibility(View.GONE);
+                                binding.noPendingData.setVisibility(View.VISIBLE);
+                            }
                         }
                     }
 
                     @Override
                     public void onFailure(Call<List<PendingListModel>> call, Throwable t) {
-
+                        binding.progressBar.setVisibility(View.GONE);
+                        binding.pendingList.setVisibility(View.GONE);
+                        binding.noPendingData.setVisibility(View.VISIBLE);
                     }
                 });
     }

@@ -818,7 +818,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used the substance?"
+                                android:text="In the past three months, how often have you used alcohol beverages you mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -1268,7 +1268,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_Cannabis66c"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -1812,7 +1811,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_Cocaine66d"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -1902,8 +1900,7 @@
                                 android:padding="10dp"
                                 android:text="In the past three months, how often have you used cocaine you mentioned"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -2068,8 +2065,7 @@
                                 android:padding="10dp"
                                 android:text="During the past three months, how often has your use of cocaine led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -2347,7 +2343,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_amphetamine66e"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -2604,8 +2599,7 @@
                                 android:padding="10dp"
                                 android:text="During the past three months, how often has your use of amphetamine type stimulants led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
+                                android:textColor="@color/black"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -2888,7 +2882,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_Inhalants66f"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -3962,7 +3955,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_hallucinogens66h"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -4050,7 +4042,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In your life, have you ever used Hallucinogens (lsd, acid, mushrooms, pcp, special k, etc.)?"
+                                android:text="In the past three months, how often have you used hallucinogens you mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -4135,7 +4127,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used hallucinogens you mentioned"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use hallucinogens"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -4495,7 +4487,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_opioids66i"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -5026,7 +5017,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/a_opioids66j"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
                         <TextView
@@ -5210,6 +5200,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
+                                android:id="@+id/past_three_68j"
                                 android:padding="10dp"
                                 android:text="During the past three months, how often have you had a strong desire or urge to use"
                                 android:textAllCaps="false"
@@ -5291,6 +5282,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
+                                android:id="@+id/financial_problems_68j"
                                 android:text="During the past three months, how often has your use of  led to health, social, legal or financial problems?"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
@@ -5372,6 +5364,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
+                                android:id="@+id/past_three_70j"
                                 android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
@@ -5451,6 +5444,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
+                                android:id="@+id/past_three_71j"
                                 android:text="Has a friend or relative or anyone else ever expressed concern about your use of"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
@@ -5513,6 +5507,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
+                                android:id="@+id/past_three_72j"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
                                 android:text="Have you ever tried to cut down on using but failed?"

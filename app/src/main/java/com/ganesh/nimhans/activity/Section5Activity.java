@@ -540,9 +540,19 @@ public class Section5Activity extends AppCompatActivity {
                 try {
                     if (!s.toString().isEmpty()) {
                         binding.pastThreeMonths.setText("In the past three months, how often have you used "+ s + "");
+                        binding.pastThree68j.setText("During the past three months, how often have you had a strong desire or urge to use "+ s + "");
+                        binding.financialProblems68j.setText("During the past three months, how often has your use of " +s +"led to health, social, legal or financial problems?");
+                        binding.pastThree70j.setText("During the past three months, how often have you failed to do what was normally expected of you because of your use of "+ s + "");
+                        binding.pastThree71j.setText("Has a friend or relative or anyone else ever expressed concern about your use of "+ s +"");
+                        binding.pastThree72j.setText("Have you ever tried to cut down on using but failed "+ s +"?");
 
                     } else {
                         binding.pastThreeMonths.setText("In the past three months, how often have you used");
+                        binding.pastThree68j.setText("During the past three months, how often have you had a strong desire or urge to use ");
+                        binding.financialProblems68j.setText("During the past three months, how often has your use of led to health, social, legal or financial problems?");
+                        binding.pastThree70j.setText("During the past three months, how often have you failed to do what was normally expected of you because of your use of");
+                        binding.pastThree71j.setText("Has a friend or relative or anyone else ever expressed concern about your use of");
+                        binding.pastThree72j.setText("Have you ever tried to cut down on using but failed ?");
 
                     }
                 } catch (Exception e) {

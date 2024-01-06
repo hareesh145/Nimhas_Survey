@@ -120,6 +120,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
+                            android:inputType="textPersonName"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:orientation="horizontal"
                             android:visibility="gone">
 
@@ -130,6 +132,8 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_border"
                                 android:hint="Specify"
+                                android:inputType="textPersonName"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                 android:padding="10dp"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -275,6 +279,7 @@
                             android:layout_marginTop="20dp"
                             android:onClick="@{handlers::onClickPreviousSection}"
                             android:padding="10dp"
+                            android:visibility="gone"
                             android:text="Previous Section"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />

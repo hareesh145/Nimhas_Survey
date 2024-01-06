@@ -59,9 +59,9 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -126,12 +126,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:background="@drawable/edit_text_border"
+                        android:focusable="false"
                         android:hint="Enter Line No"
                         android:inputType="number"
                         android:maxLength="2"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:focusable="false"
                         android:textColor="#000000" />
 
                     <TextView
@@ -149,10 +149,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:background="@drawable/edit_text_border"
-                        android:hint="Enter the Name"
-                        android:padding="10dp"
-                        android:inputType="textPersonName"
                         android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:hint="Enter the Name"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -165,18 +165,20 @@
                         android:text="What is the relationship of (NAME) to you?"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+
                     <EditText
                         android:id="@+id/self_edittext"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:background="@drawable/edit_text_border"
-                        android:text="Self"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:inputType="none"
                         android:focusable="false"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:text="Self"
+                        android:textAllCaps="false"
                         android:textColor="@color/black" />
+
                     <com.skydoves.powerspinner.PowerSpinnerView
                         android:id="@+id/relation"
                         android:layout_width="match_parent"
@@ -187,8 +189,8 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:visibility="gone"
                         android:textColorHint="@color/black"
+                        android:visibility="gone"
                         app:spinner_arrow_tint="@color/black"
                         app:spinner_divider_color="@color/black"
                         app:spinner_divider_size="0.4dp"
@@ -268,12 +270,14 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+
                     <LinearLayout
+                        android:id="@+id/qus_13_14_15"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:id="@+id/qus_13_14_15"
                         android:visibility="visible">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -290,6 +294,18 @@
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/other_married_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:visibility="gone" />
+
 
                         <RadioGroup
                             android:id="@+id/maritalStatus1"
@@ -390,138 +406,11 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/mental_alcohol"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="Does anyone in the family have/had mental illness?"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/answerType1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp">
-
-                        <RadioButton
-                            android:id="@+id/yes"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Yes"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/no"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="No"
-                            android:textAlignment="textStart" />
-                    </RadioGroup>
-
-                    <LinearLayout
-                        android:id="@+id/mental_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
                         android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="What type of mental illness "
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/specify4layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
-
-
-                        <EditText
-                            android:id="@+id/Specify4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/edit_text_border"
-                            android:hint="Specify4"
-                            android:padding="10dp"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="Does anyone in the family have/had problems related with alcohol/tobacco/substance use?"
-                            android:textAllCaps="false"
-                            android:textColor="#000000" />
-                    </LinearLayout>
-
-                    <RadioGroup
-                        android:id="@+id/answerType2"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp">
-
-                        <RadioButton
-                            android:id="@+id/yes1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Yes"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/no1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="No"
-                            android:textAlignment="textStart" />
-                    </RadioGroup>
-
-                    <LinearLayout
-                        android:id="@+id/section_17_a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -535,44 +424,173 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="What type of problems"
+                                android:text="Does anyone in the family have/had mental illness?"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
 
-
-                        <CheckBox
-                            android:id="@+id/alcohol"
+                        <RadioGroup
+                            android:id="@+id/answerType1"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginLeft="30dp"
-                            android:layoutDirection="rtl"
-                            android:text="Alcohol"
-                            android:textAlignment="textStart" />
+                            android:layout_marginLeft="30dp">
 
-                        <CheckBox
-                            android:id="@+id/tobacco"
+                            <RadioButton
+                                android:id="@+id/yes"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/no"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/mental_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="What type of mental illness "
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/specify4layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+
+                            <EditText
+                                android:id="@+id/Specify4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="Specify4"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="Does anyone in the family have/had problems related with alcohol/tobacco/substance use?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/answerType2"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginLeft="30dp"
-                            android:layoutDirection="rtl"
-                            android:text="Tobacco"
-                            android:textAlignment="textStart" />
+                            android:layout_marginLeft="30dp">
 
-                        <CheckBox
-                            android:id="@+id/substanceUse"
-                            android:layout_width="fill_parent"
+                            <RadioButton
+                                android:id="@+id/yes1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/no1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/section_17_a"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginLeft="30dp"
-                            android:layoutDirection="rtl"
-                            android:text="Substance use"
-                            android:textAlignment="textStart" />
-                        <!--                    </RadioGroup>-->
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="What type of problems"
+                                    android:textAllCaps="false"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+
+                            <CheckBox
+                                android:id="@+id/alcohol"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Alcohol"
+                                android:textAlignment="textStart" />
+
+                            <CheckBox
+                                android:id="@+id/tobacco"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Tobacco"
+                                android:textAlignment="textStart" />
+
+                            <CheckBox
+                                android:id="@+id/substanceUse"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Substance use"
+                                android:textAlignment="textStart" />
+                            <!--                    </RadioGroup>-->
+                        </LinearLayout>
                     </LinearLayout>
-                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -614,23 +632,23 @@
                             android:layout_marginTop="20dp"
                             android:onClick="@{handlers::onClickPreviousSection}"
                             android:padding="10dp"
-                            android:visibility="gone"
                             android:text="Previous Section"
                             android:textAllCaps="false"
-                            android:textColor="@color/app_bg_champ" />
+                            android:textColor="@color/app_bg_champ"
+                            android:visibility="gone" />
 
                         <TextView
+                            android:id="@+id/nextbutton"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="20dp"
                             android:gravity="right"
-                            android:id="@+id/nextbutton"
                             android:onClick="@{handlers::onClickNextSection}"
                             android:padding="10dp"
                             android:text="Next Section"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="@color/app_bg_champ" />
+                            android:textColor="@color/app_bg_champ"
+                            android:visibility="gone" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>

@@ -14,4 +14,7 @@ public class  SurveySection implements Serializable {
     public int qno6;
     public int qno7;
     public Demographics demographics;
+
+    public String qno16;
+    public String qno17;
 }

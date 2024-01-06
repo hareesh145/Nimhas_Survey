@@ -3,7 +3,10 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -69,6 +72,7 @@ public class Section3Mentalillness extends AppCompatActivity {
                 default:
                     binding.mentalLayout.setVisibility(View.GONE);
                     binding.specify4layout.setVisibility(View.GONE);
+                    binding.Specify4.setText("");
                     break;
             }
         });
@@ -100,15 +104,30 @@ public class Section3Mentalillness extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3Mentalillness.this, ResultPage.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Section3Mentalillness.this);
+        builder.setMessage("Are you sure you want to go to Result Section?");
+        builder.setTitle("Alert !");
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+            Intent intent = new Intent(Section3Mentalillness.this,ResultPage.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void onClickNextSection(View v) {
-        Intent intent = new Intent(Section3Mentalillness.this, Eligiblechildren.class);
+        Intent intent = new Intent(Section3Mentalillness.this, ResultPage.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         startActivity(intent);
     }
 
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+    }
 }

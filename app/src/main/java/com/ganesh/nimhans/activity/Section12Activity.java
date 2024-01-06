@@ -157,6 +157,7 @@ public class Section12Activity extends AppCompatActivity {
                     binding.othersSpecify218.setVisibility(View.VISIBLE);
                 } else {
                     binding.othersSpecify218.setVisibility(View.GONE);
+                    binding.othersSpecify218.setText("");
                 }
             }
         });

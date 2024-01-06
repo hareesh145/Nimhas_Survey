@@ -7,6 +7,7 @@ import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -257,7 +258,7 @@ public class Section3cActivity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3cActivity.this, ResultPage.class);
+        Intent intent = new Intent(Section3cActivity.this, ChildrenResult.class);
         startActivity(intent);
     }
 
@@ -300,5 +301,11 @@ public class Section3cActivity extends AppCompatActivity {
             }
         }
         return "";
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+
     }
 }

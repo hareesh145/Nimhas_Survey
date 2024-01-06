@@ -218,6 +218,8 @@
                             android:background="@drawable/edit_text_border"
                             android:hint="Specify"
                             android:padding="10dp"
+                            android:inputType="textPersonName"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

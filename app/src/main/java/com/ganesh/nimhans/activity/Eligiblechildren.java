@@ -2,6 +2,7 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -74,7 +75,7 @@ public class Eligiblechildren extends AppCompatActivity {
 
                                     builder.setCancelable(false);
                                     builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-                                        Intent intent =new Intent(Eligiblechildren.this,ResultPage.class);
+                                        Intent intent =new Intent(Eligiblechildren.this,ActivitySurvey.class);
                                         startActivity(intent);
                                     });
                                     AlertDialog alertDialog = builder.create();
@@ -92,6 +93,12 @@ public class Eligiblechildren extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
+
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
 
     }
 }

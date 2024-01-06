@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -549,9 +550,9 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                                 || userResponse.get("majorDepression").getAsInt() >= 65
                                 || userResponse.get("generalizedAnxiety").getAsInt() >= 65
                                 || userResponse.get("obsessiveCompulsive").getAsInt() >= 65) {
-                            binding.rcadsResult.setText("RCADS Self Screener : 1");
+                            binding.rcadsResult.setText("1");
                         } else {
-                            binding.rcadsResult.setText("RCADS Self Screener : 0");
+                            binding.rcadsResult.setText("0");
                         }
 
                     } catch (Exception e) {
@@ -620,6 +621,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                 intent.putExtra(SURVEY_ID, surveyID);
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(RCADS_RESULT,binding.rcadsResult.getText().toString());
                 startActivity(intent);
             } else if (Float.parseFloat(ageValue) < 10.0f) {
                 Intent intent = new Intent(Section4Activity.this, ChildrenResult.class);

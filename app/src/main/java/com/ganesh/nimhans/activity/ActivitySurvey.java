@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.storage.StorageManager;
@@ -22,7 +21,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySurveyBinding;
 import com.ganesh.nimhans.model.Book;
-import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.model.child.SurveySection;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -115,6 +114,13 @@ public class ActivitySurvey extends AppCompatActivity {
         });
     }
 
+
+    public void onClickHouseholdTableReports(View view) {
+
+    }
+
+    boolean isHouseHoldReportsClicked = false;
+
     public void onClickHouseholdReports(View view) {
 //        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 //        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
@@ -153,52 +159,34 @@ public class ActivitySurvey extends AppCompatActivity {
 //                System.out.println("failed Obj: " + t);
 //            }
 //        });
+        isHouseHoldReportsClicked = true;
+        if (isStoragePermissionGranted()) {
+            getHouseHoldFormReports();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+    }
 
-
+    private void getHouseHoldFormReports() {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
+        Call<List<SurveySection>> call = apiService.getHouseholdFormReport(
                 PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
         binding.progressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<List<EligibleResponse>>() {
+        call.enqueue(new Callback<List<SurveySection>>() {
             @Override
-            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+            public void onResponse(Call<List<SurveySection>> call, Response<List<SurveySection>> response) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
 
                 try {
-                    ConvertJsonToExcel.writeObjects2ExcelFile(response.body(), "HouseHoldData.xls");
+                    ConvertJsonToExcel.writeHouseHoldFormReport(response.body(), "HouseHoldData.xls");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-//                HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
-//                HSSFSheet hssfSheet = hssfWorkbook.createSheet("HouseHold");
-//                HSSFRow hssfRow = hssfSheet.createRow(0);
-//
-//
-//
-//
-//
-//                HSSFRow dataRow = hssfSheet.createRow(1);
-//                for (JsonElement jsonObject : loginResponse) {
-//                    Log.d("TAG", "::::::::: " + loginResponse);
-//                    if (jsonObject.isJsonObject()) {
-//                        int i = 0;
-//                        for (Map.Entry<String, JsonElement> entry : ((JsonObject) jsonObject).entrySet()) {
-//                            if (i < 30) {
-//                                HSSFCell hssfCell = hssfRow.createCell(i);
-//                                hssfCell.setCellValue(entry.getKey());
-//                                HSSFCell dataCell = dataRow.createCell(i);
-//                                dataCell.setCellValue(String.valueOf(((JsonObject) jsonObject).get(entry.getKey())));
-//                                i++;
-//                            }
-//                        }
-//                    }
-//                }
-//                saveWorkBook(hssfWorkbook, "HouseHoldData.xls");
             }
 
             @Override
-            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+            public void onFailure(Call<List<SurveySection>> call, Throwable t) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
                 Util.showToast(activity, getResources().getString(R.string.service_error));
@@ -289,20 +277,14 @@ public class ActivitySurvey extends AppCompatActivity {
 
 
     public boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                Log.v("TAG", "Permission is granted");
-                return true;
-            } else {
-
-                Log.v("TAG", "Permission is revoked");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        } else { //permission is automatically granted on sdk<23 upon installation
+        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED) {
             Log.v("TAG", "Permission is granted");
             return true;
+        } else {
+            Log.v("TAG", "Permission is revoked");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            return false;
         }
     }
 
@@ -312,6 +294,9 @@ public class ActivitySurvey extends AppCompatActivity {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.v("TAG", "Permission: " + permissions[0] + "was " + grantResults[0]);
             //resume tasks needing this permission
+            if (isHouseHoldReportsClicked) {
+                getHouseHoldFormReports();
+            }
         }
     }
 

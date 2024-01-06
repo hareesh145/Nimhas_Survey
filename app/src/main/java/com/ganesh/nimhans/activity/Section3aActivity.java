@@ -5,7 +5,10 @@ import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -130,6 +133,7 @@ public class Section3aActivity extends AppCompatActivity {
                     break;
                 default:
                     binding.Specify.setVisibility(View.GONE);
+                    binding.Specify.setText("");
                     break;
             }
         });
@@ -159,11 +163,13 @@ public class Section3aActivity extends AppCompatActivity {
                 case R.id.NotMarried:
                     binding.que5Layout.setVisibility(View.GONE);
                     binding.que4Layout.setVisibility(View.GONE);
+                    binding.Specify2.setText("");
                     break;
                 default:
                     binding.Specify2.setVisibility(View.GONE);
                     binding.que5Layout.setVisibility(View.VISIBLE);
                     binding.que4Layout.setVisibility(View.VISIBLE);
+                    binding.Specify2.setText("");
                     break;
             }
         });
@@ -243,6 +249,10 @@ public class Section3aActivity extends AppCompatActivity {
                     Util.showToast(activity, "Successfully data saved");
                     Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
                     intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()){
+                        selectedMaritalStatus=binding.Specify2.getText().toString();
+                        intent.putExtra("other",true);
+                    }
                     intent.putExtra(MARITAL_STATUS,  selectedMaritalStatus);
                     Log.e("MARITAL_STATUS","MARITAL_STATUS :"+ radioButton.getText());
                     intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
@@ -267,8 +277,20 @@ public class Section3aActivity extends AppCompatActivity {
 
     }
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3aActivity.this,ResultPage.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Section3aActivity.this);
+        builder.setMessage("Are you sure you want to go to Result Section?");
+        builder.setTitle("Alert !");
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+            Intent intent = new Intent(Section3aActivity.this,ResultPage.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
     public String getPhoneNo() {
         return phoneNo;
@@ -279,10 +301,9 @@ public class Section3aActivity extends AppCompatActivity {
         return selectedCaste;
     }
 
+    @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(activity, Section1Activity.class));
-        finish();
-        super.onBackPressed();
+        //
     }
 }

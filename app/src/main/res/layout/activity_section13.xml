@@ -520,6 +520,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/Travel_benefit"
                             android:text="Travel benefit" />
 
                         <CheckBox
@@ -527,6 +528,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/special_schools"
                             android:text="Admission to special schools/ therapy centres" />
 
                         <CheckBox
@@ -534,6 +536,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/Health_insurance"
                             android:text="Health insurance (Niramaya)" />
 
                         <CheckBox
@@ -541,6 +544,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/income_tax"
                             android:text="Income tax benefits" />
 
                         <CheckBox
@@ -695,6 +699,8 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_marginStart="30dp"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
+                        android:inputType="textPersonName"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:padding="10dp"
                         android:visibility="gone"
                         android:textAllCaps="false"
@@ -707,6 +713,8 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:inputType="textPersonName"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:textAllCaps="false"
                         android:visibility="gone"
                         android:textColor="#000000" />
@@ -763,12 +771,13 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         android:id="@+id/checkbox_228">
                         <CheckBox
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:id="@+id/National_Trust"
                             android:layoutDirection="rtl"
                             android:text="National Trust Act, 1999" />
                         <TextView
@@ -782,6 +791,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:id="@+id/act_2016"
                             android:layoutDirection="rtl"
                             android:text="Rights of Persons With Disabilities (RPWD) Act, 2016" />
                         <TextView
@@ -794,6 +804,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/act2017"
                             android:text="Mental Health Care Act, 2017" />
                         <TextView
                             android:layout_width="match_parent"
@@ -805,6 +816,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/act_2015"
                             android:text="Juvenile Justice Act(Care And Protection Of Children), 2015 ?" />
                         <TextView
                             android:layout_width="match_parent"
@@ -922,7 +934,15 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:textColor="#000000" />
                     </LinearLayout>
 
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:onClick="@{handlers::onClickGoToResult}"
+                        android:padding="15dp"
+                        android:text="@string/go_to_result"
+                        android:textAllCaps="false"
+                        android:textColor="@color/app_bg_champ" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

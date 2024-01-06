@@ -129,6 +129,8 @@
                         android:layout_marginRight="30dp"
                         android:padding="10dp"
                         android:visibility="gone"
+                        android:inputType="textPersonName"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
                     <LinearLayout

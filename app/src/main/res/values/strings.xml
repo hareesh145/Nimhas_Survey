@@ -273,6 +273,10 @@
     <string name="yes_but_not_in_the_past_3_months">Yes, but not in the past 3 months</string>
     <string name="once_or_monthly">Once or Monthly</string>
     <string name="no_never">No, Never</string>
+    <string name="household_form_report">Household Form Report</string>
+    <string name="pending_list">Pending List</string>
+    <string name="child_and_parent_interview_report">Child and Parent Interview Report</string>
+    <string name="house_hold_table_report">House Hold Table Report</string>
 
     <string-array name="illness_dropdown">
         <item>Govt./Municipal Hospital</item>

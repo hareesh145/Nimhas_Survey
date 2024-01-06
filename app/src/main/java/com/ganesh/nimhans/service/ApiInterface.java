@@ -24,7 +24,7 @@ import com.ganesh.nimhans.model.UserResponse;
 import com.ganesh.nimhans.model.ViewUserResponse;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.model.child.PendingListModel;
-import com.google.gson.JsonArray;
+import com.ganesh.nimhans.model.child.SurveySection;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -124,6 +124,9 @@ public interface ApiInterface {
 
     @GET("survey-section/{id}")
     Call<JsonObject> getSurveyReports(@Path("id") Integer itemId, @Header("Authorization") String authHeader);
+
+    @GET("survey-section")
+    Call<List<SurveySection>> getHouseholdFormReport(@Header("Authorization") String authHeader);
 
     //@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode, @Header("Authorization") String authHeader
     @GET("survey-questions/inprogres/{code}")

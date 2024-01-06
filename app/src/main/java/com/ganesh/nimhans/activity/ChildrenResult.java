@@ -17,6 +17,7 @@ import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,18 +64,38 @@ public class ChildrenResult extends AppCompatActivity {
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
                 switch (checkedId) {
+                    case R.id.completed:
+                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                        break;
                     case R.id.refused:
                         binding.specify1.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.date3.setText("");
+                        binding.time.setText("");
+                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.partiallyCompleted:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.specify1.setVisibility(View.GONE);
+                        binding.specify1.setText("");
+                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.pending:
+                        binding.specify1.setVisibility(View.GONE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.specify1.setText("");
+                        binding.date3.setText("");
+                        binding.time.setText("");
+                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
                         break;
                     default:
                         binding.specify1.setVisibility(View.GONE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.specify1.setText("");
+                        binding.date3.setText("");
+                        binding.time.setText("");
                         break;
+
 
                 }
 
@@ -153,6 +174,7 @@ public class ChildrenResult extends AppCompatActivity {
             }
         };
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
 
     }

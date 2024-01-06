@@ -79,18 +79,30 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/button_bg_login"
                 android:onClick="@{handlers::onClickReports}"
-                android:text="Get Reports"
+                android:text="@string/child_and_parent_interview_report"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
                 android:background="@drawable/button_bg_login"
                 android:onClick="@{handlers::onClickHouseholdReports}"
-                android:text="Household Reports"
+                android:text="@string/household_form_report"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="@drawable/button_bg_login"
+                android:onClick="@{handlers::onClickHouseholdTableReports}"
+                android:text="@string/house_hold_table_report"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pending_list_btn"
@@ -99,7 +111,7 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/button_bg_login"
                 android:onClick="@{handlers::onClickPendinglist}"
-                android:text="Pending List"
+                android:text="@string/pending_list"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 

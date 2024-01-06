@@ -8,7 +8,10 @@ import static com.ganesh.nimhans.utils.Constants.NO_OF_PEOPLE;
 import static com.ganesh.nimhans.utils.Constants.REPEAT_COUNT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -52,7 +55,7 @@ public class Section3bActivity extends AppCompatActivity {
     EditText Specify3, NoOfPersons, Name, Age,
             Specify4;
     RadioButton radioButton;
-    RadioGroup Gender, MaritalStatus1, AnswerType1;
+    RadioGroup Gender, AnswerType1;
     String selectedGender;
     String selectedMaritalStatus1 = "";
     String selectedAnswerType2;
@@ -98,7 +101,6 @@ public class Section3bActivity extends AppCompatActivity {
         mental_layout = binding.mentalLayout;
         Specify4 = binding.Specify4;
         Gender = binding.gender;
-        MaritalStatus1 = binding.maritalStatus1;
         AnswerType1 = binding.answerType1;
         phoneNo = myGameApp.getUserPhoneNo();
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
@@ -120,6 +122,7 @@ public class Section3bActivity extends AppCompatActivity {
             binding.relation.setVisibility(View.GONE);
             String nameOfRespondent = PreferenceConnector.readString(this, PreferenceConnector.NAME_OF_RESPONDENT, "");
             binding.Name.setText(nameOfRespondent);
+            binding.Name.setFocusable(false);
             binding.whatIsRelationTxt.setText("What is the relationship of (" + nameOfRespondent + ") to you?");
             binding.isNameMaleOrFemale.setText("Is (" + nameOfRespondent + ") a male or female?");
             binding.howOldAge.setText("How old is (" + nameOfRespondent + ")?");
@@ -138,6 +141,11 @@ public class Section3bActivity extends AppCompatActivity {
                     binding.Married.setEnabled(false);
                     binding.NotMarried.setEnabled(false);
                 }
+            }
+            if (getIntent().getBooleanExtra("other",false)){
+                binding.maritalStatus1.setVisibility(View.GONE);
+                binding.otherMarriedStatus.setVisibility(View.VISIBLE);
+                binding.otherMarriedStatus.setText(getIntent().getStringExtra(MARITAL_STATUS));
             }
         }
 
@@ -223,7 +231,7 @@ public class Section3bActivity extends AppCompatActivity {
             selectedGender = selectedValue;
             Log.d("selectedGender", "Selected value: " + selectedGender);
         });
-        MaritalStatus1.setOnCheckedChangeListener((group, checkedId) -> {
+        binding.maritalStatus1.setOnCheckedChangeListener((group, checkedId) -> {
             radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus1 = selectedValue;
@@ -428,7 +436,7 @@ public class Section3bActivity extends AppCompatActivity {
         apiCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Intent intent = new Intent(activity, ResultPage.class);
+                Intent intent = new Intent(activity, Section3Mentalillness.class);
                 int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                 if (familyCount == 0) {
                     PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
@@ -507,8 +515,19 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3bActivity.this, ResultPage.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Section3bActivity.this);
+        builder.setMessage("Are you sure you want to go to Result Section?");
+        builder.setTitle("Alert !");
+        builder.setCancelable(false);
+        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+            Intent intent = new Intent(Section3bActivity.this,ResultPage.class);
+            startActivity(intent);
+        });
+        builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     public void onClickAddMember(View v) {
@@ -595,4 +614,9 @@ public class Section3bActivity extends AppCompatActivity {
 
     }
 
-   }
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+
+    }
+}

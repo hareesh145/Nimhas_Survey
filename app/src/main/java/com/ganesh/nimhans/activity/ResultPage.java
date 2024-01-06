@@ -68,22 +68,37 @@ public class ResultPage extends AppCompatActivity {
                     case R.id.h:
                         binding.commentResultCode.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.date3.setText("");
+                        binding.time.setText("");
                         break;
                     case R.id.c:
                         binding.commentResultCode.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.date3.setText("");
+                        binding.time.setText("");
                         break;
                     case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
+                        binding.specify1.setText("");
                         break;
                     case R.id.d:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
+                        binding.specify1.setText("");
+                        break;
+                    case R.id.a:
+                        Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        startActivity(intent);
                         break;
                     default:
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.specify1.setText("");
+                        binding.date3.setText("");
+                        binding.time.setText("");
                         break;
 
                 }
@@ -124,6 +139,7 @@ public class ResultPage extends AppCompatActivity {
             }
         };
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
 
     }
