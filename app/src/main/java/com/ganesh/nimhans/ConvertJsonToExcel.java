@@ -110,7 +110,9 @@ public class ConvertJsonToExcel {
             row.createCell(19).setCellValue(customer.demographics.mobileno);
 
         }
-        File fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filePath);
+        File fileOutput = null;
+
+        fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), filePath);
         FileOutputStream fileOut = new FileOutputStream(fileOutput);
         workbook.write(fileOut);
         fileOut.close();
