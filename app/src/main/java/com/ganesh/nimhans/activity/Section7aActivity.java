@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection7aBinding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.ServeySection7aRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
@@ -45,6 +47,7 @@ public class Section7aActivity extends AppCompatActivity {
     private int surveyID;
     private String ageValue;
     private EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
     String stringParent_guardian;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,7 @@ public class Section7aActivity extends AppCompatActivity {
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
@@ -120,6 +124,7 @@ public class Section7aActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
+                    Log.e("eligibleResponse.houseHoldId Section 7","eligibleResponse.houseHoldId Section 7"+eligibleResponse.houseHoldId);
                     try {
                         int screenPositiveNegative = 0;
                         int merchantRawResult = calculateMerchantResult();
@@ -208,6 +213,7 @@ public class Section7aActivity extends AppCompatActivity {
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
         }

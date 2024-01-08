@@ -58,9 +58,9 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                         android:text="Anxiety and Depression (RCADS)"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -78,10 +78,9 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="Child Age"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
                         android:textAllCaps="false"
-                         />
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/childAge"
@@ -89,23 +88,23 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:editable="false"
+                        android:focusable="false"
                         android:hint="15"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:focusable="false"
                         android:textColor="#000000" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:layout_marginLeft="125dp"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:visibility="gone"
-                        android:textStyle="bold"
                         android:text="Interview the child"
                         android:textAllCaps="false"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3319,136 +3318,139 @@
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:visibility="gone">
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/rcads_score"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/bg_btn_background"
-                        android:text="@string/calculate"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Social Phobia (SP)"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <EditText
-                        android:id="@+id/SP15"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="15"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Panic Disorder"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/rcads_score"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_btn_background"
+                            android:text="@string/calculate"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
 
-                    <EditText
-                        android:id="@+id/PD25"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="25"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Social Phobia (SP)"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Major Depression"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <EditText
+                            android:id="@+id/SP15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="15"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <EditText
-                        android:id="@+id/MD20"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="20"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Panic Disorder"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
+                        <EditText
+                            android:id="@+id/PD25"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="25"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Separation Anxiety"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Major Depression"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <EditText
-                        android:id="@+id/SA35"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="35"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Generalized Anxiety"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
-
-                    <EditText
-                        android:id="@+id/GA45"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="45"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <EditText
+                            android:id="@+id/MD20"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="20"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Obsessive - Compulsive"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Separation Anxiety"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
 
-                    <EditText
-                        android:id="@+id/OC34"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
-                        android:hint="34"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        <EditText
+                            android:id="@+id/SA35"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="35"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Generalized Anxiety"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/GA45"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="45"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="Obsessive - Compulsive"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/OC34"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="34"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                    </LinearLayout>
                     <TextView
                         android:id="@+id/rcads_result"
                         android:layout_width="match_parent"
@@ -3456,11 +3458,12 @@
                         android:padding="10dp"
                         android:textSize="20dp"
                         android:textStyle="bold"
+                        android:visibility="gone"
                         android:textColor="@color/black"
                         android:text="RCADS Self Screener : ">
 
                     </TextView>
-</LinearLayout>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -3470,6 +3473,7 @@
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

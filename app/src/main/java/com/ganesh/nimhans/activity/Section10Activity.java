@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection10Binding;
 import com.ganesh.nimhans.model.ServeySection10Request;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
@@ -43,6 +45,7 @@ public class Section10Activity extends AppCompatActivity {
     private long demoGraphicsID;
     private EligibleResponse eligibleResponse;
     private String respondentTxt;
+    ServeySection3cRequest serveySection3cRequest;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,7 @@ public class Section10Activity extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         phoneNo = myGameApp.getUserPhoneNo();
-
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
@@ -197,6 +200,7 @@ public class Section10Activity extends AppCompatActivity {
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
@@ -206,6 +210,7 @@ public class Section10Activity extends AppCompatActivity {
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
         }

@@ -38,6 +38,15 @@
                     android:gravity="center"
                     android:text="Survey"
                     android:textColor="@color/white" />
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_marginLeft="350dp"
+                   android:id="@+id/logout"
+                   android:onClick="@{handlers::onClicklogout}"
+                   android:src="@drawable/baseline_east_24">
+
+               </ImageView>
             </RelativeLayout>
 
             <TextView

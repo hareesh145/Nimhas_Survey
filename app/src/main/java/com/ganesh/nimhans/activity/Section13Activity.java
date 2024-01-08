@@ -8,6 +8,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -15,6 +16,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -42,6 +44,7 @@ import androidx.core.app.ActivityCompat;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection13Binding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
@@ -75,6 +78,7 @@ public class Section13Activity extends AppCompatActivity {
     private String datePickerfield;
     EditText specify, datePicker2, timePicker;
     private EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] permissionstorage = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,23 +95,11 @@ public class Section13Activity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
        // checkpermissions(this);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},00);
-        AlertDialog.Builder builder = new AlertDialog.Builder(Section13Activity.this);
-        builder.setMessage("Message for Screenshot taking - \n" +
-                "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
-                "LIST ALL THE CONDITIONS FOR WHICH THE CHILD IS POSITIVE EXCEPT ASSIST (SECTION 5).\n" +
-                "The child needs to be referred to a psychiatrist for further evaluation.\n" +
-                "For Section 5 - \n" +
-                "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
+        showCalc("Alert !","Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\\n\" +\n" +
+                "                \"The child needs to be referred to a psychiatrist for further evaluation.");
 
-        builder.setTitle("Alert !");
-
-        builder.setCancelable(false);
-        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-           // Toast.makeText(getApplicationContext(),"OK",Toast.LENGTH_LONG).show();
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
 
@@ -167,6 +159,9 @@ public class Section13Activity extends AppCompatActivity {
         Intent intent = new Intent(Section13Activity.this, ParentResult.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
 
     }
@@ -308,6 +303,7 @@ public class Section13Activity extends AppCompatActivity {
              }
              else {
                  binding.othersSpecify222.setVisibility(View.GONE);
+                 binding.othersSpecify222.setText("");
              }
              // Do your coding
 
@@ -320,5 +316,55 @@ public class Section13Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void showCalc(String title, String message) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
 
+
+        builder.setNegativeButton("Capture",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlertDialog dialog2 =AlertDialog.class.cast(dialog);
+                        takeScreenshot(dialog2);
+                        Context context = getApplicationContext();
+                        Toast.makeText(context, "Screenshot Captured", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        builder.setNeutralButton("Return", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.show();
+    }
+    private void takeScreenshot(AlertDialog dialog) {
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+
+        try {
+            // image naming and path  to include sd card  appending name you choose for file
+            String mPath = "/data/data/test.jpg"; // use your desired path
+
+            // create bitmap screen capture
+            View v1 = dialog.getWindow().getDecorView().getRootView();
+
+            v1.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(v1.getDrawingCache());
+            v1.setDrawingCacheEnabled(false);
+
+            File imageFile = new File(mPath);
+
+            FileOutputStream outputStream = new FileOutputStream(imageFile);
+            int quality = 100;
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
+            outputStream.flush();
+            outputStream.close();
+
+        } catch (Throwable e) {
+            // Several error may come out with file handling or OOM
+            e.printStackTrace();
+        }
+    }
 }

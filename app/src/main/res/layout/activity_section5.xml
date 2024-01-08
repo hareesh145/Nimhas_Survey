@@ -515,8 +515,7 @@
                               android:padding="10dp"
                               android:text="70A."
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold" />
+                              android:textColor="@color/black"/>
 
                           <TextView
                               android:layout_width="match_parent"
@@ -526,8 +525,7 @@
                               android:padding="10dp"
                               android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of"
                               android:textAllCaps="false"
-                              android:textColor="@color/black"
-                              android:textStyle="bold" />
+                              android:textColor="@color/black" />
                       </LinearLayout>
                       <LinearLayout
                           android:layout_width="match_parent"
@@ -5510,7 +5508,7 @@
                                 android:id="@+id/past_three_72j"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:text="Have you ever tried to cut down on using but failed?"
+                                android:text="Have you ever tried and failed to control, cut down or stop using?"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 

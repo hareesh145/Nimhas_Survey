@@ -1,6 +1,7 @@
 package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.Manifest;
@@ -30,6 +31,7 @@ import com.ganesh.nimhans.adapter.EligibleChildAdapter;
 import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
 import com.ganesh.nimhans.databinding.ActivityParentResultBinding;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.model.child.Root;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -37,6 +39,7 @@ import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.StateModel;
 import com.ganesh.nimhans.utils.Util;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -57,6 +60,7 @@ public class ParentResult extends AppCompatActivity {
     final Calendar myCalendar1 = Calendar.getInstance();
     private Calendar calendar = Calendar.getInstance();
     private EligibleResponse eligibleResponse;
+    private Root root;
     private List<StateModel> stateModels;
 
     @Override
@@ -68,6 +72,7 @@ public class ParentResult extends AppCompatActivity {
         activity = this;
         binding.setHandlers(ParentResult.this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         String jsonFromAsset = Util.loadJSONFromAsset(this);
 
         StateModel[] stateModel = new Gson().fromJson(jsonFromAsset, StateModel[].class);
@@ -87,7 +92,35 @@ public class ParentResult extends AppCompatActivity {
 
                 switch (checkedId) {
                     case R.id.completed:
-                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                        binding.specify1.setVisibility(View.GONE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.date3.setText("");
+                        binding.time.setText("");
+                        JsonObject jsonObject =new JsonObject();
+                        jsonObject.addProperty("status","Interview Completed");
+                        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterface.putStatus(eligibleResponse.houseHoldId,jsonObject, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponse = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponse);
+                                        Log.e("eligibleResponse.houseHoldId ","eligibleResponse.houseHoldId : "+eligibleResponse.houseHoldId);
+                                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.refused:
                         binding.specify1.setVisibility(View.VISIBLE);
@@ -95,6 +128,30 @@ public class ParentResult extends AppCompatActivity {
                         binding.date3.setText("");
                         binding.time.setText("");
                         Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                        JsonObject jsonObjectrefused =new JsonObject();
+                        jsonObjectrefused.addProperty("status","Interview Completed");
+                        ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponserefused = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponserefused);
+                                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.partiallyCompleted:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
@@ -185,6 +242,7 @@ public class ParentResult extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
+
     }
 
     private final DatePickerDialog.OnDateSetListener dateSetListener =

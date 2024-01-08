@@ -145,7 +145,7 @@ public class Section1Activity extends AppCompatActivity {
                 (oldIndex, oldItem, newIndex, newItem) -> {
                     if (oldIndex != newIndex) {
                         if (!newItem.isEmpty()) {
-                            setHouseHoldNumber(newItem);
+                            //setHouseHoldNumber(newItem);
                             checkRuralUrban(newItem);
                         }
                     }

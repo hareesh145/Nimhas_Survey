@@ -83,6 +83,9 @@
             android:name=".activity.Section9Activity"
             android:exported="true" />
         <activity
+            android:name=".activity.Section6aActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.Section10Activity"
             android:exported="true" />
         <activity

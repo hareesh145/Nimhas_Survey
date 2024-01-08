@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection12Binding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
@@ -37,6 +39,7 @@ public class Section12Activity extends AppCompatActivity {
     private int surveyID;
     private long demoGraphicsID;
     private EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
     private String respondentTxt;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class Section12Activity extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         phoneNo = myGameApp.getUserPhoneNo();
-
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
@@ -59,6 +62,7 @@ public class Section12Activity extends AppCompatActivity {
                 binding.othersSpecify207.setVisibility(View.VISIBLE);
             } else {
                 binding.othersSpecify207.setVisibility(View.GONE);
+                binding.othersSpecify207.setText("");
             }
         });
 
@@ -67,6 +71,7 @@ public class Section12Activity extends AppCompatActivity {
                 binding.othersSpecify208.setVisibility(View.VISIBLE);
             } else {
                 binding.othersSpecify208.setVisibility(View.GONE);
+                binding.othersSpecify208.setText("");
             }
         });
 
@@ -75,6 +80,7 @@ public class Section12Activity extends AppCompatActivity {
                 binding.othersSpecify211.setVisibility(View.VISIBLE);
             } else {
                 binding.othersSpecify211.setVisibility(View.GONE);
+                binding.othersSpecify211.setText("");
             }
         });
 
@@ -116,6 +122,7 @@ public class Section12Activity extends AppCompatActivity {
                     binding.othersSpecify212.setVisibility(View.VISIBLE);
                 } else {
                     binding.othersSpecify212.setVisibility(View.GONE);
+                    binding.othersSpecify212.setText("");
                 }
             }
         });
@@ -144,6 +151,7 @@ public class Section12Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.did_not_seek_care) {
                     binding.othersSpecify210.setVisibility(View.GONE);
+                    binding.othersSpecify210.setText("");
                 } else {
                     binding.othersSpecify210.setVisibility(View.VISIBLE);
                 }
@@ -216,6 +224,7 @@ public class Section12Activity extends AppCompatActivity {
                 }
                 else {
                     binding.othersSpecify218.setVisibility(View.GONE);
+                    binding.othersSpecify218.setText("");
                 }
                 // Do your coding
 
@@ -231,6 +240,7 @@ public class Section12Activity extends AppCompatActivity {
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
         }else {
@@ -240,7 +250,9 @@ public class Section12Activity extends AppCompatActivity {
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
         }
 

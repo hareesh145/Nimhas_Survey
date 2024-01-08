@@ -72,6 +72,10 @@ public class ActivitySurvey extends AppCompatActivity {
     public void onClickSurvey(View v) {
         startActivity(new Intent(activity, Section1Activity.class));
     }
+    public void onClicklogout(View v){
+        this.finishAffinity();
+       // System.exit(0);
+    }
 
 
     public void onClickReports(View view) {

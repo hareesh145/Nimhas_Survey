@@ -71,7 +71,7 @@ public interface ApiInterface {
     Call<JsonObject> putServeySection3CData(@Path("id") Integer itemId, @Body ServeySection3cRequest serveySection5Request, @Header("Authorization") String authHeader);
 
 
-    @POST("survey-questions/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection4Data(@Path("id") Integer itemId, @Body ServeySection4Request serveySection5Request, @Header("Authorization") String authHeader);
 
 
@@ -133,7 +133,12 @@ public interface ApiInterface {
 //05061003108003176
     Call<List<PendingListModel>> getInprogressTasks(@Path("code") String code, @Header("Authorization") String authHeader);
 
-//    0500310061800317
+    //    0500310061800317
 //    0506000304045257
+    @PUT("survey-questions/{id}")
+    Call<JsonObject> putStatus(@Path("id") Integer itemId, @Body JsonObject jsonObject, @Header("Authorization") String authHeader);
+
+    @POST("survey-questions/{id}")
+    Call<JsonObject> consentSave(@Path("id") Integer itemId, @Body ServeySection3cRequest serveySection3cRequest, @Header("Authorization") String authHeader);
 }
 

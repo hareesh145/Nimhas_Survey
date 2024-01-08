@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection7bBinding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.ServeySection7bRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
@@ -46,6 +47,7 @@ public class Section7bActivity extends AppCompatActivity {
     private long demoGraphicsID;
     private int surveyID;
     private EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
     private String ageValue;
     private String respondentTxt;
     EditText iasq_respondendt_txt;
@@ -59,7 +61,7 @@ public class Section7bActivity extends AppCompatActivity {
         binding.setHandlers(this);
 
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
-
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eye_contact_image = findViewById(R.id.eye_contact_image);
         eye_contact = findViewById(R.id.eye_contact);
@@ -205,6 +207,7 @@ public class Section7bActivity extends AppCompatActivity {
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
         } else if (Float.parseFloat(ageValue) >= 8.0f) {
@@ -213,6 +216,7 @@ public class Section7bActivity extends AppCompatActivity {
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
         }

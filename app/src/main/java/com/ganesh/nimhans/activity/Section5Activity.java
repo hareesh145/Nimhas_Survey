@@ -3,9 +3,13 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection5Binding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.Util;
@@ -40,6 +45,7 @@ public class Section5Activity extends AppCompatActivity {
     private String ageValue;
 
     private EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +56,7 @@ public class Section5Activity extends AppCompatActivity {
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
-
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
@@ -91,7 +97,7 @@ public class Section5Activity extends AppCompatActivity {
                     binding.tobaccoQues68aRb.setVisibility(View.VISIBLE);
                     binding.tobaccoQues69a.setVisibility(View.VISIBLE);
                     binding.tobaccoQues69aRb.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues70a.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70a.setVisibility(View.GONE);
                     binding.tobaccoQues70aRb.setVisibility(View.VISIBLE);
                     break;
             }
@@ -413,6 +419,7 @@ public class Section5Activity extends AppCompatActivity {
                 default:
                     binding.othersProductsQueAll.setVisibility(View.GONE);
                     binding.Specify1.setVisibility(View.GONE);
+                    binding.Specify1.setText("");
                     break;
             }
         });
@@ -541,10 +548,10 @@ public class Section5Activity extends AppCompatActivity {
                     if (!s.toString().isEmpty()) {
                         binding.pastThreeMonths.setText("In the past three months, how often have you used "+ s + "");
                         binding.pastThree68j.setText("During the past three months, how often have you had a strong desire or urge to use "+ s + "");
-                        binding.financialProblems68j.setText("During the past three months, how often has your use of " +s +"led to health, social, legal or financial problems?");
+                        binding.financialProblems68j.setText("During the past three months, how often has your use of " +s +" led to health, social, legal or financial problems?");
                         binding.pastThree70j.setText("During the past three months, how often have you failed to do what was normally expected of you because of your use of "+ s + "");
                         binding.pastThree71j.setText("Has a friend or relative or anyone else ever expressed concern about your use of "+ s +"");
-                        binding.pastThree72j.setText("Have you ever tried to cut down on using but failed "+ s +"?");
+                        binding.pastThree72j.setText("Have you ever tried and failed to control, cut down or stop using "+ s +"?");
 
                     } else {
                         binding.pastThreeMonths.setText("In the past three months, how often have you used");
@@ -552,7 +559,7 @@ public class Section5Activity extends AppCompatActivity {
                         binding.financialProblems68j.setText("During the past three months, how often has your use of led to health, social, legal or financial problems?");
                         binding.pastThree70j.setText("During the past three months, how often have you failed to do what was normally expected of you because of your use of");
                         binding.pastThree71j.setText("Has a friend or relative or anyone else ever expressed concern about your use of");
-                        binding.pastThree72j.setText("Have you ever tried to cut down on using but failed ?");
+                        binding.pastThree72j.setText("Have you ever tried and failed to control, cut down or stop using ?");
 
                     }
                 } catch (Exception e) {
@@ -568,13 +575,33 @@ public class Section5Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked() ){
+            AlertDialog.Builder builder = new AlertDialog.Builder(Section5Activity.this);
+            builder.setMessage("You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
+            builder.setTitle("Alert !");
+            builder.setCancelable(false);
+            builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                Util.showToast(activity, "Successfully data saved");
+                Intent intent = new Intent(activity, ChildrenResult.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
         Util.showToast(activity, "Successfully data saved");
-       Intent intent = new Intent(activity, ChildrenResult.class);
-       intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-       intent.putExtra(SURVEY_ID, surveyID);
-       intent.putExtra(AGE_ID, ageValue);
-       intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-      startActivity(intent);
+        Intent intent = new Intent(activity, ChildrenResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        startActivity(intent);
 
     }
 

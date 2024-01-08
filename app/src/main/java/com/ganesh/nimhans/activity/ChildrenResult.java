@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 
@@ -41,6 +43,7 @@ public class ChildrenResult extends AppCompatActivity {
     private String ageValue;
     final Calendar myCalendar1 = Calendar.getInstance();
     private Calendar calendar = Calendar.getInstance();
+    ServeySection3cRequest serveySection3cRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,7 @@ public class ChildrenResult extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
@@ -109,40 +113,13 @@ public class ChildrenResult extends AppCompatActivity {
 
     }
     public void onClickNextSection(View v) {
-        if (Float.parseFloat(ageValue) <= 17.0f) {
-            if (Float.parseFloat(ageValue) >= 6.0f) {
-                Intent intent = new Intent(activity, Section6Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
-                //If the age is greater than 2 & less than 3
-                Intent intent = new Intent(activity, Section7aActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else if (Float.parseFloat(ageValue) >= 4.0f) {
-                //If the age is greater than 3 Krishna
-                Intent intent = new Intent(activity, Section7bActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            } else {
-                //IF the Age is 18
-                Intent intent = new Intent(activity, Section8Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                startActivity(intent);
-            }
-        }
+        Intent intent = new Intent(activity, Section6aActivity.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        startActivity(intent);
     }
     private final DatePickerDialog.OnDateSetListener dateSetListener =
             new DatePickerDialog.OnDateSetListener() {
@@ -174,7 +151,7 @@ public class ChildrenResult extends AppCompatActivity {
             }
         };
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         datePickerDialog.show();
 
     }

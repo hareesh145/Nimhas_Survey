@@ -3,7 +3,9 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,6 +23,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.Section6Adapter;
 import com.ganesh.nimhans.databinding.ActivitySection6Binding;
+import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.ServeySection6Request;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.service.ApiClient;
@@ -51,6 +54,7 @@ public class Section6Activity extends AppCompatActivity {
     HashMap<Integer, Integer> integerHashMap = new HashMap<>();
     private String ageValue;
     private EligibleResponse eligibleResponse;
+    ServeySection3cRequest serveySection3cRequest;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,9 @@ public class Section6Activity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
@@ -91,6 +97,7 @@ public class Section6Activity extends AppCompatActivity {
                     break;
                 default:
                     binding.specifyRespo.setVisibility(View.GONE);
+                    binding.specifyRespo.setText("");
                     break;
             }
         });
@@ -150,6 +157,8 @@ public class Section6Activity extends AppCompatActivity {
                 intent.putExtra(SURVEY_ID, surveyID);
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                 startActivity(intent);
             } else if (Float.parseFloat(ageValue) >= 4.0f) {
                 //If the age is greater than 2
@@ -158,6 +167,8 @@ public class Section6Activity extends AppCompatActivity {
                 intent.putExtra(SURVEY_ID, surveyID);
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                 startActivity(intent);
             } else {
                 //IF the Age is 18
@@ -165,7 +176,9 @@ public class Section6Activity extends AppCompatActivity {
                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                 intent.putExtra(SURVEY_ID, surveyID);
                 intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                 startActivity(intent);
             }
         }
