@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -26,7 +27,6 @@ import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
-import com.ganesh.nimhans.utils.Util;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -175,6 +175,7 @@ public class Section10Activity extends AppCompatActivity {
                         screenPositiveNegative = 1;
                     }
                     binding.cdResult.setText("" + screenPositiveNegative);
+                    PreferenceConnector.writeString(Section10Activity.this, RCADS10_RESULT, "" + screenPositiveNegative);
                 }
             }
 
@@ -195,7 +196,7 @@ public class Section10Activity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 */
-        if (Float.parseFloat(ageValue) < 8.0f ) {
+        if (Float.parseFloat(ageValue) < 8.0f) {
             Intent intent = new Intent(Section10Activity.this, Section12Activity.class);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
@@ -204,7 +205,7 @@ public class Section10Activity extends AppCompatActivity {
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
-        }else if (Float.parseFloat(ageValue) >= 8.0f ) {
+        } else if (Float.parseFloat(ageValue) >= 8.0f) {
             Intent intent = new Intent(Section10Activity.this, Section11Activity.class);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
@@ -223,6 +224,12 @@ public class Section10Activity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section10Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 

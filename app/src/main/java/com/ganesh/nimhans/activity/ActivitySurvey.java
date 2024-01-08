@@ -72,9 +72,11 @@ public class ActivitySurvey extends AppCompatActivity {
     public void onClickSurvey(View v) {
         startActivity(new Intent(activity, Section1Activity.class));
     }
-    public void onClicklogout(View v){
-        this.finishAffinity();
-       // System.exit(0);
+
+    public void onClicklogout(View v) {
+        finish();
+        startActivity(new Intent(activity, LoginActivity.class));
+        // System.exit(0);
     }
 
 
@@ -165,7 +167,7 @@ public class ActivitySurvey extends AppCompatActivity {
 //        });
 //        isHouseHoldReportsClicked = true;
 //        if (isStoragePermissionGranted()) {
-            getHouseHoldFormReports();
+        getHouseHoldFormReports();
 //        } else {
 //            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 //        }

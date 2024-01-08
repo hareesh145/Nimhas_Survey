@@ -213,29 +213,30 @@ public class Section12Activity extends AppCompatActivity {
         });
 
     }
+
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
         // Check which checkbox was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.others_218:
-                if (checked){
+                if (checked) {
                     binding.othersSpecify218.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     binding.othersSpecify218.setVisibility(View.GONE);
                     binding.othersSpecify218.setText("");
                 }
                 // Do your coding
 
-            // Perform your logic
+                // Perform your logic
         }
 
     }
+
     public void onClickNextSection(View v) {
 
         if (Float.parseFloat(ageValue) < 2.0f) {
-            Intent intent = new Intent(Section12Activity.this, ParentResult.class);
+            Intent intent = new Intent(Section12Activity.this, Section6aActivity.class);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
@@ -243,10 +244,10 @@ public class Section12Activity extends AppCompatActivity {
             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
-        }else {
-            //if the result is +ve we need to navigat
+        } else {
+            //if the result is +ve we need to navigate
             Util.showToast(activity, "Successfully data saved");
-            Intent intent = new Intent(activity, Section13Activity.class);
+            Intent intent = new Intent(activity, Section6aActivity.class);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
@@ -265,6 +266,12 @@ public class Section12Activity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section12Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 }

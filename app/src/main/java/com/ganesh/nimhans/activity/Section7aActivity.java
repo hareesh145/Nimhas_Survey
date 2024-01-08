@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -28,7 +29,6 @@ import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
-import com.ganesh.nimhans.utils.Util;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -124,14 +124,27 @@ public class Section7aActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.isSuccessful()) {
-                    Log.e("eligibleResponse.houseHoldId Section 7","eligibleResponse.houseHoldId Section 7"+eligibleResponse.houseHoldId);
+                    Log.e("eligibleResponse.houseHoldId Section 7", "eligibleResponse.houseHoldId Section 7" + eligibleResponse.houseHoldId);
                     try {
                         int screenPositiveNegative = 0;
                         int merchantRawResult = calculateMerchantResult();
-                        if ( merchantRawResult>= 3) {
+                        if (merchantRawResult >= 3) {
                             screenPositiveNegative = 1;
                         }
-                        binding.merchantResult.setText(merchantRawResult +" - " +screenPositiveNegative);
+                        binding.merchantResult.setText(merchantRawResult + " - " + screenPositiveNegative);
+                        PreferenceConnector.writeString(Section7aActivity.this, RCADS7A_RESULT, "" + screenPositiveNegative);
+                        if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                            Intent intent = new Intent(Section7aActivity.this, Section12Activity.class);
+                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intent.putExtra(SURVEY_ID, surveyID);
+                            intent.putExtra(AGE_ID, ageValue);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                            startActivity(intent);
+                        } else {
+
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.merchantResult.setText("0");
@@ -207,16 +220,8 @@ public class Section7aActivity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);*/
 //        startActivity(new Intent(activity, Section7bActivity.class));
-        if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
-            Intent intent = new Intent(Section7aActivity.this, Section12Activity.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-        }
+        checkRCADSScore();
+
     }
 
     public void onClickPreviousSection(View v) {
@@ -226,6 +231,12 @@ public class Section7aActivity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section7aActivity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 

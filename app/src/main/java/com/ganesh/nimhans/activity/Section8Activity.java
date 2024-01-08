@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS8_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -120,8 +121,18 @@ public class Section8Activity extends AppCompatActivity {
                             if (calculateSLDResult() >= 4) {
                                 screenPositiveNegative = 1;
                             }
+                            Log.d("TAG", "onResponse: " + screenPositiveNegative);
                             binding.sldResult.setText("" + screenPositiveNegative);
-
+                            PreferenceConnector.writeString(Section8Activity.this, RCADS8_RESULT, "" + screenPositiveNegative);
+                            Util.showToast(activity, "Successfully data saved");
+                            Intent intent = new Intent(activity, Section9Activity.class);
+                            intent.putExtra(AGE_ID, ageValue);
+                            intent.putExtra(SURVEY_ID, surveyID);
+                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                            startActivity(intent);
                         } catch (Exception e) {
                             e.printStackTrace();
                             binding.sldResult.setText("0");
@@ -232,15 +243,7 @@ public class Section8Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-        Intent intent = new Intent(activity, Section9Activity.class);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-        startActivity(intent);
+        checkRCADSScore();
 
     }
 
@@ -251,6 +254,12 @@ public class Section8Activity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section8Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 }

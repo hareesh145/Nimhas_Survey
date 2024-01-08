@@ -1,17 +1,23 @@
 package com.ganesh.nimhans.activity;
 
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static androidx.fragment.app.FragmentManager.TAG;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS8_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -19,14 +25,10 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.StrictMode;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -47,12 +49,11 @@ import com.ganesh.nimhans.databinding.ActivitySection13Binding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -81,6 +82,7 @@ public class Section13Activity extends AppCompatActivity {
     ServeySection3cRequest serveySection3cRequest;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] permissionstorage = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySection13Binding.inflate(getLayoutInflater());
@@ -93,10 +95,20 @@ public class Section13Activity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         phoneNo = myGameApp.getUserPhoneNo();
-       // checkpermissions(this);
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},00);
-        showCalc("Alert !","Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\\n\" +\n" +
-                "                \"The child needs to be referred to a psychiatrist for further evaluation.");
+        // checkpermissions(this);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 00);
+        showCalc("Alert !", "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
+                "\n 4. RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n" +
+                "\n 6. ID_Screener : " + PreferenceConnector.readString(this, RCADS6_RESULT, "") + "\n" +
+                "\n 7a. MCHAT_ASD_Screener : " + PreferenceConnector.readString(this, RCADS7A_RESULT, "") + "\n" +
+                "\n 7b. IASQ_ASD_Screener : " + PreferenceConnector.readString(this, RCADS7B_RESULT, "") + "\n" +
+                "\n 8. SLD_Screener : " + PreferenceConnector.readString(this, RCADS8_RESULT, "") + "\n" +
+                "\n 9. Inattention_Screener : " + PreferenceConnector.readString(this, RCADS9_1_RESULT, "") + "\n" +
+                "\n    Hyperactivity_Screener : " + PreferenceConnector.readString(this, RCADS9_2_RESULT, "") + "\n" +
+                "\n    ODD_Screener : " + PreferenceConnector.readString(this, RCADS9_3_RESULT, "") + "\n" +
+                "\n 10. CD_Screener : " + PreferenceConnector.readString(this, RCADS10_RESULT, "") + "\n" +
+                "\n 11. RCADS_Parent_Screener : " + PreferenceConnector.readString(this, RCADS11_RESULT, "") + "\n" + "\n" +
+                "The child needs to be referred to a psychiatrist for further evaluation.");
 
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
@@ -119,7 +131,7 @@ public class Section13Activity extends AppCompatActivity {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.yes:
                     binding.checkbox227.setVisibility(View.VISIBLE);
                     break;
@@ -137,7 +149,7 @@ public class Section13Activity extends AppCompatActivity {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.yes228:
                     binding.checkbox228.setVisibility(View.VISIBLE);
                     break;
@@ -253,66 +265,73 @@ public class Section13Activity extends AppCompatActivity {
         startActivity(new Intent(activity, Section12Activity.class));
 
     }
- /*   @SuppressLint("RestrictedApi")
-    protected File takeScreenshot(View view) {
-        Date date = new Date();
-        try {
-            String dirpath;
-            // Initialising the directory of storage
-           // dirpath= Section13Activity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString() ;
-            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toURI());
-            if (!file.exists()) {
-                boolean mkdir = file.mkdir();
-            }
-            // File name : keeping file name unique using data time.
-            String path = dirpath + "/"+ date.getTime() + ".jpeg";
-            view.setDrawingCacheEnabled(true);
-            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-            view.setDrawingCacheEnabled(false);
-            File imageurl = new File(path);
-            FileOutputStream outputStream = new FileOutputStream(imageurl);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
-            outputStream.flush();
-            outputStream.close();
-            Log.d(TAG, "takeScreenshot Path: "+imageurl);
-            Toast.makeText(Section13Activity.this,""+imageurl,Toast.LENGTH_LONG).show();
-            return imageurl;
-        } catch (FileNotFoundException io) {
-            io.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+    /*   @SuppressLint("RestrictedApi")
+       protected File takeScreenshot(View view) {
+           Date date = new Date();
+           try {
+               String dirpath;
+               // Initialising the directory of storage
+              // dirpath= Section13Activity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString() ;
+               File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toURI());
+               if (!file.exists()) {
+                   boolean mkdir = file.mkdir();
+               }
+               // File name : keeping file name unique using data time.
+               String path = dirpath + "/"+ date.getTime() + ".jpeg";
+               view.setDrawingCacheEnabled(true);
+               Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+               view.setDrawingCacheEnabled(false);
+               File imageurl = new File(path);
+               FileOutputStream outputStream = new FileOutputStream(imageurl);
+               bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
+               outputStream.flush();
+               outputStream.close();
+               Log.d(TAG, "takeScreenshot Path: "+imageurl);
+               Toast.makeText(Section13Activity.this,""+imageurl,Toast.LENGTH_LONG).show();
+               return imageurl;
+           } catch (FileNotFoundException io) {
+               io.printStackTrace();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+           return null;
+       }
+       // check weather storage permission is given or not
+       public static void checkpermissions(Activity activity) {
+           int permissions = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+           // If storage permission is not given then request for External Storage Permission
+           if (permissions != PackageManager.PERMISSION_GRANTED) {
+               ActivityCompat.requestPermissions(activity, permissionstorage, REQUEST_EXTERNAL_STORAGE);
+           }
+       }*/
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+        // Check which checkbox was clicked
+        switch (view.getId()) {
+            case R.id.others_222:
+                if (checked) {
+                    binding.othersSpecify222.setVisibility(View.VISIBLE);
+                } else {
+                    binding.othersSpecify222.setVisibility(View.GONE);
+                    binding.othersSpecify222.setText("");
+                }
+                // Do your coding
+
+                // Perform your logic
         }
-        return null;
+
     }
-    // check weather storage permission is given or not
-    public static void checkpermissions(Activity activity) {
-        int permissions = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        // If storage permission is not given then request for External Storage Permission
-        if (permissions != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, permissionstorage, REQUEST_EXTERNAL_STORAGE);
-        }
-    }*/
- public void onCheckboxClicked(View view) {
-     // Is the view now checked?
-     boolean checked = ((CheckBox) view).isChecked();
-     // Check which checkbox was clicked
-     switch(view.getId()) {
-         case R.id.others_222:
-             if (checked){
-                 binding.othersSpecify222.setVisibility(View.VISIBLE);
-             }
-             else {
-                 binding.othersSpecify222.setVisibility(View.GONE);
-                 binding.othersSpecify222.setText("");
-             }
-             // Do your coding
 
-             // Perform your logic
-     }
-
- }
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section13Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 
@@ -324,13 +343,11 @@ public class Section13Activity extends AppCompatActivity {
 
 
         builder.setNegativeButton("Capture",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        AlertDialog dialog2 =AlertDialog.class.cast(dialog);
-                        takeScreenshot(dialog2);
-                        Context context = getApplicationContext();
-                        Toast.makeText(context, "Screenshot Captured", Toast.LENGTH_LONG).show();
-                    }
+                (dialog, which) -> {
+                    AlertDialog dialog2 = AlertDialog.class.cast(dialog);
+                    takeScreenshot(dialog2);
+                    Context context = getApplicationContext();
+                    Toast.makeText(context, "Screenshot Captured", Toast.LENGTH_LONG).show();
                 });
 
         builder.setNeutralButton("Return", new DialogInterface.OnClickListener() {
@@ -339,13 +356,15 @@ public class Section13Activity extends AppCompatActivity {
         });
         builder.show();
     }
+
     private void takeScreenshot(AlertDialog dialog) {
         Date now = new Date();
         android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
 
         try {
+
             // image naming and path  to include sd card  appending name you choose for file
-            String mPath = "/data/data/test.jpg"; // use your desired path
+            String mPath = "test.jpg"; // use your desired path
 
             // create bitmap screen capture
             View v1 = dialog.getWindow().getDecorView().getRootView();
@@ -354,8 +373,7 @@ public class Section13Activity extends AppCompatActivity {
             Bitmap bitmap = Bitmap.createBitmap(v1.getDrawingCache());
             v1.setDrawingCacheEnabled(false);
 
-            File imageFile = new File(mPath);
-
+            File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),mPath);
             FileOutputStream outputStream = new FileOutputStream(imageFile);
             int quality = 100;
             bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
@@ -367,4 +385,6 @@ public class Section13Activity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
 }

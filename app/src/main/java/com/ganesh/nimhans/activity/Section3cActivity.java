@@ -111,7 +111,7 @@ public class Section3cActivity extends AppCompatActivity {
         binding.districtUK.check(getCheckID(PreferenceConnector.readString(this, PreferenceConnector.VILLAGE, "")));
         binding.village.setText(PreferenceConnector.readString(this, PreferenceConnector.VILLAGE, ""));
         binding.taluk.setText(PreferenceConnector.readString(this, PreferenceConnector.TALUKA, ""));
-        binding.Specify6.setText(eligibleResponse.surveySection.demographics.randamId);
+        binding.Specify6.setText(eligibleResponse.surveySection.demographics.randamId + "" + eligibleResponse.qno8);
     }
 
     private int getCheckID(String selectID) {

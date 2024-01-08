@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -46,6 +47,7 @@ public class Section5Activity extends AppCompatActivity {
 
     private EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
+    private String rCards4Result;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,7 @@ public class Section5Activity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         binding.ageAndMark.setText(ageValue);
         phoneNo = myGameApp.getUserPhoneNo();
+        rCards4Result = getIntent().getStringExtra(RCADS4_RESULT);
         binding.tobaccoProduct.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -546,12 +549,12 @@ public class Section5Activity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
                     if (!s.toString().isEmpty()) {
-                        binding.pastThreeMonths.setText("In the past three months, how often have you used "+ s + "");
-                        binding.pastThree68j.setText("During the past three months, how often have you had a strong desire or urge to use "+ s + "");
-                        binding.financialProblems68j.setText("During the past three months, how often has your use of " +s +" led to health, social, legal or financial problems?");
-                        binding.pastThree70j.setText("During the past three months, how often have you failed to do what was normally expected of you because of your use of "+ s + "");
-                        binding.pastThree71j.setText("Has a friend or relative or anyone else ever expressed concern about your use of "+ s +"");
-                        binding.pastThree72j.setText("Have you ever tried and failed to control, cut down or stop using "+ s +"?");
+                        binding.pastThreeMonths.setText("In the past three months, how often have you used " + s + "");
+                        binding.pastThree68j.setText("During the past three months, how often have you had a strong desire or urge to use " + s + "");
+                        binding.financialProblems68j.setText("During the past three months, how often has your use of " + s + " led to health, social, legal or financial problems?");
+                        binding.pastThree70j.setText("During the past three months, how often have you failed to do what was normally expected of you because of your use of " + s + "");
+                        binding.pastThree71j.setText("Has a friend or relative or anyone else ever expressed concern about your use of " + s + "");
+                        binding.pastThree72j.setText("Have you ever tried and failed to control, cut down or stop using " + s + "?");
 
                     } else {
                         binding.pastThreeMonths.setText("In the past three months, how often have you used");
@@ -575,7 +578,7 @@ public class Section5Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked() ){
+        if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(Section5Activity.this);
             builder.setMessage("You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
             builder.setTitle("Alert !");
@@ -588,11 +591,13 @@ public class Section5Activity extends AppCompatActivity {
                 intent.putExtra(AGE_ID, ageValue);
                 intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(RCADS4_RESULT, rCards4Result);
                 intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                 startActivity(intent);
             });
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
+            return;
         }
         Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, ChildrenResult.class);
@@ -601,6 +606,7 @@ public class Section5Activity extends AppCompatActivity {
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(RCADS4_RESULT, rCards4Result);
         startActivity(intent);
 
     }

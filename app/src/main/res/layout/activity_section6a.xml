@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 6A (Interview only the parents/guardian)"
+                    android:text="Section 12B (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -251,10 +251,49 @@
                             android:textColor="#000000" />
                     </LinearLayout>
 
+                    <CheckBox
+                        android:id="@+id/Hypertension_highBP"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="30dp"
+                        android:layoutDirection="rtl"
+                        android:text="Hypertension/high BP"
+                        android:textAlignment="textStart" />
+
+                    <CheckBox
+                        android:id="@+id/Diabetes_Mellitus"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="30dp"
+                        android:layoutDirection="rtl"
+                        android:text="Diabetes Mellitus"
+                        android:textAlignment="textStart" />
+
+                    <CheckBox
+                        android:id="@+id/Infections"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="30dp"
+                        android:layoutDirection="rtl"
+                        android:text="Infection(s)"
+                        android:textAlignment="textStart" />
+                    <CheckBox
+                        android:id="@+id/Seizures_Convulsions"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="30dp"
+                        android:layoutDirection="rtl"
+                        android:text="Seizures/Convulsions"
+                        android:textAlignment="textStart" />
                     <RadioGroup
                         android:id="@+id/feelingSad"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
@@ -555,7 +594,7 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="What was the birth weight of the child
-                        (Mention in Kg)?"
+                        (Mention in Kilogram)?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -609,6 +648,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Normal"
+
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -617,7 +657,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Normal underweight"
+                            android:text="Underweight"
                             android:textAlignment="textStart" />
                         <RadioButton
                             android:id="@+id/sometimeh"

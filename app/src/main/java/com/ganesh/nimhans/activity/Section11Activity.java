@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -196,17 +197,19 @@ public class Section11Activity extends AppCompatActivity {
                         } else {
                             binding.obsessiveCompulsiveTxt.setText("0");
                         }*/
-
+                        int screenPositive = 0;
                         if (userResponse.get("parentSocialPhobia").getAsInt() >= 65
                                 || userResponse.get("parentPanicDisorder").getAsInt() >= 65
                                 || userResponse.get("parentMajorDepression").getAsInt() >= 65
                                 || userResponse.get("parentSeparationAnxiety").getAsInt() >= 65
                                 || userResponse.get("parentGeneralizedAnxiety").getAsInt() >= 65
                                 || userResponse.get("parentObsessiveCompulsive").getAsInt() >= 65) {
-                            binding.rcadsResult.setText("RCADS Self Screener : 1");
+                            screenPositive = 1;
+                            binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
                         } else {
-                            binding.rcadsResult.setText("RCADS Self Screener : 0");
+                            binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
                         }
+                        PreferenceConnector.writeString(Section11Activity.this, RCADS11_RESULT, "" + screenPositive);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -343,6 +346,12 @@ public class Section11Activity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section11Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 

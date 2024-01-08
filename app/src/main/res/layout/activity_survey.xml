@@ -22,31 +22,28 @@
             android:theme="@style/ProgressTheme"
             android:visibility="gone" />
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:background="@color/app_bg_champ">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Survey"
-                    android:textColor="@color/white" />
-               <ImageView
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_marginLeft="350dp"
-                   android:id="@+id/logout"
-                   android:onClick="@{handlers::onClicklogout}"
-                   android:src="@drawable/baseline_east_24">
+                    android:layout_height="42dp"
+                    android:background="@color/app_bg_champ">
 
-               </ImageView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Survey"
+                        android:textColor="@color/white" />
+
+
             </RelativeLayout>
 
             <TextView
@@ -124,6 +121,17 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logout_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/button_bg_login"
+                android:onClick="@{handlers::onClicklogout}"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
         </LinearLayout>
-    </FrameLayout>
-</layout>
+    </ScrollView>
+</FrameLayout></layout>

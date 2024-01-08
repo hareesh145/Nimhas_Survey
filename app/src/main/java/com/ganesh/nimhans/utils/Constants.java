@@ -14,10 +14,23 @@ public class Constants {
     public static String LINE_NO = "LINE_NO";
 
     public static String ELIGIBLE_RESPONDENT = "ELIGIBLE_RESPONDENT";
-    public  static String RCADS_RESULT = "RCADS_RESULT";
+    public  static String RCADS4_RESULT = "RCADS4_RESULT";
+    public  static String RCADS5_RESULT = "RCADS5_RESULT";
+    public  static String RCADS6_RESULT = "RCADS6_RESULT";
+    public  static String RCADS7A_RESULT = "RCADS7A_RESULT";
+    public  static String RCADS7B_RESULT = "RCADS7B_RESULT";
+    public  static String RCADS8_RESULT = "RCADS8_RESULT";
+    public  static String RCADS9_1_RESULT = "RCADS9_1_RESULT";
+    public  static String RCADS9_2_RESULT = "RCADS9_2_RESULT";
+    public  static String RCADS9_3_RESULT = "RCADS9_3_RESULT";
+    public  static String RCADS10_RESULT = "RCADS10_RESULT";
+    public  static String RCADS11_RESULT = "RCADS11_RESULT";
+
     public static String SURVEY_SECTION3C="SURVEY_SECTION3C";
     public static final String MARITAL_STATUS="MARITAL_STATUS";
     public static final String NO_OF_CHILDERNS="no_of_childerns";
+
+
 
 
 }

@@ -4,6 +4,7 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -132,6 +133,75 @@ public class Section6Activity extends AppCompatActivity {
                             screenPositiveNegative = 1;
                         }
                         binding.idScannerResult.setText("" + screenPositiveNegative);
+                        PreferenceConnector.writeString(Section6Activity.this, RCADS6_RESULT, "" + screenPositiveNegative);
+
+                        Util.showToast(activity, "Successfully data saved");
+
+//                        if (Float.parseFloat(ageValue) <= 17.0f) {
+//                            if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+//                                Intent intent = new Intent(activity, Section7aActivity.class);
+//                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//                                intent.putExtra(SURVEY_ID, surveyID);
+//                                intent.putExtra(AGE_ID, ageValue);
+//                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+//                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+//                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+//                                startActivity(intent);
+//                            } else if (Float.parseFloat(ageValue) >= 4.0f) {
+//                                //If the age is greater than 2
+//                                Intent intent = new Intent(activity, Section7bActivity.class);
+//                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//                                intent.putExtra(SURVEY_ID, surveyID);
+//                                intent.putExtra(AGE_ID, ageValue);
+//                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+//                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+//                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+//                                startActivity(intent);
+//                            } else {
+//                                //IF the Age is 18
+//                                Intent intent = new Intent(activity, Section8Activity.class);
+//                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//                                intent.putExtra(SURVEY_ID, surveyID);
+//                                intent.putExtra(AGE_ID, ageValue);
+//                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+//                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+//                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+//                                startActivity(intent);
+//                            }
+//                        }
+                        if (Float.parseFloat(ageValue) <= 17.0f) {
+                            if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                                //If the age is greater than 2 & less than 3
+                                Intent intent = new Intent(activity, Section7aActivity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) >= 4.0f) {
+                                //If the age is greater than 3 Krishna
+                                Intent intent = new Intent(activity, Section7bActivity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else {
+                                //IF the Age is 18
+                                Intent intent = new Intent(activity, Section8Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            }
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.idScannerResult.setText("0");
@@ -148,40 +218,7 @@ public class Section6Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-
-        if (Float.parseFloat(ageValue) <= 17.0f) {
-            if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
-                Intent intent = new Intent(activity, Section7aActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                startActivity(intent);
-            } else if (Float.parseFloat(ageValue) >= 4.0f) {
-                //If the age is greater than 2
-                Intent intent = new Intent(activity, Section7bActivity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                startActivity(intent);
-            } else {
-                //IF the Age is 18
-                Intent intent = new Intent(activity, Section8Activity.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                startActivity(intent);
-            }
-        }
+        calculateRCadsScore();
 //        Intent intent = new Intent(activity, Section7aActivity.class);
 //        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
 //        intent.putExtra(SURVEY_ID, surveyID);
@@ -222,6 +259,12 @@ public class Section6Activity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section6Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 

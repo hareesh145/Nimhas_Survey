@@ -87,6 +87,9 @@ public class Section3Mentalillness extends AppCompatActivity {
                     break;
                 case R.id.no1:
                     binding.section17A.setVisibility(View.GONE);
+                    binding.tobacco.setChecked(false);
+                    binding.alcohol.setChecked(false);
+                    binding.substanceUse.setChecked(false);
                     break;
             }
         });

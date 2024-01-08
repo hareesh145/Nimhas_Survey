@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -44,6 +45,8 @@ public class ChildrenResult extends AppCompatActivity {
     final Calendar myCalendar1 = Calendar.getInstance();
     private Calendar calendar = Calendar.getInstance();
     ServeySection3cRequest serveySection3cRequest;
+    String rCards4Result;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,7 @@ public class ChildrenResult extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-
+        rCards4Result = getIntent().getStringExtra(RCADS4_RESULT);
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
@@ -108,19 +111,23 @@ public class ChildrenResult extends AppCompatActivity {
         });
 
     }
+
     public void onClickPreviousSection(View v) {
         startActivity(new Intent(activity, Section13Activity.class));
 
     }
+
     public void onClickNextSection(View v) {
-        Intent intent = new Intent(activity, Section6aActivity.class);
+        Intent intent = new Intent(activity, Section6Activity.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(RCADS4_RESULT, rCards4Result);
         startActivity(intent);
     }
+
     private final DatePickerDialog.OnDateSetListener dateSetListener =
             new DatePickerDialog.OnDateSetListener() {
                 /**
@@ -166,6 +173,7 @@ public class ChildrenResult extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         binding.date3.setText(sdf.format(calendar.getTime()));
     }
+
     public void showTimePickerDialog(View v) {
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);

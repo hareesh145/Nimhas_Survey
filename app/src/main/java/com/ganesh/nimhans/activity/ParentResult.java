@@ -157,7 +157,31 @@ public class ParentResult extends AppCompatActivity {
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.specify1.setVisibility(View.GONE);
                         binding.specify1.setText("");
-                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+
+                        JsonObject jsonObjectpartiallyCompleted =new JsonObject();
+                        jsonObjectpartiallyCompleted.addProperty("status","Interview Partially Completed");
+                        ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponsepartiallyCompleted = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
+                                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.pending:
                         binding.specify1.setVisibility(View.GONE);
@@ -165,7 +189,30 @@ public class ParentResult extends AppCompatActivity {
                         binding.specify1.setText("");
                         binding.date3.setText("");
                         binding.time.setText("");
-                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                        JsonObject jsonObjectpartially =new JsonObject();
+                        jsonObjectpartially.addProperty("status","Interview Pending");
+                        ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponsepartially = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponsepartially);
+                                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     default:
                         binding.specify1.setVisibility(View.GONE);
