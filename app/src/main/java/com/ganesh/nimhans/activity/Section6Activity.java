@@ -76,10 +76,10 @@ public class Section6Activity extends AppCompatActivity {
         binding.childAge.setText(ageValue);
 
         binding.section6List.setAdapter(new Section6Adapter(QuestionUtils.getSection6Questions(), this));
-        integerHashMap.put(77, 1);
-        integerHashMap.put(74, 1);
-        integerHashMap.put(75, 1);
-        integerHashMap.put(76, 1);
+        integerHashMap.put(77, 0);
+        integerHashMap.put(74, 0);
+        integerHashMap.put(75, 0);
+        integerHashMap.put(76, 0);
 
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override

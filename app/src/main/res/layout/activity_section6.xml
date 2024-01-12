@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Section 6B (Interview only the parents/guardian)"
+                    android:text="Section 6 (Interview only the parents/guardian)"
                     android:textColor="@color/white" />
             </RelativeLayout>
 

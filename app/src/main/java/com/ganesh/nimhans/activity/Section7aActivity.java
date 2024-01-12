@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -83,6 +84,7 @@ public class Section7aActivity extends AppCompatActivity {
                     break;
                 default:
                     binding.otherTxt.setVisibility(View.GONE);
+                    binding.otherTxt.setText("");
                     break;
             }
         });
@@ -133,23 +135,23 @@ public class Section7aActivity extends AppCompatActivity {
                         }
                         binding.merchantResult.setText(merchantRawResult + " - " + screenPositiveNegative);
                         PreferenceConnector.writeString(Section7aActivity.this, RCADS7A_RESULT, "" + screenPositiveNegative);
-                        if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
-                            Intent intent = new Intent(Section7aActivity.this, Section12Activity.class);
-                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                            intent.putExtra(SURVEY_ID, surveyID);
-                            intent.putExtra(AGE_ID, ageValue);
-                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                            startActivity(intent);
-                        } else {
-
-                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         binding.merchantResult.setText("0");
+                        PreferenceConnector.writeString(Section7aActivity.this, RCADS7A_RESULT, "0");
                     }
+                    if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                        Intent intent = new Intent(Section7aActivity.this, Section12Activity.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        intent.putExtra(AGE_ID, ageValue);
+                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                        startActivity(intent);
+                    } else {
 
+                    }
                 }
             }
 
@@ -206,7 +208,7 @@ public class Section7aActivity extends AppCompatActivity {
         if (checkedID == yes_id) {
             return 1;
         } else {
-            return 0;
+            return 2;
         }
     }
 

@@ -6,7 +6,6 @@ import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
@@ -97,18 +96,60 @@ public class Section13Activity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
         // checkpermissions(this);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 00);
-        showCalc("Alert !", "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
-                "\n 4. RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n" +
-                "\n 6. ID_Screener : " + PreferenceConnector.readString(this, RCADS6_RESULT, "") + "\n" +
-                "\n 7a. MCHAT_ASD_Screener : " + PreferenceConnector.readString(this, RCADS7A_RESULT, "") + "\n" +
-                "\n 7b. IASQ_ASD_Screener : " + PreferenceConnector.readString(this, RCADS7B_RESULT, "") + "\n" +
-                "\n 8. SLD_Screener : " + PreferenceConnector.readString(this, RCADS8_RESULT, "") + "\n" +
-                "\n 9. Inattention_Screener : " + PreferenceConnector.readString(this, RCADS9_1_RESULT, "") + "\n" +
-                "\n    Hyperactivity_Screener : " + PreferenceConnector.readString(this, RCADS9_2_RESULT, "") + "\n" +
-                "\n    ODD_Screener : " + PreferenceConnector.readString(this, RCADS9_3_RESULT, "") + "\n" +
-                "\n 10. CD_Screener : " + PreferenceConnector.readString(this, RCADS10_RESULT, "") + "\n" +
-                "\n 11. RCADS_Parent_Screener : " + PreferenceConnector.readString(this, RCADS11_RESULT, "") + "\n" + "\n" +
-                "The child needs to be referred to a psychiatrist for further evaluation.");
+        String section6Result = "";
+        if (PreferenceConnector.readString(this, RCADS6_RESULT, "").equalsIgnoreCase("1")) {
+            section6Result = "\n 6.  Intellectual Disability : " + PreferenceConnector.readString(this, RCADS6_RESULT, "") + "\n";
+        }
+        String section7aResult = "";
+        if (PreferenceConnector.readString(this, RCADS7A_RESULT, "").equalsIgnoreCase("1")) {
+            section7aResult = "\n 7a. Autism Spectrum Disorder : " + PreferenceConnector.readString(this, RCADS7A_RESULT, "") + "\n";
+        }
+
+        String section7bResult = "";
+        if (PreferenceConnector.readString(this, RCADS7B_RESULT, "").equals("1")) {
+            section7bResult = "\n 7b. Autism Spectrum Disorder : " + PreferenceConnector.readString(this, RCADS7B_RESULT, "") + "\n";
+        }
+
+        String section8Result = "";
+        if (PreferenceConnector.readString(this, RCADS8_RESULT, "").equals("1")) {
+            section8Result = "\n 8.  Specific Learning Disabilities : " + PreferenceConnector.readString(this, RCADS8_RESULT, "") + "\n";
+        }
+
+        String section9aResult = "";
+        if (PreferenceConnector.readString(this, RCADS9_1_RESULT, "").equals("1")) {
+            section9aResult = "\n 9.  Attention Deficit : " + PreferenceConnector.readString(this, RCADS9_1_RESULT, "") + "\n";
+        }
+        String section9hResult = "";
+        if (PreferenceConnector.readString(this, RCADS9_2_RESULT, "").equals("1")) {
+            section9hResult = "\n     Hyperactivity Disorder : " + PreferenceConnector.readString(this, RCADS9_2_RESULT, "") + "\n";
+        }
+
+        String section9OResult = "";
+        if (PreferenceConnector.readString(this, RCADS9_3_RESULT, "").equals("1")) {
+            section9OResult = "\n     Oppositional Defiant Disorder : " + PreferenceConnector.readString(this, RCADS9_3_RESULT, "") + "\n";
+        }
+
+        String section10Result = "";
+        if (PreferenceConnector.readString(this, RCADS10_RESULT, "").equals("1")) {
+            section10Result = "\n 10. Conduct Disorder : " + PreferenceConnector.readString(this, RCADS10_RESULT, "") + "\n";
+        }
+
+        String section11Result = "";
+        if (PreferenceConnector.readString(this, RCADS11_RESULT, "").equals("1")) {
+            section11Result = "\n 11. Anxiety and Depression : " + PreferenceConnector.readString(this, RCADS11_RESULT, "") + "\n";
+        }
+
+
+        String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
+                section6Result + section7aResult
+                + section7bResult + section8Result
+                + section9aResult + section9hResult
+                + section9OResult
+                + section10Result
+                + section11Result
+                + "\n" +
+                "The child needs to be referred to a psychiatrist for further evaluation.";
+        showCalc("Alert !", alertMessage);
 
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
@@ -373,7 +414,7 @@ public class Section13Activity extends AppCompatActivity {
             Bitmap bitmap = Bitmap.createBitmap(v1.getDrawingCache());
             v1.setDrawingCacheEnabled(false);
 
-            File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),mPath);
+            File imageFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), mPath);
             FileOutputStream outputStream = new FileOutputStream(imageFile);
             int quality = 100;
             bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);

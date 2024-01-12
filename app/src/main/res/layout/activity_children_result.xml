@@ -108,6 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:layoutDirection="rtl"
+                        android:visibility="gone"
                         android:text="Interview Pending"
                         android:textAlignment="textStart" />
                     <RadioButton

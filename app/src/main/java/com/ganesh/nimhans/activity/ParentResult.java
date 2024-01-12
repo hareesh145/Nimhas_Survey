@@ -129,7 +129,7 @@ public class ParentResult extends AppCompatActivity {
                         binding.time.setText("");
                         Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
                         JsonObject jsonObjectrefused =new JsonObject();
-                        jsonObjectrefused.addProperty("status","Interview Completed");
+                        jsonObjectrefused.addProperty("status","Refused");
                         ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
                         apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
@@ -140,7 +140,7 @@ public class ParentResult extends AppCompatActivity {
                                     JsonObject userResponserefused = response.body();
                                     if (response.isSuccessful()) {
                                         Log.d("response", "onResponse: " + userResponserefused);
-                                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();

@@ -28,6 +28,7 @@ import com.ganesh.nimhans.databinding.ActivitySection5Binding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
 
 import java.util.HashMap;
@@ -101,7 +102,7 @@ public class Section5Activity extends AppCompatActivity {
                     binding.tobaccoQues69a.setVisibility(View.VISIBLE);
                     binding.tobaccoQues69aRb.setVisibility(View.VISIBLE);
                     binding.tobaccoQues70a.setVisibility(View.GONE);
-                    binding.tobaccoQues70aRb.setVisibility(View.VISIBLE);
+                    binding.tobaccoQues70aRb.setVisibility(View.GONE);
                     break;
             }
         });
@@ -580,7 +581,8 @@ public class Section5Activity extends AppCompatActivity {
     public void onClickNextSection(View v) {
         if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(Section5Activity.this);
-            builder.setMessage("You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.");
+            builder.setMessage("You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.\n" +
+                    "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n");
             builder.setTitle("Alert !");
             builder.setCancelable(false);
             builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {

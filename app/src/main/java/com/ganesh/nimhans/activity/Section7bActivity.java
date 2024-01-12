@@ -94,7 +94,7 @@ public class Section7bActivity extends AppCompatActivity {
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkRCADSScore();
+              //  checkRCADSScore();
             }
         });
 
@@ -105,10 +105,12 @@ public class Section7bActivity extends AppCompatActivity {
                     case R.id.mother_btn:
                         respondentTxt = "Mother";
                         binding.iasqRespondendtTxt.setVisibility(View.GONE);
+                        binding.iasqRespondendtTxt.setText("");
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
                         binding.iasqRespondendtTxt.setVisibility(View.GONE);
+                        binding.iasqRespondendtTxt.setText("");
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";

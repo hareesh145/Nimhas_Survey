@@ -174,7 +174,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_108_d:
                 return 4;
         }
-        return 1;
+        return 0;
     }
 
 
@@ -191,7 +191,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_109_d:
                 return 4;
         }
-        return 1;
+        return 0;
     }
 
     private int getChecked110Value(int checkedRadioButtonId) {
@@ -207,7 +207,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_110_d:
                 return 4;
         }
-        return 1;
+        return 0;
     }
 
     private int getChecked111Value(int checkedRadioButtonId) {
@@ -223,7 +223,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_111_d:
                 return 4;
         }
-        return 1;
+        return 0;
     }
 
     private int getChecked112Value(int checkedRadioButtonId) {
@@ -239,12 +239,11 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_112_d:
                 return 4;
         }
-        return 1;
+        return 0;
     }
 
     public void onClickNextSection(View v) {
         checkRCADSScore();
-
     }
 
     public void onClickPreviousSection(View v) {

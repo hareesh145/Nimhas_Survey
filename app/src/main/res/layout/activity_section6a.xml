@@ -250,45 +250,77 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+                    <RadioGroup
+                        android:id="@+id/problem_mother"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp">
 
-                    <CheckBox
-                        android:id="@+id/Hypertension_highBP"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="30dp"
-                        android:layoutDirection="rtl"
-                        android:text="Hypertension/high BP"
-                        android:textAlignment="textStart" />
+                        <RadioButton
+                            android:id="@+id/yes_mother"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Yes"
+                            android:textAlignment="textStart" />
 
-                    <CheckBox
-                        android:id="@+id/Diabetes_Mellitus"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="30dp"
-                        android:layoutDirection="rtl"
-                        android:text="Diabetes Mellitus"
-                        android:textAlignment="textStart" />
+                        <RadioButton
+                            android:id="@+id/no_mother"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="No"
+                            android:textAlignment="textStart" />
 
-                    <CheckBox
-                        android:id="@+id/Infections"
-                        android:layout_width="fill_parent"
+                    </RadioGroup>
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="30dp"
-                        android:layoutDirection="rtl"
-                        android:text="Infection(s)"
-                        android:textAlignment="textStart" />
-                    <CheckBox
-                        android:id="@+id/Seizures_Convulsions"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="30dp"
-                        android:layoutDirection="rtl"
-                        android:text="Seizures/Convulsions"
-                        android:textAlignment="textStart" />
+                        android:id="@+id/checkbox_problem"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+                        <CheckBox
+                            android:id="@+id/Hypertension_highBP"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="30dp"
+                            android:layoutDirection="rtl"
+                            android:text="Hypertension/high BP"
+                            android:textAlignment="textStart" />
+
+                        <CheckBox
+                            android:id="@+id/Diabetes_Mellitus"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="30dp"
+                            android:layoutDirection="rtl"
+                            android:text="Diabetes Mellitus"
+                            android:textAlignment="textStart" />
+
+                        <CheckBox
+                            android:id="@+id/Infections"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="30dp"
+                            android:layoutDirection="rtl"
+                            android:text="Infection(s)"
+                            android:textAlignment="textStart" />
+                        <CheckBox
+                            android:id="@+id/Seizures_Convulsions"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="30dp"
+                            android:layoutDirection="rtl"
+                            android:text="Seizures/Convulsions"
+                            android:textAlignment="textStart" />
+                    </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/feelingSad"
                         android:layout_width="fill_parent"

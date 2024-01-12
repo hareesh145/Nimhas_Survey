@@ -70,6 +70,23 @@ public class Section6aActivity extends AppCompatActivity {
                     break;
             }
         });
+        binding.problemMother.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton radioButton = findViewById(checkedId);
+            String selectedValue = radioButton.getText().toString();
+            selectedCaste = selectedValue;
+            switch (checkedId) {
+                case R.id.yes_mother:
+                    binding.checkboxProblem.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    binding.checkboxProblem.setVisibility(View.GONE);
+                    binding.HypertensionHighBP.setChecked(false);
+                    binding.DiabetesMellitus.setChecked(false);
+                    binding.Infections.setChecked(false);
+                    binding.SeizuresConvulsions.setChecked(false);
+                    break;
+            }
+        });
         binding.PARENTSGUARDIAN.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -145,7 +162,14 @@ public class Section6aActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        }
-        startActivity(new Intent(activity, Section13Activity.class));
+        Intent intent = new Intent(activity, Section13Activity.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+        startActivity(intent);
     }
 
     public void onClickPreviousSection(View v) {
