@@ -5,7 +5,6 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
@@ -17,7 +16,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
-
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,6 +44,8 @@ public class ResultPage extends AppCompatActivity {
     final Calendar myCalendar2 = Calendar.getInstance();
     Long demoGraphicsID;
     private int surveyID;
+    boolean isFromSection1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +57,7 @@ public class ResultPage extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+        isFromSection1 = getIntent().getBooleanExtra("isFromSection1", false);
         binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -88,10 +90,15 @@ public class ResultPage extends AppCompatActivity {
                         binding.specify1.setText("");
                         break;
                     case R.id.a:
-                        Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
-                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                        intent.putExtra(SURVEY_ID, surveyID);
-                        startActivity(intent);
+                        if (isFromSection1) {
+                            Toast.makeText(activity, "Thanks for Survey", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
+                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intent.putExtra(SURVEY_ID, surveyID);
+                            startActivity(intent);
+                        }
                         break;
                     default:
                         binding.commentResultCode.setVisibility(View.GONE);

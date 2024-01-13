@@ -1,5 +1,6 @@
 package com.ganesh.nimhans.activity;
 
+import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.PreferenceConnector.DISTRICT;
 import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 import static com.ganesh.nimhans.utils.PreferenceConnector.TALUKA;
@@ -292,9 +293,10 @@ public class Section1Activity extends AppCompatActivity {
                         Util.showToast(activity, "Successfully data saved");
                         if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
                             Intent intent = new Intent(Section1Activity.this, ResultPage.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("demoo", demoGraphicsId);
+                            intent.putExtra("isFromSection1", true);
+                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsId);
                             startActivity(intent);
+                            finish();
                         } else {
                             Intent i = new Intent(activity, Section3aActivity.class);
                             Bundle bundle = new Bundle();
