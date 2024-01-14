@@ -140,16 +140,22 @@ public class Section13Activity extends AppCompatActivity {
         }
 
 
-        String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
-                section6Result + section7aResult
-                + section7bResult + section8Result
-                + section9aResult + section9hResult
-                + section9OResult
-                + section10Result
-                + section11Result
-                + "\n" +
-                "The child needs to be referred to a psychiatrist for further evaluation.";
-        showCalc("Alert !", alertMessage);
+        if (section6Result.contains("1") || section7aResult.contains("1") || section7bResult.contains("1")
+                || section8Result.contains("1") || section9aResult.contains("1") || section9hResult.contains("1") ||
+                section9OResult.contains("1") || section10Result.contains("1") || section11Result.contains("1")
+        ) {
+            String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
+                    section6Result + section7aResult
+                    + section7bResult + section8Result
+                    + section9aResult + section9hResult
+                    + section9OResult
+                    + section10Result
+                    + section11Result
+                    + "\n" +
+                    "The child needs to be referred to a psychiatrist for further evaluation.";
+            showCalc("Alert !", alertMessage);
+        }
+
 
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);

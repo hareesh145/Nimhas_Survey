@@ -157,6 +157,11 @@ public class Section3cActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (YesOrNo.getCheckedRadioButtonId() == R.id.no2) {
                         Intent intentno = new Intent(Section3cActivity.this, ChildrenResult.class);
+                        intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intentno.putExtra(SURVEY_ID, surveyID);
+                        intentno.putExtra(AGE_ID, ageValue);
+                        intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                        intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                         startActivity(intentno);
                     } else {
                         if (Float.parseFloat(ageValue) <= 17.0f) {

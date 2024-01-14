@@ -45,6 +45,7 @@ public class ResultPage extends AppCompatActivity {
     Long demoGraphicsID;
     private int surveyID;
     boolean isFromSection1;
+    String consentForStudy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class ResultPage extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         isFromSection1 = getIntent().getBooleanExtra("isFromSection1", false);
+        consentForStudy = getIntent().getStringExtra("consentForStudy");
         binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -91,7 +93,7 @@ public class ResultPage extends AppCompatActivity {
                         break;
                     case R.id.a:
                         if (isFromSection1) {
-                            Toast.makeText(activity, "Thanks for Survey", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
                             Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
@@ -163,10 +165,15 @@ public class ResultPage extends AppCompatActivity {
     }
 
     public void onClickSubmit(View v) {
-        Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        startActivity(intent);
+        if (consentForStudy != null && consentForStudy.equals("no")) {
+            Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            startActivity(intent);
+        }
     }
 
     public void showTimePickerDialog(View v) {
