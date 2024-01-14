@@ -136,6 +136,7 @@ public class Section6Activity extends AppCompatActivity {
                         PreferenceConnector.writeString(Section6Activity.this, RCADS6_RESULT, "" + screenPositiveNegative);
 
                         Util.showToast(activity, "Successfully data saved");
+                        Log.d("TAG", "onResponse RCADS6_RESULT: " + PreferenceConnector.readString(Section6Activity.this, RCADS6_RESULT, ""));
 
 //                        if (Float.parseFloat(ageValue) <= 17.0f) {
 //                            if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {

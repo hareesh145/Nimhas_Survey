@@ -236,7 +236,7 @@ public class Section12Activity extends AppCompatActivity {
     public void onClickNextSection(View v) {
 
         if (Float.parseFloat(ageValue) < 2.0f) {
-            Intent intent = new Intent(Section12Activity.this, Section6aActivity.class);
+            Intent intent = new Intent(Section12Activity.this, Section12BActivity.class);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(AGE_ID, ageValue);
@@ -247,7 +247,7 @@ public class Section12Activity extends AppCompatActivity {
         } else {
             //if the result is +ve we need to navigate
             Util.showToast(activity, "Successfully data saved");
-            Intent intent = new Intent(activity, Section6aActivity.class);
+            Intent intent = new Intent(activity, Section12BActivity.class);
             intent.putExtra(AGE_ID, ageValue);
             intent.putExtra(SURVEY_ID, surveyID);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);

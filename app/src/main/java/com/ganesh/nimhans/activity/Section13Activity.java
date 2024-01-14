@@ -58,6 +58,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Section13Activity extends AppCompatActivity {
+    private static final String TAG = Section13Activity.class.getSimpleName();
     Activity activity;
     private ActivitySection13Binding binding;
     String phoneNo, pswd;
@@ -139,6 +140,15 @@ public class Section13Activity extends AppCompatActivity {
             section11Result = "\n 11. Anxiety and Depression : " + PreferenceConnector.readString(this, RCADS11_RESULT, "") + "\n";
         }
 
+        Log.d(TAG, "section6Result : " + section6Result);
+        Log.d(TAG, "section7aResult : " + section7aResult);
+        Log.d(TAG, "section7bResult : " + section7bResult);
+        Log.d(TAG, "section8Result : " + section8Result);
+        Log.d(TAG, "section9aResult : " + section9aResult);
+        Log.d(TAG, "section9hResult : " + section9hResult);
+        Log.d(TAG, "section9OResult : " + section9OResult);
+        Log.d(TAG, "section10Result : " + section10Result);
+        Log.d(TAG, "section11Result : " + section11Result);
 
         if (section6Result.contains("1") || section7aResult.contains("1") || section7bResult.contains("1")
                 || section8Result.contains("1") || section9aResult.contains("1") || section9hResult.contains("1") ||
@@ -411,7 +421,7 @@ public class Section13Activity extends AppCompatActivity {
         try {
 
             // image naming and path  to include sd card  appending name you choose for file
-            String mPath = "test.jpg"; // use your desired path
+            String mPath = eligibleResponse.surveySection.demographics.randamId + ".jpg"; // use your desired path
 
             // create bitmap screen capture
             View v1 = dialog.getWindow().getDecorView().getRootView();

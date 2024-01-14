@@ -8,8 +8,10 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -29,6 +31,8 @@ import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.ganesh.nimhans.utils.Util;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -46,6 +50,8 @@ public class ChildrenResult extends AppCompatActivity {
     private Calendar calendar = Calendar.getInstance();
     ServeySection3cRequest serveySection3cRequest;
     String rCards4Result;
+    private boolean section5_status;
+    private int ASSIST_screener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,8 @@ public class ChildrenResult extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
+        section5_status = getIntent().getBooleanExtra("section5_status", false);
+        ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -118,6 +126,36 @@ public class ChildrenResult extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        String message = "You are found to be positive for the following. Kindly consult a psychiatrist for further evaluation.\n" +
+                "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n";
+        if (section5_status) {
+            if (!(rCards4Result != null && rCards4Result.equals("1"))) {
+                message = "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.\n" +
+                        "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") +
+                        "\n 5.  ASSIST_Screener : " + ASSIST_screener + "\n";
+            }
+        }
+
+        if (rCards4Result != null && rCards4Result.equals("1")) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(ChildrenResult.this);
+            builder.setMessage(message);
+            builder.setTitle("Alert !");
+            builder.setCancelable(false);
+            builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                Util.showToast(activity, "Successfully data saved");
+                Intent intent = new Intent(activity, Section6Activity.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(RCADS4_RESULT, rCards4Result);
+                startActivity(intent);
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            return;
+        }
         Intent intent = new Intent(activity, Section6Activity.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <!-- Data -->
         <variable
             name="handlers"
-            type="com.ganesh.nimhans.activity.Section6aActivity" />
+            type="com.ganesh.nimhans.activity.Section12BActivity" />
 
     </data>
 
@@ -58,9 +57,9 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="SSDDDTTTTTVVVVVVHHH"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
+                        android:textColor="@color/app_bg_champ"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -77,43 +76,44 @@
                         android:layout_height="match_parent"
                         android:gravity="center|left"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:text="@string/parent_interview_title"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:visibility="visible"
                         android:text="Child Age"
-                        android:textStyle="bold"
+                        android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textAllCaps="false"/>
+                        android:textStyle="bold"
+                        android:visibility="visible" />
 
                     <EditText
                         android:id="@+id/child_age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
-                        android:hint="Number"
                         android:focusable="false"
+                        android:hint="Number"
                         android:padding="10dp"
-                        android:visibility="visible"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="visible" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:visibility="gone"
                         android:padding="10dp"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -128,13 +128,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
-                    </LinearLayout>
+                        android:orientation="horizontal"></LinearLayout>
 
                     <RadioGroup
+                        android:id="@+id/PARENTS_GUARDIAN"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/PARENTS_GUARDIAN"
                         android:layout_marginLeft="20dp">
 
                         <RadioButton
@@ -154,10 +153,10 @@
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/guardian_rb"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:id="@+id/guardian_rb"
                             android:layoutDirection="rtl"
                             android:text="Guardian"
                             android:textAlignment="textStart" />
@@ -169,10 +168,10 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
-                        android:visibility="gone"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -238,9 +237,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="20."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -250,6 +249,7 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+
                     <RadioGroup
                         android:id="@+id/problem_mother"
                         android:layout_width="fill_parent"
@@ -275,12 +275,14 @@
                             android:textAlignment="textStart" />
 
                     </RadioGroup>
+
                     <LinearLayout
+                        android:id="@+id/checkbox_problem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/checkbox_problem"
-                        android:visibility="gone"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
                         <CheckBox
                             android:id="@+id/Hypertension_highBP"
                             android:layout_width="fill_parent"
@@ -310,6 +312,7 @@
                             android:layoutDirection="rtl"
                             android:text="Infection(s)"
                             android:textAlignment="textStart" />
+
                         <CheckBox
                             android:id="@+id/Seizures_Convulsions"
                             android:layout_width="fill_parent"
@@ -325,8 +328,8 @@
                         android:id="@+id/feelingSad"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:layout_marginLeft="30dp">
+                        android:layout_marginLeft="30dp"
+                        android:visibility="gone">
 
                         <RadioButton
                             android:id="@+id/never46"
@@ -378,9 +381,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="21."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -425,18 +428,19 @@
                             android:textAlignment="textStart" />
 
                     </RadioGroup>
+
                     <EditText
                         android:id="@+id/Specify1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="Specify"
                         android:inputType="textPersonName"
-                        android:visibility="gone"
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -451,9 +455,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="22."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -503,9 +507,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="23."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -555,9 +559,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="24."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -592,18 +596,20 @@
                             android:text="No"
                             android:textAlignment="textStart" />
                     </RadioGroup>
+
                     <EditText
                         android:id="@+id/Specify2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="Specify"
                         android:inputType="textPersonName"
-                        android:visibility="gone"
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:padding="10dp"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:visibility="gone" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -617,9 +623,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="24."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -630,6 +636,7 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+
                     <EditText
                         android:id="@+id/Specify3"
                         android:layout_width="match_parent"
@@ -641,6 +648,7 @@
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -654,9 +662,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="24."
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -691,6 +699,7 @@
                             android:layoutDirection="rtl"
                             android:text="Underweight"
                             android:textAlignment="textStart" />
+
                         <RadioButton
                             android:id="@+id/sometimeh"
                             android:layout_width="fill_parent"
@@ -700,6 +709,7 @@
                             android:text="Obese or overweight"
                             android:textAlignment="textStart" />
                     </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -736,6 +746,7 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -745,6 +756,7 @@
                         android:text="@string/go_to_result"
                         android:textAllCaps="false"
                         android:textColor="@color/app_bg_champ" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

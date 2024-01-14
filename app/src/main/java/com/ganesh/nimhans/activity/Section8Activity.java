@@ -124,6 +124,8 @@ public class Section8Activity extends AppCompatActivity {
                             Log.d("TAG", "onResponse: " + screenPositiveNegative);
                             binding.sldResult.setText("" + screenPositiveNegative);
                             PreferenceConnector.writeString(Section8Activity.this, RCADS8_RESULT, "" + screenPositiveNegative);
+
+                            Log.d("TAG", "RCADS8_RESULT : " + PreferenceConnector.readString(Section8Activity.this, RCADS8_RESULT, ""));
                             Util.showToast(activity, "Successfully data saved");
                             Intent intent = new Intent(activity, Section9Activity.class);
                             intent.putExtra(AGE_ID, ageValue);

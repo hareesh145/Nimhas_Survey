@@ -4,7 +4,16 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS8_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -19,13 +28,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
-import com.ganesh.nimhans.databinding.ActivitySection6aBinding;
+import com.ganesh.nimhans.databinding.ActivitySection12bBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 
-public class Section6aActivity extends AppCompatActivity {
-    private ActivitySection6aBinding binding;
+public class Section12BActivity extends AppCompatActivity {
+    private static final String TAG = Section12BActivity.class.getSimpleName();
+    private ActivitySection12bBinding binding;
     Activity activity;
     Long demoGraphicsID;
     private int surveyID;
@@ -41,7 +52,7 @@ public class Section6aActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySection6aBinding.inflate(getLayoutInflater());
+        binding = ActivitySection12bBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         activity = this;
@@ -162,14 +173,61 @@ public class Section6aActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        }
-        Intent intent = new Intent(activity, Section13Activity.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-        startActivity(intent);
+
+        if (Float.parseFloat(ageValue) < 2) {
+            Intent intent = new Intent(activity, ParentResult.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        } else {
+            String section6Result = PreferenceConnector.readString(this, RCADS6_RESULT, "");
+            String section7aResult = PreferenceConnector.readString(this, RCADS7A_RESULT, "");
+            String section7bResult = PreferenceConnector.readString(this, RCADS7B_RESULT, "");
+            String section8Result = PreferenceConnector.readString(this, RCADS8_RESULT, "");
+            String section9aResult = PreferenceConnector.readString(this, RCADS9_1_RESULT, "");
+            String section9hResult = PreferenceConnector.readString(this, RCADS9_2_RESULT, "");
+            String section9OResult = PreferenceConnector.readString(this, RCADS9_3_RESULT, "");
+            String section10Result = PreferenceConnector.readString(this, RCADS10_RESULT, "");
+            String section11Result = PreferenceConnector.readString(this, RCADS11_RESULT, "");
+
+            Log.d(TAG, "section6Result : " + section6Result);
+            Log.d(TAG, "section7aResult : " + section7aResult);
+            Log.d(TAG, "section7bResult : " + section7bResult);
+            Log.d(TAG, "section8Result : " + section8Result);
+            Log.d(TAG, "section9aResult : " + section9aResult);
+            Log.d(TAG, "section9hResult : " + section9hResult);
+            Log.d(TAG, "section9OResult : " + section9OResult);
+            Log.d(TAG, "section10Result : " + section10Result);
+            Log.d(TAG, "section11Result : " + section11Result);
+
+            Intent intent;
+            if (section6Result.equals("1") || section7aResult.equals("1") || section7bResult.equals("1")
+                    || section8Result.equals("1") || section9aResult.equals("1") || section9hResult.equals("1") ||
+                    section9OResult.equals("1") || section10Result.equals("1") || section11Result.equals("1")) {
+                intent = new Intent(activity, Section13Activity.class);
+            } else {
+                intent = new Intent(activity, ParentResult.class);
+            }
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }
+//        Intent intent = new Intent(activity, Section13Activity.class);
+//        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//        intent.putExtra(SURVEY_ID, surveyID);
+//        intent.putExtra(AGE_ID, ageValue);
+//        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+//        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+//        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+//        startActivity(intent);
     }
 
     public void onClickPreviousSection(View v) {
@@ -178,7 +236,7 @@ public class Section6aActivity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section6aActivity.this, ParentResult.class);
+        Intent intent = new Intent(Section12BActivity.this, ParentResult.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);

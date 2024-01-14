@@ -5,7 +5,6 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -164,42 +163,46 @@ public class Section7aActivity extends AppCompatActivity {
     }
 
     private int calculateMerchantResult() {
-        return getSelectedYesAs1(binding.question78Options.getCheckedRadioButtonId(), binding.question78Yes.getId()) +
-                getSelectedYesAs1(binding.question80Options.getCheckedRadioButtonId(), binding.question80Yes.getId()) +
-                getSelectedYesAs1(binding.question81Options.getCheckedRadioButtonId(), binding.question81Yes.getId()) +
-                getSelectedYesAs1(binding.question83Options.getCheckedRadioButtonId(), binding.question83Yes.getId()) +
-                getSelectedYesAs1(binding.question84Options.getCheckedRadioButtonId(), binding.question84Yes.getId()) +
-                getSelectedYesAs1(binding.question85Options.getCheckedRadioButtonId(), binding.question85Yes.getId()) +
-                getSelectedYesAs1(binding.question86Options.getCheckedRadioButtonId(), binding.question86Yes.getId()) +
-                getSelectedYesAs1(binding.question87Options.getCheckedRadioButtonId(), binding.question87Yes.getId()) +
-                getSelectedYesAs1(binding.question88Options.getCheckedRadioButtonId(), binding.question88Yes.getId()) +
-                getSelectedYesAs1(binding.question90Options.getCheckedRadioButtonId(), binding.question90Yes.getId()) +
-                getSelectedYesAs1(binding.question91Options.getCheckedRadioButtonId(), binding.question91Yes.getId()) +
-                getSelectedYesAs1(binding.question92Options.getCheckedRadioButtonId(), binding.question92Yes.getId()) +
-                getSelectedYesAs1(binding.question93Options.getCheckedRadioButtonId(), binding.question93Yes.getId()) +
-                getSelectedYesAs1(binding.question94Options.getCheckedRadioButtonId(), binding.question94Yes.getId()) +
-                getSelectedYesAs1(binding.question95Options.getCheckedRadioButtonId(), binding.question95Yes.getId()) +
-                getSelectedYesAs1(binding.question96Options.getCheckedRadioButtonId(), binding.question96Yes.getId()) +
-                getSelectedYesAs1(binding.question97Options.getCheckedRadioButtonId(), binding.question97Yes.getId()) +
-                getSelectedYesAs0(binding.question79Options.getCheckedRadioButtonId(), binding.question79Yes.getId()) +
-                getSelectedYesAs0(binding.question82Options.getCheckedRadioButtonId(), binding.question82Yes.getId()) +
-                getSelectedYesAs0(binding.question89Options.getCheckedRadioButtonId(), binding.question89Yes.getId());
+        return getSelectedYesAs1(binding.question78Options.getCheckedRadioButtonId(), binding.question78Yes.getId(), binding.question78No.getId()) +
+                getSelectedYesAs1(binding.question80Options.getCheckedRadioButtonId(), binding.question80Yes.getId(), binding.question80No.getId()) +
+                getSelectedYesAs1(binding.question81Options.getCheckedRadioButtonId(), binding.question81Yes.getId(), binding.question81No.getId()) +
+                getSelectedYesAs1(binding.question83Options.getCheckedRadioButtonId(), binding.question83Yes.getId(), binding.question83No.getId()) +
+                getSelectedYesAs1(binding.question84Options.getCheckedRadioButtonId(), binding.question84Yes.getId(), binding.question84No.getId()) +
+                getSelectedYesAs1(binding.question85Options.getCheckedRadioButtonId(), binding.question85Yes.getId(), binding.question85No.getId()) +
+                getSelectedYesAs1(binding.question86Options.getCheckedRadioButtonId(), binding.question86Yes.getId(), binding.question86No.getId()) +
+                getSelectedYesAs1(binding.question87Options.getCheckedRadioButtonId(), binding.question87Yes.getId(), binding.question87No.getId()) +
+                getSelectedYesAs1(binding.question88Options.getCheckedRadioButtonId(), binding.question88Yes.getId(), binding.question88No.getId()) +
+                getSelectedYesAs1(binding.question90Options.getCheckedRadioButtonId(), binding.question90Yes.getId(), binding.question90No.getId()) +
+                getSelectedYesAs1(binding.question91Options.getCheckedRadioButtonId(), binding.question91Yes.getId(), binding.question91No.getId()) +
+                getSelectedYesAs1(binding.question92Options.getCheckedRadioButtonId(), binding.question92Yes.getId(), binding.question92No.getId()) +
+                getSelectedYesAs1(binding.question93Options.getCheckedRadioButtonId(), binding.question93Yes.getId(), binding.question93No.getId()) +
+                getSelectedYesAs1(binding.question94Options.getCheckedRadioButtonId(), binding.question94Yes.getId(), binding.question94No.getId()) +
+                getSelectedYesAs1(binding.question95Options.getCheckedRadioButtonId(), binding.question95Yes.getId(), binding.question95No.getId()) +
+                getSelectedYesAs1(binding.question96Options.getCheckedRadioButtonId(), binding.question96Yes.getId(), binding.question96No.getId()) +
+                getSelectedYesAs1(binding.question97Options.getCheckedRadioButtonId(), binding.question97Yes.getId(), binding.question97No.getId()) +
+                getSelectedYesAs0(binding.question79Options.getCheckedRadioButtonId(), binding.question79Yes.getId(), binding.question79No.getId()) +
+                getSelectedYesAs0(binding.question82Options.getCheckedRadioButtonId(), binding.question82Yes.getId(), binding.question82No.getId()) +
+                getSelectedYesAs0(binding.question89Options.getCheckedRadioButtonId(), binding.question89Yes.getId(), binding.question89No.getId());
 
     }
 
-    private int getSelectedYesAs1(int checkedID, int yes_id) {
+    private int getSelectedYesAs1(int checkedID, int yes_id, int noId) {
         if (checkedID == yes_id) {
             return 1;
-        } else {
+        } else if (checkedID == noId) {
             return 0;
+        } else {
+            return -1;
         }
     }
 
-    private int getSelectedYesAs0(int checkedID, int yes_id) {
+    private int getSelectedYesAs0(int checkedID, int yes_id, int noId) {
         if (checkedID == yes_id) {
             return 0;
-        } else {
+        } else if (checkedID == noId) {
             return 1;
+        } else {
+            return -1;
         }
     }
 
@@ -207,8 +210,10 @@ public class Section7aActivity extends AppCompatActivity {
     private int getCheckedID(int checkedID, int yes_id, int no_id) {
         if (checkedID == yes_id) {
             return 1;
-        } else {
+        } else if (checkedID == no_id) {
             return 2;
+        } else {
+            return -1;
         }
     }
 
