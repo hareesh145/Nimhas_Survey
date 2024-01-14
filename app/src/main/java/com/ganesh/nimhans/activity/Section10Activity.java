@@ -176,6 +176,26 @@ public class Section10Activity extends AppCompatActivity {
                     }
                     binding.cdResult.setText("" + screenPositiveNegative);
                     PreferenceConnector.writeString(Section10Activity.this, RCADS10_RESULT, "" + screenPositiveNegative);
+
+                    if (Float.parseFloat(ageValue) < 8.0f) {
+                        Intent intent = new Intent(Section10Activity.this, Section12Activity.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        intent.putExtra(AGE_ID, ageValue);
+                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                        startActivity(intent);
+                    } else if (Float.parseFloat(ageValue) >= 8.0f) {
+                        Intent intent = new Intent(Section10Activity.this, Section11Activity.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        intent.putExtra(AGE_ID, ageValue);
+                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                        startActivity(intent);
+                    }
                 }
             }
 
@@ -196,25 +216,8 @@ public class Section10Activity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
 */
-        if (Float.parseFloat(ageValue) < 8.0f) {
-            Intent intent = new Intent(Section10Activity.this, Section12Activity.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-        } else if (Float.parseFloat(ageValue) >= 8.0f) {
-            Intent intent = new Intent(Section10Activity.this, Section11Activity.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-        }
+        checkRCADSScore();
+
     }
 
     public void onClickPreviousSection(View v) {

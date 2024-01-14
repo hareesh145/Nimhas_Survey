@@ -88,7 +88,7 @@ public class Section11Activity extends AppCompatActivity {
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkRCADSScore();
+
             }
         });
     }
@@ -210,6 +210,17 @@ public class Section11Activity extends AppCompatActivity {
                             binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
                         }
                         PreferenceConnector.writeString(Section11Activity.this, RCADS11_RESULT, "" + screenPositive);
+
+
+                        Util.showToast(activity, "Successfully data saved");
+                        Intent intent = new Intent(activity, Section12Activity.class);
+                        intent.putExtra(AGE_ID, ageValue);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                        startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -271,15 +282,9 @@ public class Section11Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-        Intent intent = new Intent(activity, Section12Activity.class);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-        startActivity(intent);
+
+        checkRCADSScore();
+
 
     }
 

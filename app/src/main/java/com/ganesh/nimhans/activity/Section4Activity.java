@@ -178,6 +178,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
 
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
+
         Anxiety.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
