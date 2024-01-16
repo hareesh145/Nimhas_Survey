@@ -1,23 +1,18 @@
 package com.ganesh.nimhans.activity;
 
-import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
-import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
-import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
-import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TimePicker;
@@ -27,50 +22,45 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
-import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
-import com.ganesh.nimhans.model.ServeySection3cRequest;
-import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.databinding.ActivityConsentNoBinding;
 import com.ganesh.nimhans.utils.Constants;
-import com.ganesh.nimhans.utils.PreferenceConnector;
-import com.ganesh.nimhans.utils.Util;
 
 import java.util.Calendar;
 import java.util.Locale;
 
-public class ChildrenResult extends AppCompatActivity {
-    private ActivityChildrenResultBinding binding;
+public class ConsentNo extends AppCompatActivity {
+    private ActivityConsentNoBinding binding;
     Activity activity;
-    Long demoGraphicsID;
-    private int surveyID;
     MyNimhans myGameApp;
-    String selectedResultCode;
-    private EligibleResponse eligibleResponse;
-    private String ageValue;
+    private String selectedResultCode;
+    private String timepicker;
+    private String interviewDate;
+    private String time;
+    private String datePickerfield;
+    EditText specify, datePicker2, timePicker, date3;
+    final Calendar dateOfVisitCalendar = Calendar.getInstance();
     final Calendar myCalendar1 = Calendar.getInstance();
     private Calendar calendar = Calendar.getInstance();
-    ServeySection3cRequest serveySection3cRequest;
-    String rCards4Result;
-    private boolean section5_status;
-    private int ASSIST_screener;
+    final Calendar myCalendar2 = Calendar.getInstance();
+    Long demoGraphicsID;
+    private int surveyID;
+    boolean isFromSection1;
+    String consentForStudy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityChildrenResultBinding.inflate(getLayoutInflater());
+        binding = ActivityConsentNoBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-        rCards4Result = getIntent().getStringExtra(RCADS4_RESULT);
-        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
-        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
-        demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
+        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
-        ageValue = getIntent().getStringExtra(Constants.AGE_ID);
-        section5_status = getIntent().getBooleanExtra("section5_status", false);
-        ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
-        binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        isFromSection1 = getIntent().getBooleanExtra("isFromSection1", false);
+        consentForStudy = getIntent().getStringExtra("consentForStudy");
+        binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioButton = findViewById(checkedId);
@@ -79,38 +69,38 @@ public class ChildrenResult extends AppCompatActivity {
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
                 switch (checkedId) {
-                    case R.id.completed:
-                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.refused:
-                        binding.specify1.setVisibility(View.VISIBLE);
+                    case R.id.h:
+                        binding.commentResultCode.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
                         break;
-                    case R.id.partiallyCompleted:
+                    case R.id.c:
+                        binding.commentResultCode.setVisibility(View.VISIBLE);
+                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                        binding.date3.setText("");
+                        binding.time.setText("");
+                        break;
+                    case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.specify1.setVisibility(View.GONE);
+                        binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
-                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
                         break;
-                    case R.id.pending:
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
+                    case R.id.d:
+                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                        binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.a:
+
                         break;
                     default:
-                        binding.specify1.setVisibility(View.GONE);
+                        binding.commentResultCode.setVisibility(View.GONE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.specify1.setText("");
                         binding.date3.setText("");
                         binding.time.setText("");
                         break;
-
 
                 }
 
@@ -118,63 +108,6 @@ public class ChildrenResult extends AppCompatActivity {
 
         });
 
-    }
-
-    public void onClickPreviousSection(View v) {
-        startActivity(new Intent(activity, Section13Activity.class));
-
-    }
-
-    public void onClickNextSection(View v) {
-        String message = "You are found to be positive for the following. Kindly consult a psychiatrist for further evaluation.\n" +
-                "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n";
-        if (section5_status) {
-            if (!(rCards4Result != null && rCards4Result.equals("1"))) {
-                message = "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.\n" +
-                        "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") +
-                        "\n 5.  ASSIST_Screener : " + ASSIST_screener + "\n";
-            }
-        }
-
-        if (rCards4Result != null && rCards4Result.equals("1")) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ChildrenResult.this);
-            builder.setMessage(message);
-            builder.setTitle("Alert !");
-            builder.setCancelable(false);
-            builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-                Util.showToast(activity, "Successfully data saved");
-
-                checkStatusIsRefused();
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-            return;
-        }
-        checkStatusIsRefused();
-    }
-
-    private void checkStatusIsRefused() {
-        if (selectedResultCode.contains("Refused")) {
-            Intent intent = new Intent(ChildrenResult.this, Eligiblechildren.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            startActivity(intent);
-            finish();
-            return;
-        }
-        navigateToSection();
-    }
-
-    private void navigateToSection() {
-        Intent intent = new Intent(activity, Section6Activity.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        intent.putExtra(RCADS4_RESULT, rCards4Result);
-        startActivity(intent);
-        finish();
     }
 
     private final DatePickerDialog.OnDateSetListener dateSetListener =
@@ -223,12 +156,19 @@ public class ChildrenResult extends AppCompatActivity {
         binding.date3.setText(sdf.format(calendar.getTime()));
     }
 
+    public void onClickSubmit(View v) {
+        Intent intent = new Intent(ConsentNo.this, ActivitySurvey.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        startActivity(intent);
+    }
+
     public void showTimePickerDialog(View v) {
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mcurrentTime.get(Calendar.MINUTE);
         TimePickerDialog mTimePicker;
-        mTimePicker = new TimePickerDialog(ChildrenResult.this, new TimePickerDialog.OnTimeSetListener() {
+        mTimePicker = new TimePickerDialog(ConsentNo.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 binding.time.setText(selectedHour + ":" + selectedMinute);

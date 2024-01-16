@@ -72,6 +72,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/child_name_age"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"

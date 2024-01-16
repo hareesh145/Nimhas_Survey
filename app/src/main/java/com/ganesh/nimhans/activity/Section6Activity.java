@@ -74,7 +74,7 @@ public class Section6Activity extends AppCompatActivity {
         PARENTS_GUARDIAN = findViewById(R.id.PARENTS_GUARDIAN);
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
-
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         binding.section6List.setAdapter(new Section6Adapter(QuestionUtils.getSection6Questions(), this));
         integerHashMap.put(77, 0);
         integerHashMap.put(74, 0);

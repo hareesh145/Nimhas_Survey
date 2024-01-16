@@ -293,6 +293,7 @@ public class Section3cActivity extends AppCompatActivity {
         intent.putExtra(AGE_ID, ageValue);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);
+        finish();
     }
 
 

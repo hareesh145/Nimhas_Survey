@@ -124,6 +124,9 @@
         <activity
             android:name=".activity.EditUserActivity"
             android:exported="true" />
+        <activity
+            android:name=".activity.ConsentNo"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@
         <!-- Data -->
         <variable
             name="handlers"
-            type="com.ganesh.nimhans.activity.ResultPage" />
+            type="com.ganesh.nimhans.activity.ConsentNo" />
 
     </data>
 
@@ -124,6 +124,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:visibility="gone"
                             android:text="Interview Completed"
                             android:textAlignment="textStart" />
 
@@ -132,6 +133,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:visibility="gone"
                             android:layoutDirection="rtl"
                             android:text="Interview Partially Completed/Postponed"
                             android:textAlignment="textStart" />
@@ -150,7 +152,6 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:visibility="gone"
                             android:layoutDirection="rtl"
                             android:text="Residents of Household not available"
                             android:textAlignment="textStart" />
@@ -160,7 +161,6 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:visibility="gone"
                             android:layoutDirection="rtl"
                             android:text="Residents of Household Permanently Migrated"
                             android:textAlignment="textStart" />
@@ -170,7 +170,6 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:visibility="gone"
                             android:layoutDirection="rtl"
                             android:text="No Competent Respondent at Home"
                             android:textAlignment="textStart" />
@@ -181,7 +180,6 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:visibility="gone"
                             android:text="Dwelling Vacant/Not a Dwelling/Dwelling Destroyed"
                             android:textAlignment="textStart" />
 

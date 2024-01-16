@@ -62,6 +62,7 @@ public class Section10Activity extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         binding.checkAgeChild.setText(ageValue);
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
 
         binding.section10RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

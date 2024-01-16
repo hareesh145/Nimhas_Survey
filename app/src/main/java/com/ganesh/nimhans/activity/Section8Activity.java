@@ -67,6 +67,7 @@ public class Section8Activity extends AppCompatActivity {
         binding.childAge.setText(ageValue);
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

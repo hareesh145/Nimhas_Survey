@@ -65,6 +65,7 @@ public class Section9Activity extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         binding.checkAge.setText(ageValue);
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,16 +1,22 @@
 package com.ganesh.nimhans.adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS8_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +27,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ganesh.nimhans.R;
-import com.ganesh.nimhans.activity.Eligiblechildren;
-import com.ganesh.nimhans.activity.ResultPage;
-import com.ganesh.nimhans.activity.Section13Activity;
 import com.ganesh.nimhans.activity.Section3cActivity;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.StateModel;
 
 import java.util.List;
@@ -80,6 +84,18 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    PreferenceConnector.writeString(activity, RCADS6_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS4_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS7A_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS7B_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS8_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS9_1_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS9_2_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS9_3_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS10_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS11_RESULT, "");
+
                     Intent intent = new Intent(activity, Section3cActivity.class);
                     intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()));
                     intent.putExtra(SURVEY_ID, surveyID);

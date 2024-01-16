@@ -86,7 +86,7 @@ public class Section7bActivity extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         iasq_respondendt_txt = findViewById(R.id.iasq_respondendt_txt);
-
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
 

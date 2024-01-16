@@ -62,6 +62,7 @@ public class Section5Activity extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         binding.ageAndMark.setText(ageValue);
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         phoneNo = myGameApp.getUserPhoneNo();
         rCards4Result = getIntent().getStringExtra(RCADS4_RESULT);
         binding.tobaccoProduct.setOnCheckedChangeListener((group, checkedId) -> {

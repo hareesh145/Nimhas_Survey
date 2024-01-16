@@ -68,6 +68,9 @@ public class Section6Adapter extends RecyclerView.Adapter<Section6Adapter.Questi
                         case R.id.child_strong_agree:
                             activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 5);
                             break;
+                        default:
+                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 0);
+                            break;
                     }
                 }
             });

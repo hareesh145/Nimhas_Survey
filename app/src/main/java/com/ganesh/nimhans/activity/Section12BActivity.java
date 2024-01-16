@@ -66,6 +66,7 @@ public class Section12BActivity extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         rCards4Result = getIntent().getStringExtra(RCADS4_RESULT);
         binding.childAge.setText(ageValue);
+        binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         binding.funnyFeeling.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();

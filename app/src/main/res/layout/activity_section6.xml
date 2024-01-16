@@ -82,14 +82,15 @@
                         android:textColor="#000000" />
 
                     <TextView
+                        android:id="@+id/child_name_age"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="Child Age"
-                        android:textStyle="bold"
+                        android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textAllCaps="false"/>
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/child_age"

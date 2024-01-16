@@ -292,7 +292,7 @@ public class Section1Activity extends AppCompatActivity {
                         activity.finish();
                         Util.showToast(activity, "Successfully data saved");
                         if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
-                            Intent intent = new Intent(Section1Activity.this, ResultPage.class);
+                            Intent intent = new Intent(Section1Activity.this, ConsentNo.class);
                             intent.putExtra("isFromSection1", true);
                             intent.putExtra("consentForStudy", "no");
                             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsId);

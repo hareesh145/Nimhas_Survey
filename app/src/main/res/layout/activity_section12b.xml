@@ -82,6 +82,7 @@
                         android:visibility="gone" />
 
                     <TextView
+                        android:id="@+id/child_name_age"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -89,8 +90,7 @@
                         android:text="Child Age"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/child_age"
