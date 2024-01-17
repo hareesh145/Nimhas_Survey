@@ -408,10 +408,6 @@ public class Section13Activity extends AppCompatActivity {
                     Toast.makeText(context, "Screenshot Captured", Toast.LENGTH_LONG).show();
                 });
 
-        builder.setNeutralButton("Return", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
         builder.show();
     }
 

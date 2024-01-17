@@ -49,6 +49,7 @@ public class ResultPage extends AppCompatActivity {
     Long demoGraphicsID;
     private int surveyID;
     boolean isFromSection1;
+    boolean isInterviewcompleted;
     String consentForStudy;
 
     @Override
@@ -78,40 +79,38 @@ public class ResultPage extends AppCompatActivity {
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
+                        isInterviewcompleted =false;
                         break;
                     case R.id.c:
                         binding.commentResultCode.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
-                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                        intent.putExtra(SURVEY_ID, surveyID);
-                        startActivity(intent);
+                        isInterviewcompleted =false;
                         break;
                     case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
+                        isInterviewcompleted =false;
 
                         break;
                     case R.id.d:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
+                        isInterviewcompleted =false;
                         break;
                     case R.id.a:
                         if (isFromSection1) {
                             Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                            Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
-                            intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                            intentcomplet.putExtra(SURVEY_ID, surveyID);
-                            startActivity(intentcomplet);
+                           isInterviewcompleted =true;
                         }
                         break;
                     default:
+                        isInterviewcompleted =false;
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.specify1.setText("");
@@ -183,10 +182,20 @@ public class ResultPage extends AppCompatActivity {
             intent.putExtra(SURVEY_ID, surveyID);
             startActivity(intent);
         }*/
+
+        if (isInterviewcompleted){
+            Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
+            intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intentcomplet.putExtra(SURVEY_ID, surveyID);
+            startActivity(intentcomplet);
+
+        }else {
+
         Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         startActivity(intent);
+        }
     }
 
 

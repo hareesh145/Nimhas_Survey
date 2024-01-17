@@ -5,7 +5,9 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS5_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -55,6 +57,9 @@ public class ChildrenResult extends AppCompatActivity {
     private boolean section5_status;
     private int ASSIST_screener;
     String rCards5Result;
+    String rCards5_2_Result;
+    String rCards5_3_Result;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +78,9 @@ public class ChildrenResult extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         section5_status = getIntent().getBooleanExtra("section5_status", false);
         ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
-        rCards5Result = PreferenceConnector.readString(this, RCADS5_RESULT, "0");
+        rCards5Result = PreferenceConnector.readString(this, RCADS5_1_RESULT, "0");
+        rCards5_2_Result = PreferenceConnector.readString(this, RCADS5_2_RESULT, "0");
+        rCards5_3_Result  = PreferenceConnector.readString(this, RCADS5_3_RESULT, "0");
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -134,10 +141,16 @@ public class ChildrenResult extends AppCompatActivity {
         String message = "You are found to be positive for the following screener\n";
 
         if (rCards4Result != null && rCards4Result.equals("1")) {
-            message = message + "\n 4.  Anxiety and Depression : " + rCards4Result;
+            message = message + "\n 4.  Anxiety and Depression : " + rCards4Result + "\n";
         }
         if (rCards5Result != null && rCards5Result.equals("1")) {
-            message = message + "\n 5.  Smoking/ Harmful drinking/ Substance use : " + rCards5Result + "\n";
+            message = message + "\n 5A.  Substance (Alcohol) use : " + rCards5Result + "\n";
+        }
+        if (rCards5_2_Result != null && rCards5_2_Result.equals("1")) {
+            message = message + "\n 5B.  Substance (Other) use  : " + rCards5_2_Result + "\n";
+        }
+        if (rCards5_3_Result != null && rCards5_3_Result.equals("1")) {
+            message = message + "\n 5C.  Substance (Injectable drug) use : " + rCards5_3_Result + "\n";
         }
 
 //        String message = "You are found to be positive for the following screener\n" +

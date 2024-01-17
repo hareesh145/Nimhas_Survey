@@ -15,7 +15,9 @@ public class Constants {
 
     public static String ELIGIBLE_RESPONDENT = "ELIGIBLE_RESPONDENT";
     public  static String RCADS4_RESULT = "RCADS4_RESULT";
-    public  static String RCADS5_RESULT = "RCADS5_RESULT";
+    public  static String RCADS5_1_RESULT = "RCADS5_1_RESULT";
+    public  static String RCADS5_2_RESULT = "RCADS5_2_RESULT";
+    public  static String RCADS5_3_RESULT = "RCADS5_3_RESULT";
     public  static String RCADS6_RESULT = "RCADS6_RESULT";
     public  static String RCADS7A_RESULT = "RCADS7A_RESULT";
     public  static String RCADS7B_RESULT = "RCADS7B_RESULT";

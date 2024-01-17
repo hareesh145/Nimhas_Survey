@@ -5,7 +5,9 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS5_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -55,6 +57,7 @@ public class Section5Activity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         activity = this;
+        binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
@@ -579,8 +582,16 @@ public class Section5Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-        if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
-            PreferenceConnector.writeString(this, RCADS5_RESULT, "1");
+        if (binding.onceOrTwice67b.isChecked() || binding.monthly67b.isChecked() || binding.weekly67b.isChecked() || binding.daily67b.isChecked()) {
+            PreferenceConnector.writeString(this, RCADS5_1_RESULT, "1");
+        }
+        if (binding.onceOrTwice67j.isChecked() || binding.monthly67j.isChecked() || binding.weekly67j.isChecked() || binding.daily67j.isChecked()) {
+            PreferenceConnector.writeString(this, RCADS5_2_RESULT, "1");
+        }
+        if (binding.yes32.isChecked() || binding.yes33.isChecked()) {
+            PreferenceConnector.writeString(this, RCADS5_3_RESULT, "1");
+        }
+     //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
             Intent intent = new Intent(activity, ChildrenResult.class);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
@@ -592,9 +603,8 @@ public class Section5Activity extends AppCompatActivity {
             intent.putExtra("ASSIST_screener", 1);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
-            return;
-        }
-        Intent intent = new Intent(activity, ChildrenResult.class);
+      //  }
+       /* Intent intent = new Intent(activity, ChildrenResult.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);
@@ -602,7 +612,7 @@ public class Section5Activity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         intent.putExtra(RCADS4_RESULT, rCards4Result);
         startActivity(intent);
-
+*/
     }
 
     public void updateQuestionOption(String question, int option) {
