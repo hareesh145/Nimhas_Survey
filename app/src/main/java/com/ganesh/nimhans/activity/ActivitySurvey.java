@@ -1,6 +1,7 @@
 package com.ganesh.nimhans.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -309,5 +310,10 @@ public class ActivitySurvey extends AppCompatActivity {
     public void onClickPendinglist(View v) {
         Intent intent = new Intent(ActivitySurvey.this, PendingDataSearch.class);
         startActivity(intent);
+    }
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        //
     }
 }

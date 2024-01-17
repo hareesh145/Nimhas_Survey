@@ -1,5 +1,6 @@
 package com.ganesh.nimhans.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -107,5 +108,10 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("failed Obj: " + t);
             }
         });
+    }
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        //
     }
 }

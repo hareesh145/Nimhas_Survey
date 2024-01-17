@@ -119,7 +119,7 @@ public class Section8Activity extends AppCompatActivity {
                         Log.d("response", "onResponse: " + userResponse);
                         try {
                             int screenPositiveNegative = 0;
-                            if (calculateSLDResult() >= 4) {
+                            if (binding.question108D.isChecked() || binding.question108E.isChecked() || binding.question109D.isChecked() || binding.question109E.isChecked() || binding.question110D.isChecked() || binding.question110E.isChecked() || binding.question111D.isChecked() || binding.question111E.isChecked() || binding.question112D.isChecked() || binding.question112E.isChecked()) {
                                 screenPositiveNegative = 1;
                             }
                             Log.d("TAG", "onResponse: " + screenPositiveNegative);

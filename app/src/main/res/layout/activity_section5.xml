@@ -3,13 +3,6 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
-        <!-- Data -->
-        <variable
-            name="handlers"
-            type="com.ganesh.nimhans.activity.Section5Activity" />
-
-    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"

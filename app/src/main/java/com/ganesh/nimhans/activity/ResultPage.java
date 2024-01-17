@@ -1,7 +1,11 @@
 package com.ganesh.nimhans.activity;
 
+import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -80,11 +84,16 @@ public class ResultPage extends AppCompatActivity {
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
+                        Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        startActivity(intent);
                         break;
                     case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
+
                         break;
                     case R.id.d:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
@@ -96,10 +105,10 @@ public class ResultPage extends AppCompatActivity {
                             Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                            Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
-                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                            intent.putExtra(SURVEY_ID, surveyID);
-                            startActivity(intent);
+                            Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
+                            intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intentcomplet.putExtra(SURVEY_ID, surveyID);
+                            startActivity(intentcomplet);
                         }
                         break;
                     default:
@@ -165,7 +174,7 @@ public class ResultPage extends AppCompatActivity {
     }
 
     public void onClickSubmit(View v) {
-        if (consentForStudy != null && consentForStudy.equals("no")) {
+      /*  if (consentForStudy != null && consentForStudy.equals("no")) {
             Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
             finish();
         } else {
@@ -173,8 +182,14 @@ public class ResultPage extends AppCompatActivity {
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
             startActivity(intent);
-        }
+        }*/
+        Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        startActivity(intent);
     }
+
+
 
     public void showTimePickerDialog(View v) {
         Calendar mcurrentTime = Calendar.getInstance();

@@ -302,7 +302,7 @@
                         <RadioButton
                             android:id="@+id/rural"
                             android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Rural"
@@ -342,7 +342,7 @@
                             android:background="@drawable/edit_text_border"
                             android:hint="Name of the Respondent"
                             android:padding="10dp"
-                            android:inputType="textPersonName"
+                            android:inputType="textCapSentences"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:textAllCaps="false"
                             android:textColor="#000000" />

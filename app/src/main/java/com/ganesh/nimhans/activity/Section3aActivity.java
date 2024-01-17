@@ -282,8 +282,68 @@ public class Section3aActivity extends AppCompatActivity {
         builder.setTitle("Alert !");
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-            Intent intent = new Intent(Section3aActivity.this,ResultPage.class);
-            startActivity(intent);
+            Bundle bundle = getIntent().getExtras();
+            demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
+//        Log.d("demoID", "onCreate: " + demoGraphicsID);
+//        Log.d("selectedCaste", "onCreate: " + selectedCaste);
+//        Log.d("selectedAnswerType", "onCreate: " + selectedAnswerType);
+//        Log.d("selectedMaritalStatus", "onCreate: " + selectedMaritalStatus);
+//        Log.d("selectedYesOrNo", "onCreate: " + selectedYesOrNo);
+////        String noOfSon = null;
+////        Log.d("noOfSon", "onCreate: " + noOfSon);
+//        Log.d("noOfDaughters", "onCreate: " + noOfDaughters);
+//        Log.d("income", "onCreate: " + incomePerMonth);
+            if (!NoOfSons.getText().toString().isEmpty()) {
+                noOfSons = Integer.parseInt(NoOfSons.getText().toString());
+            } else {
+                noOfSons = 0;
+            }
+
+            String noOfSon = String.valueOf(noOfSons);
+            String noOfDougter = String.valueOf(noOfDaughters);
+            String income = String.valueOf(incomePerMonth);
+            progressBar = binding.progressBar;
+            progressBar.setVisibility(View.VISIBLE);
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            ServeySectionRequest servey = new ServeySectionRequest();
+            servey.setQno1(selectedCaste);
+            servey.setQno2(selectedAnswerType);
+            servey.setQno3(selectedMaritalStatus);
+            servey.setQno4(selectedYesOrNo);
+            servey.setQno5A(String.valueOf(Integer.parseInt(noOfSon)));
+            servey.setQno5B(String.valueOf(Integer.parseInt(noOfDougter)));
+            servey.setQno6(String.valueOf(Integer.parseInt(income)));
+            Call<JsonObject> call = apiService.postServeySection5Data(demoGraphicsID, servey, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    if (progressBar.isShown())
+                        progressBar.setVisibility(View.GONE);
+                    JsonObject userResponse = response.body();
+                    if (response.isSuccessful()) {
+                        Log.d("response", "onResponse: " + userResponse);
+                        Util.showToast(activity, "Successfully data saved");
+                        Intent intent = new Intent(Section3aActivity.this, ResultPage.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()){
+                            selectedMaritalStatus=binding.Specify2.getText().toString();
+                            intent.putExtra("other",true);
+                        }
+                        intent.putExtra(MARITAL_STATUS,  selectedMaritalStatus);
+                        Log.e("MARITAL_STATUS","MARITAL_STATUS :"+ radioButton.getText());
+                        intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+
+                        PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+                        startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
+
         });
         builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
             dialog.cancel();

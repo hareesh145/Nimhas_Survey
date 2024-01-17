@@ -105,8 +105,20 @@ public class Section6Activity extends AppCompatActivity {
     }
 
     private int calculateIDResult() {
+        if (integerHashMap.get(74) != null && integerHashMap.get(74) >= 4) {
+            return 1;
+        }
+        if (integerHashMap.get(75) != null && integerHashMap.get(75) >= 4) {
+            return 1;
+        }
+        if (integerHashMap.get(76) != null && integerHashMap.get(76) >= 4) {
+            return 1;
+        }
+        if (integerHashMap.get(77) != null && integerHashMap.get(77) >= 4) {
+            return 1;
+        }
         // (Q.74, Q.75, Q.76, Q.77)
-        return integerHashMap.get(74) + integerHashMap.get(75) + integerHashMap.get(76) + integerHashMap.get(77);
+        return 0;//Screen negative
     }
 
     private void calculateRCadsScore() {
@@ -128,10 +140,7 @@ public class Section6Activity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Log.d("response", "onResponse: " + userResponse);
                     try {
-                        int screenPositiveNegative = 0;
-                        if (calculateIDResult() >= 4) {
-                            screenPositiveNegative = 1;
-                        }
+                        int screenPositiveNegative = calculateIDResult();
                         binding.idScannerResult.setText("" + screenPositiveNegative);
                         PreferenceConnector.writeString(Section6Activity.this, RCADS6_RESULT, "" + screenPositiveNegative);
 

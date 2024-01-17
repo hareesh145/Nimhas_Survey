@@ -3,7 +3,9 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -52,6 +54,7 @@ public class ChildrenResult extends AppCompatActivity {
     String rCards4Result;
     private boolean section5_status;
     private int ASSIST_screener;
+    String rCards5Result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class ChildrenResult extends AppCompatActivity {
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
         section5_status = getIntent().getBooleanExtra("section5_status", false);
         ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
+        rCards5Result = PreferenceConnector.readString(this, RCADS5_RESULT, "0");
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -126,31 +130,56 @@ public class ChildrenResult extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        String message = "You are found to be positive for the following. Kindly consult a psychiatrist for further evaluation.\n" +
-                "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n";
-        if (section5_status) {
-            if (!(rCards4Result != null && rCards4Result.equals("1"))) {
-                message = "You are found to be positive for Smoking/harmful drinking/ substance use. Kindly consult a psychiatrist for further evaluation.\n" +
-                        "\n 4.  RCADS_Self_Screener : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") +
-                        "\n 5.  ASSIST_Screener : " + ASSIST_screener + "\n";
-            }
-        }
+
+        String message = "You are found to be positive for the following screener\n";
 
         if (rCards4Result != null && rCards4Result.equals("1")) {
+            message = message + "\n 4.  Anxiety and Depression : " + rCards4Result;
+        }
+        if (rCards5Result != null && rCards5Result.equals("1")) {
+            message = message + "\n 5.  Smoking/ Harmful drinking/ Substance use : " + rCards5Result + "\n";
+        }
+
+//        String message = "You are found to be positive for the following screener\n" +
+//                "\n 4.  Anxiety and Depression : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n";
+//        if (section5_status) {
+//            if (!(rCards4Result != null && rCards4Result.equals("1"))) {
+//                message = "You are found to be positive for the following screeners\n" +
+//                        "\n 4.  Anxiety and Depression : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") +
+//                        "\n 5.  Smoking/ Harmful drinking/ Substance use : " + ASSIST_screener + "\n";
+//            }
+//        }
+
+        if ((rCards4Result != null && rCards4Result.equals("1")) || (rCards5Result != null && rCards5Result.equals("1"))) {
             AlertDialog.Builder builder = new AlertDialog.Builder(ChildrenResult.this);
             builder.setMessage(message);
             builder.setTitle("Alert !");
             builder.setCancelable(false);
             builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
                 Util.showToast(activity, "Successfully data saved");
-
-                checkStatusIsRefused();
+                // checkStatusIsRefused();
+                Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
             });
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
             return;
         }
-        checkStatusIsRefused();
+        //checkStatusIsRefused();
+        Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+        startActivity(intent);
     }
 
     private void checkStatusIsRefused() {

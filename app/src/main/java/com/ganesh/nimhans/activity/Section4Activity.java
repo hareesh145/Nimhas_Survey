@@ -177,7 +177,6 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
-
         binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
 
         Anxiety.setOnCheckedChangeListener((group, checkedId) -> {
@@ -711,6 +710,13 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section4Activity.this, ChildrenResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+        intent.putExtra(RCADS4_RESULT, rcadsResult);
         startActivity(intent);
     }
 }

@@ -96,6 +96,12 @@ public class Section13Activity extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
         phoneNo = myGameApp.getUserPhoneNo();
         // checkpermissions(this);
+
+        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
+        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
+        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
+        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
+
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 00);
         String section6Result = "";
         if (PreferenceConnector.readString(this, RCADS6_RESULT, "").equalsIgnoreCase("1")) {
@@ -154,7 +160,7 @@ public class Section13Activity extends AppCompatActivity {
                 || section8Result.contains("1") || section9aResult.contains("1") || section9hResult.contains("1") ||
                 section9OResult.contains("1") || section10Result.contains("1") || section11Result.contains("1")
         ) {
-            String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child is positive for the following screeners.\n" +
+            String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child " + eligibleResponse.qno9 + "is positive for the following screeners.\n" +
                     section6Result + section7aResult
                     + section7bResult + section8Result
                     + section9aResult + section9hResult
@@ -163,14 +169,9 @@ public class Section13Activity extends AppCompatActivity {
                     + section11Result
                     + "\n" +
                     "The child needs to be referred to a psychiatrist for further evaluation.";
-            showCalc("Alert !", alertMessage);
+            showCalc("Alert for child : "+eligibleResponse.qno9, alertMessage);
         }
 
-
-        eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
-        serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
-        demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
-        surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
 
         binding.options220.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

@@ -520,8 +520,133 @@ public class Section3bActivity extends AppCompatActivity {
         builder.setTitle("Alert !");
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-            Intent intent = new Intent(Section3bActivity.this,ResultPage.class);
-            startActivity(intent);
+            Log.d("noOfPeople", "onClickNextSection: " + NoOfPersons.getText().toString());
+            Log.d("lineNo", "onClickNextSection: " + binding.lineNo.getText().toString());
+//        Log.d("", "onClickNextSection: "+);
+            Log.d("houseHoldMember", "onClickNextSection: " + houseHoldMember);
+            Log.d("houseHoldNumberValue", "onClickNextSection: " + houseHoldNumberValue);
+            Log.d("relationShip", "onClickNextSection: " + relationShip);
+            Log.d("gender", "onClickNextSection: " + gender);
+            Log.d("age", "onClickNextSection: " + binding.age.getText().toString());
+
+            Log.d("occupation", "onClickNextSection: " + occupation);
+            Log.d("education", "onClickNextSection: " + education);
+            Log.d("illness", "onClickNextSection: " + illness);
+            Log.d("typeIllness", "onClickNextSection: " + typeIllness);
+            Log.d("tobacco", "onClickNextSection: " + tobacco);
+            Log.d("nicotineUsed", "onClickNextSection: " + nicotineUsed);
+
+            relationShip = binding.relation.getText().toString();
+            occupation = binding.occupation.getText().toString();
+            education = binding.education.getText().toString();
+
+            ServeySection3bRequest serveySection5Request = new ServeySection3bRequest();
+            if (!NoOfPersons.getText().toString().isEmpty()) {
+                serveySection5Request.setQno7(Integer.parseInt(NoOfPersons.getText().toString()));
+            } else {
+                serveySection5Request.setQno7(0);
+            }
+
+            if (!binding.lineNo.getText().toString().isEmpty()) {
+                serveySection5Request.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
+            } else {
+                serveySection5Request.setQno8(0);
+            }
+            serveySection5Request.setQno9(Name.getText().toString());
+            serveySection5Request.setQno10(binding.relation.getText().toString());
+            serveySection5Request.setQno11(getGendarSelection());
+            if (!binding.age.getText().toString().isEmpty()) {
+                serveySection5Request.setQno12(Integer.parseInt(binding.age.getText().toString()));
+            } else {
+                serveySection5Request.setQno12(0);
+            }
+
+            serveySection5Request.setQno13(selectedMaritalStatus1);
+            serveySection5Request.setQno14(binding.occupation.getText().toString());
+            serveySection5Request.setQno15(binding.education.getText().toString());
+            serveySection5Request.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
+            serveySection5Request.setQno16A(binding.Specify4.getText().toString());
+            serveySection5Request.setQno17(selectedAnswerType2);
+            serveySection5Request.setQno17A(selectedNicotineUsed);
+
+            binding.progressBar.setVisibility(View.VISIBLE);
+
+            ArrayList<String> selectedTypeOfProblems = new ArrayList<>();
+
+            String alchol = null;
+            if (binding.alcohol.isChecked()) {
+                alchol = binding.alcohol.getText().toString();
+            }
+            if (alchol != null) {
+                selectedTypeOfProblems.add(alchol);
+            }
+            String tobacoo = null;
+            if (binding.tobacco.isChecked()) {
+                tobacoo = binding.tobacco.getText().toString();
+            }
+            if (tobacoo != null) {
+                selectedTypeOfProblems.add(tobacoo);
+            }
+
+            String substanceUse = null;
+            if (binding.substanceUse.isChecked()) {
+                substanceUse = binding.substanceUse.getText().toString();
+            }
+            if (substanceUse != null) {
+                selectedTypeOfProblems.add(substanceUse);
+            }
+
+            if (selectedTypeOfProblems.size() > 0) {
+                selectedTypeOfProblem = new String[selectedTypeOfProblems.size()];
+                selectedTypeOfProblem = selectedTypeOfProblems.toArray(selectedTypeOfProblem);
+            }
+
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            HouseHoldModel houseHoldModel = new HouseHoldModel();
+            houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
+            houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
+            houseHoldModel.setQno9(binding.Name.getText().toString());
+            houseHoldModel.setQno10(binding.relation.getText().toString());
+            houseHoldModel.setQno11(getGendarSelection());
+
+            if (!binding.age.getText().toString().isEmpty()) {
+                houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
+            }
+            houseHoldModel.setQno13(selectedMaritalStatus1);
+            houseHoldModel.setQno14(binding.occupation.getText().toString());
+            houseHoldModel.setQno15(binding.education.getText().toString());
+            houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
+            houseHoldModel.setQno16A(binding.Specify4.getText().toString());
+            houseHoldModel.setQno17(selectedAnswerType2);
+            if (selectedTypeOfProblems.size() > 0)
+                houseHoldModel.setQno17A(selectedTypeOfProblem);
+
+            Call<JsonObject> apiCall = apiInterface.saveHouseHold(surveyID, houseHoldModel, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+
+            apiCall.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Intent intent = new Intent(activity, ResultPage.class);
+                    int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
+                    if (familyCount == 0) {
+                        PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
+                    } else {
+                        familyCount = familyCount - 1;
+                        PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, familyCount);
+                    }
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
+                    intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
+                    intent.putExtra(REPEAT_COUNT, repeatCount - 1);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
         });
         builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
             dialog.cancel();

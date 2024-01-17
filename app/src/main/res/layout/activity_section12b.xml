@@ -632,7 +632,7 @@
                             android:layout_height="wrap_content"
                             android:padding="10dp"
                             android:text="What was the birth weight of the child
-                        (Mention in Kilogram)?"
+                        (Mention in Grams)?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -642,9 +642,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
-                        android:hint="Number"
+                        android:hint="Grams"
                         android:inputType="number"
-                        android:maxLength="2"
+                        android:maxLength="4"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />

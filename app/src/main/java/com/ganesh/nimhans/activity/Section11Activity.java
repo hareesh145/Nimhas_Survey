@@ -362,7 +362,13 @@ public class Section11Activity extends AppCompatActivity {
     }
 
     public void onClickChildrenResult(View v) {
-        Intent intent = new Intent(Section11Activity.this, ChildrenResult.class);
+        Intent intent = new Intent(Section11Activity.this, ParentResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 }

@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
@@ -26,6 +27,7 @@ import com.ganesh.nimhans.databinding.ActivitySection5Binding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
 
 import java.util.HashMap;
@@ -53,7 +55,6 @@ public class Section5Activity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         activity = this;
-        binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
@@ -579,6 +580,7 @@ public class Section5Activity extends AppCompatActivity {
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
         if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
+            PreferenceConnector.writeString(this, RCADS5_RESULT, "1");
             Intent intent = new Intent(activity, ChildrenResult.class);
             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intent.putExtra(SURVEY_ID, surveyID);
@@ -587,7 +589,7 @@ public class Section5Activity extends AppCompatActivity {
             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
             intent.putExtra(RCADS4_RESULT, rCards4Result);
             intent.putExtra("section5_status", true);
-            intent.putExtra("ASSIST_screener",1);
+            intent.putExtra("ASSIST_screener", 1);
             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
             startActivity(intent);
             return;
@@ -620,6 +622,12 @@ public class Section5Activity extends AppCompatActivity {
 
     public void onClickGoToResult(View v) {
         Intent intent = new Intent(Section5Activity.this, ChildrenResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
         startActivity(intent);
     }
 
