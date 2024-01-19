@@ -69,6 +69,7 @@ public class Section5Activity extends AppCompatActivity {
         binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
         phoneNo = myGameApp.getUserPhoneNo();
         rCards4Result = getIntent().getStringExtra(RCADS4_RESULT);
+        //66A
         binding.tobaccoProduct.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -76,15 +77,22 @@ public class Section5Activity extends AppCompatActivity {
             Log.d("selectedCaste", "Selected value: " + selectedtobaccoProduct);
             switch (checkedId) {
                 case R.id.yes2:
+
                     binding.tobaccoProductsQueAll.setVisibility(View.VISIBLE);
                     break;
                 default:
                     binding.tobaccoProductsQueAll.setVisibility(View.GONE);
+                    binding.tobaccoProduct167a.clearCheck();
+                    binding.tobaccoProduct168a.clearCheck();
+                    binding.tobaccoProduct169a.clearCheck();
+                    binding.tobaccoProduct171a.clearCheck();
+                    binding.tobaccoProduct172a.clearCheck();
                     break;
             }
         });
 
         binding.tobaccoProduct167a.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedtobaccoProduct = selectedValue;
@@ -582,28 +590,30 @@ public class Section5Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-        if (binding.onceOrTwice67b.isChecked() || binding.monthly67b.isChecked() || binding.weekly67b.isChecked() || binding.daily67b.isChecked()) {
+        if (binding.onceOrTwice67b.isChecked() || binding.monthly67b.isChecked()
+                || binding.weekly67b.isChecked() || binding.daily67b.isChecked()) {//Alcohol
             PreferenceConnector.writeString(this, RCADS5_1_RESULT, "1");
         }
-        if (binding.onceOrTwice67j.isChecked() || binding.monthly67j.isChecked() || binding.weekly67j.isChecked() || binding.daily67j.isChecked()) {
+        if (binding.onceOrTwice67j.isChecked() || binding.monthly67j.isChecked()
+                || binding.weekly67j.isChecked() || binding.daily67j.isChecked()) {//Substance
             PreferenceConnector.writeString(this, RCADS5_2_RESULT, "1");
         }
-        if (binding.yes32.isChecked() || binding.yes33.isChecked()) {
+        if (binding.yes32.isChecked() || binding.yes33.isChecked()) {//Injection
             PreferenceConnector.writeString(this, RCADS5_3_RESULT, "1");
         }
-     //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
-            Intent intent = new Intent(activity, ChildrenResult.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(RCADS4_RESULT, rCards4Result);
-            intent.putExtra("section5_status", true);
-            intent.putExtra("ASSIST_screener", 1);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-      //  }
+        //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
+        Intent intent = new Intent(activity, ChildrenResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        intent.putExtra(RCADS4_RESULT, rCards4Result);
+        intent.putExtra("section5_status", true);
+        intent.putExtra("ASSIST_screener", 1);
+        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+        startActivity(intent);
+        //  }
        /* Intent intent = new Intent(activity, ChildrenResult.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);

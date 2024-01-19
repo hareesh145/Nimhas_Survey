@@ -1,11 +1,7 @@
 package com.ganesh.nimhans.activity;
 
-import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
-import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
-import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
-import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -79,38 +75,41 @@ public class ResultPage extends AppCompatActivity {
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        isInterviewcompleted =false;
+                        isInterviewcompleted = false;
                         break;
                     case R.id.c:
                         binding.commentResultCode.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        isInterviewcompleted =false;
+                        isInterviewcompleted = false;
+                        Toast.makeText(activity, "Household Refused to take part", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
-                        isInterviewcompleted =false;
+                        isInterviewcompleted = false;
+                        Toast.makeText(activity, "Interview Partially Completed/Postponed", Toast.LENGTH_SHORT).show();
 
                         break;
                     case R.id.d:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
-                        isInterviewcompleted =false;
+                        isInterviewcompleted = false;
                         break;
                     case R.id.a:
                         if (isFromSection1) {
                             Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                           isInterviewcompleted =true;
+                            Toast.makeText(activity, "Interview Completed", Toast.LENGTH_SHORT).show();
+                            isInterviewcompleted = true;
                         }
                         break;
                     default:
-                        isInterviewcompleted =false;
+                        isInterviewcompleted = false;
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.specify1.setText("");
@@ -183,21 +182,23 @@ public class ResultPage extends AppCompatActivity {
             startActivity(intent);
         }*/
 
-        if (isInterviewcompleted){
+        if (isInterviewcompleted) {
             Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
             intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
             intentcomplet.putExtra(SURVEY_ID, surveyID);
             startActivity(intentcomplet);
 
-        }else {
-
-        Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        startActivity(intent);
+        } else {
+            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(SURVEY_ID, surveyID);
+                startActivity(intent);
+            } else {
+                Toast.makeText(activity, "Please select atleast one options", Toast.LENGTH_SHORT).show();
+            }
         }
     }
-
 
 
     public void showTimePickerDialog(View v) {

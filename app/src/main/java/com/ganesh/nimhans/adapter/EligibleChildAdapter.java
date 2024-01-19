@@ -7,6 +7,9 @@ import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
@@ -95,6 +98,9 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
                     PreferenceConnector.writeString(activity, RCADS9_3_RESULT, "");
                     PreferenceConnector.writeString(activity, RCADS10_RESULT, "");
                     PreferenceConnector.writeString(activity, RCADS11_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS5_1_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS5_2_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS5_3_RESULT, "");
 
                     Intent intent = new Intent(activity, Section3cActivity.class);
                     intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()));

@@ -24,9 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.window.OnBackInvokedDispatcher;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
@@ -81,7 +79,7 @@ public class Section3bActivity extends AppCompatActivity {
 
     String[] selectedTypeOfProblem;
     int repeatCount = 0;
-    int ageCount =0;
+    int ageCount = 0;
     int getMaritalState = 0;
 
 
@@ -133,16 +131,15 @@ public class Section3bActivity extends AppCompatActivity {
                 if (checkedID == R.id.Married) {
                     binding.NotMarried.setEnabled(false);
                     binding.WorDorS.setEnabled(false);
-                }
-                else if (checkedID == R.id.NotMarried){
+                } else if (checkedID == R.id.NotMarried) {
                     binding.Married.setEnabled(false);
                     binding.WorDorS.setEnabled(false);
-                }else {
+                } else {
                     binding.Married.setEnabled(false);
                     binding.NotMarried.setEnabled(false);
                 }
             }
-            if (getIntent().getBooleanExtra("other",false)){
+            if (getIntent().getBooleanExtra("other", false)) {
                 binding.maritalStatus1.setVisibility(View.GONE);
                 binding.otherMarriedStatus.setVisibility(View.VISIBLE);
                 binding.otherMarriedStatus.setText(getIntent().getStringExtra(MARITAL_STATUS));
@@ -202,20 +199,20 @@ public class Section3bActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-              try {
-                  if (!s.toString().isEmpty()) {
-                      ageCount = Integer.parseInt(binding.age.getText().toString());
-                      if (Integer.parseInt(s.toString()) >= 6) {
-                          binding.qus131415.setVisibility(View.VISIBLE);
-                      } else {
-                          binding.qus131415.setVisibility(View.GONE);
-                      }
-                  } else {
-                      binding.qus131415.setVisibility(View.VISIBLE);
-                  }
-              }catch (Exception e){
-                  e.printStackTrace();
-              }
+                try {
+                    if (!s.toString().isEmpty()) {
+                        ageCount = Integer.parseInt(binding.age.getText().toString());
+                        if (Integer.parseInt(s.toString()) >= 6) {
+                            binding.qus131415.setVisibility(View.VISIBLE);
+                        } else {
+                            binding.qus131415.setVisibility(View.GONE);
+                        }
+                    } else {
+                        binding.qus131415.setVisibility(View.VISIBLE);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
 
@@ -603,8 +600,12 @@ public class Section3bActivity extends AppCompatActivity {
 
             ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
             HouseHoldModel houseHoldModel = new HouseHoldModel();
-            houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
-            houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
+            if (!binding.NoOfPeople.getText().toString().isEmpty()) {
+                houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
+            }
+            if (!binding.lineNo.getText().toString().isEmpty()) {
+                houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
+            }
             houseHoldModel.setQno9(binding.Name.getText().toString());
             houseHoldModel.setQno10(binding.relation.getText().toString());
             houseHoldModel.setQno11(getGendarSelection());
@@ -629,15 +630,21 @@ public class Section3bActivity extends AppCompatActivity {
                     Intent intent = new Intent(activity, ResultPage.class);
                     int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                     if (familyCount == 0) {
-                        PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
+                        if (!binding.NoOfPeople.getText().toString().isEmpty()) {
+                            PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
+                        }
                     } else {
                         familyCount = familyCount - 1;
                         PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, familyCount);
                     }
                     intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                     intent.putExtra(SURVEY_ID, surveyID);
-                    intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
-                    intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
+                    if (!binding.NoOfPeople.getText().toString().isEmpty()) {
+                        intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
+                    }
+                    if (!binding.lineNo.getText().toString().isEmpty()) {
+                        intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
+                    }
                     intent.putExtra(REPEAT_COUNT, repeatCount - 1);
                     startActivity(intent);
                 }

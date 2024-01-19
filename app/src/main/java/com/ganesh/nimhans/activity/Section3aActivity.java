@@ -3,7 +3,6 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
-import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -46,7 +45,7 @@ public class Section3aActivity extends AppCompatActivity {
     RadioButton radioButton;
     MyNimhans myGameApp;
     EditText Specify, Specify0, Specify1, Specify2, NoOfSons, NoOfDaughters, IncomePerMonth;
-    LinearLayout que_5_layout,que_4_layout;
+    LinearLayout que_5_layout, que_4_layout;
 
 
     RadioGroup Caste, AnswerType, MaritalStatus, YesOrNo;
@@ -54,7 +53,7 @@ public class Section3aActivity extends AppCompatActivity {
     Long demoGraphicsID;
     int noOfSons;
     int noOfDaughters;
-    String repeatCount ;
+    String repeatCount;
     int incomePerMonth;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +126,7 @@ public class Section3aActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
             Log.d("selectedCaste", "Selected value: " + selectedCaste);
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.other_religion:
                     binding.Specify.setVisibility(View.VISIBLE);
                     break;
@@ -152,11 +151,11 @@ public class Section3aActivity extends AppCompatActivity {
             }*/
         });
         MaritalStatus.setOnCheckedChangeListener((group, checkedId) -> {
-           radioButton = findViewById(checkedId);
+            radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus = selectedValue;
             Log.d("selectedMaritalStatus", "Selected value: " + selectedMaritalStatus);
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.other:
                     binding.Specify2.setVisibility(View.VISIBLE);
                     break;
@@ -249,12 +248,11 @@ public class Section3aActivity extends AppCompatActivity {
                     Util.showToast(activity, "Successfully data saved");
                     Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
                     intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()){
-                        selectedMaritalStatus=binding.Specify2.getText().toString();
-                        intent.putExtra("other",true);
+                    if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()) {
+                        selectedMaritalStatus = binding.Specify2.getText().toString();
+                        intent.putExtra("other", true);
                     }
-                    intent.putExtra(MARITAL_STATUS,  selectedMaritalStatus);
-                    Log.e("MARITAL_STATUS","MARITAL_STATUS :"+ radioButton.getText());
+                    intent.putExtra(MARITAL_STATUS, selectedMaritalStatus);
                     intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
 
                     PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
@@ -272,18 +270,30 @@ public class Section3aActivity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-       //startActivity(new Intent(activity, Section1Activity.class));
+        //startActivity(new Intent(activity, Section1Activity.class));
         finish();
 
     }
+
     public void onClickGoToResult(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Section3aActivity.this);
         builder.setMessage("Are you sure you want to go to Result Section?");
         builder.setTitle("Alert !");
         builder.setCancelable(false);
         builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-            Bundle bundle = getIntent().getExtras();
-            demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
+            saveSection3A();
+        });
+        builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
+            dialog.cancel();
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
+    private void saveSection3A() {
+        Bundle bundle = getIntent().getExtras();
+        demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
 //        Log.d("demoID", "onCreate: " + demoGraphicsID);
 //        Log.d("selectedCaste", "onCreate: " + selectedCaste);
 //        Log.d("selectedAnswerType", "onCreate: " + selectedAnswerType);
@@ -293,65 +303,59 @@ public class Section3aActivity extends AppCompatActivity {
 ////        Log.d("noOfSon", "onCreate: " + noOfSon);
 //        Log.d("noOfDaughters", "onCreate: " + noOfDaughters);
 //        Log.d("income", "onCreate: " + incomePerMonth);
-            if (!NoOfSons.getText().toString().isEmpty()) {
-                noOfSons = Integer.parseInt(NoOfSons.getText().toString());
-            } else {
-                noOfSons = 0;
+        if (!NoOfSons.getText().toString().isEmpty()) {
+            noOfSons = Integer.parseInt(NoOfSons.getText().toString());
+        } else {
+            noOfSons = 0;
+        }
+
+        String noOfSon = String.valueOf(noOfSons);
+        String noOfDougter = String.valueOf(noOfDaughters);
+        String income = String.valueOf(incomePerMonth);
+        progressBar = binding.progressBar;
+        progressBar.setVisibility(View.VISIBLE);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        ServeySectionRequest servey = new ServeySectionRequest();
+        servey.setQno1(selectedCaste);
+        servey.setQno2(selectedAnswerType);
+        servey.setQno3(selectedMaritalStatus);
+        servey.setQno4(selectedYesOrNo);
+        servey.setQno5A(String.valueOf(Integer.parseInt(noOfSon)));
+        servey.setQno5B(String.valueOf(Integer.parseInt(noOfDougter)));
+        servey.setQno6(String.valueOf(Integer.parseInt(income)));
+        Call<JsonObject> call = apiService.postServeySection5Data(demoGraphicsID, servey, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (progressBar.isShown())
+                    progressBar.setVisibility(View.GONE);
+                JsonObject userResponse = response.body();
+                if (response.isSuccessful()) {
+                    Log.d("response", "onResponse: " + userResponse);
+                    Util.showToast(activity, "Successfully data saved");
+                    Intent intent = new Intent(Section3aActivity.this, ResultPage.class);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()){
+                        selectedMaritalStatus=binding.Specify2.getText().toString();
+                        intent.putExtra("other",true);
+                    }
+                    intent.putExtra(MARITAL_STATUS,  selectedMaritalStatus);
+                    intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+
+                    PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+                    startActivity(intent);
+                }
             }
 
-            String noOfSon = String.valueOf(noOfSons);
-            String noOfDougter = String.valueOf(noOfDaughters);
-            String income = String.valueOf(incomePerMonth);
-            progressBar = binding.progressBar;
-            progressBar.setVisibility(View.VISIBLE);
-            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-            ServeySectionRequest servey = new ServeySectionRequest();
-            servey.setQno1(selectedCaste);
-            servey.setQno2(selectedAnswerType);
-            servey.setQno3(selectedMaritalStatus);
-            servey.setQno4(selectedYesOrNo);
-            servey.setQno5A(String.valueOf(Integer.parseInt(noOfSon)));
-            servey.setQno5B(String.valueOf(Integer.parseInt(noOfDougter)));
-            servey.setQno6(String.valueOf(Integer.parseInt(income)));
-            Call<JsonObject> call = apiService.postServeySection5Data(demoGraphicsID, servey, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-            call.enqueue(new Callback<JsonObject>() {
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    if (progressBar.isShown())
-                        progressBar.setVisibility(View.GONE);
-                    JsonObject userResponse = response.body();
-                    if (response.isSuccessful()) {
-                        Log.d("response", "onResponse: " + userResponse);
-                        Util.showToast(activity, "Successfully data saved");
-                        Intent intent = new Intent(Section3aActivity.this, ResultPage.class);
-                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                        if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()){
-                            selectedMaritalStatus=binding.Specify2.getText().toString();
-                            intent.putExtra("other",true);
-                        }
-                        intent.putExtra(MARITAL_STATUS,  selectedMaritalStatus);
-                        Log.e("MARITAL_STATUS","MARITAL_STATUS :"+ radioButton.getText());
-                        intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
 
-                        PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
-                        startActivity(intent);
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                }
-            });
-
+            }
         });
-        builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
-            dialog.cancel();
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+
 
     }
+
     public String getPhoneNo() {
         return phoneNo;
     }
