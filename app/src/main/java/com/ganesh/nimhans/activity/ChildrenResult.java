@@ -80,7 +80,7 @@ public class ChildrenResult extends AppCompatActivity {
         ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
         rCards5Result = PreferenceConnector.readString(this, RCADS5_1_RESULT, "0");
         rCards5_2_Result = PreferenceConnector.readString(this, RCADS5_2_RESULT, "0");
-        rCards5_3_Result  = PreferenceConnector.readString(this, RCADS5_3_RESULT, "0");
+        rCards5_3_Result = PreferenceConnector.readString(this, RCADS5_3_RESULT, "0");
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -163,7 +163,8 @@ public class ChildrenResult extends AppCompatActivity {
 //            }
 //        }
 
-        if ((rCards4Result != null && rCards4Result.equals("1")) || (rCards5Result != null && rCards5Result.equals("1"))) {
+        if ((rCards4Result != null && rCards4Result.equals("1")) || (rCards5Result != null && rCards5Result.equals("1"))
+                || (rCards5_2_Result != null && rCards5_2_Result.equals("1")) || (rCards5_3_Result != null && rCards5_3_Result.equals("1"))) {
             AlertDialog.Builder builder = new AlertDialog.Builder(ChildrenResult.this);
             builder.setMessage(message);
             builder.setTitle("Alert !");

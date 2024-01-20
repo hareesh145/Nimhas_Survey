@@ -617,13 +617,7 @@ public class Section5Activity extends AppCompatActivity {
                 || binding.weekly67j.isChecked() || binding.daily67j.isChecked()) {//Substance
             PreferenceConnector.writeString(this, RCADS5_2_RESULT, "1");
         }
-        if (binding.yes32.isChecked() || binding.yes33.isChecked()) {//Injection
-            if (binding.yes32.isChecked()) {
-                Toast.makeText(activity, "Yes, in the past 3 months", Toast.LENGTH_SHORT).show();
-            }
-            if (binding.yes33.isChecked()) {
-                Toast.makeText(activity, "Yes, but not in the past 3 months", Toast.LENGTH_SHORT).show();
-            }
+        if (binding.yes32.isChecked() || binding.yes33.isChecked()) { //Injection
             PreferenceConnector.writeString(this, RCADS5_3_RESULT, "1");
         }
         //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
