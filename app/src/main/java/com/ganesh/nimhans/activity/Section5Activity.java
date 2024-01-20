@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -461,6 +463,23 @@ public class Section5Activity extends AppCompatActivity {
                     break;
             }
         });
+
+        binding.drugInjectionGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == -1) return;
+                RadioButton radioButton = findViewById(checkedId);
+                switch (radioButton.getId()) {
+                    case R.id.no18:
+                        break;
+                    case R.id.yes32:
+                        break;
+                    case R.id.yes33:
+                        break;
+                }
+
+            }
+        });
         /*ArrayList<Question> allQuestions = QuestionUtils.getAllQuestions();
         questionAdapter = new QuestionAdapter(this, allQuestions);
         binding.questionOptionsList.setAdapter(questionAdapter);
@@ -599,6 +618,12 @@ public class Section5Activity extends AppCompatActivity {
             PreferenceConnector.writeString(this, RCADS5_2_RESULT, "1");
         }
         if (binding.yes32.isChecked() || binding.yes33.isChecked()) {//Injection
+            if (binding.yes32.isChecked()) {
+                Toast.makeText(activity, "Yes, in the past 3 months", Toast.LENGTH_SHORT).show();
+            }
+            if (binding.yes33.isChecked()) {
+                Toast.makeText(activity, "Yes, but not in the past 3 months", Toast.LENGTH_SHORT).show();
+            }
             PreferenceConnector.writeString(this, RCADS5_3_RESULT, "1");
         }
         //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {

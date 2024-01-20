@@ -178,6 +178,7 @@
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
                         android:padding="10dp"
+                        android:inputType="textCapSentences"
                         android:textAllCaps="false"
                         android:textColor="#000000"
                         android:visibility="gone" />

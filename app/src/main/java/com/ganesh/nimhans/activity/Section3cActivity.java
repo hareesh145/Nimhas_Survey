@@ -156,13 +156,23 @@ public class Section3cActivity extends AppCompatActivity {
                 binding.progressBar.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     if (YesOrNo.getCheckedRadioButtonId() == R.id.no2) {
-                        Intent intentno = new Intent(Section3cActivity.this, ChildrenResult.class);
+                        if (Float.parseFloat(ageValue) < 8.0f){
+                            Intent intentno = new Intent(Section3cActivity.this, ConsentNoParent.class);
+                            intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intentno.putExtra(SURVEY_ID, surveyID);
+                            intentno.putExtra(AGE_ID, ageValue);
+                            intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                            intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                            startActivity(intentno);
+                        }else {
+                        Intent intentno = new Intent(Section3cActivity.this, ConsentNoChildren.class);
                         intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                         intentno.putExtra(SURVEY_ID, surveyID);
                         intentno.putExtra(AGE_ID, ageValue);
                         intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
                         intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                         startActivity(intentno);
+                        }
                     } else {
                         if (Float.parseFloat(ageValue) <= 17.0f) {
                             if (Float.parseFloat(ageValue) >= 8.0f) {

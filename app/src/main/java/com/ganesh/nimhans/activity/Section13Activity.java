@@ -160,7 +160,7 @@ public class Section13Activity extends AppCompatActivity {
                 || section8Result.contains("1") || section9aResult.contains("1") || section9hResult.contains("1") ||
                 section9OResult.contains("1") || section10Result.contains("1") || section11Result.contains("1")
         ) {
-            String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child " + eligibleResponse.qno9 + "is positive for the following screeners.\n" +
+            String alertMessage = "Dear Parent, Thank you for providing the interview. As we come to the end of the interview, our screening has identified that your child " + eligibleResponse.qno9 + " is positive for the following screeners.\n" +
                     section6Result + section7aResult
                     + section7bResult + section8Result
                     + section9aResult + section9hResult
@@ -418,7 +418,7 @@ public class Section13Activity extends AppCompatActivity {
         try {
 
             // image naming and path  to include sd card  appending name you choose for file
-            String mPath = eligibleResponse.surveySection.demographics.randamId + ".jpg"; // use your desired path
+            String mPath = eligibleResponse.qno9 + ".jpg"; // use your desired path
 
             // create bitmap screen capture
             View v1 = dialog.getWindow().getDecorView().getRootView();

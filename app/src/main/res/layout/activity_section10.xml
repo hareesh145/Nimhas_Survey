@@ -177,6 +177,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:hint="Specify"
+                        android:inputType="textCapSentences"
                         android:padding="10dp"
                         android:visibility="gone"
                         android:textAllCaps="false"

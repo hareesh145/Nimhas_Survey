@@ -5588,6 +5588,7 @@
                             android:textColor="@color/black" />
                     </LinearLayout>
                     <RadioGroup
+                        android:id="@+id/drug_injection_grp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp">

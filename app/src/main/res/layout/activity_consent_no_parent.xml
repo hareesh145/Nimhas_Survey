@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <!-- Data -->
+        <variable
+            name="handlers"
+            type="com.ganesh.nimhans.activity.ConsentNoParent" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressTheme"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@color/app_bg_champ">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Parent Result"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="18J"
+                            android:visibility="gone"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Status :"
+                            android:layout_marginLeft="15dp"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/interviewStatus"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp">
+
+                        <RadioButton
+                            android:id="@+id/completed"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:visibility="gone"
+                            android:layoutDirection="rtl"
+                            android:text="Interview Completed"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/partiallyCompleted"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Interview Partially Completed"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/pending"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:visibility="visible"
+                            android:layoutDirection="rtl"
+                            android:text="Interview Pending"
+                            android:textAlignment="textStart" />
+                        <RadioButton
+                            android:id="@+id/refused"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Refused to take part"
+                            android:textAlignment="textStart" />
+                    </RadioGroup>
+                    <EditText
+                        android:id="@+id/specify1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="Specify"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        android:inputType="textPersonName"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:visibility="gone"
+                        android:id="@+id/next_visit_date_time"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/date3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:focusable="false"
+                            android:hint="Next Visit Date"
+                            android:inputType="date"
+                            android:onClick="showDatePickerDialog2"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <EditText
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_border"
+                            android:focusable="false"
+                            android:layout_marginTop="10dp"
+                            android:hint="Time"
+                            android:inputType="time"
+                            android:visibility="visible"
+                            android:onClick="showTimePickerDialog"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickPreviousSection}"
+                            android:text="Previous Section"
+                            android:visibility="gone"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="right"
+                            android:padding="15dp"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickNextSection}"
+                            android:text="Next Section"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </ScrollView>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

@@ -61,7 +61,7 @@ public class PreferenceConnector {
 
     public static void writeString(Context context, String key, String value) {
 
-        getEditor(context).putString(key, value).commit();
+        getEditor(context).putString(key, value).apply();
     }
 
     public static String readString(Context context, String key, String defValue) {

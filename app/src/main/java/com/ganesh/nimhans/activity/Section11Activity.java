@@ -199,16 +199,21 @@ public class Section11Activity extends AppCompatActivity {
                             binding.obsessiveCompulsiveTxt.setText("0");
                         }*/
                         int screenPositive = 0;
-                        if (userResponse.get("parentSocialPhobia").getAsInt() >= 65
-                                || userResponse.get("parentPanicDisorder").getAsInt() >= 65
-                                || userResponse.get("parentMajorDepression").getAsInt() >= 65
-                                || userResponse.get("parentSeparationAnxiety").getAsInt() >= 65
-                                || userResponse.get("parentGeneralizedAnxiety").getAsInt() >= 65
-                                || userResponse.get("parentObsessiveCompulsive").getAsInt() >= 65) {
-                            screenPositive = 1;
-                            binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
-                        } else {
-                            binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
+                        try {
+                            if ((userResponse.get("parentSocialPhobia") != null
+                                    && userResponse.get("parentSocialPhobia").getAsInt() >= 65)
+                                    || userResponse.get("parentPanicDisorder").getAsInt() >= 65
+                                    || userResponse.get("parentMajorDepression").getAsInt() >= 65
+                                    || userResponse.get("parentSeparationAnxiety").getAsInt() >= 65
+                                    || userResponse.get("parentGeneralizedAnxiety").getAsInt() >= 65
+                                    || userResponse.get("parentObsessiveCompulsive").getAsInt() >= 65) {
+                                screenPositive = 1;
+                                binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
+                            } else {
+                                binding.rcadsResult.setText("RCADS Self Screener : " + screenPositive);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         PreferenceConnector.writeString(Section11Activity.this, RCADS11_RESULT, "" + screenPositive);
 
