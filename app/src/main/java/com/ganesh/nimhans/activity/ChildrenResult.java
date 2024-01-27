@@ -34,12 +34,19 @@ import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
+import com.google.gson.JsonObject;
 
 import java.util.Calendar;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ChildrenResult extends AppCompatActivity {
     private ActivityChildrenResultBinding binding;
@@ -91,20 +98,90 @@ public class ChildrenResult extends AppCompatActivity {
 
                 switch (checkedId) {
                     case R.id.completed:
-                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                        JsonObject jsonObject =new JsonObject();
+                        jsonObject.addProperty("childStatus","Interview Completed");
+                        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterface.putStatus(eligibleResponse.houseHoldId,jsonObject, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponse = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponse);
+                                        Log.e("eligibleResponse.houseHoldId ","eligibleResponse.houseHoldId : "+eligibleResponse.houseHoldId);
+                                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.refused:
                         binding.specify1.setVisibility(View.VISIBLE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                        JsonObject jsonObjectrefused =new JsonObject();
+                        jsonObjectrefused.addProperty("childStatus","Refused");
+                        ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponserefused = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponserefused);
+                                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.partiallyCompleted:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.specify1.setVisibility(View.GONE);
                         binding.specify1.setText("");
-                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+                        JsonObject jsonObjectpartiallyCompleted =new JsonObject();
+                        jsonObjectpartiallyCompleted.addProperty("childStatus","Interview Partially Completed");
+                        ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponsepartiallyCompleted = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
+                                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.pending:
                         binding.specify1.setVisibility(View.GONE);
@@ -112,7 +189,30 @@ public class ChildrenResult extends AppCompatActivity {
                         binding.specify1.setText("");
                         binding.date3.setText("");
                         binding.time.setText("");
-                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                        JsonObject jsonObjectpartially =new JsonObject();
+                        jsonObjectpartially.addProperty("childStatus","Interview Pending");
+                        ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponsepartially = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponsepartially);
+                                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     default:
                         binding.specify1.setVisibility(View.GONE);

@@ -2,18 +2,25 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.FAMILY_COUNT;
+import static com.ganesh.nimhans.utils.Constants.House_Hold_Model;
 import static com.ganesh.nimhans.utils.Constants.LINE_NO;
 import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_PEOPLE;
 import static com.ganesh.nimhans.utils.Constants.REPEAT_COUNT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -24,8 +31,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
@@ -60,6 +69,9 @@ public class Section3bActivity extends AppCompatActivity {
     String selectedTobacco;
     String selectedNicotineUsed;
     String selectedIllness;
+    private static final int REQUEST_LOCATION = 1;
+    LocationManager locationManager;
+    String latitude, longitude;
 
     String noOfPeople;
     String houseHoldMember;
@@ -81,6 +93,7 @@ public class Section3bActivity extends AppCompatActivity {
     int repeatCount = 0;
     int ageCount = 0;
     int getMaritalState = 0;
+    String householdid;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +117,14 @@ public class Section3bActivity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         maritalState = getIntent().getStringExtra(MARITAL_STATUS);
+        ActivityCompat.requestPermissions( this,
+                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            OnGPS();
+        } else {
+            getLocation();
+        }
         if (getIntent().hasExtra(NO_OF_PEOPLE)) {
             binding.maritalStatus1.setEnabled(true);
             binding.totalNoOfPeople.setVisibility(View.GONE);
@@ -425,6 +446,9 @@ public class Section3bActivity extends AppCompatActivity {
         houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
         houseHoldModel.setQno16A(binding.Specify4.getText().toString());
         houseHoldModel.setQno17(selectedAnswerType2);
+        houseHoldModel.setLatitude(latitude);
+        houseHoldModel.setLongitude(longitude);
+
         if (selectedTypeOfProblems.size() > 0)
             houseHoldModel.setQno17A(selectedTypeOfProblem);
 
@@ -434,6 +458,8 @@ public class Section3bActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Intent intent = new Intent(activity, Section3Mentalillness.class);
+                Log.e("TAG", "onResponse: " + response.body().getAsJsonObject().get("houseHoldId"));
+                householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
                 int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                 if (familyCount == 0) {
                     PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
@@ -446,6 +472,7 @@ public class Section3bActivity extends AppCompatActivity {
                 intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
                 intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
                 intent.putExtra(REPEAT_COUNT, repeatCount - 1);
+                intent.putExtra(House_Hold_Model,householdid);
                 startActivity(intent);
             }
 
@@ -566,6 +593,7 @@ public class Section3bActivity extends AppCompatActivity {
             serveySection5Request.setQno17(selectedAnswerType2);
             serveySection5Request.setQno17A(selectedNicotineUsed);
 
+
             binding.progressBar.setVisibility(View.VISIBLE);
 
             ArrayList<String> selectedTypeOfProblems = new ArrayList<>();
@@ -619,6 +647,7 @@ public class Section3bActivity extends AppCompatActivity {
             houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
             houseHoldModel.setQno16A(binding.Specify4.getText().toString());
             houseHoldModel.setQno17(selectedAnswerType2);
+
             if (selectedTypeOfProblems.size() > 0)
                 houseHoldModel.setQno17A(selectedTypeOfProblem);
 
@@ -628,6 +657,7 @@ public class Section3bActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     Intent intent = new Intent(activity, ResultPage.class);
+                    householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
                     int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                     if (familyCount == 0) {
                         if (!binding.NoOfPeople.getText().toString().isEmpty()) {
@@ -646,6 +676,7 @@ public class Section3bActivity extends AppCompatActivity {
                         intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
                     }
                     intent.putExtra(REPEAT_COUNT, repeatCount - 1);
+                    intent.putExtra(House_Hold_Model,householdid);
                     startActivity(intent);
                 }
 
@@ -712,6 +743,8 @@ public class Section3bActivity extends AppCompatActivity {
             houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
             houseHoldModel.setQno16A(binding.Specify4.getText().toString());
             houseHoldModel.setQno17(selectedAnswerType2);
+            houseHoldModel.setLatitude(latitude);
+            houseHoldModel.setLongitude(longitude);
             if (selectedTypeOfProblems.size() > 0)
                 houseHoldModel.setQno17A(selectedTypeOfProblem);
 
@@ -721,6 +754,7 @@ public class Section3bActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     Intent intent = new Intent(activity, Section3bActivity.class);
+                    householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
                     int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                     if (familyCount == 0) {
                         PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
@@ -733,6 +767,7 @@ public class Section3bActivity extends AppCompatActivity {
                     intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
                     intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
                     intent.putExtra(REPEAT_COUNT, repeatCount - 1);
+                    intent.putExtra(House_Hold_Model,householdid);
                     startActivity(intent);
                 }
 
@@ -745,7 +780,41 @@ public class Section3bActivity extends AppCompatActivity {
 
 
     }
-
+    private void OnGPS() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        } else {
+            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (locationGPS != null) {
+                double lat = locationGPS.getLatitude();
+                double longi = locationGPS.getLongitude();
+                latitude = String.valueOf(lat);
+                longitude = String.valueOf(longi);
+               Log.e("latitude","latitude"+latitude);
+                Log.e("longitude","longitude"+longitude);
+            } else {
+                Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {

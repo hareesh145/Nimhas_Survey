@@ -3,7 +3,9 @@ package com.ganesh.nimhans.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -56,6 +58,12 @@ public class ActivitySurvey extends AppCompatActivity {
     ProgressBar progressBar;
 
     MyNimhans myGameApp;
+    public static final String SHARED_PREFS = "shared_prefs";
+
+    public static final String PHONENO_KEY = "phoneNo_key";
+
+    public static final String PASSWORD_KEY = "password_key";
+    SharedPreferences sharedpreferences;
     private File file;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +76,11 @@ public class ActivitySurvey extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
         phoneNo = myGameApp.getUserPhoneNo();
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // getting data from shared prefs and
+        // storing it in our string variable.
+        phoneNo = sharedpreferences.getString(PHONENO_KEY, null);
     }
 
     public void onClickSurvey(View v) {
@@ -75,9 +88,12 @@ public class ActivitySurvey extends AppCompatActivity {
     }
 
     public void onClicklogout(View v) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.clear();
+        editor.apply();
+        Intent i = new Intent(ActivitySurvey.this, LoginActivity.class);
+        startActivity(i);
         finish();
-        startActivity(new Intent(activity, LoginActivity.class));
-        // System.exit(0);
     }
 
 

@@ -14,6 +14,7 @@ public class Constants {
     public static String LINE_NO = "LINE_NO";
 
     public static String ELIGIBLE_RESPONDENT = "ELIGIBLE_RESPONDENT";
+    public static String House_Hold_Model = "House_Hold_Model";
     public  static String RCADS4_RESULT = "RCADS4_RESULT";
     public  static String RCADS5_1_RESULT = "RCADS5_1_RESULT";
     public  static String RCADS5_2_RESULT = "RCADS5_2_RESULT";

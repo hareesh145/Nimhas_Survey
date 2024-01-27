@@ -323,7 +323,8 @@ public class PendingListModel implements Serializable {
     public String qno227;
     public String qno228;
     public String qno229;
-    public String status;
+    public String childStatus;
+    public String parentStatus;
     @SerializedName("houseHold")
     public EligibleResponse houseHold;
 }

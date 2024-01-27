@@ -3,6 +3,7 @@ package com.ganesh.nimhans.activity;
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -128,7 +130,79 @@ public class Section3cActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (getIntent().getBooleanExtra("isFromPendingList", false)) {
+            creationpendinglist();
+        }else {
 
+           creationhousehold();
+        }
+
+
+/*//        binding.progressBar.setVisibility(View.VISIBLE);
+//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//        Call<JsonObject> call = apiService.putServeySection3CData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+//        call.enqueue(new Callback<JsonObject>() {
+//            @Override
+//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+//                if (binding.progressBar.isShown())
+//                    binding.progressBar.setVisibility(View.GONE);
+//                JsonObject userResponse = response.body();
+//                if (response.isSuccessful()) {
+//                    Log.d("response", "onResponse: " + userResponse);
+//                    Util.showToast(activity, "Successfully data saved");
+//                    Intent intent = new Intent(Section3cActivity.this, Section4Activity.class);
+//                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+//                    intent.putExtra(SURVEY_ID, surveyID);
+//                    intent.putExtra(AGE_ID, ageValue);
+//                    startActivity(intent);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<JsonObject> call, Throwable t) {
+//                binding.progressBar.setVisibility(View.GONE);
+//            }
+//        });*/
+
+
+    }
+
+    public void onClickPreviousSection(View v) {
+//        startActivity(new Intent(activity, Section3bActivity.class));
+        finish();
+    }
+
+    public void onClickGoToResult(View v) {
+        Intent intent = new Intent(Section3cActivity.this, ChildrenResult.class);
+        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+        intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(AGE_ID, ageValue);
+        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+        startActivity(intent);
+        finish();
+    }
+
+
+    private String getSelectedVillageCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.villageName.equals(selectedVillage)) {
+                return stateModel.villageCode;
+            }
+        }
+        return "";
+    }
+
+    private String getSelectedTalukaCode(String selectedVillage) {
+        for (StateModel stateModel :
+                stateModels) {
+            if (stateModel.subDistrictName.equals(selectedVillage)) {
+                return stateModel.subDistrictCode;
+            }
+        }
+        return "";
+    }
+    public void creationhousehold(){
         Specify6 = binding.Specify6.getText().toString();
         Specify5 = binding.Specify5.getText().toString();
         Taluk = binding.taluk.getText().toString();
@@ -165,13 +239,13 @@ public class Section3cActivity extends AppCompatActivity {
                             intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
                             startActivity(intentno);
                         }else {
-                        Intent intentno = new Intent(Section3cActivity.this, ConsentNoChildren.class);
-                        intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                        intentno.putExtra(SURVEY_ID, surveyID);
-                        intentno.putExtra(AGE_ID, ageValue);
-                        intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
-                        intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                        startActivity(intentno);
+                            Intent intentno = new Intent(Section3cActivity.this, ConsentNoChildren.class);
+                            intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intentno.putExtra(SURVEY_ID, surveyID);
+                            intentno.putExtra(AGE_ID, ageValue);
+                            intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                            intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                            startActivity(intentno);
                         }
                     } else {
                         if (Float.parseFloat(ageValue) <= 17.0f) {
@@ -260,71 +334,139 @@ public class Section3cActivity extends AppCompatActivity {
             }
         });
 
-
-
-/*//        binding.progressBar.setVisibility(View.VISIBLE);
-//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-//        Call<JsonObject> call = apiService.putServeySection3CData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-//        call.enqueue(new Callback<JsonObject>() {
-//            @Override
-//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//                if (binding.progressBar.isShown())
-//                    binding.progressBar.setVisibility(View.GONE);
-//                JsonObject userResponse = response.body();
-//                if (response.isSuccessful()) {
-//                    Log.d("response", "onResponse: " + userResponse);
-//                    Util.showToast(activity, "Successfully data saved");
-//                    Intent intent = new Intent(Section3cActivity.this, Section4Activity.class);
-//                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-//                    intent.putExtra(SURVEY_ID, surveyID);
-//                    intent.putExtra(AGE_ID, ageValue);
-//                    startActivity(intent);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<JsonObject> call, Throwable t) {
-//                binding.progressBar.setVisibility(View.GONE);
-//            }
-//        });*/
-
-
     }
+    public void creationpendinglist(){
+        Specify6 = binding.Specify6.getText().toString();
+        Specify5 = binding.Specify5.getText().toString();
+        Taluk = binding.taluk.getText().toString();
+        Village = binding.village.getText().toString();
+        Address = binding.address.getText().toString();
+        HeadOfFamily = binding.headOfFamily.getText().toString();
+        Name1 = binding.Name1.getText().toString();
+        ServeySection3cRequest serveySection5Request = new ServeySection3cRequest();
+        serveySection5Request.setQno18A(binding.NoofChildren.getText().toString());
+        serveySection5Request.setQno18B(Specify6);
+        serveySection5Request.setQno18C(selecteddistrictUK);
+        serveySection5Request.setQno18D(Taluk);
+        serveySection5Request.setQno18E(Village);
+        serveySection5Request.setQno18F(Address);
+        serveySection5Request.setQno18G(HeadOfFamily);
+        serveySection5Request.setQno18H(Name1);
+        serveySection5Request.setQno18I(selectedYesOrNo);
+        serveySection5Request.setQno18J(selectedInterviewStatus);
 
-    public void onClickPreviousSection(View v) {
-//        startActivity(new Intent(activity, Section3bActivity.class));
-        finish();
-    }
+        binding.progressBar.setVisibility(View.VISIBLE);
 
-    public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section3cActivity.this, ChildrenResult.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        startActivity(intent);
-        finish();
-    }
-
-
-    private String getSelectedVillageCode(String selectedVillage) {
-        for (StateModel stateModel :
-                stateModels) {
-            if (stateModel.villageName.equals(selectedVillage)) {
-                return stateModel.villageCode;
+        ApiClient.getClient().create(ApiInterface.class).consentPendinglist(eligibleResponse.houseHoldId, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                binding.progressBar.setVisibility(View.GONE);
+                if (response.isSuccessful()) {
+                    if (YesOrNo.getCheckedRadioButtonId() == R.id.no2) {
+                        if (Float.parseFloat(ageValue) < 8.0f){
+                            Intent intentno = new Intent(Section3cActivity.this, ConsentNoParent.class);
+                            intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intentno.putExtra(SURVEY_ID, surveyID);
+                            intentno.putExtra(AGE_ID, ageValue);
+                            intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                            intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                            startActivity(intentno);
+                        }else {
+                            Intent intentno = new Intent(Section3cActivity.this, ConsentNoChildren.class);
+                            intentno.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intentno.putExtra(SURVEY_ID, surveyID);
+                            intentno.putExtra(AGE_ID, ageValue);
+                            intentno.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                            intentno.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                            startActivity(intentno);
+                        }
+                    } else {
+                        if (Float.parseFloat(ageValue) <= 17.0f) {
+                            if (Float.parseFloat(ageValue) >= 8.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section4Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) >= 6.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section6Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                                //If the age is greater than 1 & less than 2
+                                Intent intent = new Intent(Section3cActivity.this, Section7aActivity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) > 3.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section7bActivity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) >= 8.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section8Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) >= 10.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section5Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) >= 6.0f && Float.parseFloat(ageValue) <= 12.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section10Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            } else if (Float.parseFloat(ageValue) <= 1.0f) {
+                                Intent intent = new Intent(Section3cActivity.this, Section12Activity.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection5Request);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            }
+                        }
+                    }
+                }
             }
-        }
-        return "";
-    }
 
-    private String getSelectedTalukaCode(String selectedVillage) {
-        for (StateModel stateModel :
-                stateModels) {
-            if (stateModel.subDistrictName.equals(selectedVillage)) {
-                return stateModel.subDistrictCode;
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
             }
-        }
-        return "";
+        });
+
     }
 
     private String getSelectedDistrictCode(String selectedVillage) {

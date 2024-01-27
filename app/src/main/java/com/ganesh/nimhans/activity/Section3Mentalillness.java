@@ -1,6 +1,8 @@
 package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.House_Hold_Model;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.annotation.SuppressLint;
@@ -22,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection3MentalillnessBinding;
+import com.ganesh.nimhans.model.HouseHoldModel;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 
 public class Section3Mentalillness extends AppCompatActivity {
@@ -42,6 +46,8 @@ public class Section3Mentalillness extends AppCompatActivity {
     String selectedAnswerType2;
     String selectedTobacco;
     String selectedNicotineUsed;
+    String householdid;
+    HouseHoldModel houseHoldModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +64,8 @@ public class Section3Mentalillness extends AppCompatActivity {
 
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
-
+        householdid =getIntent().getStringExtra(House_Hold_Model);
+        Log.e("House_Hold_Model","House_Hold_Model 3M :"+householdid);
         binding.answerType1.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -126,6 +133,7 @@ public class Section3Mentalillness extends AppCompatActivity {
         Intent intent = new Intent(Section3Mentalillness.this, ResultPage.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
+        intent.putExtra(House_Hold_Model,householdid);
         startActivity(intent);
     }
 

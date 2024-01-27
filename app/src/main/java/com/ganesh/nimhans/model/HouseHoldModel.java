@@ -1,6 +1,6 @@
 package com.ganesh.nimhans.model;
 
-public class HouseHoldModel {
+public class HouseHoldModel  {
 
 
     private int qno7;
@@ -16,6 +16,10 @@ public class HouseHoldModel {
     private String qno16A;
     private String qno17;
     private String[] qno17A;
+    private String houseHoldId;
+    private String houseHoldStatus;
+    private  String latitude;
+    private String longitude;
 
     public int getQno7() {
         return qno7;
@@ -119,5 +123,37 @@ public class HouseHoldModel {
 
     public void setQno17A(String[] qno17A) {
         this.qno17A = qno17A;
+    }
+
+    public String getHouseHoldId() {
+        return houseHoldId;
+    }
+
+    public void setHouseHoldId(String houseHoldId) {
+        this.houseHoldId = houseHoldId;
+    }
+
+    public String getHouseHoldStatus() {
+        return houseHoldStatus;
+    }
+
+    public void setHouseHoldStatus(String houseHoldStatus) {
+        this.houseHoldStatus = houseHoldStatus;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

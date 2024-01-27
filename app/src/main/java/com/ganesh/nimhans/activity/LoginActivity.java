@@ -2,7 +2,9 @@ package com.ganesh.nimhans.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -32,7 +34,12 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     String phoneNo, pswd;
     ProgressBar progressBar;
+    public static final String SHARED_PREFS = "shared_prefs";
 
+    public static final String PHONENO_KEY = "phoneNo_key";
+
+    public static final String PASSWORD_KEY = "password_key";
+    SharedPreferences sharedpreferences;
     MyNimhans myGameApp;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +50,13 @@ public class LoginActivity extends AppCompatActivity {
         activity = this;
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
-
         phoneNo = myGameApp.getUserPhoneNo();
         binding.edPhoneNo.setText(phoneNo);
-
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        phoneNo = sharedpreferences.getString(PHONENO_KEY, null);
+        pswd = sharedpreferences.getString(PASSWORD_KEY, null);
+        // getting data from shared prefs and
+        // storing it in our string variable.
 //        binding.edPhoneNo.setText("test");
 //        binding.edPswd.setText("test123");
 
@@ -57,9 +67,9 @@ public class LoginActivity extends AppCompatActivity {
             Util.showLongToast(this, "Please Check Internet Connection", false);
             return;
         }
-
         phoneNo = binding.edPhoneNo.getText().toString();
         pswd = binding.edPswd.getText().toString();
+
         if (TextUtils.isEmpty(phoneNo) || TextUtils.isEmpty(pswd)) {
             Toast.makeText(activity, "Please Enter all field", Toast.LENGTH_SHORT).show();
             return;
@@ -82,12 +92,19 @@ public class LoginActivity extends AppCompatActivity {
                     PreferenceConnector.writeString(activity, PreferenceConnector.TOKEN, response.headers().get("authorization"));
                     PreferenceConnector.writeString(activity, PreferenceConnector.LOGIN_ID, phoneNo);
 
-                    if (loginResponse.getRole().equals("SUPERVISOR"))
+                    if (loginResponse.getRole().equals("SUPERVISOR")) {
                         startActivity(new Intent(activity, DashboardActivity.class));
-                    else
+                    }
+                    else {
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString(PHONENO_KEY, phoneNo);
+                        editor.putString(PASSWORD_KEY, pswd);
+                        editor.apply();
                         startActivity(new Intent(activity, ActivitySurvey.class));
-                    activity.finish();
-                    return;
+                        activity.finish();
+                    }
+
+
                 } else {
                     try {
                         JsonObject jsonObject = new Gson().fromJson(response.errorBody().string(), JsonObject.class);
@@ -108,6 +125,14 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("failed Obj: " + t);
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (phoneNo != null && pswd != null) {
+            Intent i = new Intent(LoginActivity.this, ActivitySurvey.class);
+            startActivity(i);
+        }
     }
     @SuppressLint("MissingSuperCall")
     @Override

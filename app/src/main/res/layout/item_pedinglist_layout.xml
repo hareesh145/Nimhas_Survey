@@ -53,6 +53,20 @@
             android:layout_below="@+id/child_age"
             android:layout_margin="10dp"
             android:textSize="14sp" />
+        <TextView
+            android:id="@+id/child_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/child_age"
+            android:layout_margin="10dp"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/parent_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/child_status"
+            android:layout_margin="10dp"
+            android:textSize="14sp" />
 
     </RelativeLayout>
 

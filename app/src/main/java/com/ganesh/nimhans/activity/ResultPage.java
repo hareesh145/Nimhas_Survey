@@ -1,6 +1,7 @@
 package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
+import static com.ganesh.nimhans.utils.Constants.House_Hold_Model;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.app.Activity;
@@ -23,10 +24,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityResultPageBinding;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.google.gson.JsonObject;
 
 import java.util.Calendar;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ResultPage extends AppCompatActivity {
     private ActivityResultPageBinding binding;
@@ -47,6 +56,8 @@ public class ResultPage extends AppCompatActivity {
     boolean isFromSection1;
     boolean isInterviewcompleted;
     String consentForStudy;
+    String householdid;
+    private int householdidint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +72,9 @@ public class ResultPage extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         isFromSection1 = getIntent().getBooleanExtra("isFromSection1", false);
         consentForStudy = getIntent().getStringExtra("consentForStudy");
+        householdid =getIntent().getStringExtra(House_Hold_Model);
+        householdidint =Integer.parseInt(householdid);
+        Log.e("House_Hold_Model","House_Hold_Model RP :"+householdidint);
         binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -104,13 +118,37 @@ public class ResultPage extends AppCompatActivity {
                             Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                            Toast.makeText(activity, "Interview Completed", Toast.LENGTH_SHORT).show();
                             binding.commentResultCode.setVisibility(View.GONE);
                             binding.nextVisitDateTime.setVisibility(View.GONE);
                             binding.specify1.setText("");
                             binding.date3.setText("");
                             binding.time.setText("");
                             isInterviewcompleted = true;
+                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                            /*JsonObject jsonObject =new JsonObject();
+                            jsonObject.addProperty("houseHoldStatus","Interview Completed");
+                            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                            apiInterface.putStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                                @Override
+                                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                    binding.progressBar.setVisibility(View.GONE);
+                                    try {
+                                        JsonObject userResponse = response.body();
+                                        if (response.isSuccessful()) {
+                                            Log.d("response", "onResponse: " + userResponse);
+                                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                                }
+                            });*/
                         }
                         break;
                     default:
