@@ -72,8 +72,6 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.e("child_status.getText().toString() : ","child_status.getText().toString() :"+child_status.getText().toString());
-                    if (child_status.getText().toString().equals("Interview Partially Completed") || child_status.getText().toString().equals("Interview Pending")){
                     Intent intent = new Intent(activity, Section3cActivity.class);
                     intent.putExtra("isFromPendingList",true);
                     intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
@@ -82,16 +80,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                     intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
                     intent.putExtra(AGE_ID, eligibleResponses.get(getAdapterPosition()).houseHold.qno12);
                     activity.startActivity(intent);
-                    }else {
-                        Intent intent = new Intent(activity, Section6Activity.class);
-                        intent.putExtra("isFromPendingList", true);
-                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
-                        intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
-                        intent.putExtra(DEMO_GRAPHIC_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId);
-                        intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
-                        intent.putExtra(AGE_ID, eligibleResponses.get(getAdapterPosition()).houseHold.qno12);
-                        activity.startActivity(intent);
-                    }
+
                 }
             });
 

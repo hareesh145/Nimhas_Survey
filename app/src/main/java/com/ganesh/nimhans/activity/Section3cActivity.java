@@ -133,8 +133,7 @@ public class Section3cActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra("isFromPendingList", false)) {
             creationpendinglist();
         }else {
-
-           creationhousehold();
+            creationhousehold();
         }
 
 

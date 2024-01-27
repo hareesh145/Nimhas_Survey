@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivityResultPageBinding;
+import com.ganesh.nimhans.model.HouseHoldModel;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
@@ -124,24 +125,25 @@ public class ResultPage extends AppCompatActivity {
                             binding.date3.setText("");
                             binding.time.setText("");
                             isInterviewcompleted = true;
-                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
-                            /*JsonObject jsonObject =new JsonObject();
-                            jsonObject.addProperty("houseHoldStatus","Interview Completed");
-                            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                            apiInterface.putStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                           /* ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                            HouseHoldModel houseHoldModel = new HouseHoldModel();
+                            houseHoldModel.setHouseHoldStatus("Interview Completed");
+                            Call<JsonObject> apiCall = apiInterface.saveHouseHold(surveyID, houseHoldModel, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
 
+                            apiCall.enqueue(new Callback<JsonObject>() {
                                 @Override
                                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                    binding.progressBar.setVisibility(View.GONE);
+                                   // Log.e("TAG", "onResponse: " + response.body().getAsJsonObject().get("houseHoldId"));
                                     try {
-                                        JsonObject userResponse = response.body();
+                                        JsonObject userResponsepartially = response.body();
                                         if (response.isSuccessful()) {
-                                            Log.d("response", "onResponse: " + userResponse);
+                                            Log.d("response", "onResponse: " + userResponsepartially);
                                             Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
                                         }
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
+
                                 }
 
                                 @Override

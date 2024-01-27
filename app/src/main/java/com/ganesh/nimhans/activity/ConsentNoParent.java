@@ -98,7 +98,7 @@ public class ConsentNoParent extends AppCompatActivity {
                         binding.date3.setText("");
                         binding.time.setText("");
                         JsonObject jsonObject =new JsonObject();
-                        jsonObject.addProperty("status","Interview Completed");
+                        jsonObject.addProperty("parentStatus","Interview Completed");
                         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
                         apiInterface.putStatus(eligibleResponse.houseHoldId,jsonObject, PreferenceConnector.readString(ConsentNoParent.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
@@ -130,7 +130,7 @@ public class ConsentNoParent extends AppCompatActivity {
                         binding.time.setText("");
                         Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
                         JsonObject jsonObjectrefused =new JsonObject();
-                        jsonObjectrefused.addProperty("status","Refused");
+                        jsonObjectrefused.addProperty("parentStatus","Refused");
                         ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
                         apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ConsentNoParent.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
@@ -160,7 +160,7 @@ public class ConsentNoParent extends AppCompatActivity {
                         binding.specify1.setText("");
 
                         JsonObject jsonObjectpartiallyCompleted =new JsonObject();
-                        jsonObjectpartiallyCompleted.addProperty("status","Interview Partially Completed");
+                        jsonObjectpartiallyCompleted.addProperty("parentStatus","Interview Partially Completed");
                         ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
                         apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ConsentNoParent.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
@@ -191,7 +191,7 @@ public class ConsentNoParent extends AppCompatActivity {
                         binding.date3.setText("");
                         binding.time.setText("");
                         JsonObject jsonObjectpartially =new JsonObject();
-                        jsonObjectpartially.addProperty("status","Interview Pending");
+                        jsonObjectpartially.addProperty("parentStatus","Interview Pending");
                         ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
                         apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ConsentNoParent.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 

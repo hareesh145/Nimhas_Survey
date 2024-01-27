@@ -268,7 +268,7 @@ public class Section6Activity extends AppCompatActivity {
     }
 
     public void onClickGoToResult(View v) {
-        Intent intent = new Intent(Section6Activity.this, ParentResult.class);
+        Intent intent = new Intent(Section6Activity.this, ConsentNoParent.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);

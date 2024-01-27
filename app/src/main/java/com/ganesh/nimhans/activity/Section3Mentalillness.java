@@ -2,7 +2,11 @@ package com.ganesh.nimhans.activity;
 
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
+import static com.ganesh.nimhans.utils.Constants.FAMILY_COUNT;
 import static com.ganesh.nimhans.utils.Constants.House_Hold_Model;
+import static com.ganesh.nimhans.utils.Constants.LINE_NO;
+import static com.ganesh.nimhans.utils.Constants.NO_OF_PEOPLE;
+import static com.ganesh.nimhans.utils.Constants.REPEAT_COUNT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
 import android.annotation.SuppressLint;
@@ -26,7 +30,15 @@ import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection3MentalillnessBinding;
 import com.ganesh.nimhans.model.HouseHoldModel;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Section3Mentalillness extends AppCompatActivity {
     Activity activity;
@@ -130,6 +142,7 @@ public class Section3Mentalillness extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+
         Intent intent = new Intent(Section3Mentalillness.this, ResultPage.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
