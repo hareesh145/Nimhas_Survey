@@ -68,7 +68,11 @@ public class PendingDataSearch extends AppCompatActivity {
         Log.d("TAG", "onClickSearch: districtCode " + districtCode);
         Log.d("TAG", "onClickSearch: selectedVillageCode " + selectedVillageCode);
 
-        intent.putExtra("selectedCode", selectedStateCode + districtCode + talukaCode + "0" + selectedVillageCode);
+        intent.putExtra("selectedStateCode", selectedStateCode);
+        intent.putExtra("districtCode",districtCode);
+        intent.putExtra("talukaCode",talukaCode);
+        intent.putExtra("selectedVillageCode",selectedVillageCode);
+        //05/061/00310/800317
         //0500304060045208
         //0506000304045208
         //05061003108003176

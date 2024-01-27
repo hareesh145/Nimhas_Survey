@@ -52,7 +52,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
     }
 
     class EligibleChildHolder extends RecyclerView.ViewHolder {
-        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address;
+        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address,child_status;
 
         public EligibleChildHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +64,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             taluka = itemView.findViewById(R.id.taluka);
             village = itemView.findViewById(R.id.village);
             address = itemView.findViewById(R.id.address);
+            child_status = itemView.findViewById(R.id.child_status);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,6 +91,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             taluka.setText("Taluka  : " + getSelectedTalukaName(eligibleResponse.houseHold.surveySection.demographics.taluka));
             village.setText("Village : " + getSelectedVillageName(eligibleResponse.houseHold.surveySection.demographics.cityOrTownOrVillage));
             address.setText("Address: " + eligibleResponse.houseHold.surveySection.demographics.address);
+            child_status.setText("Status : " + eligibleResponse.status);
         }
 
 

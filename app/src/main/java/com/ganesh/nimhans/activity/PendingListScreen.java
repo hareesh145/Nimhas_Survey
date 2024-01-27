@@ -25,7 +25,11 @@ import retrofit2.Response;
 public class PendingListScreen extends AppCompatActivity {
     private String selectedDistrict;
     private String selectedlocale;
-    String selectedCode = "";
+    String selectedStateCode = "";
+    String districtCode = "";
+    String talukaCode = "";
+    String selectedVillageCode = "";
+    String selectedcode = "";
     private List<StateModel> stateModels;
     ActivityPendingListBinding binding;
 
@@ -35,7 +39,11 @@ public class PendingListScreen extends AppCompatActivity {
         binding = ActivityPendingListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        selectedCode = getIntent().getStringExtra("selectedCode");
+        selectedStateCode = getIntent().getStringExtra("selectedStateCode");
+        districtCode = getIntent().getStringExtra("districtCode");
+        talukaCode = getIntent().getStringExtra("talukaCode");
+        selectedVillageCode = getIntent().getStringExtra("selectedVillageCode");
+
 
         String jsonFromAsset = Util.loadJSONFromAsset(this);
 
@@ -46,7 +54,7 @@ public class PendingListScreen extends AppCompatActivity {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
         binding.progressBar.setVisibility(View.VISIBLE);
-        apiService.getInprogressTasks(selectedCode, PreferenceConnector.readString(this, PreferenceConnector.TOKEN, ""))
+        apiService.getInprogressTasks(selectedStateCode,districtCode,talukaCode,selectedVillageCode, PreferenceConnector.readString(this, PreferenceConnector.TOKEN, ""))
                 .enqueue(new Callback<List<PendingListModel>>() {
                     @Override
                     public void onResponse(Call<List<PendingListModel>> call, Response<List<PendingListModel>> response) {
@@ -57,9 +65,11 @@ public class PendingListScreen extends AppCompatActivity {
                                 binding.pendingList.setAdapter(pendingListAdapter);
                                 binding.pendingList.setVisibility(View.VISIBLE);
                                 binding.noPendingData.setVisibility(View.GONE);
+                                binding.progressBar.setVisibility(View.GONE);
                             } else {
                                 binding.pendingList.setVisibility(View.GONE);
                                 binding.noPendingData.setVisibility(View.VISIBLE);
+                                binding.progressBar.setVisibility(View.GONE);
                             }
                         }
                     }

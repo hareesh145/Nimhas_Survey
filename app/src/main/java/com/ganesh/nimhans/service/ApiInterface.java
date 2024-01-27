@@ -129,9 +129,9 @@ public interface ApiInterface {
     Call<List<SurveySection>> getHouseholdFormReport(@Header("Authorization") String authHeader);
 
     //@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode, @Header("Authorization") String authHeader
-    @GET("survey-questions/inprogres/{code}")
+    @GET("survey-questions/inprogres/{selectedStateCode}/{districtCode}/{talukaCode}/{selectedVillageCode}")
 //05061003108003176
-    Call<List<PendingListModel>> getInprogressTasks(@Path("code") String code, @Header("Authorization") String authHeader);
+    Call<List<PendingListModel>> getInprogressTasks(@Path("selectedStateCode") String selectedStateCode,@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("selectedVillageCode") String selectedVillageCode, @Header("Authorization") String authHeader);
 
     //    0500310061800317
          // 05061003108003176
@@ -140,7 +140,7 @@ public interface ApiInterface {
     @PUT("survey-questions/{id}")
     Call<JsonObject> putStatus(@Path("id") Integer itemId, @Body JsonObject jsonObject, @Header("Authorization") String authHeader);
 
-    @POST("survey-questions/{id}")
+    @PUT("survey-questions/{id}")
     Call<JsonObject> consentSave(@Path("id") Integer itemId, @Body ServeySection3cRequest serveySection3cRequest, @Header("Authorization") String authHeader);
 }
 

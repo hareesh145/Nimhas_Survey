@@ -103,7 +103,7 @@
     <string name="_6_no_competent_respondent_at_home">6. No Competent Respondent at Home</string>
     <string name="_7_dwelling_vacant_not_a_dwelling_dwelling_destroyed">7. Dwelling Vacant/Not a Dwelling/Dwelling Destroyed</string>
     <string name="_8_other">8. Other</string>
-    <string name="parent_interview_title">Parent interview form to be administered to one of the parents preferably mother.If both mother and father are not alive, only then the guardian or caretaker needs to be interviewed.</string>
+    <string name="parent_interview_title">Parent interview form to be administered to one of the parents preferably mother. If both mother and father are not alive, only then the guardian or caretaker needs to be interviewed.</string>
     <string name="section_11_title">Anxiety and Depression (RCADS)</string>
     <string name="check_the_age_of_the_child_and_mark">Child age</string>
     <string name="interview_only_the_parents_guardian">INTERVIEW ONLY THE PARENTS/GUARDIAN</string>
