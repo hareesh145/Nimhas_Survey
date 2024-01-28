@@ -21,6 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -49,6 +50,69 @@ public class ConvertJsonToExcel {
         }
 
         return customers;
+    }
+
+    public static void writeHouseHoldTableReport(List<EligibleResponse> customers, String filePath) throws IOException {
+        String[] COLUMNs = {"houseHoldId", "qno8", "qno9","qno10", "qno11", "qno12", "qno13", "qno14", "qno15", "qno16A", "qno17A"};
+
+        Workbook workbook = new XSSFWorkbook();
+
+        CreationHelper createHelper = workbook.getCreationHelper();
+
+        Sheet sheet = workbook.createSheet("HouseHoldTable");
+
+        Font headerFont = workbook.createFont();
+        headerFont.setColor(IndexedColors.BLUE.getIndex());
+
+        CellStyle headerCellStyle = workbook.createCellStyle();
+        headerCellStyle.setFont(headerFont);
+
+        // Row for Header
+        Row headerRow = sheet.createRow(0);
+
+        // Header
+        for (int col = 0; col < COLUMNs.length; col++) {
+            Cell cell = headerRow.createCell(col);
+            cell.setCellValue(COLUMNs[col]);
+            cell.setCellStyle(headerCellStyle);
+        }
+
+        // CellStyle for Age
+        CellStyle ageCellStyle = workbook.createCellStyle();
+        ageCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("#"));
+
+        int rowIdx = 1;
+        for (EligibleResponse customer : customers) {
+            Row row = sheet.createRow(rowIdx++);
+            row.createCell(0).setCellValue(customer.qno8);
+            row.createCell(1).setCellValue(customer.qno9);
+            row.createCell(2).setCellValue(customer.qno10);
+            row.createCell(3).setCellValue(customer.qno11);
+            row.createCell(4).setCellValue(customer.qno12);
+            row.createCell(5).setCellValue(customer.qno13);
+            row.createCell(6).setCellValue(customer.qno14);
+            row.createCell(7).setCellValue(customer.qno15);
+            row.createCell(8).setCellValue(customer.qno16A);
+            row.createCell(9).setCellValue(Arrays.toString(customer.qno17A.toArray()));
+//            row.createCell(11).setCellValue(customer.demographics.demographicsId);
+//            row.createCell(12).setCellValue(customer.demographics.state);
+//            row.createCell(13).setCellValue(customer.demographics.district);
+//            row.createCell(14).setCellValue(customer.demographics.taluka);
+//            row.createCell(15).setCellValue(customer.demographics.cityOrTownOrVillage);
+//            row.createCell(16).setCellValue(customer.demographics.houseHoldNo);
+//
+//            row.createCell(17).setCellValue(customer.demographics.locale);
+//            row.createCell(18).setCellValue(customer.demographics.respodentName);
+//            row.createCell(18).setCellValue(customer.demographics.address);
+//            row.createCell(19).setCellValue(customer.demographics.mobileno);
+
+        }
+        File fileOutput = null;
+
+        fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), filePath);
+        FileOutputStream fileOut = new FileOutputStream(fileOutput);
+        workbook.write(fileOut);
+        fileOut.close();
     }
 
 

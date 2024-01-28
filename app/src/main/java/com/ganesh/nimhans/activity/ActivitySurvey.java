@@ -24,6 +24,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySurveyBinding;
 import com.ganesh.nimhans.model.Book;
+import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.model.child.SurveySection;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
@@ -139,7 +140,32 @@ public class ActivitySurvey extends AppCompatActivity {
 
 
     public void onClickHouseholdTableReports(View view) {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
+                PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        binding.progressBar.setVisibility(View.VISIBLE);
+        call.enqueue(new Callback<List<EligibleResponse>>() {
+            @Override
+            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+                if (binding.progressBar.isShown())
+                    binding.progressBar.setVisibility(View.GONE);
 
+                try {
+                    ConvertJsonToExcel.writeHouseHoldTableReport(response.body(), "HouseHoldTable.xls");
+                }catch (Exception e){
+
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+                if (binding.progressBar.isShown())
+                    binding.progressBar.setVisibility(View.GONE);
+                Util.showToast(activity, getResources().getString(R.string.service_error));
+                System.out.println("failed Obj: " + t);
+            }
+        });
     }
 
     boolean isHouseHoldReportsClicked = false;
@@ -327,6 +353,7 @@ public class ActivitySurvey extends AppCompatActivity {
         Intent intent = new Intent(ActivitySurvey.this, PendingDataSearch.class);
         startActivity(intent);
     }
+
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
