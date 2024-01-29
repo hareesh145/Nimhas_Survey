@@ -78,9 +78,9 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                         intent.putExtra("isFromPendingList", true);
                         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
                         intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
-                        intent.putExtra(DEMO_GRAPHIC_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId);
+                        intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
                         intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
-                        intent.putExtra(AGE_ID, eligibleResponses.get(getAdapterPosition()).houseHold.qno12);
+                        intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
                         activity.startActivity(intent);
                     } else if ("Interview Partially Completed".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).parentStatus)
                             || "Interview Pending".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).parentStatus)) {
@@ -88,9 +88,9 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                         intent.putExtra("isFromPendingList", true);
                         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
                         intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
-                        intent.putExtra(DEMO_GRAPHIC_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId);
+                        intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
                         intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
-                        intent.putExtra(AGE_ID, eligibleResponses.get(getAdapterPosition()).houseHold.qno12);
+                        intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
                         activity.startActivity(intent);
                     }
 
