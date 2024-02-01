@@ -1,5 +1,6 @@
 package com.ganesh.nimhans.activity;
 
+
 import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
@@ -8,16 +9,26 @@ import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
@@ -104,7 +115,9 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     private String rcadsResult;
     EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
-
+    LocationManager locationManager;
+    String latitude, longitude;
+    private static final int REQUEST_LOCATION = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -178,7 +191,14 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
-
+       /* ActivityCompat.requestPermissions( this,
+                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            OnGPS();
+        } else {
+            getLocation();
+        }*/
         Anxiety.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -442,6 +462,8 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         serveySection4Request.setQno18H(serveySection3cRequest.getQno18H());
         serveySection4Request.setQno18I(serveySection3cRequest.getQno18I());
         serveySection4Request.setQno18J(serveySection3cRequest.getQno18J());
+        serveySection4Request.setLatitude(serveySection3cRequest.getLatitude());
+        serveySection4Request.setLongitude(serveySection3cRequest.getLatitude());
 
         serveySection4Request.setQno19(selectedAnxiety);
         serveySection4Request.setQno20(selectedFeelingSad);
@@ -719,4 +741,39 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         intent.putExtra(RCADS4_RESULT, rcadsResult);
         startActivity(intent);
     }
+   /* private void OnGPS() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        } else {
+            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (locationGPS != null) {
+                double lat = locationGPS.getLatitude();
+                double longi = locationGPS.getLongitude();
+                latitude = String.valueOf(lat);
+                longitude = String.valueOf(longi);
+                Log.e("latitude Section 4 :","latitude Section 4 : "+latitude);
+                Log.e("longitude Section 4 : ","longitude Section 4 : "+longitude);
+            } else {
+                Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }*/
 }

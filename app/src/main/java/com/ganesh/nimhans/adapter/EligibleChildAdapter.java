@@ -56,7 +56,7 @@ public class EligibleChildAdapter extends RecyclerView.Adapter<EligibleChildAdap
     @NonNull
     @Override
     public EligibleChildHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new EligibleChildHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_child_layout, parent, false));
+        return new EligibleChildHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_eligible_child_layout, parent, false));
     }
 
     @Override

@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ganesh.nimhans.R;
+import com.ganesh.nimhans.activity.Section3cActivity;
 import com.ganesh.nimhans.activity.Section4Activity;
 import com.ganesh.nimhans.activity.Section6Activity;
 import com.ganesh.nimhans.model.child.PendingListModel;
@@ -53,7 +54,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
     }
 
     class EligibleChildHolder extends RecyclerView.ViewHolder {
-        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address, child_status, parent_status;
+        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address, child_status, parent_status,mobile_number;
 
         public EligibleChildHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +68,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             address = itemView.findViewById(R.id.address);
             child_status = itemView.findViewById(R.id.child_status);
             parent_status = itemView.findViewById(R.id.parent_status);
+            mobile_number = itemView.findViewById(R.id.mobile_number);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,7 +76,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                     Intent intent;
                     if ("Interview Partially Completed".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).childStatus)
                             || "Interview Pending".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).childStatus)) {
-                        intent = new Intent(activity, Section4Activity.class);
+                        intent = new Intent(activity, Section3cActivity.class);
                         intent.putExtra("isFromPendingList", true);
                         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
                         intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
@@ -115,6 +117,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                 child_status.setText("Child Status : N/A");
             }
             parent_status.setText("Parent Status : " + eligibleResponse.parentStatus);
+            mobile_number.setText("Mobile Number : " +eligibleResponse.houseHold.surveySection.demographics.mobileno);
         }
 
 

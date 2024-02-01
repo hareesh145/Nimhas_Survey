@@ -187,6 +187,8 @@ public class Section3aActivity extends AppCompatActivity {
                 binding.daughters.setEnabled(false);
                 binding.que5Layout.setVisibility(View.GONE);
                 binding.Sons.setEnabled(false);
+                binding.Sons.setText("");
+                binding.daughters.setText("");
             } else {
                 binding.question5Section.setEnabled(true);
                 binding.question5aSection.setEnabled(true);

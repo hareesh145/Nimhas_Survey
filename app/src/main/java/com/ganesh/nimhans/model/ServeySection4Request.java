@@ -12,6 +12,8 @@ public class ServeySection4Request {
     private String qno18H;
     private String qno18I;
     private String qno18J;
+    private String latitude;
+    private  String longitude;
 
 
     public String getQno18A() {
@@ -517,5 +519,21 @@ public class ServeySection4Request {
 
     public void setQno65(int qno65) {
         this.qno65 = qno65;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

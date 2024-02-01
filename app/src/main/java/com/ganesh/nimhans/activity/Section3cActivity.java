@@ -8,10 +8,19 @@ import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -19,6 +28,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
@@ -47,6 +57,7 @@ public class Section3cActivity extends AppCompatActivity {
     String phoneNo, pswd;
     ProgressBar progressBar;
 
+
     String Specify5, Taluk, Village, Address, HeadOfFamily, Name1;
     RadioGroup districtUK, YesOrNo, InterviewStatus;
     MyNimhans myGameApp;
@@ -58,7 +69,9 @@ public class Section3cActivity extends AppCompatActivity {
     private Long demoGraphicsID;
     private int surveyID;
     String ageValue;
-
+    LocationManager locationManager;
+    String latitude, longitude;
+    private static final int REQUEST_LOCATION = 1;
     EligibleResponse eligibleResponse;
     private List<StateModel> stateModels;
 
@@ -71,7 +84,14 @@ public class Section3cActivity extends AppCompatActivity {
         binding.setHandlers(this);
         myGameApp = (MyNimhans) activity.getApplicationContext();
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
-
+        ActivityCompat.requestPermissions( this,
+                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            OnGPS();
+        } else {
+            getLocation();
+        }
         demoGraphicsID = Long.parseLong(String.valueOf(eligibleResponse.surveySection.demographics.demographicsId));
         ageValue = String.valueOf(eligibleResponse.qno12);
 
@@ -220,6 +240,8 @@ public class Section3cActivity extends AppCompatActivity {
         serveySection5Request.setQno18H(Name1);
         serveySection5Request.setQno18I(selectedYesOrNo);
         serveySection5Request.setQno18J(selectedInterviewStatus);
+        serveySection5Request.setLatitude(latitude);
+        serveySection5Request.setLongitude(longitude);
 
         binding.progressBar.setVisibility(View.VISIBLE);
 
@@ -353,7 +375,8 @@ public class Section3cActivity extends AppCompatActivity {
         serveySection5Request.setQno18H(Name1);
         serveySection5Request.setQno18I(selectedYesOrNo);
         serveySection5Request.setQno18J(selectedInterviewStatus);
-
+        serveySection5Request.setLatitude(latitude);
+        serveySection5Request.setLongitude(longitude);
         binding.progressBar.setVisibility(View.VISIBLE);
 
         ApiClient.getClient().create(ApiInterface.class).consentPendinglist(eligibleResponse.houseHoldId, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
@@ -487,7 +510,41 @@ public class Section3cActivity extends AppCompatActivity {
         }
         return "";
     }
-
+    private void OnGPS() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        } else {
+            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (locationGPS != null) {
+                double lat = locationGPS.getLatitude();
+                double longi = locationGPS.getLongitude();
+                latitude = String.valueOf(lat);
+                longitude = String.valueOf(longi);
+                Log.e("latitude Section 3 :","latitude Section 4 : "+latitude);
+                Log.e("longitude Section 3 : ","longitude Section 4 : "+longitude);
+            } else {
+                Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {

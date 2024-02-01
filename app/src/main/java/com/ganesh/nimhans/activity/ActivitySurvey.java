@@ -25,6 +25,7 @@ import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySurveyBinding;
 import com.ganesh.nimhans.model.Book;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.model.child.Root;
 import com.ganesh.nimhans.model.child.SurveySection;
 import com.ganesh.nimhans.service.ApiClient;
 import com.ganesh.nimhans.service.ApiInterface;
@@ -100,36 +101,25 @@ public class ActivitySurvey extends AppCompatActivity {
 
     public void onClickReports(View view) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<JsonObject> call = apiService.getSurveyReports(PreferenceConnector.readInteger(this, Constants.SURVEY_ID, 29),
+        Call<List<Root>> call = apiService.getSurveyReports(
                 PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
         binding.progressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<JsonObject>() {
+        call.enqueue(new Callback<List<Root>>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<List<Root>> call, Response<List<Root>> response) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
-                JsonObject loginResponse = response.body();
 
-                Log.d("TAG", "::::::::: " + loginResponse);
-                HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
-                HSSFSheet hssfSheet = hssfWorkbook.createSheet("Survey");
-                HSSFRow hssfRow = hssfSheet.createRow(0);
-                HSSFRow dataRow = hssfSheet.createRow(1);
-                int i = 0;
-                for (Map.Entry<String, JsonElement> entry : loginResponse.entrySet()) {
-                    if (i < 200) {
-                        HSSFCell hssfCell = hssfRow.createCell(i);
-                        hssfCell.setCellValue(entry.getKey());
-                        HSSFCell dataCell = dataRow.createCell(i);
-                        dataCell.setCellValue(String.valueOf(loginResponse.get(entry.getKey())));
-                        i++;
-                    }
+                try {
+                    ConvertJsonToExcel.writeSurveyReports(response.body(), "SurveyReport.xls");
+                }catch (Exception e){
+
                 }
-                saveWorkBook(hssfWorkbook, "SurveyData.xls");
             }
 
+
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<List<Root>> call, Throwable t) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
                 Util.showToast(activity, getResources().getString(R.string.service_error));
@@ -171,49 +161,8 @@ public class ActivitySurvey extends AppCompatActivity {
     boolean isHouseHoldReportsClicked = false;
 
     public void onClickHouseholdReports(View view) {
-//        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-//        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
-//                PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-//        binding.progressBar.setVisibility(View.VISIBLE);
-//        call.enqueue(new Callback<List<EligibleResponse>>() {
-//            @Override
-//            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
-//                if (binding.progressBar.isShown())
-//                    binding.progressBar.setVisibility(View.GONE);
-//                List<EligibleResponse> loginResponse = response.body();
-//
-//                Log.d("TAG", "::::::::: " + loginResponse);
-//                HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
-//                HSSFSheet hssfSheet = hssfWorkbook.createSheet("Survey");
-//                HSSFRow hssfRow = hssfSheet.createRow(0);
-//                HSSFRow dataRow = hssfSheet.createRow(1);
-//                int i = 0;
-////                for (Map.Entry<String, JsonElement> entry : loginResponse.entrySet()) {
-////                    if (i < 200) {
-////                        HSSFCell hssfCell = hssfRow.createCell(i);
-////                        hssfCell.setCellValue(entry.getKey());
-////                        HSSFCell dataCell = dataRow.createCell(i);
-////                        dataCell.setCellValue(String.valueOf(loginResponse.get(entry.getKey())));
-////                        i++;
-////                    }
-////                }
-////                saveWorkBookHousehold(hssfWorkbook);
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
-//                if (binding.progressBar.isShown())
-//                    binding.progressBar.setVisibility(View.GONE);
-//                Util.showToast(activity, getResources().getString(R.string.service_error));
-//                System.out.println("failed Obj: " + t);
-//            }
-//        });
-//        isHouseHoldReportsClicked = true;
-//        if (isStoragePermissionGranted()) {
+
         getHouseHoldFormReports();
-//        } else {
-//            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-//        }
     }
 
     private void getHouseHoldFormReports() {
