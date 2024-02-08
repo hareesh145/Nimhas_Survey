@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <!-- Data -->
@@ -53,15 +53,17 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_text_border"
                     android:hint="SSD"
-                    android:visibility="gone"
                     android:padding="10dp"
                     android:textAllCaps="false"
-                    android:textColor="@color/app_bg_champ" />
+                    android:textColor="@color/app_bg_champ"
+                    android:visibility="gone" />
+
                 <LinearLayout
+                    android:id="@+id/top_head"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/top_head"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -70,7 +72,7 @@
                         android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/child_name_age"
@@ -88,8 +90,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
-                        android:hint="13"
                         android:focusable="false"
+                        android:hint="13"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -99,48 +101,64 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:text="Interview the child"
-                        android:textStyle="bold"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center|left"
                             android:padding="10dp"
-                            android:visibility="gone"
-                            android:textStyle="bold"
                             android:text="@string/section5_intro1"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center|left"
                             android:padding="10dp"
-                            android:visibility="gone"
                             android:text="@string/section5_intro3"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/total_66h"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/total_66h"
                     android:layout_below="@+id/top_head"
+                    android:orientation="vertical"
                     tools:ignore="InvalidId">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="14sp"
+                        android:text="lsd, acid, mushrooms, pcp, special k, etc."
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -151,7 +169,7 @@
                             android:text="66H."
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -160,16 +178,18 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Hallucinogens (lsd, acid, mushrooms, pcp, special k, etc.)?"
+                            android:text="In your life, have you ever used Hallucinogens?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/a_sedatives66h"
                         android:orientation="vertical">
+
                         <RadioGroup
                             android:id="@+id/hallucinogens"
                             android:layout_width="fill_parent"
@@ -196,6 +216,7 @@
                                 android:textAlignment="textStart" />
                         </RadioGroup>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/hallucinogens_products_que_all"
                         android:layout_width="match_parent"
@@ -204,11 +225,13 @@
                         android:orientation="vertical"
                         android:visibility="gone"
                         tools:ignore="UnknownId">
+
                         <LinearLayout
+                            android:id="@+id/tobacco_ques67h"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques67h">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -234,8 +257,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/a_tobacco68G">
+                            android:layout_below="@+id/a_tobacco68G"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/alcoholProduct167h"
                                 android:layout_width="fill_parent"
@@ -289,11 +313,13 @@
                                     android:textAlignment="textStart" />
                             </RadioGroup>
                         </LinearLayout>
+
                         <LinearLayout
+                            android:id="@+id/tobacco_ques68h"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques68h">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -315,12 +341,14 @@
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
+
                         <LinearLayout
+                            android:id="@+id/tobacco_ques68h_rb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/tobacco_ques68h_rb"
-                            android:layout_below="@+id/a_tobacco68a">
+                            android:layout_below="@+id/a_tobacco68a"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
@@ -370,10 +398,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobacco_ques69h"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques69h">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -397,11 +426,12 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobaccoQues69hRb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/tobaccoQues69hRb"
-                            android:layout_below="@+id/a_tobacco69a">
+                            android:layout_below="@+id/a_tobacco69a"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/tobaccoProduct169h"
                                 android:layout_width="fill_parent"
@@ -452,10 +482,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobacco_ques70h"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques70h">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -477,12 +508,14 @@
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
+
                         <LinearLayout
+                            android:id="@+id/tobaccoQues70hRb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/tobaccoQues70hRb"
-                            android:layout_below="@+id/a_tobacco">
+                            android:layout_below="@+id/a_tobacco"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
@@ -535,6 +568,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -560,8 +594,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/a_tobacco71e">
+                            android:layout_below="@+id/a_tobacco71e"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
@@ -598,6 +633,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -607,7 +643,7 @@
                                 android:padding="10dp"
                                 android:text="72H."
                                 android:textAllCaps="false"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -615,16 +651,17 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:textColor="@color/black"
                                 android:text="Have you ever tried and failed to control, cut down or stop using hallucinogens"
-                                android:textAllCaps="false" />
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/a_tobacco">
+                            android:layout_below="@+id/a_tobacco"
+                            android:orientation="vertical">
+
                             <RadioGroup
 
                                 android:layout_width="fill_parent"
@@ -667,11 +704,13 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/total_66h"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -681,11 +720,13 @@
                             android:text="@string/go_to_result"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
