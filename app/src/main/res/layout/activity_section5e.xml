@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- Data -->
+        <variable
+            name="handlers"
+            type="com.ganesh.nimhans.activity.Section5eActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressTheme"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/app_bg_champ">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/section_5e_title"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="SSD"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_bg_champ" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/top_head"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/child_name_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Child Age"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/ageAndMark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="13"
+                        android:focusable="false"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        android:text="Interview the child"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:text="@string/section5_intro1"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:text="@string/section5_intro3"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/total_66e"
+                    android:layout_below="@+id/top_head"
+                    tools:ignore="InvalidId">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/startque66"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="66E."
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_toRightOf="@+id/question_66_a"
+                            android:padding="10dp"
+                            android:text="In your life, have you ever used Amphetamine type stimulants (speed, diet pills, ecstasy, mdma, etc.)?"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/a_amphetamine66e"
+                        android:orientation="vertical">
+                        <RadioGroup
+                            android:id="@+id/amphetamine"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/question_66_a_desc"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/no366e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/yes266e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/amphetamine_products_que_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cocaine"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        tools:ignore="UnknownId">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques67e">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="67E."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="In the past three months, how often have you used amphetamine type stimulants you mentioned"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/a_tobacco68e">
+                            <RadioGroup
+                                android:id="@+id/alcoholProduct167e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:id="@+id/never67e"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/onceOrTwice67e"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/monthly67e"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/weekly67e"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/daily67e"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques68e">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="68E."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/question_desc68e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use amphetamine type stimulants"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/tobacco_ques68e_rb"
+                            android:layout_below="@+id/a_tobacco68a">
+                            <RadioGroup
+                                android:id="@+id/tobaccoProduct168e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques69e">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="69E."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="During the past three months, how often has your use of amphetamine type stimulants led to health, social, legal or financial problems?"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/tobaccoQues69eRb"
+                            android:layout_below="@+id/a_tobacco69a">
+                            <RadioGroup
+                                android:id="@+id/tobaccoProduct169e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/onceOrTwice69e"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques70e">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="70E."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of amphetamine type stimulants"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/tobaccoQues70eRb"
+                            android:layout_below="@+id/a_tobacco">
+                            <RadioGroup
+                                android:id="@+id/tobaccoProduct170e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques71e">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="71E."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of amphetamine type stimulants"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/a_tobacco71e">
+                            <RadioGroup
+                                android:id="@+id/tobaccoProduct171e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/no_never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/yes_in_the_past_3_months"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/yes_but_not_in_the_past_3_months"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques72e">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="72E."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:text="Have you ever tried and failed to control, cut down or stop using amphetamine type stimulants"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/a_tobacco">
+                            <RadioGroup
+                                android:id="@+id/tobaccoProduct172e"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/total_66e"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickGoToResult}"
+                            android:padding="15dp"
+                            android:text="@string/go_to_result"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:onClick="@{handlers::onClickPreviousSection}"
+                                android:padding="15dp"
+                                android:text="Previous Section"
+                                android:textAllCaps="false"
+                                android:textColor="@color/app_bg_champ" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:gravity="right"
+                                android:onClick="@{handlers::onClickNextSection}"
+                                android:padding="15dp"
+                                android:text="Next Section"
+                                android:textAllCaps="false"
+                                android:textColor="@color/app_bg_champ" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

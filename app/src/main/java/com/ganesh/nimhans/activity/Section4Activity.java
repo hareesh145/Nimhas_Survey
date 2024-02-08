@@ -585,7 +585,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                             //If the age is less than 17
                             if (Float.parseFloat(ageValue) >= 10.0f) {
                                 //If the age is greater than 10
-                                Intent intent = new Intent(Section4Activity.this, Section5Activity.class);
+                                Intent intent = new Intent(Section4Activity.this, Section5aActivity.class);
                                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                                 intent.putExtra(SURVEY_ID, surveyID);
                                 intent.putExtra(AGE_ID, ageValue);
@@ -644,7 +644,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
                                 intent.putExtra(RCADS4_RESULT, rcadsResult);
                                 startActivity(intent);
                             } else if (Float.parseFloat(ageValue) >= 10.0f) {
-                                Intent intent = new Intent(Section4Activity.this, Section5Activity.class);
+                                Intent intent = new Intent(Section4Activity.this, Section5aActivity.class);
                                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                                 intent.putExtra(SURVEY_ID, surveyID);
                                 intent.putExtra(AGE_ID, ageValue);

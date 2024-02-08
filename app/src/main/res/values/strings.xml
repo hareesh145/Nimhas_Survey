@@ -39,7 +39,16 @@
 
 
     <string name="section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist">The Alcohol, Smoking and Substance Involvement Screening Test (ASSIST)</string>
-    <string name="section_5_title">Section 5 (Interview only the child)</string>
+    <string name="section_5_title">Section 5A (Interview only the child)</string>
+    <string name="section_5b_title">Section 5B (Interview only the child)</string>
+    <string name="section_5c_title">Section 5C (Interview only the child)</string>
+    <string name="section_5d_title">Section 5D (Interview only the child)</string>
+    <string name="section_5e_title">Section 5E (Interview only the child)</string>
+    <string name="section_5f_title">Section 5F (Interview only the child)</string>
+    <string name="section_5g_title">Section 5G (Interview only the child)</string>
+    <string name="section_5h_title">Section 5H (Interview only the child)</string>
+    <string name="section_5i_title">Section 5I (Interview only the child)</string>
+    <string name="section_5j_title">Section 5J (Interview only the child)</string>
     <string name="create_user">Create User</string>
     <string name="full_name">Full name</string>
     <string name="age">Age</string>

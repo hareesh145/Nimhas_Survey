@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- Data -->
+        <variable
+            name="handlers"
+            type="com.ganesh.nimhans.activity.Section5iActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressTheme"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/app_bg_champ">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/section_5i_title"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="SSD"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_bg_champ" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/top_head"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/child_name_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Child Age"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/ageAndMark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="13"
+                        android:focusable="false"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:visibility="gone"
+                        android:text="Interview the child"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:textStyle="bold"
+                            android:text="@string/section5_intro1"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:visibility="gone"
+                            android:text="@string/section5_intro3"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/total_66i"
+                    android:layout_below="@+id/top_head"
+                    tools:ignore="InvalidId">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/startque66"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="66I."
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_toRightOf="@+id/question_66_a"
+                            android:padding="10dp"
+                            android:text="In your life, have you ever used Opioids (heroin, morphine, buprenorphine, opium, methadone, tramadol, codeine, pentazocine, etc.)?"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/a_sedatives66i"
+                        android:orientation="vertical">
+                        <RadioGroup
+                            android:id="@+id/opioids"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/question_66_a_desc"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/no366i"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/yes266i"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/opioids_products_que_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/inhalants"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        tools:ignore="UnknownId">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques67i">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="67I."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="In the past three months, how often have you used opioids you mentioned?"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/a_tobacco68i">
+                            <RadioGroup
+                                android:id="@+id/alcoholProduct167i"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:id="@+id/never67i"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/onceOrTwice67i"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/monthly67i"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/weekly67i"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:id="@+id/daily67i"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques68i">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="68I."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="During the past three months, how often have you had a strong desire or urge to use opioids?"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/tobacco_ques68i_rb"
+                            android:layout_below="@+id/a_tobacco68a">
+                            <RadioGroup
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques69i">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="69I."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="During the past three months, how often has your use of opioids led to health, social, legal or financial problems?"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/tobaccoQues69iRb"
+                            android:layout_below="@+id/a_tobacco69a">
+                            <RadioGroup
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:id="@+id/tobacco_ques70i">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="70I."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of opioids?"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:id="@+id/tobaccoQues70iRb"
+                            android:layout_below="@+id/a_tobacco">
+                            <RadioGroup
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_twice"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/weekly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/daily_or_almost_daily"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="71I."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of opioids?"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/a_tobacco71e">
+                            <RadioGroup
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/no_never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/yes_in_the_past_3_months"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/yes_but_not_in_the_past_3_months"
+                                    android:textAlignment="textStart" />
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="72I."
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:text="Have you ever tried and failed to control, cut down or stop using opioids?"
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/a_tobacco">
+                            <RadioGroup
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tobacco_ques"
+                                android:layout_marginLeft="30dp">
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/never"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/once_or_monthly"
+                                    android:textAlignment="textStart" />
+
+                                <RadioButton
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layoutDirection="rtl"
+                                    android:text="@string/monthly"
+                                    android:textAlignment="textStart" />
+
+
+                            </RadioGroup>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/total_66i"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickGoToResult}"
+                            android:padding="15dp"
+                            android:text="@string/go_to_result"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:onClick="@{handlers::onClickPreviousSection}"
+                                android:padding="15dp"
+                                android:text="Previous Section"
+                                android:textAllCaps="false"
+                                android:textColor="@color/app_bg_champ" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:gravity="right"
+                                android:onClick="@{handlers::onClickNextSection}"
+                                android:padding="15dp"
+                                android:text="Next Section"
+                                android:textAllCaps="false"
+                                android:textColor="@color/app_bg_champ" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

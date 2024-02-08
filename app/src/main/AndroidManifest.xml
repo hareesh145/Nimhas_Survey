@@ -7,9 +7,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.ACCESS_MOCK_LOCATION"
         tools:ignore="MockLocation,ProtectedPermissions" />
     <uses-permission
         android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
@@ -136,6 +137,36 @@
             android:exported="true" />
         <activity
             android:name=".activity.ConsentNo"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5jActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5iActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5hActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5gActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5fActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5eActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5dActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5cActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5bActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Section5aActivity"
             android:exported="true" />
     </application>
 

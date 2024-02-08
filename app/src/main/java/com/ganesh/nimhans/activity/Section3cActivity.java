@@ -317,7 +317,7 @@ public class Section3cActivity extends AppCompatActivity {
                                 intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                 startActivity(intent);
                             } else if (Float.parseFloat(ageValue) >= 10.0f) {
-                                Intent intent = new Intent(Section3cActivity.this, Section5Activity.class);
+                                Intent intent = new Intent(Section3cActivity.this, Section5aActivity.class);
                                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                                 intent.putExtra(SURVEY_ID, surveyID);
                                 intent.putExtra(AGE_ID, ageValue);
@@ -451,7 +451,7 @@ public class Section3cActivity extends AppCompatActivity {
                                 intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                 startActivity(intent);
                             } else if (Float.parseFloat(ageValue) >= 10.0f) {
-                                Intent intent = new Intent(Section3cActivity.this, Section5Activity.class);
+                                Intent intent = new Intent(Section3cActivity.this, Section5aActivity.class);
                                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
                                 intent.putExtra(SURVEY_ID, surveyID);
                                 intent.putExtra(AGE_ID, ageValue);
