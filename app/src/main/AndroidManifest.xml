@@ -168,6 +168,10 @@
         <activity
             android:name=".activity.Section5aActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".activity.Section5FinalActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -170,8 +170,12 @@ public class Section5jActivity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
+        if (binding.onceOrTwice67j.isChecked() || binding.monthly67j.isChecked()
+                || binding.weekly67j.isChecked() || binding.daily67j.isChecked()) {//Substance
+            PreferenceConnector.writeString(this, RCADS5_2_RESULT, "1");
+        }
         //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
-        Intent intent = new Intent(activity, ChildrenResult.class);
+        Intent intent = new Intent(activity, Section5FinalActivity.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
         intent.putExtra(AGE_ID, ageValue);
