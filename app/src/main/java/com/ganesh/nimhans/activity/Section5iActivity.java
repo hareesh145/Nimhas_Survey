@@ -76,6 +76,11 @@ public class Section5iActivity extends AppCompatActivity {
                     break;
                 default:
                     binding.opioidsProductsQueAll.setVisibility(View.GONE);
+                    binding.alcoholProduct167i.clearCheck();
+                    binding.tobaccoProduct168i.clearCheck();
+                    binding.tobaccoProduct169i.clearCheck();
+                    binding.tobaccoProduct171i.clearCheck();
+                    binding.tobaccoProduct172i.clearCheck();
                     break;
             }
         });

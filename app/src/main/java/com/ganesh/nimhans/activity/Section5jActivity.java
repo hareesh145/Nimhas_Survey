@@ -85,6 +85,11 @@ public class Section5jActivity extends AppCompatActivity {
                 default:
                     binding.othersProductsQueAll.setVisibility(View.GONE);
                     binding.Specify1.setVisibility(View.GONE);
+                    binding.alcoholProduct167j.clearCheck();
+                    binding.tobaccoProduct168j.clearCheck();
+                    binding.tobaccoProduct169j.clearCheck();
+                    binding.tobaccoProduct171j.clearCheck();
+                    binding.tobaccoProduct172j.clearCheck();
                     binding.Specify1.setText("");
                     break;
             }

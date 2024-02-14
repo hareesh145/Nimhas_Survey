@@ -82,6 +82,11 @@ public class Section5fActivity extends AppCompatActivity {
                     break;
                 default:
                     binding.inhalantsProductsQueAll.setVisibility(View.GONE);
+                    binding.alcoholProduct167f.clearCheck();
+                    binding.tobaccoProduct168f.clearCheck();
+                    binding.tobaccoProduct169f.clearCheck();
+                    binding.tobaccoProduct171f.clearCheck();
+                    binding.tobaccoProduct172f.clearCheck();
                     break;
             }
         });

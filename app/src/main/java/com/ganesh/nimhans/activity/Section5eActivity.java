@@ -83,6 +83,11 @@ public class Section5eActivity extends AppCompatActivity {
                     break;
                 default:
                     binding.amphetamineProductsQueAll.setVisibility(View.GONE);
+                    binding.alcoholProduct167e.clearCheck();
+                    binding.tobaccoProduct168e.clearCheck();
+                    binding.tobaccoProduct169e.clearCheck();
+                    binding.tobaccoProduct171e.clearCheck();
+                    binding.tobaccoProduct172e.clearCheck();
                     break;
             }
         });

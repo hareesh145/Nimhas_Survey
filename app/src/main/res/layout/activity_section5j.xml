@@ -339,6 +339,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tobacco_ques"
+                                android:id="@+id/tobaccoProduct168j"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
@@ -420,6 +421,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct169j"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -581,6 +583,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct171j"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -645,6 +648,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct172j"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -686,6 +690,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="wrap_content"
@@ -715,6 +720,7 @@
                         android:id="@+id/drug_injection_grp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton

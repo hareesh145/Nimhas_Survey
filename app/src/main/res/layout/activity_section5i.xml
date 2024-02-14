@@ -328,6 +328,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tobacco_ques"
+                                android:id="@+id/tobaccoProduct168i"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
@@ -409,6 +410,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tobacco_ques"
+                                android:id="@+id/tobaccoProduct169i"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
@@ -567,6 +569,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct171i"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -631,6 +634,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/tobacco_ques"
+                                android:id="@+id/tobaccoProduct172i"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton

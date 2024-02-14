@@ -366,6 +366,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct168g"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -447,6 +448,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct169g"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -527,6 +529,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct170g"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 

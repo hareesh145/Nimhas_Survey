@@ -82,6 +82,11 @@ public class Section5hActivity extends AppCompatActivity {
                     break;
                 default:
                     binding.hallucinogensProductsQueAll.setVisibility(View.GONE);
+                    binding.alcoholProduct167h.clearCheck();
+                    binding.tobaccoProduct168h.clearCheck();
+                    binding.tobaccoProduct169h.clearCheck();
+                    binding.tobaccoProduct171h.clearCheck();
+                    binding.tobaccoProduct172h.clearCheck();
                     break;
             }
         });

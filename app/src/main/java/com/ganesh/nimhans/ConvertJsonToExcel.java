@@ -54,7 +54,7 @@ public class ConvertJsonToExcel {
     }
     public static void writeSurveyReports(List<Root>  customers, String filePath) throws IOException {
         String[] COLUMNs = {"Date of entry","Data Collector Name","Data Collector ID","Start date&time","Latitude","Longitude","Household ID", "State", "District", "Taluka", "City/Town/Village",
-                "Locale", "Household no", "Name of the HoH", "Address", "Mobile no","Child ID","Child Name","Gender","Age", "Marital status", "Occupation", "Education","Consented for study","Q.19", "Q.20", "Q.21", "Q.22", "Q.23", "Q.24", "Q.25", "Q.26", "Q.27", "Q.28", "Q.29", "Q.30", "Q.31", "Q.32", "Q.33", "Q.34", "Q.35", "Q.36", "Q.37", "Q.38", "Q.39", "Q.40", "Q.41", "Q.42", "Q.43", "Q.44", "Q.45", "Q.46", "Q.47", "Q.48", "Q.49", "Q.50", "Q.51", "Q.52", "Q.53", "Q.54", "Q.55", "Q.56", "Q.57", "Q.58", "Q.59", "Q.60", "Q.61", "Q.62", "Q.63", "Q.64", "Q.65", "Q.66", "Q.67", "Q.68", "Q.69", "Q.70", "Q.71", "Q.72", "Q.73", "Q.74", "Q.75", "Q.76", "Q.77", "Q.78", "Q.79", "Q.80", "Q.81", "Q.82", "Q.83", "Q.84", "Q.85", "Q.86", "Q.87", "Q.88", "Q.89", "Q.90", "Q.91", "Q.92", "Q.93", "Q.94", "Q.95", "Q.96", "Q.97", "Q.98", "Q.99", "Q.100", "Q.101", "Q.102", "Q.103", "Q.104", "Q.105", "Q.106", "Q.107", "Q.108", "Q.109", "Q.110", "Q.111", "Q.112", "Q.113", "Q.114", "Q.115", "Q.116", "Q.117", "Q.118", "Q.119", "Q.120", "Q.121", "Q.122", "Q.123", "Q.124", "Q.125", "Q.126", "Q.127", "Q.128", "Q.129", "Q.130", "Q.131", "Q.132", "Q.133", "Q.134", "Q.135", "Q.136", "Q.137", "Q.138", "Q.139", "Q.140", "Q.141", "Q.142", "Q.143", "Q.144", "Q.145", "Q.146", "Q.147", "Q.148", "Q.149", "Q.150", "Q.151", "Q.152", "Q.153", "Q.154", "Q.155", "Q.156", "Q.157", "Q.158", "Q.159", "Q.160", "Q.161", "Q.162", "Q.163", "Q.164", "Q.165", "Q.166", "Q.167", "Q.168", "Q.169", "Q.170", "Q.171", "Q.172", "Q.173", "Q.174", "Q.175", "Q.176", "Q.177", "Q.178", "Q.179", "Q.180", "Q.181", "Q.182", "Q.183", "Q.184", "Q.185", "Q.186", "Q.187", "Q.188", "Q.189", "Q.190", "Q.191", "Q.192", "Q.193", "Q.194", "Q.195", "Q.196", "Q.197", "Q.198", "Q.199", "Q.200", "Q.201", "Q.202", "Q.203", "Q.204", "Q.205", "Q.206", "Q.207", "Q.208", "Q.209", "Q.210", "Q.211", "Q.212", "Q.213", "Q.214", "Q.215", "Q.216", "Q.217", "Q.218", "Q.219", "Q.220", "Q.221", "Q.222", "Q.223", "Q.224", "Q.225", "Q.226", "Q.227", "Q.228"};
+                "Locale", "Household no", "Name of the HoH", "Address", "Mobile no","Child ID","Child Name","Gender","Age", "Marital status", "Occupation", "Education","Consented for study","Q.19", "Q.20", "Q.21", "Q.22", "Q.23", "Q.24", "Q.25", "Q.26", "Q.27", "Q.28", "Q.29", "Q.30", "Q.31", "Q.32", "Q.33", "Q.34", "Q.35", "Q.36", "Q.37", "Q.38", "Q.39", "Q.40", "Q.41", "Q.42", "Q.43", "Q.44", "Q.45", "Q.46", "Q.47", "Q.48", "Q.49", "Q.50", "Q.51", "Q.52", "Q.53", "Q.54", "Q.55", "Q.56", "Q.57", "Q.58", "Q.59", "Q.60", "Q.61", "Q.62", "Q.63", "Q.64", "Q.65","Social Phobia (R)","Social Phobia (T)","Panic Disorder (R)","Panic Disorder (T)","Major Depression (R)","Major Depression (T)","Separation Anxiety (R)","Separation Anxiety (T)","Generalized Anxiety (R)","Generalized Anxiety (T)","Obsessive - Compulsive (R)","Obsessive - Compulsive (T)","RCADS self screener", "Q.66A","Q.67A","Q.68A","Q.69A","Q.71A","Q.72A","Q.66B","Q.67B","Q.68B","Q.69B","Q.70B","Q.71B","Q.72B","Q.66C","Q.67C","Q.68C","Q.69C","Q.70C","Q.71C","Q.72C","Q.66D","Q.67D","Q.68D","Q.69D","Q.70D","Q.71D","Q.72D","Q.66E","Q.67E","Q.68E","Q.69E","Q.70E","Q.71E","Q.72E","Q.66F","Q.67F","Q.68F","Q.69F","Q.70F","Q.71F","Q.72F","Q.66G","Q.67G","Q.68G","Q.69G","Q.70G","Q.71G","Q.72G","Q.66H","Q.67H","Q.68H","Q.69H","Q.70H","Q.71H","Q.72H","Q.66I","Q.67I","Q.68I","Q.69I","Q.70I","Q.71I","Q.72I","Q.66J","Specify ","Q.67J","Q.68J","Q.69J","Q.70J","Q.71J","Q.72J","Q.73","Substance (Alcohol)_score","Substance (Alcohol)_screener","Substance (Other)_score","Substance (Other)_screener","Substance (injectable drug)_screener","Child result","Q.74", "Q.75", "Q.76", "Q.77", "Q.78", "Q.79", "Q.80", "Q.81", "Q.82", "Q.83", "Q.84", "Q.85", "Q.86", "Q.87", "Q.88", "Q.89", "Q.90", "Q.91", "Q.92", "Q.93", "Q.94", "Q.95", "Q.96", "Q.97", "Q.98", "Q.99", "Q.100", "Q.101", "Q.102", "Q.103", "Q.104", "Q.105", "Q.106", "Q.107", "Q.108", "Q.109", "Q.110", "Q.111", "Q.112", "Q.113", "Q.114", "Q.115", "Q.116", "Q.117", "Q.118", "Q.119", "Q.120", "Q.121", "Q.122", "Q.123", "Q.124", "Q.125", "Q.126", "Q.127", "Q.128", "Q.129", "Q.130", "Q.131", "Q.132", "Q.133", "Q.134", "Q.135", "Q.136", "Q.137", "Q.138", "Q.139", "Q.140", "Q.141", "Q.142", "Q.143", "Q.144", "Q.145", "Q.146", "Q.147", "Q.148", "Q.149", "Q.150", "Q.151", "Q.152", "Q.153", "Q.154", "Q.155", "Q.156", "Q.157", "Q.158", "Q.159", "Q.160", "Q.161", "Q.162", "Q.163", "Q.164", "Q.165", "Q.166", "Q.167", "Q.168", "Q.169", "Q.170", "Q.171", "Q.172", "Q.173", "Q.174", "Q.175", "Q.176", "Q.177", "Q.178", "Q.179", "Q.180", "Q.181", "Q.182", "Q.183", "Q.184", "Q.185", "Q.186", "Q.187", "Q.188", "Q.189", "Q.190", "Q.191", "Q.192", "Q.193", "Q.194", "Q.195", "Q.196", "Q.197", "Q.198", "Q.199", "Q.200", "Q.201", "Q.202", "Q.203", "Q.204", "Q.205", "Q.206", "Q.207", "Q.208", "Q.209", "Q.210", "Q.211", "Q.212", "Q.213", "Q.214", "Q.215", "Q.216", "Q.217", "Q.218", "Q.219", "Q.220", "Q.221", "Q.222", "Q.223", "Q.224", "Q.225", "Q.226", "Q.227", "Q.228" , "Parent Status" , "End date&time"};
 
         Workbook workbook = new XSSFWorkbook();
 
@@ -156,14 +156,96 @@ public class ConvertJsonToExcel {
             row.createCell(68).setCellValue(customer.qno63);
             row.createCell(69).setCellValue(customer.qno64);
             row.createCell(70).setCellValue(customer.qno65);
-            row.createCell(71).setCellValue(customer.qno66a);
-            row.createCell(72).setCellValue(customer.qno67a);
-            row.createCell(73).setCellValue(customer.qno68a);
-            row.createCell(74).setCellValue(customer.qno69a);
-            row.createCell(75).setCellValue(customer.qno70a);
-            row.createCell(76).setCellValue(customer.qno71a);
-            row.createCell(77).setCellValue(customer.qno72a);
-            row.createCell(78).setCellValue(customer.qno73);
+            row.createCell(71).setCellValue(customer.socialPhobia);
+            row.createCell(72).setCellValue("");
+            row.createCell(73).setCellValue(customer.panicDisorder);
+            row.createCell(74).setCellValue("");
+            row.createCell(75).setCellValue(customer.majorDepression);
+            row.createCell(76).setCellValue("");
+            row.createCell(77).setCellValue(customer.separationAnxiety);
+            row.createCell(78).setCellValue("");
+            row.createCell(79).setCellValue(customer.generalizedAnxiety);
+            row.createCell(80).setCellValue("");
+            row.createCell(81).setCellValue(customer.obsessiveCompulsive);
+            row.createCell(82).setCellValue("");
+            row.createCell(83).setCellValue("");
+            row.createCell(84).setCellValue(customer.qno66a);
+            row.createCell(85).setCellValue(customer.qno67a);
+            row.createCell(86).setCellValue(customer.qno68a);
+            row.createCell(87).setCellValue(customer.qno69a);
+            row.createCell(88).setCellValue(customer.qno71a);
+            row.createCell(89).setCellValue(customer.qno72a);
+            row.createCell(90).setCellValue(customer.qno66a);
+            row.createCell(91).setCellValue(customer.qno67b);
+            row.createCell(92).setCellValue(customer.qno68b);
+            row.createCell(93).setCellValue(customer.qno69b);
+            row.createCell(94).setCellValue(customer.qno70b);
+            row.createCell(95).setCellValue(customer.qno71b);
+            row.createCell(96).setCellValue(customer.qno72b);
+            row.createCell(97).setCellValue(customer.qno66c);
+            row.createCell(98).setCellValue(customer.qno67c);
+            row.createCell(99).setCellValue(customer.qno68c);
+            row.createCell(100).setCellValue(customer.qno69c);
+            row.createCell(101).setCellValue(customer.qno70c);
+            row.createCell(102).setCellValue(customer.qno71c);
+            row.createCell(103).setCellValue(customer.qno72c);
+            row.createCell(104).setCellValue(customer.qno66d);
+            row.createCell(105).setCellValue(customer.qno67d);
+            row.createCell(106).setCellValue(customer.qno68d);
+            row.createCell(107).setCellValue(customer.qno69d);
+            row.createCell(108).setCellValue(customer.qno70d);
+            row.createCell(109).setCellValue(customer.qno71d);
+            row.createCell(110).setCellValue(customer.qno72d);
+            row.createCell(111).setCellValue(customer.qno66e);
+            row.createCell(112).setCellValue(customer.qno67e);
+            row.createCell(113).setCellValue(customer.qno68e);
+            row.createCell(114).setCellValue(customer.qno69e);
+            row.createCell(115).setCellValue(customer.qno70e);
+            row.createCell(116).setCellValue(customer.qno71e);
+            row.createCell(117).setCellValue(customer.qno72e);
+            row.createCell(118).setCellValue(customer.qno66f);
+            row.createCell(119).setCellValue(customer.qno67f);
+            row.createCell(120).setCellValue(customer.qno68f);
+            row.createCell(121).setCellValue(customer.qno69f);
+            row.createCell(122).setCellValue(customer.qno70f);
+            row.createCell(123).setCellValue(customer.qno71f);
+            row.createCell(124).setCellValue(customer.qno72f);
+            row.createCell(125).setCellValue(customer.qno66g);
+            row.createCell(126).setCellValue(customer.qno67g);
+            row.createCell(127).setCellValue(customer.qno68g);
+            row.createCell(128).setCellValue(customer.qno69g);
+            row.createCell(129).setCellValue(customer.qno70g);
+            row.createCell(130).setCellValue(customer.qno71g);
+            row.createCell(131).setCellValue(customer.qno72g);
+            row.createCell(132).setCellValue(customer.qno66h);
+            row.createCell(133).setCellValue(customer.qno67h);
+            row.createCell(134).setCellValue(customer.qno68h);
+            row.createCell(135).setCellValue(customer.qno69h);
+            row.createCell(136).setCellValue(customer.qno70h);
+            row.createCell(137).setCellValue(customer.qno71h);
+            row.createCell(138).setCellValue(customer.qno72h);
+            row.createCell(139).setCellValue(customer.qno66i);
+            row.createCell(140).setCellValue(customer.qno67i);
+            row.createCell(141).setCellValue(customer.qno68i);
+            row.createCell(142).setCellValue(customer.qno69i);
+            row.createCell(143).setCellValue(customer.qno70i);
+            row.createCell(144).setCellValue(customer.qno71i);
+            row.createCell(145).setCellValue(customer.qno72i);
+            row.createCell(146).setCellValue(customer.qno66j);
+            row.createCell(147).setCellValue("");
+            row.createCell(148).setCellValue(customer.qno67j);
+            row.createCell(149).setCellValue(customer.qno68j);
+            row.createCell(150).setCellValue(customer.qno69j);
+            row.createCell(151).setCellValue(customer.qno70j);
+            row.createCell(152).setCellValue(customer.qno71j);
+            row.createCell(153).setCellValue(customer.qno72j);
+            row.createCell(154).setCellValue(customer.qno73);
+            row.createCell(155).setCellValue(customer.alcoholScore);
+            row.createCell(156).setCellValue(customer.otherScore);
+            row.createCell(157).setCellValue(customer.injectableScore);
+            row.createCell(158).setCellValue(customer.assistResult);
+            row.createCell(159).setCellValue(customer.section6Arespondent);
+            row.createCell(160).setCellValue(customer.childStatus);
             row.createCell(79).setCellValue(customer.qno74);
             row.createCell(80).setCellValue(customer.qno75);
             row.createCell(81).setCellValue(customer.qno76);
@@ -319,7 +401,8 @@ public class ConvertJsonToExcel {
             row.createCell(231).setCellValue(customer.qno226);
             row.createCell(232).setCellValue(customer.qno227);
             row.createCell(233).setCellValue(customer.qno228);
-
+            row.createCell(234).setCellValue(customer.parentStatus);
+            row.createCell(235).setCellValue(customer.endDateTime);
 
             // row.createCell(24).setCellValue(customer.startDateTime);
 //            row.createCell(11).setCellValue(customer.demographics.demographicsId);
@@ -421,7 +504,7 @@ public class ConvertJsonToExcel {
 
     public static void writeHouseHoldFormReport(List<SurveySection> customers, String filePath) throws IOException {
         String[] COLUMNs = {"Date of entry","Data Collector Name","Data Collector ID","Date of Interview","Household ID", "State", "District", "Taluka", "City/Town/Village",
-                "Locale", "Household no", "Respodent name", "Address", "Mobile no","Consented for study","Religion", "Caste/Tribe", "Marital status", "Have any children", "Son(s)", "Daughter(s)", "Total monthly income", "Total no of people in the HH", "Mental illness", "Substance use"};
+                "Locale", "Household no", "Respodent name", "Address", "Mobile no","Consented for study","Religion", "Caste/Tribe", "Marital status", "Have any children", "Son(s)", "Daughter(s)", "Total monthly income", "Total no of people in the HH", "Mental illness", "Substance use","Result"};
 
         Workbook workbook = new XSSFWorkbook();
 
@@ -478,6 +561,8 @@ public class ConvertJsonToExcel {
             row.createCell(22).setCellValue(customer.qno7);
             row.createCell(23).setCellValue(customer.qno16);
             row.createCell(24).setCellValue(customer.qno17);
+            row.createCell(25).setCellValue("");
+
             //row.createCell(25).setCellValue(customer.demographics.randamId);
 
         }
