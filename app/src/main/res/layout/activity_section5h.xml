@@ -149,6 +149,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
                         android:textSize="14sp"
+                        android:visibility="gone"
                         android:text="lsd, acid, mushrooms, pcp, special k, etc."
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -178,7 +179,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Hallucinogens?"
+                            android:text="In your life, have you ever used Hallucinogens (lsd, acid, mushrooms, trips, ketamine, etc.)?"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -520,6 +521,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct170h"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
@@ -685,7 +687,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
-                                    android:text="@string/once_or_monthly"
+                                    android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton

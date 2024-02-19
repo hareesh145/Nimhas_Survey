@@ -179,6 +179,7 @@ public class Section13Activity extends AppCompatActivity {
                 if (checkedId == R.id.no_220) {
                     binding.q221.setVisibility(View.GONE);
                     binding.options221.setVisibility(View.GONE);
+                    binding.options221.clearCheck();
                 } else {
                     binding.q221.setVisibility(View.VISIBLE);
                     binding.options221.setVisibility(View.VISIBLE);

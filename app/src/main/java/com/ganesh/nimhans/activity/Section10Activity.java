@@ -71,10 +71,12 @@ public class Section10Activity extends AppCompatActivity {
                     case R.id.mother_btn:
                         respondentTxt = "Mother";
                         binding.section10Respondent.setVisibility(View.GONE);
+                        binding.section10Respondent.setText("");
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
                         binding.section10Respondent.setVisibility(View.GONE);
+                        binding.section10Respondent.setText("");
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";

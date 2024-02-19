@@ -74,10 +74,12 @@ public class Section11Activity extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.mother_btn:
                         binding.section11Respondent.setVisibility(View.GONE);
+                        binding.section11Respondent.setText("");
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
                         binding.section11Respondent.setVisibility(View.GONE);
+                        binding.section11Respondent.setText("");
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";

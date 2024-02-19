@@ -79,12 +79,14 @@ public class Section5iActivity extends AppCompatActivity {
                     binding.alcoholProduct167i.clearCheck();
                     binding.tobaccoProduct168i.clearCheck();
                     binding.tobaccoProduct169i.clearCheck();
+                    binding.tobaccoProduct170i.clearCheck();
                     binding.tobaccoProduct171i.clearCheck();
                     binding.tobaccoProduct172i.clearCheck();
                     break;
             }
         });
         binding.alcoholProduct167i.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selecteopioidsProduct = selectedValue;

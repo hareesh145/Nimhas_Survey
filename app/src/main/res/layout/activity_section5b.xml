@@ -680,7 +680,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
-                                    android:text="@string/once_or_monthly"
+                                    android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton

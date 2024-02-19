@@ -91,10 +91,12 @@ public class Section12Activity extends AppCompatActivity {
                 switch (checkedId) {
                     case R.id.mother_btn:
                         binding.section12Respondent.setVisibility(View.GONE);
+                        binding.section12Respondent.setText("");
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
                         binding.section12Respondent.setVisibility(View.GONE);
+                        binding.section12Respondent.setText("");
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";
@@ -141,6 +143,12 @@ public class Section12Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.nor_visited) {
                     binding.options216219.setVisibility(View.GONE);
+                    binding.a216Edittext.setText("");
+                    binding.b216Edittext.setText("");
+                    binding.c216Edittext.setText("");
+                    binding.a219Radiogroup.clearCheck();
+                    binding.b219Radiogroup.clearCheck();
+                    binding.c219Radiogroup.clearCheck();
                 } else {
                     binding.options216219.setVisibility(View.VISIBLE);
                 }

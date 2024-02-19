@@ -88,6 +88,7 @@ public class Section5jActivity extends AppCompatActivity {
                     binding.alcoholProduct167j.clearCheck();
                     binding.tobaccoProduct168j.clearCheck();
                     binding.tobaccoProduct169j.clearCheck();
+                    binding.tobaccoProduct170j.clearCheck();
                     binding.tobaccoProduct171j.clearCheck();
                     binding.tobaccoProduct172j.clearCheck();
                     binding.Specify1.setText("");
@@ -95,6 +96,7 @@ public class Section5jActivity extends AppCompatActivity {
             }
         });
         binding.alcoholProduct167j.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selecteothersProduct = selectedValue;

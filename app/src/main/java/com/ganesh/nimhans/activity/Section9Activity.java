@@ -80,10 +80,12 @@ public class Section9Activity extends AppCompatActivity {
                     case R.id.mother_btn:
                         respondentTxt = "Mother";
                         binding.respondent.setVisibility(View.GONE);
+                        binding.respondent.setText("");
                         break;
                     case R.id.father_btn:
                         respondentTxt = "Father";
                         binding.respondent.setVisibility(View.GONE);
+                        binding.respondent.setText("");
                         break;
                     case R.id.gaurdian_btn:
                         respondentTxt = "Guardian";

@@ -85,12 +85,14 @@ public class Section5fActivity extends AppCompatActivity {
                     binding.alcoholProduct167f.clearCheck();
                     binding.tobaccoProduct168f.clearCheck();
                     binding.tobaccoProduct169f.clearCheck();
+                    binding.tobaccoProduct170f.clearCheck();
                     binding.tobaccoProduct171f.clearCheck();
                     binding.tobaccoProduct172f.clearCheck();
                     break;
             }
         });
         binding.alcoholProduct167f.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedinhalantsProduct = selectedValue;

@@ -160,9 +160,12 @@ public class Section3aActivity extends AppCompatActivity {
                     binding.Specify2.setVisibility(View.VISIBLE);
                     break;
                 case R.id.NotMarried:
-                    binding.que5Layout.setVisibility(View.GONE);
                     binding.que4Layout.setVisibility(View.GONE);
                     binding.Specify2.setText("");
+                    binding.Sons.setText("");
+                    binding.daughters.setText("");
+                    binding.yesOrNo.clearCheck();
+                    binding.que5Layout.setVisibility(View.GONE);
                     break;
                 default:
                     binding.Specify2.setVisibility(View.GONE);
@@ -173,6 +176,7 @@ public class Section3aActivity extends AppCompatActivity {
             }
         });
         YesOrNo.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedYesOrNo = selectedValue;
