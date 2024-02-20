@@ -19,6 +19,7 @@ import com.ganesh.nimhans.model.ServeySection7bRequest;
 import com.ganesh.nimhans.model.ServeySection8Request;
 import com.ganesh.nimhans.model.ServeySection9Request;
 import com.ganesh.nimhans.model.ServeySectionRequest;
+import com.ganesh.nimhans.model.SurveySection12B;
 import com.ganesh.nimhans.model.UserRequest;
 import com.ganesh.nimhans.model.UserResponse;
 import com.ganesh.nimhans.model.ViewUserResponse;
@@ -104,6 +105,10 @@ public interface ApiInterface {
 
     @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection12AData(@Path("id") Integer itemId, @Body ServeySection12Request serveySection5Request, @Header("Authorization") String authHeader);
+
+
+    @PUT("survey-questions/{id}")
+    Call<JsonObject> putServeySection12BData(@Path("id") Integer itemId, @Body SurveySection12B serveySection5Request, @Header("Authorization") String authHeader);
 
     @PUT("survey-questions/{id}")
     Call<JsonObject> putServeySection13AData(@Path("id") Integer itemId, @Body ServeySection13Request serveySection5Request, @Header("Authorization") String authHeader);

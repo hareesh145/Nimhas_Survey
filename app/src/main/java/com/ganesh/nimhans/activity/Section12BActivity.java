@@ -30,9 +30,17 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection12bBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
+import com.ganesh.nimhans.model.SurveySection12B;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Section12BActivity extends AppCompatActivity {
     private static final String TAG = Section12BActivity.class.getSimpleName();
@@ -132,6 +140,114 @@ public class Section12BActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        SurveySection12B surveySection12B = new SurveySection12B();
+        if (binding.Anxiety.getCheckedRadioButtonId() != -1) {
+            surveySection12B.qno73a = getSelected73A(binding.Anxiety.getCheckedRadioButtonId(), binding.never45.getId(), binding.sometime.getId(), binding.often.getId());
+        }
+        if (binding.problemMother.getCheckedRadioButtonId() != -1) {
+            surveySection12B.qno73b = getCheckedRadioGrpID(binding.problemMother.getCheckedRadioButtonId(), binding.yesMother.getId(), binding.noMother.getId());
+        }
+
+
+        if (binding.funnyFeeling.getCheckedRadioButtonId() != -1) {
+            String typeOfDelivery = getSelected73C(binding.funnyFeeling.getCheckedRadioButtonId(), binding.never47.getId(), binding.sometime2.getId(), binding.often2.getId());
+            if (typeOfDelivery.equals("Others")) {
+                surveySection12B.qno73c = binding.Specify1.getText().toString();
+            } else {
+                surveySection12B.qno73c = typeOfDelivery;
+            }
+        }
+        if (binding.feelingWorry.getCheckedRadioButtonId() != -1) {
+            String typeOfDelivery = getSelected73D(binding.feelingWorry.getCheckedRadioButtonId(), binding.never1.getId(), binding.sometime3.getId());
+            surveySection12B.qno73d = typeOfDelivery;
+        }
+
+
+        if (binding.feelingAfraid.getCheckedRadioButtonId() != -1) {
+            String typeOfDelivery = getSelected73D(binding.feelingAfraid.getCheckedRadioButtonId(), binding.never2.getId(), binding.sometime4.getId());
+            surveySection12B.qno73e = typeOfDelivery;
+        }
+
+        if (binding.noFunyes.getCheckedRadioButtonId() != -1) {
+            String typeOfDelivery = getSelected73D(binding.noFunyes.getCheckedRadioButtonId(), binding.never3.getId(), binding.sometime5.getId());
+            surveySection12B.qno73f = typeOfDelivery;
+        }
+
+        if (binding.noFunyes.getCheckedRadioButtonId() != -1) {
+            String typeOfDelivery = getSelected73D(binding.noFunyes.getCheckedRadioButtonId(), binding.never3.getId(), binding.sometime5.getId());
+            surveySection12B.qno73f = typeOfDelivery;
+        }
+        if (!binding.Specify3.getText().toString().isEmpty()) {
+            surveySection12B.qno73g = Integer.parseInt(binding.Specify3.getText().toString());
+        }
+
+
+        if (binding.noFun.getCheckedRadioButtonId() != -1) {
+            String typeOfDelivery = getSelected73h(binding.noFun.getCheckedRadioButtonId(), binding.neverh.getId(), binding.sometime5h.getId());
+            surveySection12B.qno73h = typeOfDelivery;
+        }
+        binding.progressBar.setVisibility(View.VISIBLE);
+        apiService.putServeySection12BData(eligibleResponse.houseHoldId, surveySection12B, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                binding.progressBar.setVisibility(View.GONE);
+
+                if (Float.parseFloat(ageValue) < 2) {
+                    Intent intent = new Intent(activity, ParentResult.class);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    intent.putExtra(AGE_ID, ageValue);
+                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                    startActivity(intent);
+                } else {
+                    String section6Result = PreferenceConnector.readString(Section12BActivity.this, RCADS6_RESULT, "");
+                    String section7aResult = PreferenceConnector.readString(Section12BActivity.this, RCADS7A_RESULT, "");
+                    String section7bResult = PreferenceConnector.readString(Section12BActivity.this, RCADS7B_RESULT, "");
+                    String section8Result = PreferenceConnector.readString(Section12BActivity.this, RCADS8_RESULT, "");
+                    String section9aResult = PreferenceConnector.readString(Section12BActivity.this, RCADS9_1_RESULT, "");
+                    String section9hResult = PreferenceConnector.readString(Section12BActivity.this, RCADS9_2_RESULT, "");
+                    String section9OResult = PreferenceConnector.readString(Section12BActivity.this, RCADS9_3_RESULT, "");
+                    String section10Result = PreferenceConnector.readString(Section12BActivity.this, RCADS10_RESULT, "");
+                    String section11Result = PreferenceConnector.readString(Section12BActivity.this, RCADS11_RESULT, "");
+
+                    Log.d(TAG, "section6Result : " + section6Result);
+                    Log.d(TAG, "section7aResult : " + section7aResult);
+                    Log.d(TAG, "section7bResult : " + section7bResult);
+                    Log.d(TAG, "section8Result : " + section8Result);
+                    Log.d(TAG, "section9aResult : " + section9aResult);
+                    Log.d(TAG, "section9hResult : " + section9hResult);
+                    Log.d(TAG, "section9OResult : " + section9OResult);
+                    Log.d(TAG, "section10Result : " + section10Result);
+                    Log.d(TAG, "section11Result : " + section11Result);
+
+                    Intent intent;
+                    if (section6Result.equals("1") || section7aResult.equals("1") || section7bResult.equals("1")
+                            || section8Result.equals("1") || section9aResult.equals("1") || section9hResult.equals("1") ||
+                            section9OResult.equals("1") || section10Result.equals("1") || section11Result.equals("1")) {
+                        intent = new Intent(activity, Section13Activity.class);
+                    } else {
+                        intent = new Intent(activity, ParentResult.class);
+                    }
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    intent.putExtra(AGE_ID, ageValue);
+                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
+            }
+        });
 //        if (Float.parseFloat(ageValue) <= 17.0f) {
 //            if (Float.parseFloat(ageValue) >= 6.0f) {
 //                Intent intent = new Intent(activity, Section6Activity.class);
@@ -175,52 +291,7 @@ public class Section12BActivity extends AppCompatActivity {
 //            }
 //        }
 
-        if (Float.parseFloat(ageValue) < 2) {
-            Intent intent = new Intent(activity, ParentResult.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-        } else {
-            String section6Result = PreferenceConnector.readString(this, RCADS6_RESULT, "");
-            String section7aResult = PreferenceConnector.readString(this, RCADS7A_RESULT, "");
-            String section7bResult = PreferenceConnector.readString(this, RCADS7B_RESULT, "");
-            String section8Result = PreferenceConnector.readString(this, RCADS8_RESULT, "");
-            String section9aResult = PreferenceConnector.readString(this, RCADS9_1_RESULT, "");
-            String section9hResult = PreferenceConnector.readString(this, RCADS9_2_RESULT, "");
-            String section9OResult = PreferenceConnector.readString(this, RCADS9_3_RESULT, "");
-            String section10Result = PreferenceConnector.readString(this, RCADS10_RESULT, "");
-            String section11Result = PreferenceConnector.readString(this, RCADS11_RESULT, "");
 
-            Log.d(TAG, "section6Result : " + section6Result);
-            Log.d(TAG, "section7aResult : " + section7aResult);
-            Log.d(TAG, "section7bResult : " + section7bResult);
-            Log.d(TAG, "section8Result : " + section8Result);
-            Log.d(TAG, "section9aResult : " + section9aResult);
-            Log.d(TAG, "section9hResult : " + section9hResult);
-            Log.d(TAG, "section9OResult : " + section9OResult);
-            Log.d(TAG, "section10Result : " + section10Result);
-            Log.d(TAG, "section11Result : " + section11Result);
-
-            Intent intent;
-            if (section6Result.equals("1") || section7aResult.equals("1") || section7bResult.equals("1")
-                    || section8Result.equals("1") || section9aResult.equals("1") || section9hResult.equals("1") ||
-                    section9OResult.equals("1") || section10Result.equals("1") || section11Result.equals("1")) {
-                intent = new Intent(activity, Section13Activity.class);
-            } else {
-                intent = new Intent(activity, ParentResult.class);
-            }
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-        }
 //        Intent intent = new Intent(activity, Section13Activity.class);
 //        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
 //        intent.putExtra(SURVEY_ID, surveyID);
@@ -229,6 +300,56 @@ public class Section12BActivity extends AppCompatActivity {
 //        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
 //        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
 //        startActivity(intent);
+    }
+
+    private String getSelected73h(int checkedRadioButtonId, int id, int id1) {
+        if (checkedRadioButtonId == id) {
+            return "Normal";
+        } else if (checkedRadioButtonId == id1) {
+            return "Underweight";
+        }
+        return null;
+    }
+
+    private String getSelected73D(int checkedRadioButtonId, int id, int id1) {
+        if (checkedRadioButtonId == id) {
+            return "Yes";
+        } else if (checkedRadioButtonId == id1) {
+            return "No";
+        }
+        return null;
+    }
+
+    private String getSelected73C(int checkedRadioButtonId, int id, int id1, int id2) {
+        if (checkedRadioButtonId == id) {
+            return "Normal";
+        } else if (checkedRadioButtonId == id1) {
+            return "Caesarean";
+        } else if (checkedRadioButtonId == id2) {
+            return "Others";
+        }
+        return null;
+    }
+
+
+    private String getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
+        if (checkedRadioButtonId == yesId) {
+            return "Yes";
+        } else if (checkedRadioButtonId == noId) {
+            return "No";
+        }
+        return null;
+    }
+
+    private String getSelected73A(int checkedRadioButtonId, int id, int id1, int id2) {
+        if (checkedRadioButtonId == id) {
+            return "Normal";
+        } else if (checkedRadioButtonId == id1) {
+            return "Over nourished";
+        } else if (checkedRadioButtonId == id2) {
+            return "Undernourished";
+        }
+        return null;
     }
 
     public void onClickPreviousSection(View v) {
