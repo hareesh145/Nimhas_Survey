@@ -528,11 +528,13 @@
 
 
                         <RadioGroup
+                            android:id="@+id/options213"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp">
 
                             <RadioButton
+                                android:id="@+id/yes213"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -541,6 +543,7 @@
                                 android:textAlignment="textStart" />
 
                             <RadioButton
+                                android:id="@+id/no213"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
@@ -579,6 +582,7 @@
                     </LinearLayout>
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_autism"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -586,6 +590,7 @@
                         android:text="A. Autism" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -593,6 +598,7 @@
                         android:text="B. Intellectual disability" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_Adhd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -600,6 +606,7 @@
                         android:text="C. Attention Deficit Hyperactivity Disorder" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_odd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -607,6 +614,7 @@
                         android:text="D. Oppositional Defiant Disorder" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_cd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -614,6 +622,7 @@
                         android:text="E. Conduct disorder" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_ad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -621,6 +630,7 @@
                         android:text="F. Anxiety disorders" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_depression"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -628,6 +638,7 @@
                         android:text="G. Depression" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_taada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -635,6 +646,7 @@
                         android:text="H. Tobacco, Alcohol and Drug abuse" />
 
                     <CheckBox
+                        android:id="@+id/check_bx_214_omilp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"

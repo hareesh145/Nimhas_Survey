@@ -22,11 +22,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection12Binding;
+import com.ganesh.nimhans.model.ServeySection12Request;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
+import com.google.gson.JsonObject;
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Section12Activity extends AppCompatActivity {
     Activity activity;
@@ -243,28 +252,169 @@ public class Section12Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
 
-        if (Float.parseFloat(ageValue) < 2.0f) {
-            Intent intent = new Intent(Section12Activity.this, Section12BActivity.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        ServeySection12Request serveySection12Request = new ServeySection12Request();
+
+        int checkedRadioButtonId = binding.section12RespondentGrp.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == -1) {
+            serveySection12Request.setSection12Respondent(binding.section12Respondent.getText().toString());
         } else {
-            //if the result is +ve we need to navigate
-            Util.showToast(activity, "Successfully data saved");
-            Intent intent = new Intent(activity, Section12BActivity.class);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
+            serveySection12Request.setSection12Respondent(respondentTxt);
+        }
+        serveySection12Request.setQno207(binding.illnessCare207.getText().toString());
+        if (binding.illnessCare207.getText().toString().equals("Others")) {
+            serveySection12Request.setQno208(binding.othersSpecify207.getText().toString());
+        } else {
+            serveySection12Request.setQno208(binding.illnessCare207.getText().toString());
         }
 
+        if (binding.illnessCare208.getText().toString().equals("Others")) {
+            serveySection12Request.setQno208(binding.othersSpecify208.getText().toString());
+        } else {
+            serveySection12Request.setQno208(binding.illnessCare208.getText().toString());
+        }
+
+        if (binding.options209.getCheckedRadioButtonId() != -1) {
+            serveySection12Request.setQno209(getCheckedRadioGrpID(binding.options209.getCheckedRadioButtonId(), binding.yes209.getId(), binding.no209.getId()));
+        }
+        if (!binding.othersSpecify210.getText().toString().isEmpty()) {
+            serveySection12Request.setQno210(Integer.parseInt(binding.othersSpecify210.getText().toString()));
+        }
+
+        if (binding.illnessCare211.getText().toString().equals("Others")) {
+            serveySection12Request.setQno211(binding.othersSpecify211.getText().toString());
+        } else {
+            serveySection12Request.setQno211(binding.illnessCare211.getText().toString());
+        }
+
+        if (binding.question212.getCheckedRadioButtonId() != -1) {
+            String checkIDText = getCheckedRadioGrpID212(binding.question212.getCheckedRadioButtonId(), binding.mentalHealthCare.getId(), binding.other.getId());
+            if (checkIDText.equals("Others")) {
+                serveySection12Request.setQno212(binding.othersSpecify212.getText().toString());
+            } else {
+                serveySection12Request.setQno212(checkIDText);
+            }
+        }
+
+        if (binding.options213.getCheckedRadioButtonId() != -1) {
+            serveySection12Request.setQno213(getCheckedRadioGrpID(binding.options213.getCheckedRadioButtonId(), binding.yes213.getId(), binding.no213.getId()));
+        }
+        StringBuilder section214 = new StringBuilder();
+        if (binding.checkBx214Autism.isChecked()) {
+            section214.append(binding.checkBx214Autism.getText().toString());
+        }
+
+        if (binding.checkBx214Id.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Id.getText().toString());
+        }
+        if (binding.checkBx214Adhd.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Adhd.getText().toString());
+        }
+
+        if (binding.checkBx214Odd.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Odd.getText().toString());
+        }
+
+        if (binding.checkBx214Cd.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Cd.getText().toString());
+        }
+
+        if (binding.checkBx214Ad.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Ad.getText().toString());
+        }
+        if (binding.checkBx214Depression.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Depression.getText().toString());
+        }
+
+        if (binding.checkBx214Taada.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Taada.getText().toString());
+        }
+
+        if (binding.checkBx214Taada.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Taada.getText().toString());
+        }
+        if (binding.checkBx214Omilp.isChecked()) {
+            section214.append(",");
+            section214.append(binding.checkBx214Omilp.getText().toString());
+        }
+        serveySection12Request.setQno214(section214.toString());
+        if (binding.heardVisitedOptions.getCheckedRadioButtonId() != -1) {
+            serveySection12Request.setQno215(getCheckedRadioGrpID215(binding.heardVisitedOptions.getCheckedRadioButtonId(), binding.haveNotVisited.getId(), binding.visited.getId(), binding.norVisited.getId()));
+        }
+
+        binding.progressBar.setVisibility(View.VISIBLE);
+        apiService.putServeySection12AData(eligibleResponse.houseHoldId, serveySection12Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                binding.progressBar.setVisibility(View.GONE);
+                if (Float.parseFloat(ageValue) < 2.0f) {
+                    Intent intent = new Intent(Section12Activity.this, Section12BActivity.class);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    intent.putExtra(AGE_ID, ageValue);
+                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                    startActivity(intent);
+                } else {
+                    //if the result is +ve we need to navigate
+                    Util.showToast(activity, "Successfully data saved");
+                    Intent intent = new Intent(activity, Section12BActivity.class);
+                    intent.putExtra(AGE_ID, ageValue);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                binding.progressBar.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+    }
+
+    private String getCheckedRadioGrpID212(int checkedRadioButtonId, int yesId, int noId) {
+        if (checkedRadioButtonId == yesId) {
+            return "Mental Health";
+        } else if (checkedRadioButtonId == noId) {
+            return "Others";
+        }
+        return null;
+    }
+
+    private String getCheckedRadioGrpID215(int checkedRadioButtonId, int yesId, int noId, int norVisited) {
+        if (checkedRadioButtonId == yesId) {
+            return "Heard Not Visited";
+        } else if (checkedRadioButtonId == noId) {
+            return "Visited";
+        } else if (checkedRadioButtonId == norVisited) {
+            return "Neither Heard Nor Visited";
+        }
+        return null;
+    }
+
+    private String getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
+        if (checkedRadioButtonId == yesId) {
+            return "Yes";
+        } else if (checkedRadioButtonId == noId) {
+            return "No";
+        }
+        return null;
     }
 
     public void onClickPreviousSection(View v) {

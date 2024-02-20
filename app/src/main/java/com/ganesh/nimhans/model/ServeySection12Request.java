@@ -6,15 +6,15 @@ public class ServeySection12Request {
     private String qno219;
     private String qno207;
     private String qno208;
-    private int qno209;
-    private String qno210;
+    private String qno209;
+    private int qno210;
     private String qno211;
     private String qno212;
     private String qno213;
     private String qno214;
     private String qno215;
-    private int qno216;
-    private String qno217;
+    private String qno216;
+    private int qno217;
     private String qno218;
 
 
@@ -50,19 +50,19 @@ public class ServeySection12Request {
         this.qno208 = qno208;
     }
 
-    public int getQno209() {
+    public String getQno209() {
         return qno209;
     }
 
-    public void setQno209(int qno209) {
+    public void setQno209(String qno209) {
         this.qno209 = qno209;
     }
 
-    public String getQno210() {
+    public int getQno210() {
         return qno210;
     }
 
-    public void setQno210(String qno210) {
+    public void setQno210(int qno210) {
         this.qno210 = qno210;
     }
 
@@ -106,19 +106,19 @@ public class ServeySection12Request {
         this.qno215 = qno215;
     }
 
-    public int getQno216() {
+    public String getQno216() {
         return qno216;
     }
 
-    public void setQno216(int qno216) {
+    public void setQno216(String qno216) {
         this.qno216 = qno216;
     }
 
-    public String getQno217() {
+    public int getQno217() {
         return qno217;
     }
 
-    public void setQno217(String qno217) {
+    public void setQno217(int qno217) {
         this.qno217 = qno217;
     }
 

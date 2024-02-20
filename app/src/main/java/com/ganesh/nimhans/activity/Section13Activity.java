@@ -45,17 +45,25 @@ import androidx.core.app.ActivityCompat;
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection13Binding;
+import com.ganesh.nimhans.model.ServeySection13Request;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.child.EligibleResponse;
+import com.ganesh.nimhans.service.ApiClient;
+import com.ganesh.nimhans.service.ApiInterface;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
+import com.google.gson.JsonObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Section13Activity extends AppCompatActivity {
     private static final String TAG = Section13Activity.class.getSimpleName();
@@ -169,7 +177,7 @@ public class Section13Activity extends AppCompatActivity {
                     + section11Result
                     + "\n" +
                     "The child needs to be referred to a psychiatrist for further evaluation.";
-            showCalc("Alert for child : "+eligibleResponse.qno9, alertMessage);
+            showCalc("Alert for child : " + eligibleResponse.qno9, alertMessage);
         }
 
 
@@ -224,17 +232,88 @@ public class Section13Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-        Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
-        finishAffinity();
-        Intent intent = new Intent(Section13Activity.this, ParentResult.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-        startActivity(intent);
 
+
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+
+        ServeySection13Request serveySection9Request = new ServeySection13Request();
+        if (binding.options220.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno220(getCheckedRadioGrpID(binding.options220.getCheckedRadioButtonId(), binding.yes220.getId(), binding.no220.getId()));
+        }
+
+        if (binding.options221.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno221(getCheckedRadioGrpID(binding.options221.getCheckedRadioButtonId(), binding.yes221.getId(), binding.no221.getId()));
+        }
+
+        if (binding.options222.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno222(getCheckedRadioGrpID(binding.options222.getCheckedRadioButtonId(), binding.yes222.getId(), binding.no222.getId()));
+        }
+
+        if (binding.options223.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno223(getCheckedRadioGrpID(binding.options223.getCheckedRadioButtonId(), binding.yes223.getId(), binding.no223.getId()));
+        }
+
+        if (binding.options224.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno224(getCheckedRadioGrpID(binding.options224.getCheckedRadioButtonId(), binding.yes224.getId(), binding.no224.getId()));
+        }
+
+        if (binding.options225.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno225(getCheckedRadioGrpID(binding.options225.getCheckedRadioButtonId(), binding.yes225.getId(), binding.no225.getId()));
+        }
+
+        if (binding.options226.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno226(getCheckedRadioGrpID(binding.options226.getCheckedRadioButtonId(), binding.yes226.getId(), binding.no226.getId()));
+        }
+
+
+        if (binding.yesNo227.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno227(getCheckedRadioGrpID(binding.yesNo227.getCheckedRadioButtonId(), binding.yes227.getId(), binding.no227.getId()));
+        }
+
+        if (binding.yesNo228.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno228(getCheckedRadioGrpID(binding.yesNo228.getCheckedRadioButtonId(), binding.yes228.getId(), binding.no228.getId()));
+        }
+
+        binding.progressBar.setVisibility(View.VISIBLE);
+        apiService.putServeySection13AData(eligibleResponse.houseHoldId, serveySection9Request,
+                PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                binding.progressBar.setVisibility(View.GONE);
+                try {
+                    Util.showToast(activity, "Successfully data saved");
+                    Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
+                    finishAffinity();
+                    Intent intent = new Intent(Section13Activity.this, ParentResult.class);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                    startActivity(intent);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
+                t.printStackTrace();
+            }
+        });
+
+
+    }
+
+    private String getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
+        if (checkedRadioButtonId == yesId) {
+            return "Yes";
+        } else if (checkedRadioButtonId == noId) {
+            return "No";
+        }
+        return null;
     }
 
     public void showDatePickerDialog1(View v) {
