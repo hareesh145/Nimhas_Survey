@@ -159,18 +159,18 @@ public class ConvertJsonToExcel {
             row.createCell(69).setCellValue(customer.qno64);
             row.createCell(70).setCellValue(customer.qno65);
             row.createCell(71).setCellValue(customer.socialPhobia);
-            row.createCell(72).setCellValue("");
+            row.createCell(72).setCellValue(customer.socialPhobia);
             row.createCell(73).setCellValue(customer.panicDisorder);
-            row.createCell(74).setCellValue("");
+            row.createCell(74).setCellValue(customer.panicDisorder);
             row.createCell(75).setCellValue(customer.majorDepression);
-            row.createCell(76).setCellValue("");
+            row.createCell(76).setCellValue(customer.majorDepression);
             row.createCell(77).setCellValue(customer.separationAnxiety);
-            row.createCell(78).setCellValue("");
+            row.createCell(78).setCellValue(customer.separationAnxiety);
             row.createCell(79).setCellValue(customer.generalizedAnxiety);
-            row.createCell(80).setCellValue("");
+            row.createCell(80).setCellValue(customer.generalizedAnxiety);
             row.createCell(81).setCellValue(customer.obsessiveCompulsive);
-            row.createCell(82).setCellValue("");
-            row.createCell(83).setCellValue("");
+            row.createCell(82).setCellValue(customer.obsessiveCompulsive);
+            row.createCell(83).setCellValue(customer.qno65);
             row.createCell(84).setCellValue(customer.qno66a);
             row.createCell(85).setCellValue(customer.qno67a);
             row.createCell(86).setCellValue(customer.qno68a);
@@ -249,19 +249,19 @@ public class ConvertJsonToExcel {
             row.createCell(159).setCellValue(customer.section6Arespondent);
             row.createCell(160).setCellValue(customer.childStatus);
             row.createCell(161).setCellValue(customer.section6Arespondent);
-            row.createCell(162).setCellValue("");
+            row.createCell(162).setCellValue(customer.qno73a);
             row.createCell(163).setCellValue(customer.qno73a);
             row.createCell(164).setCellValue(customer.qno73b);
             row.createCell(165).setCellValue(customer.qno73c);
-            row.createCell(166).setCellValue("");
+            row.createCell(166).setCellValue(customer.qno73c);
             row.createCell(167).setCellValue(customer.qno73d);
             row.createCell(168).setCellValue(customer.qno73e);
             row.createCell(169).setCellValue(customer.qno73f);
-            row.createCell(170).setCellValue("");
+            row.createCell(170).setCellValue(customer.qno73f);
             row.createCell(171).setCellValue(customer.qno73g);
             row.createCell(172).setCellValue(customer.qno73h);
-            row.createCell(173).setCellValue("");
-            row.createCell(174).setCellValue("");
+            row.createCell(173).setCellValue(customer.qno73h);
+            row.createCell(174).setCellValue(customer.qno73h);
             row.createCell(175).setCellValue(customer.qno74);
             row.createCell(176).setCellValue(customer.qno75);
             row.createCell(177).setCellValue(customer.qno76);
@@ -484,8 +484,10 @@ public class ConvertJsonToExcel {
         fileOut.close();
     }
     public static void writeHouseHoldTableReport(List<EligibleResponse> customers, String filePath) throws IOException {
-        String[] COLUMNs = {"Date of entry","Data Collector Name","Data Collector ID","Date of Interview","Household ID", "Child ID","State", "District", "Taluka", "City/Town/Village",
-                "Locale", "Household no", "Name of the HoH", "Address", "Mobile no","Line no" ,"Name of the HH member","Relationship", "Gender", "Age", "Marital status", "Occupation", "Education"};
+        String[] COLUMNs = {"Date of entry","Data Collector Name","Data Collector ID","Date of Interview","Household ID",
+                "Child ID","State", "District", "Taluka", "City/Town/Village",
+                "Locale", "Household no", "Name of the HoH", "Address", "Mobile no","Line no" ,
+                "Name of the HH member","Relationship", "Gender", "Age", "Marital status", "Occupation", "Education"};
 
         Workbook workbook = new XSSFWorkbook();
 
