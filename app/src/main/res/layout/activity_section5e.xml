@@ -333,6 +333,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_68e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -341,6 +342,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_68e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -349,6 +351,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_68e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -357,6 +360,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_68e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -365,6 +369,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_68e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -415,6 +420,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_69e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -432,6 +438,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_69e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -440,6 +447,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_69e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -448,6 +456,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_69e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -497,6 +506,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_70e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -505,6 +515,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_70e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -513,6 +524,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_70e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -521,6 +533,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_70e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -529,6 +542,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_70e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -578,6 +592,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_71e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -586,6 +601,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/yes_71e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -594,6 +610,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/yes_but_71e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -643,6 +660,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_72e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -651,6 +669,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_72e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -659,6 +678,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/monthly_72e"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"

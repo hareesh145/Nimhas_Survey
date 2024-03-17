@@ -5,9 +5,6 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS5_1_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS5_2_RESULT;
-import static com.ganesh.nimhans.utils.Constants.RCADS5_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION5;
@@ -22,19 +19,16 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
-import com.ganesh.nimhans.databinding.ActivitySection5Binding;
 import com.ganesh.nimhans.databinding.ActivitySection5jBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
 import com.ganesh.nimhans.model.ServeySection5Request;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
-import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.Util;
 
 import java.util.HashMap;
@@ -181,14 +175,13 @@ public class Section5jActivity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-
         serveySection5Request.setQno72j(getSelectedItem(binding.tobaccoProduct172j.getCheckedRadioButtonId(), binding.never72j.getId(), binding.oneTwice72j.getId(), binding.monthly72j.getId()));
         serveySection5Request.setQno71j(getSelectedItem(binding.tobaccoProduct171j.getCheckedRadioButtonId(), binding.noNever71j.getId(), binding.yesIn71j.getId(), binding.yesBut71j.getId()));
         serveySection5Request.setQno70j(getSelectedItem(binding.tobaccoProduct170j.getCheckedRadioButtonId(), binding.never70j.getId(), binding.onceT70j.getId(), binding.monthly70j.getId(), binding.weekly70j.getId(), binding.dailyAlmost70j.getId()));
         serveySection5Request.setQno69j(getSelectedItem69J(binding.tobaccoProduct169j.getCheckedRadioButtonId(), binding.never69j.getId(), binding.onceT69j.getId(), binding.m69j.getId(), binding.w69j.getId(), binding.dOA69j.getId()));
-        serveySection5Request.setQno68j(getSelectedItem68J67J(binding.tobaccoProduct168j.getCheckedRadioButtonId(), binding.n68j.getId(), binding.onceT68j.getId(), binding.m68j.getId(), binding.w68j.getId(), binding.doa68j.getId()));
+        serveySection5Request.setQno68j(getSelectedItem68J(binding.tobaccoProduct168j.getCheckedRadioButtonId(), binding.n68j.getId(), binding.onceT68j.getId(), binding.m68j.getId(), binding.w68j.getId(), binding.doa68j.getId()));
 
-        serveySection5Request.setQno67j(getSelectedItem68J67J(binding.alcoholProduct167j.getCheckedRadioButtonId(), binding.never67j.getId(), binding.onceOrTwice67j.getId(), binding.monthly67j.getId(), binding.weekly67j.getId(), binding.daily67j.getId()));
+        serveySection5Request.setQno67j(getSelectedItem67J(binding.alcoholProduct167j.getCheckedRadioButtonId(), binding.never67j.getId(), binding.onceOrTwice67j.getId(), binding.monthly67j.getId(), binding.weekly67j.getId(), binding.daily67j.getId()));
         serveySection5Request.setQno66j(getSelected66J(binding.others.getCheckedRadioButtonId(), binding.no366j.getId(), binding.yes266j.getId()));
         if (binding.others.getCheckedRadioButtonId() == binding.yes266j.getId()) {
             serveySection5Request.qno66jSpecify = binding.Specify1.getText().toString();
@@ -262,17 +255,33 @@ public class Section5jActivity extends AppCompatActivity {
         return -1;
     }
 
-    private int getSelectedItem68J67J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
+    private int getSelectedItem68J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
         if (selectedGrp == never) {
             return 0;
         } else if (selectedGrp == onceTwice) {
-            return 4;
+            return 3;
         } else if (selectedGrp == monthly) {
-            return 5;
+            return 4;
         } else if (selectedGrp == weekly) {
-            return 6;
+            return 5;
         } else if (selectedGrp == daily) {
-            return 7;
+            return 6;
+        }
+        return -1;
+    }
+
+
+    private int getSelectedItem67J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
+        if (selectedGrp == never) {
+            return 0;
+        } else if (selectedGrp == onceTwice) {
+            return 2;
+        } else if (selectedGrp == monthly) {
+            return 3;
+        } else if (selectedGrp == weekly) {
+            return 4;
+        } else if (selectedGrp == daily) {
+            return 6;
         }
         return -1;
     }

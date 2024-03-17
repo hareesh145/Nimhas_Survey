@@ -353,6 +353,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/never"
+                                    android:id="@+id/never68c"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -360,6 +361,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/once68c"
                                     android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
@@ -369,6 +371,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/monthly"
+                                    android:id="@+id/monthly68c"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -376,6 +379,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/weekly68c"
                                     android:text="@string/weekly"
                                     android:textAlignment="textStart" />
 
@@ -384,6 +388,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/daily68c"
                                     android:text="@string/daily_or_almost_daily"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -436,6 +441,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never69c"
                                     android:text="@string/never"
                                     android:textAlignment="textStart" />
 
@@ -444,6 +450,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/once69c"
                                     android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
@@ -453,6 +460,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/monthly69c"
                                     android:text="@string/monthly"
                                     android:textAlignment="textStart" />
 
@@ -463,6 +471,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/weekly"
+                                    android:id="@+id/weekly69c"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -471,6 +480,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/daily69c"
                                     android:text="@string/daily_or_almost_daily"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -523,6 +533,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never70b"
                                     android:text="@string/never"
                                     android:textAlignment="textStart" />
 
@@ -531,6 +542,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/once70b"
                                     android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
@@ -540,6 +552,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/monthly"
+                                    android:id="@+id/monthly70b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -548,6 +561,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/weekly"
+                                    android:id="@+id/weekly70b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -555,6 +569,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/daily70b"
                                     android:text="@string/daily_or_almost_daily"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -607,6 +622,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never71b"
                                     android:text="@string/no_never"
                                     android:textAlignment="textStart" />
 
@@ -615,6 +631,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/yes71b"
                                     android:text="@string/yes_in_the_past_3_months"
                                     android:textAlignment="textStart" />
 
@@ -623,6 +640,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/yesno71b"
                                     android:text="@string/yes_but_not_in_the_past_3_months"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -675,6 +693,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/never"
+                                    android:id="@+id/never72b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -683,6 +702,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/once_or_twice"
+                                    android:id="@+id/once72b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -691,6 +711,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/monthly"
+                                    android:id="@+id/monthly72b"
                                     android:textAlignment="textStart" />
 
 

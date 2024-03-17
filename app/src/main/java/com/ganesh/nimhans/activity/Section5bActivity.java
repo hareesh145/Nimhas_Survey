@@ -8,6 +8,7 @@ import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
 import static com.ganesh.nimhans.utils.Constants.RCADS5_1_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION5;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,6 +24,7 @@ import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.databinding.ActivitySection5bBinding;
 import com.ganesh.nimhans.model.ServeySection3cRequest;
+import com.ganesh.nimhans.model.ServeySection5Request;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.utils.Constants;
 import com.ganesh.nimhans.utils.PreferenceConnector;
@@ -45,6 +47,7 @@ public class Section5bActivity extends AppCompatActivity {
 
     private EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
+    private ServeySection5Request serveySection5Request;
     private String rCards4Result;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class Section5bActivity extends AppCompatActivity {
         myGameApp = (MyNimhans) activity.getApplicationContext();
 
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
+        serveySection5Request = (ServeySection5Request) getIntent().getSerializableExtra(SURVEY_SECTION5);
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
@@ -114,10 +118,13 @@ public class Section5bActivity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
-        if (binding.onceOrTwice67b.isChecked() || binding.monthly67b.isChecked()
-                || binding.weekly67b.isChecked() || binding.daily67b.isChecked()) {//Alcohol
-            PreferenceConnector.writeString(this, RCADS5_1_RESULT, "1");
-        }
+        serveySection5Request.setQno72b(getSelectedItem(binding.tobaccoProduct172b.getCheckedRadioButtonId(), binding.never72b.getId(), binding.once72b.getId(), binding.monthly72b.getId()));
+        serveySection5Request.setQno71b(getSelectedItem(binding.tobaccoProduct171b.getCheckedRadioButtonId(), binding.never71b.getId(), binding.yes71b.getId(), binding.yesno71b.getId()));
+        serveySection5Request.setQno70b(getSelectedItem70a(binding.tobaccoProduct170b.getCheckedRadioButtonId(), binding.never70b.getId(), binding.once70b.getId(), binding.monthly70b.getId(), binding.weekly70b.getId(), binding.daily70b.getId()));
+        serveySection5Request.setQno69b(getSelectedItem69J(binding.tobaccoProduct169b.getCheckedRadioButtonId(), binding.never69b.getId(), binding.once69b.getId(), binding.monthly69b.getId(), binding.weekly69b.getId(), binding.daily69b.getId()));
+        serveySection5Request.setQno68b(getSelectedItem68J(binding.tobaccoProduct168b.getCheckedRadioButtonId(), binding.never68b.getId(), binding.once68b.getId(), binding.monthly68b.getId(), binding.weekly68b.getId(), binding.daily68b.getId()));
+        serveySection5Request.setQno67b(getSelectedItem67J(binding.alcoholProduct167b.getCheckedRadioButtonId(), binding.never67b.getId(), binding.onceOrTwice67b.getId(), binding.monthly67b.getId(), binding.weekly67b.getId(), binding.daily67b.getId()));
+        serveySection5Request.setQno66b(getSelected66J(binding.alcoholic.getCheckedRadioButtonId(), binding.no366b.getId(), binding.yes266b.getId()));
         //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
         Intent intent = new Intent(activity, Section5cActivity.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
@@ -129,9 +136,89 @@ public class Section5bActivity extends AppCompatActivity {
         intent.putExtra("section5_status", true);
         intent.putExtra("ASSIST_screener", 1);
         intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+        intent.putExtra(SURVEY_SECTION5, serveySection5Request);
         startActivity(intent);
     }
+    private int getSelected66J(int selectedGrp, int no, int yes) {
+        if (selectedGrp == no) {
+            return 0;
+        } else if (selectedGrp == yes) {
+            return 3;
+        }
+        return -1;
+    }
 
+    private int getSelectedItem(int selectedGrp, int no, int yes, int yesBut) {
+        if (selectedGrp == no) {
+            return 0;
+        } else if (selectedGrp == yes) {
+            return 6;
+        } else if (selectedGrp == yesBut) {
+            return 3;
+        }
+        return -1;
+    }
+
+
+    private int getSelectedItem70a(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
+        if (selectedGrp == never) {
+            return 0;
+        } else if (selectedGrp == onceTwice) {
+            return 5;
+        } else if (selectedGrp == monthly) {
+            return 6;
+        } else if (selectedGrp == weekly) {
+            return 7;
+        } else if (selectedGrp == daily) {
+            return 8;
+        }
+        return -1;
+    }
+
+
+    private int getSelectedItem69J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
+        if (selectedGrp == never) {
+            return 0;
+        } else if (selectedGrp == onceTwice) {
+            return 4;
+        } else if (selectedGrp == monthly) {
+            return 5;
+        } else if (selectedGrp == weekly) {
+            return 6;
+        } else if (selectedGrp == daily) {
+            return 7;
+        }
+        return -1;
+    }
+
+    private int getSelectedItem67J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
+        if (selectedGrp == never) {
+            return 0;
+        } else if (selectedGrp == onceTwice) {
+            return 2;
+        } else if (selectedGrp == monthly) {
+            return 3;
+        } else if (selectedGrp == weekly) {
+            return 4;
+        } else if (selectedGrp == daily) {
+            return 6;
+        }
+        return -1;
+    }
+    private int getSelectedItem68J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
+        if (selectedGrp == never) {
+            return 0;
+        } else if (selectedGrp == onceTwice) {
+            return 3;
+        } else if (selectedGrp == monthly) {
+            return 4;
+        } else if (selectedGrp == weekly) {
+            return 5;
+        } else if (selectedGrp == daily) {
+            return 6;
+        }
+        return -1;
+    }
     public void updateQuestionOption(String question, int option) {
         Integer integer = questionOptionsMap.get(question);
         if (integer != null) {
