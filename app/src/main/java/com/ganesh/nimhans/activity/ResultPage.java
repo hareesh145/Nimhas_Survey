@@ -98,7 +98,30 @@ public class ResultPage extends AppCompatActivity {
                         binding.date3.setText("");
                         binding.time.setText("");
                         isInterviewcompleted = false;
-                        Toast.makeText(activity, "Household Refused to take part", Toast.LENGTH_SHORT).show();
+                        JsonObject jsonObject =new JsonObject();
+                        jsonObject.addProperty("houseHoldStatus","Residents of Household Refused to take part");
+                        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                        apiInterface.putHouseholdStatus(surveyID,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                            @Override
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                binding.progressBar.setVisibility(View.GONE);
+                                try {
+                                    JsonObject userResponse = response.body();
+                                    if (response.isSuccessful()) {
+                                        Log.d("response", "onResponse: " + userResponse);
+                                        Toast.makeText(activity, "Household Refused to take part", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                            }
+                        });
                         break;
                     case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
@@ -116,7 +139,6 @@ public class ResultPage extends AppCompatActivity {
                         break;
                     case R.id.a:
                         if (isFromSection1) {
-                            Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
                             binding.commentResultCode.setVisibility(View.GONE);
@@ -125,32 +147,6 @@ public class ResultPage extends AppCompatActivity {
                             binding.date3.setText("");
                             binding.time.setText("");
                             isInterviewcompleted = true;
-                           /* ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                            HouseHoldModel houseHoldModel = new HouseHoldModel();
-                            houseHoldModel.setHouseHoldStatus("Interview Completed");
-                            Call<JsonObject> apiCall = apiInterface.saveHouseHold(surveyID, houseHoldModel, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-
-                            apiCall.enqueue(new Callback<JsonObject>() {
-                                @Override
-                                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                   // Log.e("TAG", "onResponse: " + response.body().getAsJsonObject().get("houseHoldId"));
-                                    try {
-                                        JsonObject userResponsepartially = response.body();
-                                        if (response.isSuccessful()) {
-                                            Log.d("response", "onResponse: " + userResponsepartially);
-                                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
-                                        }
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-
-                                @Override
-                                public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                                }
-                            });*/
                         }
                         break;
                     default:
@@ -228,12 +224,146 @@ public class ResultPage extends AppCompatActivity {
         }*/
 
         if (isInterviewcompleted) {
-            Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
-            intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intentcomplet.putExtra(SURVEY_ID, surveyID);
-            startActivity(intentcomplet);
+            JsonObject jsonObject =new JsonObject();
+            jsonObject.addProperty("houseHoldStatus","Interview Completed");
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        JsonObject userResponse = response.body();
+                        if (response.isSuccessful()) {
+                            Log.d("response", "onResponse: " + userResponse);
+                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                            Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
+                            intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                            intentcomplet.putExtra(SURVEY_ID, surveyID);
+                            startActivity(intentcomplet);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
 
 
+
+        } else if (selectedResultCode.equals("Others")){
+            JsonObject jsonObject =new JsonObject();
+            jsonObject.addProperty("houseHoldStatus","Others");
+            jsonObject.addProperty("specify",binding.specify1.getText().toString());
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        JsonObject userResponse = response.body();
+                        if (response.isSuccessful()) {
+                            Log.d("response", "onResponse: " + userResponse);
+                            Toast.makeText(getApplicationContext(), "Others", Toast.LENGTH_LONG).show();
+                            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                startActivity(intent);
+
+
+                            } else {
+                                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
+        }else if(selectedResultCode.equals("Residents of Household Refused to take part")){
+            JsonObject jsonObject =new JsonObject();
+            jsonObject.addProperty("houseHoldStatus","Residents of Household Refused to take part");
+            jsonObject.addProperty("specify",binding.specify1.getText().toString());
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        JsonObject userResponse = response.body();
+                        if (response.isSuccessful()) {
+                            Log.d("response", "onResponse: " + userResponse);
+                            Toast.makeText(getApplicationContext(), "Residents of Household Refused to take part", Toast.LENGTH_LONG).show();
+                            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                startActivity(intent);
+
+
+                            } else {
+                                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
+        }else if(selectedResultCode.equals("Interview Partially Completed/Postponed")){
+            JsonObject jsonObject =new JsonObject();
+            jsonObject.addProperty("houseHoldStatus","Interview Partially Completed");
+            jsonObject.addProperty("houseHoldPCDate",binding.date3.getText().toString());
+            jsonObject.addProperty("houseHoldPCTime",binding.time.getText().toString());
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        JsonObject userResponse = response.body();
+                        if (response.isSuccessful()) {
+                            Log.d("response", "onResponse: " + userResponse);
+                            Toast.makeText(getApplicationContext(), "Residents of Household Refused to take part", Toast.LENGTH_LONG).show();
+                            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                startActivity(intent);
+
+
+                            } else {
+                                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
         } else {
             if (binding.resultCode.getCheckedRadioButtonId() != -1) {
                 Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);

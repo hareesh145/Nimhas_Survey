@@ -53,7 +53,7 @@ public class Section6Activity extends AppCompatActivity {
     String stringParent_guardian;
     RadioGroup PARENTS_GUARDIAN;
     HashMap<Integer, Integer> integerHashMap = new HashMap<>();
-    private String ageValue;
+    private String ageValue,respondentTxt;
     private EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
 
@@ -87,19 +87,25 @@ public class Section6Activity extends AppCompatActivity {
                 calculateRCadsScore();
             }
         });
-        PARENTS_GUARDIAN.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton radioButton = findViewById(checkedId);
-            String selectedValue = radioButton.getText().toString();
-            stringParent_guardian = selectedValue;
-            Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
-            switch (checkedId) {
-                case R.id.guardian_rb:
-                    binding.specifyRespo.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.specifyRespo.setVisibility(View.GONE);
-                    binding.specifyRespo.setText("");
-                    break;
+        binding.PARENTSGUARDIAN.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.mother_btn:
+                        respondentTxt = "Mother";
+                        binding.specifyRespo.setVisibility(View.GONE);
+                        binding.specifyRespo.setText("");
+                        break;
+                    case R.id.father_btn:
+                        respondentTxt = "Father";
+                        binding.specifyRespo.setVisibility(View.GONE);
+                        binding.specifyRespo.setText("");
+                        break;
+                    case R.id.gaurdian_btn:
+                        respondentTxt = "Guardian";
+                        binding.specifyRespo.setVisibility(View.VISIBLE);
+                        break;
+                }
             }
         });
     }
@@ -123,7 +129,26 @@ public class Section6Activity extends AppCompatActivity {
 
     private void calculateRCadsScore() {
         ServeySection6Request serveySection6Request = new ServeySection6Request();
-        serveySection6Request.setSection6respondent(binding.specifyRespo.getText().toString());
+        int checkedRadioButtonId = binding.PARENTSGUARDIAN.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == -1) {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection6Request.setSection6respondent(respondentTxt);
+                serveySection6Request.setSection6Gr(binding.specifyRespo.getText().toString());
+            }
+            else {
+                serveySection6Request.setSection6respondent(respondentTxt);
+                serveySection6Request.setSection6Gr("NA");
+            }
+        } else {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection6Request.setSection6respondent(respondentTxt);
+                serveySection6Request.setSection6Gr(binding.specifyRespo.getText().toString());
+            }
+            else {
+                serveySection6Request.setSection6respondent(respondentTxt);
+                serveySection6Request.setSection6Gr("NA");
+            }
+        }
         serveySection6Request.setQno77(integerHashMap.get(77));
         serveySection6Request.setQno74(integerHashMap.get(74));
         serveySection6Request.setQno75(integerHashMap.get(75));

@@ -73,6 +73,7 @@ public class Section11Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.mother_btn:
+                        respondentTxt = "Mother";
                         binding.section11Respondent.setVisibility(View.GONE);
                         binding.section11Respondent.setText("");
                         break;
@@ -100,9 +101,23 @@ public class Section11Activity extends AppCompatActivity {
         ServeySection11Request serveySection11Request = new ServeySection11Request();
         int checkedRadioButtonId = binding.section11RespondentGrp.getCheckedRadioButtonId();
         if (checkedRadioButtonId == -1) {
-            serveySection11Request.setSection11Respondent(binding.section11Respondent.getText().toString());
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection11Request.setSection11Respondent(respondentTxt);
+                serveySection11Request.setSection11Gr(binding.section11Respondent.getText().toString());
+            }
+            else {
+                serveySection11Request.setSection11Respondent(respondentTxt);
+                serveySection11Request.setSection11Gr("NA");
+            }
         } else {
-            serveySection11Request.setSection11Respondent(respondentTxt);
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection11Request.setSection11Respondent(respondentTxt);
+                serveySection11Request.setSection11Gr(binding.section11Respondent.getText().toString());
+            }
+            else {
+                serveySection11Request.setSection11Respondent(respondentTxt);
+                serveySection11Request.setSection11Gr("NA");
+            }
         }
         serveySection11Request.setQno160(getCheckedIDValue(binding.question160Grp.getCheckedRadioButtonId(), R.id.question_160_a, R.id.question_160_b, R.id.question_160_c, R.id.question_160_d));
         serveySection11Request.setQno161(getCheckedIDValue(binding.question161.getCheckedRadioButtonId(), R.id.question_161_a, R.id.question_161_b, R.id.question_161_c, R.id.question_161_d));
@@ -244,7 +259,7 @@ public class Section11Activity extends AppCompatActivity {
 
 
     private int calculateMajorDepression() {
-//        (Q.161+Q.165+Q.170+Q.174+Q.179+Q.180+Q.184+Q.188+Q.199+Q.206)
+//        (Q.161+Q.165+Q.170+Q.174+Q.178+Q.180+Q.184+Q.188+Q.199+Q.206)
         return getCheckedIDValue(binding.question161.getCheckedRadioButtonId(), R.id.question_161_a, R.id.question_161_b,
                 R.id.question_161_c, R.id.question_161_d) +
                 getCheckedIDValue(binding.question165.getCheckedRadioButtonId(), R.id.question_165_a, R.id.question_165_b,
@@ -253,8 +268,8 @@ public class Section11Activity extends AppCompatActivity {
                         R.id.question_170_c, R.id.question_170_d) +
                 getCheckedIDValue(binding.question174.getCheckedRadioButtonId(), R.id.question_174_a, R.id.question_174_b,
                         R.id.question_174_c, R.id.question_174_d) +
-                getCheckedIDValue(binding.question179.getCheckedRadioButtonId(), R.id.question_179_a, R.id.question_179_b,
-                        R.id.question_179_c, R.id.question_179_d) +
+                getCheckedIDValue(binding.question178.getCheckedRadioButtonId(), R.id.question_178_a, R.id.question_178_b,
+                        R.id.question_178_c, R.id.question_178_d) +
                 getCheckedIDValue(binding.question180.getCheckedRadioButtonId(), R.id.question_180_a, R.id.question_180_b,
                         R.id.question_180_c, R.id.question_180_d) +
                 getCheckedIDValue(binding.question184.getCheckedRadioButtonId(), R.id.question_184_a, R.id.question_184_b,
@@ -331,12 +346,12 @@ public class Section11Activity extends AppCompatActivity {
     }
 
     public int calculateGA() {
-//        (Q.160+Q.172+Q.181+Q.186+Q.195+Q.196)
+//        (Q.160+Q.172+Q.181+Q.186+Q.194+Q.196)
         return getCheckedIDValue(binding.question160Grp.getCheckedRadioButtonId(), R.id.question_160_a, R.id.question_160_b, R.id.question_160_c, R.id.question_160_d) +
                 getCheckedIDValue(binding.question172.getCheckedRadioButtonId(), R.id.question_172_a, R.id.question_172_b, R.id.question_172_c, R.id.question_172_d) +
                 getCheckedIDValue(binding.question181.getCheckedRadioButtonId(), R.id.question_181_a, R.id.question_181_b, R.id.question_181_c, R.id.question_181_d) +
                 getCheckedIDValue(binding.question186.getCheckedRadioButtonId(), R.id.question_186_a, R.id.question_186_b, R.id.question_186_c, R.id.question_186_d) +
-                getCheckedIDValue(binding.question195.getCheckedRadioButtonId(), R.id.question_195_a, R.id.question_195_b, R.id.question_195_c, R.id.question_195_d) +
+                getCheckedIDValue(binding.question194.getCheckedRadioButtonId(), R.id.question_194_a, R.id.question_194_b, R.id.question_194_c, R.id.question_194_d) +
                 getCheckedIDValue(binding.question196.getCheckedRadioButtonId(), R.id.question_196_a, R.id.question_196_b, R.id.question_196_c, R.id.question_196_d);
     }
 
@@ -352,8 +367,10 @@ public class Section11Activity extends AppCompatActivity {
             return 1;
         } else if (checkedRadioButtonId == question_160_c) {
             return 2;
-        } else {
+        } else if (checkedRadioButtonId == question_160_a) {
             return 0;
+        } else {
+            return -1;
         }
     }
 

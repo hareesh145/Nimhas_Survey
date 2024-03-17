@@ -51,9 +51,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="Welcome to the Survey Reports"
+                android:text="Welcome to the Uttarakhand Survey"
                 android:textColor="@color/app_bg_champ"
-                android:textSize="30dp" />
+                android:textSize="22dp" />
 
             <TextView
                 android:layout_width="match_parent"

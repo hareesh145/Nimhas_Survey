@@ -145,7 +145,8 @@ public interface ApiInterface {
 //    0506000304045257
     @PUT("survey-questions/{id}")
     Call<JsonObject> putStatus(@Path("id") Integer itemId, @Body JsonObject jsonObject, @Header("Authorization") String authHeader);
-
+    @PUT("house-hold/{id}")
+    Call<JsonObject> putHouseholdStatus(@Path("id") Integer itemId, @Body JsonObject jsonObject, @Header("Authorization") String authHeader);
     @POST("survey-questions/{id}")
     Call<JsonObject> consentSave(@Path("id") Integer itemId, @Body ServeySection3cRequest serveySection3cRequest, @Header("Authorization") String authHeader);
     @PUT("survey-questions/{id}")

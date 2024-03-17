@@ -411,6 +411,25 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Family Information"
+                                android:textStyle="bold"
+                                android:textColor="#79A911"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:textSize="20dp">
+
+                            </TextView>
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"

@@ -145,7 +145,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Others"
+                            android:text="Other"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -310,7 +310,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Others"
+                            android:text="Other"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -580,7 +580,219 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/total_no_of_people"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="7    Total number of people in the household"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/NoOfPeople"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Enter the number of People"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/mental_alcohol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="16.  Does anyone in the family have/had mental illness?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/answerType1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/yes16"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/no16"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/mental_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="16A.  What type of mental illness "
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/specify4layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+
+                            <EditText
+                                android:id="@+id/Specify4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="Specify4"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="17.  Does anyone in the family have/had problems related with alcohol/tobacco/substance use?"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/answerType2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/yes1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/no1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/section_17_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:text="What type of problems"
+                                    android:textAllCaps="false"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+
+                            <CheckBox
+                                android:id="@+id/alcohol"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Alcohol"
+                                android:textAlignment="textStart" />
+
+                            <CheckBox
+                                android:id="@+id/tobacco"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Tobacco"
+                                android:textAlignment="textStart" />
+
+                            <CheckBox
+                                android:id="@+id/substanceUse"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Substance use"
+                                android:textAlignment="textStart" />
+                            <!--                    </RadioGroup>-->
+                        </LinearLayout>
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

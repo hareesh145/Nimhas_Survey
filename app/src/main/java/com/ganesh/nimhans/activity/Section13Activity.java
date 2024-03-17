@@ -79,15 +79,18 @@ public class Section13Activity extends AppCompatActivity {
     private String selectedVisit;
     private String selectedResultCode;
     private String timepicker;
+    RadioButton radioButton;
     private String interviewDate;
     String selectedCaste;
     Long demoGraphicsID;
     private int surveyID;
     private String time;
+    private String respondentTxt;
     private String datePickerfield;
     EditText specify, datePicker2, timePicker;
     private EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
+    String selectedMaritalStatus;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] permissionstorage = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
 
@@ -179,7 +182,27 @@ public class Section13Activity extends AppCompatActivity {
                     "The child needs to be referred to a psychiatrist for further evaluation.";
             showCalc("Alert for child : " + eligibleResponse.qno9, alertMessage);
         }
-
+        binding.section12RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.mother_btn:
+                        respondentTxt = "Mother";
+                        binding.section12Respondent.setVisibility(View.GONE);
+                        binding.section12Respondent.setText("");
+                        break;
+                    case R.id.father_btn:
+                        respondentTxt = "Father";
+                        binding.section12Respondent.setVisibility(View.GONE);
+                        binding.section12Respondent.setText("");
+                        break;
+                    case R.id.gaurdian_btn:
+                        respondentTxt = "Guardian";
+                        binding.section12Respondent.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
+        });
 
         binding.options220.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -194,12 +217,37 @@ public class Section13Activity extends AppCompatActivity {
                 }
             }
         });
+        binding.options225.setOnCheckedChangeListener((group, checkedId) -> {
+            radioButton = findViewById(checkedId);
+            String selectedValue225 = radioButton.getText().toString();
+            selectedMaritalStatus = selectedValue225;
+            Log.d("selectedMaritalStatus", "Selected value: " + selectedMaritalStatus);
+            switch (checkedId) {
+                case R.id.no225:
+                    binding.h226227.setVisibility(View.GONE);
+                    binding.checkbox227.setVisibility(View.GONE);
+                    binding.TravelBenefit.setChecked(false);
+                    binding.specialSchools.setChecked(false);
+                    binding.HealthInsurance.setChecked(false);
+                    binding.incomeTax.setChecked(false);
+                    binding.others222.setChecked(false);
+                    binding.othersSpecify222.setVisibility(View.GONE);
+                    binding.othersSpecify222.setText("");
+                    break;
+                default:
+                    binding.h226227.setVisibility(View.VISIBLE);
+                    binding.options226.clearCheck();
+                    binding.yesNo227.clearCheck();
+                    break;
+            }
+        });
         binding.yesNo227.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == -1) return;
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
             switch (checkedId) {
-                case R.id.yes:
+                case R.id.yes227:
                     binding.checkbox227.setVisibility(View.VISIBLE);
                     break;
                 default:
@@ -212,6 +260,7 @@ public class Section13Activity extends AppCompatActivity {
                     break;
             }
         });
+
         binding.yesNo228.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
@@ -235,43 +284,188 @@ public class Section13Activity extends AppCompatActivity {
 
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-
         ServeySection13Request serveySection9Request = new ServeySection13Request();
+        int checkedRadioButtonId = binding.section12RespondentGrp.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == -1) {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection9Request.setSection13Respondent(respondentTxt);
+                serveySection9Request.setSection13Guardian(binding.section12Respondent.getText().toString());
+            }
+            else {
+                serveySection9Request.setSection13Respondent(respondentTxt);
+                serveySection9Request.setSection13Guardian("NA");
+            }
+        } else {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection9Request.setSection13Respondent(respondentTxt);
+                serveySection9Request.setSection13Guardian(binding.section12Respondent.getText().toString());
+            }
+            else {
+                serveySection9Request.setSection13Respondent(respondentTxt);
+                serveySection9Request.setSection13Guardian("NA");
+            }
+        }
         if (binding.options220.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno220(getCheckedRadioGrpID(binding.options220.getCheckedRadioButtonId(), binding.yes220.getId(), binding.no220.getId()));
+        }else {
+            serveySection9Request.setQno220("NA");
         }
 
         if (binding.options221.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno221(getCheckedRadioGrpID(binding.options221.getCheckedRadioButtonId(), binding.yes221.getId(), binding.no221.getId()));
+        }else {
+            serveySection9Request.setQno221("NA");
+        }
+        if (binding.yesno221A.getCheckedRadioButtonId() != -1) {
+            serveySection9Request.setQno221a(getCheckedRadioGrpID(binding.yesno221A.getCheckedRadioButtonId(), binding.yes221a.getId(), binding.no221a.getId()));
+        }else {
+            serveySection9Request.setQno221a("NA");
         }
 
         if (binding.options222.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno222(getCheckedRadioGrpID(binding.options222.getCheckedRadioButtonId(), binding.yes222.getId(), binding.no222.getId()));
+        }else {
+            serveySection9Request.setQno222("NA");
         }
 
         if (binding.options223.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno223(getCheckedRadioGrpID(binding.options223.getCheckedRadioButtonId(), binding.yes223.getId(), binding.no223.getId()));
+        }else {
+            serveySection9Request.setQno223("NA");
         }
 
         if (binding.options224.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno224(getCheckedRadioGrpID(binding.options224.getCheckedRadioButtonId(), binding.yes224.getId(), binding.no224.getId()));
+        }else {
+            serveySection9Request.setQno224("NA");
         }
 
         if (binding.options225.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno225(getCheckedRadioGrpID(binding.options225.getCheckedRadioButtonId(), binding.yes225.getId(), binding.no225.getId()));
+        }else {
+            serveySection9Request.setQno225("NA");
         }
 
         if (binding.options226.getCheckedRadioButtonId() != -1) {
             serveySection9Request.setQno226(getCheckedRadioGrpID(binding.options226.getCheckedRadioButtonId(), binding.yes226.getId(), binding.no226.getId()));
+        }else {
+            serveySection9Request.setQno226("NA");
         }
 
-
         if (binding.yesNo227.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno227(getCheckedRadioGrpID(binding.yesNo227.getCheckedRadioButtonId(), binding.yes227.getId(), binding.no227.getId()));
+            String yes228 = getCheckedRadioGrpID(binding.yesNo227.getCheckedRadioButtonId(), binding.yes227.getId(), binding.no227.getId());
+            serveySection9Request.setQno227(yes228);
+            if (yes228.equals("1")){
+                serveySection9Request.setQno227("1");
+                if (binding.TravelBenefit.isChecked()) {
+                    String value = binding.TravelBenefit.getText().toString();
+                    serveySection9Request.setQno227a("1");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }else {
+                    serveySection9Request.setQno227a("NA");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }
+
+                if (binding.specialSchools.isChecked()) {
+                    String value = binding.specialSchools.getText().toString();
+                    serveySection9Request.setQno227b("2");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }else {
+                    serveySection9Request.setQno227b("NA");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }
+                if (binding.HealthInsurance.isChecked()) {
+                    String value = binding.HealthInsurance.getText().toString();
+                    serveySection9Request.setQno227c("3");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }else {
+                    serveySection9Request.setQno227c("NA");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }
+
+                if (binding.incomeTax.isChecked()) {
+                    String value = binding.incomeTax.getText().toString();
+                    serveySection9Request.setQno227d("4");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }else {
+                    serveySection9Request.setQno227d("NA");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }
+                if (binding.others222.isChecked()) {
+                    String value = binding.others222.getText().toString();
+                    serveySection9Request.setQno227e("Others");
+                    serveySection9Request.setQno227eSpecify(binding.othersSpecify222.getText().toString());
+                }else {
+                    serveySection9Request.setQno227d("NA");
+                    serveySection9Request.setQno227eSpecify("NA");
+                }
+
+
+            }else{
+                serveySection9Request.setQno227("0");
+                serveySection9Request.setQno227a("NA");
+                serveySection9Request.setQno227b("NA");
+                serveySection9Request.setQno227c("NA");
+                serveySection9Request.setQno227d("NA");
+                serveySection9Request.setQno227e("NA");
+                serveySection9Request.setQno227eSpecify("NA");
+            }
+        }else{
+            serveySection9Request.setQno227("NA");
+            serveySection9Request.setQno227a("NA");
+            serveySection9Request.setQno227b("NA");
+            serveySection9Request.setQno227c("NA");
+            serveySection9Request.setQno227d("NA");
+            serveySection9Request.setQno227e("NA");
+            serveySection9Request.setQno227eSpecify("NA");
         }
 
         if (binding.yesNo228.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno228(getCheckedRadioGrpID(binding.yesNo228.getCheckedRadioButtonId(), binding.yes228.getId(), binding.no228.getId()));
+           String yes228 = getCheckedRadioGrpID(binding.yesNo228.getCheckedRadioButtonId(), binding.yes228.getId(), binding.no228.getId());
+            serveySection9Request.setQno228(yes228);
+            if (yes228.equals("1")){
+                serveySection9Request.setQno228("1");
+                if (binding.NationalTrust.isChecked()) {
+                    String value = binding.NationalTrust.getText().toString();
+                    serveySection9Request.setQno228a("1");
+                }else {
+                    serveySection9Request.setQno228a("NA");
+                }
+
+                if (binding.act2016.isChecked()) {
+                    String value = binding.act2016.getText().toString();
+                    serveySection9Request.setQno228b("2");
+                }else {
+                    serveySection9Request.setQno228b("NA");
+                }
+                if (binding.act2017.isChecked()) {
+                    String value = binding.act2017.getText().toString();
+                    serveySection9Request.setQno228c("3");
+                }else {
+                    serveySection9Request.setQno228c("NA");
+                }
+
+                if (binding.act2015.isChecked()) {
+                    String value = binding.act2015.getText().toString();
+                    serveySection9Request.setQno228d("4");
+                }else {
+                    serveySection9Request.setQno228d("NA");
+                }
+
+
+            }else{
+                serveySection9Request.setQno228("0");
+                serveySection9Request.setQno228a("NA");
+                serveySection9Request.setQno228b("NA");
+                serveySection9Request.setQno228c("NA");
+                serveySection9Request.setQno228d("NA");
+            }
+        }else{
+            serveySection9Request.setQno228("NA");
+            serveySection9Request.setQno228a("NA");
+            serveySection9Request.setQno228b("NA");
+            serveySection9Request.setQno228c("NA");
+            serveySection9Request.setQno228d("NA");
         }
 
         binding.progressBar.setVisibility(View.VISIBLE);
@@ -309,11 +503,11 @@ public class Section13Activity extends AppCompatActivity {
 
     private String getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
         if (checkedRadioButtonId == yesId) {
-            return "Yes";
+            return "1";
         } else if (checkedRadioButtonId == noId) {
-            return "No";
+            return "0";
         }
-        return null;
+        return "-1";
     }
 
     public void showDatePickerDialog1(View v) {

@@ -4,6 +4,7 @@ public class ServeySection9Request {
 
 
     private String section9Respondent;
+    private  String section9Gr;
     private int qno113;
     private int qno114;
     private int qno115;
@@ -278,5 +279,13 @@ public class ServeySection9Request {
                 ", qno137=" + qno137 +
                 ", qno138=" + qno138 +
                 '}';
+    }
+
+    public String getSection9Gr() {
+        return section9Gr;
+    }
+
+    public void setSection9Gr(String section9Gr) {
+        this.section9Gr = section9Gr;
     }
 }

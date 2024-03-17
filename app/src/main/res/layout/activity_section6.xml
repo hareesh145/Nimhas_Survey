@@ -141,6 +141,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Mother"
+                            android:id="@+id/mother_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -149,13 +150,14 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Father"
+                            android:id="@+id/father_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
+                            android:id="@+id/gaurdian_btn"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
-                            android:id="@+id/guardian_rb"
                             android:layoutDirection="rtl"
                             android:text="Guardian"
                             android:textAlignment="textStart" />

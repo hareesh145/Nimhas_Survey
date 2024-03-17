@@ -100,10 +100,26 @@ public class Section8Activity extends AppCompatActivity {
 
     private void checkRCADSScore() {
         ServeySection8Request serveySection8Request = new ServeySection8Request();
-        if (respondentTxt == null) {
-            respondentTxt = binding.respondent.getText().toString();
+        int checkedRadioButtonId = binding.respondentGrp.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == -1) {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection8Request.setSection8Respondent(respondentTxt);
+                serveySection8Request.setSection8Gr(binding.respondent.getText().toString());
+            }
+            else {
+                serveySection8Request.setSection8Respondent(respondentTxt);
+                serveySection8Request.setSection8Gr("NA");
+            }
+        } else {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection8Request.setSection8Respondent(respondentTxt);
+                serveySection8Request.setSection8Gr(binding.respondent.getText().toString());
+            }
+            else {
+                serveySection8Request.setSection8Respondent(respondentTxt);
+                serveySection8Request.setSection8Gr("NA");
+            }
         }
-        serveySection8Request.setSection8Respondent(respondentTxt);
         serveySection8Request.setQno108(getChecked108Value(binding.question108.getCheckedRadioButtonId()));
         serveySection8Request.setQno109(getChecked109Value(binding.question109.getCheckedRadioButtonId()));
         serveySection8Request.setQno110(getChecked110Value(binding.question110.getCheckedRadioButtonId()));
@@ -170,16 +186,16 @@ public class Section8Activity extends AppCompatActivity {
         switch (checkedRadioButtonId) {
             case R.id.question_108_a:
                 return 1;
-            case R.id.question_108_e:
-                return 5;
             case R.id.question_108_b:
                 return 2;
             case R.id.question_108_c:
                 return 3;
             case R.id.question_108_d:
                 return 4;
+            case R.id.question_108_e:
+                return 5;
         }
-        return 0;
+        return -1;
     }
 
 
@@ -196,7 +212,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_109_d:
                 return 4;
         }
-        return 0;
+        return -1;
     }
 
     private int getChecked110Value(int checkedRadioButtonId) {
@@ -212,7 +228,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_110_d:
                 return 4;
         }
-        return 0;
+        return -1;
     }
 
     private int getChecked111Value(int checkedRadioButtonId) {
@@ -228,7 +244,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_111_d:
                 return 4;
         }
-        return 0;
+        return -1;
     }
 
     private int getChecked112Value(int checkedRadioButtonId) {
@@ -244,7 +260,7 @@ public class Section8Activity extends AppCompatActivity {
             case R.id.question_112_d:
                 return 4;
         }
-        return 0;
+        return -1;
     }
 
     public void onClickNextSection(View v) {

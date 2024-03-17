@@ -222,6 +222,7 @@
 
 
     <string-array name="relation_ship_array">
+        <item>Self</item>
         <item>Wife/Husband</item>
         <item>Son/Daughter</item>
         <item>Son-in-law/Daughter-in-law</item>

@@ -102,9 +102,23 @@ public class Section10Activity extends AppCompatActivity {
         ServeySection10Request serveySection10Request = new ServeySection10Request();
         int checkedRadioButtonId = binding.section10RespondentGrp.getCheckedRadioButtonId();
         if (checkedRadioButtonId == -1) {
-            serveySection10Request.setSection10Respondent(binding.section10Respondent.getText().toString());
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection10Request.setSection10Respondent(respondentTxt);
+                serveySection10Request.setSection10Gr(binding.section10Respondent.getText().toString());
+            }
+            else {
+                serveySection10Request.setSection10Respondent(respondentTxt);
+                serveySection10Request.setSection10Gr("NA");
+            }
         } else {
-            serveySection10Request.setSection10Respondent(respondentTxt);
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection10Request.setSection10Respondent(respondentTxt);
+                serveySection10Request.setSection10Gr(binding.section10Respondent.getText().toString());
+            }
+            else {
+                serveySection10Request.setSection10Respondent(respondentTxt);
+                serveySection10Request.setSection10Gr("NA");
+            }
         }
         behaviorResult = behaviorResult + getCheckedIDValue(binding.question139Grp.getCheckedRadioButtonId(), R.id.question_139_a, R.id.question_139_b, R.id.question_139_c, R.id.question_139_d);
         serveySection10Request.setQno139(getCheckedIDValue(binding.question139Grp.getCheckedRadioButtonId(), R.id.question_139_a, R.id.question_139_b, R.id.question_139_c, R.id.question_139_d));
@@ -248,8 +262,10 @@ public class Section10Activity extends AppCompatActivity {
             return 1;
         } else if (checkedRadioButtonId == question_113_c) {
             return 2;
-        } else {
+        } else if (checkedRadioButtonId == question_113_a) {
             return 0;
+        } else {
+            return -1;
         }
     }
 
@@ -262,8 +278,10 @@ public class Section10Activity extends AppCompatActivity {
             return 2;
         } else if (checkedRadioButtonId == question_113_c) {
             return 3;
-        } else {
+        }else if (checkedRadioButtonId == question_113_a) {
             return 1;
+        } else {
+            return -1;
         }
     }
 }

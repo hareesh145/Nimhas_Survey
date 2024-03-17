@@ -167,12 +167,12 @@ public class ActivitySurvey extends AppCompatActivity {
 
     private void getHouseHoldFormReports() {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<SurveySection>> call = apiService.getHouseholdFormReport(
+        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
                 PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
         binding.progressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<List<SurveySection>>() {
+        call.enqueue(new Callback<List<EligibleResponse>>() {
             @Override
-            public void onResponse(Call<List<SurveySection>> call, Response<List<SurveySection>> response) {
+            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
 
@@ -184,7 +184,7 @@ public class ActivitySurvey extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<SurveySection>> call, Throwable t) {
+            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
                 Util.showToast(activity, getResources().getString(R.string.service_error));

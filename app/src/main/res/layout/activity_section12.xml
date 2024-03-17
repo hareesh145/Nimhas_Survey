@@ -903,6 +903,7 @@ MARK IN KILOMETERS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
+                            android:id="@+id/public_buses"
                             android:layoutDirection="rtl"
                             android:text="@string/public_buses" />
 
@@ -911,6 +912,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/auto_rickshaw"
                             android:text="@string/auto_rickshaw" />
 
                         <CheckBox
@@ -918,6 +920,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/train"
                             android:text="@string/train" />
 
                         <CheckBox
@@ -925,6 +928,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/private_buses"
                             android:text="@string/private_buses" />
 
                         <CheckBox
@@ -932,6 +936,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/taxis"
                             android:text="@string/taxis" />
 
                         <CheckBox
@@ -944,67 +949,7 @@ MARK IN KILOMETERS"
                             android:text="Others" />
 
 
-                    <RadioGroup
-                        android:id="@+id/modes_of_travel"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:layout_marginLeft="30dp">
 
-                        <RadioButton
-                            android:id="@+id/public_buses"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="@string/public_buses"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/auto_rickshaw"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="@string/auto_rickshaw"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/train"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="@string/train"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/private_buses"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="@string/private_buses"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/taxis"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="@string/taxis"
-                            android:textAlignment="textStart" />
-
-                        <RadioButton
-                            android:id="@+id/others_travel"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layoutDirection="rtl"
-                            android:text="Others"
-                            android:textAlignment="textStart" />
-                    </RadioGroup>
 
                     <EditText
                         android:id="@+id/others_specify_218"
@@ -1081,6 +1026,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/Easy"
                             android:text="Easy"
                             android:textAlignment="textStart" />
 
@@ -1089,6 +1035,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/some_what_possible"
                             android:text="@string/some_what_possible"
                             android:textAlignment="textStart" />
 
@@ -1097,6 +1044,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/very_difficult"
                             android:text="@string/very_difficult"
                             android:textAlignment="textStart" />
 
@@ -1105,6 +1053,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/not_possible"
                             android:text="@string/not_possible"
                             android:textAlignment="textStart" />
                     </RadioGroup>
@@ -1145,6 +1094,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/beasy"
                             android:text="Easy"
                             android:textAlignment="textStart" />
 
@@ -1153,6 +1103,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/bsome_what_possible"
                             android:text="@string/some_what_possible"
                             android:textAlignment="textStart" />
 
@@ -1161,6 +1112,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/bvery_difficult"
                             android:text="@string/very_difficult"
                             android:textAlignment="textStart" />
 
@@ -1170,6 +1122,7 @@ MARK IN KILOMETERS"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="@string/not_possible"
+                            android:id="@+id/bnot_possible"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -1209,6 +1162,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/ceasy"
                             android:text="Easy"
                             android:textAlignment="textStart" />
 
@@ -1217,6 +1171,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/csome_what_possible"
                             android:text="@string/some_what_possible"
                             android:textAlignment="textStart" />
 
@@ -1225,6 +1180,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/cvery_difficult"
                             android:text="@string/very_difficult"
                             android:textAlignment="textStart" />
 
@@ -1233,6 +1189,7 @@ MARK IN KILOMETERS"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/cnot_possible"
                             android:text="@string/not_possible"
                             android:textAlignment="textStart" />
                     </RadioGroup>

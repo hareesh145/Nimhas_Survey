@@ -54,7 +54,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
     }
 
     class EligibleChildHolder extends RecyclerView.ViewHolder {
-        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address, child_status, parent_status,mobile_number;
+        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address, child_status, parent_status,mobile_number,next_visit_date,next_visit_time,pnext_visit_date,pnext_visit_time;
 
         public EligibleChildHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +69,10 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             child_status = itemView.findViewById(R.id.child_status);
             parent_status = itemView.findViewById(R.id.parent_status);
             mobile_number = itemView.findViewById(R.id.mobile_number);
+            next_visit_time= itemView.findViewById(R.id.next_visit_time);
+            next_visit_date = itemView.findViewById(R.id.next_visit_date);
+            pnext_visit_time= itemView.findViewById(R.id.pnext_visit_time);
+            pnext_visit_date = itemView.findViewById(R.id.pnext_visit_date);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -112,11 +116,36 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             village.setText("Village : " + getSelectedVillageName(eligibleResponse.houseHold.surveySection.demographics.cityOrTownOrVillage));
             address.setText("Address: " + eligibleResponse.houseHold.surveySection.demographics.address);
             if (eligibleResponse.childStatus != null) {
-                child_status.setText("Child Status : " + eligibleResponse.childStatus);
+                if (eligibleResponse.childStatus.equals("Interview Partially Completed")){
+                    next_visit_date.setVisibility(View.VISIBLE);
+                    next_visit_time.setVisibility(View.VISIBLE);
+                    child_status.setText("Child Status : " + eligibleResponse.childStatus);
+                    next_visit_date.setText("C.Next visit date : " + eligibleResponse.childPCDate);
+                    next_visit_time.setText("C.Next visit time : " + eligibleResponse.childPCTime);
+                }else {
+                    child_status.setText("Child Status : " + eligibleResponse.childStatus);
+                    next_visit_date.setVisibility(View.GONE);
+                    next_visit_time.setVisibility(View.GONE);
+                }
             } else {
                 child_status.setText("Child Status : N/A");
             }
-            parent_status.setText("Parent Status : " + eligibleResponse.parentStatus);
+            if (eligibleResponse.parentStatus != null) {
+                if (eligibleResponse.parentStatus.equals("Interview Partially Completed")) {
+                    pnext_visit_date.setVisibility(View.VISIBLE);
+                    pnext_visit_time.setVisibility(View.VISIBLE);
+                    parent_status.setText("Parent Status : " + eligibleResponse.parentStatus);
+                    pnext_visit_date.setText("P.Next visit date : " + eligibleResponse.parentPCDate);
+                    pnext_visit_time.setText("P.Next visit time : " + eligibleResponse.parentPCTime);
+                } else {
+                    parent_status.setText("Parent Status : " + eligibleResponse.parentStatus);
+                    pnext_visit_date.setVisibility(View.GONE);
+                    pnext_visit_time.setVisibility(View.GONE);
+                }
+            }else {
+                parent_status.setText("Parent Status : N/A");
+                }
+
             mobile_number.setText("Mobile Number : " +eligibleResponse.houseHold.surveySection.demographics.mobileno);
         }
 

@@ -142,6 +142,7 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Mother"
+                            android:id="@+id/mother_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -150,10 +151,11 @@
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
                             android:text="Father"
+                            android:id="@+id/father_btn"
                             android:textAlignment="textStart" />
 
                         <RadioButton
-                            android:id="@+id/guardian_rb"
+                            android:id="@+id/gaurdian_btn"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -184,7 +186,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="How was the mother‘s nutrition during the pregnancy of this child?"
+                            android:text="73A.  How was the mother‘s nutrition during the pregnancy of this child?"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -236,10 +238,10 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="20."
+                            android:text="73B."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -383,7 +385,7 @@
                             android:text="73c."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -457,7 +459,7 @@
                             android:text="73d."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -509,7 +511,7 @@
                             android:text="73e."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -561,7 +563,7 @@
                             android:text="73f."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -625,7 +627,7 @@
                             android:text="73g."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -664,7 +666,7 @@
                             android:text="73h."
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:visibility="gone" />
+                            android:visibility="visible" />
 
                         <TextView
                             android:layout_width="match_parent"

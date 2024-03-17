@@ -47,6 +47,7 @@ public class Section7aActivity extends AppCompatActivity {
     private int surveyID;
     private String ageValue;
     private EligibleResponse eligibleResponse;
+    private String respondentTxt;
     ServeySection3cRequest serveySection3cRequest;
     String stringParent_guardian;
 
@@ -79,12 +80,20 @@ public class Section7aActivity extends AppCompatActivity {
             stringParent_guardian = selectedValue;
             Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
             switch (checkedId) {
-                case R.id.guardian:
-                    binding.otherTxt.setVisibility(View.VISIBLE);
-                    break;
-                default:
+
+                case R.id.mother_btn:
+                    respondentTxt = "Mother";
                     binding.otherTxt.setVisibility(View.GONE);
                     binding.otherTxt.setText("");
+                    break;
+                case R.id.father_btn:
+                    respondentTxt = "Father";
+                    binding.otherTxt.setVisibility(View.GONE);
+                    binding.otherTxt.setText("");
+                    break;
+                case R.id.gaurdian_btn:
+                    respondentTxt = "Guardian";
+                    binding.otherTxt.setVisibility(View.VISIBLE);
                     break;
             }
         });
@@ -94,33 +103,45 @@ public class Section7aActivity extends AppCompatActivity {
     private void checkRCADSScore() {
         ServeySection7aRequest serveySection7aRequest = new ServeySection7aRequest();
         int checkedRadioButtonId = binding.section7Respondent.getCheckedRadioButtonId();
-        if (checkedRadioButtonId != -1) {
-            RadioButton checkedID = findViewById(checkedRadioButtonId);
-            serveySection7aRequest.setMchatRespondent(checkedID.getText().toString());
+        if (checkedRadioButtonId == -1) {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection7aRequest.setMchatRespondent(respondentTxt);
+                serveySection7aRequest.setMchatGr(binding.otherTxt.getText().toString());
+            }
+            else {
+                serveySection7aRequest.setMchatRespondent(respondentTxt);
+                serveySection7aRequest.setMchatGr("NA");
+            }
         } else {
-            serveySection7aRequest.setMchatRespondent(binding.otherTxt.getText().toString());
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection7aRequest.setMchatRespondent(respondentTxt);
+                serveySection7aRequest.setMchatGr(binding.otherTxt.getText().toString());
+            }
+            else {
+                serveySection7aRequest.setMchatRespondent(respondentTxt);
+                serveySection7aRequest.setMchatGr("NA");
+            }
         }
-
-
-        serveySection7aRequest.setQno79(getCheckedID(binding.question79Options.getCheckedRadioButtonId(), R.id.question_79_yes, R.id.question_79_no));
-        serveySection7aRequest.setQno80(getCheckedID(binding.question80Options.getCheckedRadioButtonId(), R.id.question_80_yes, R.id.question_80_no));
-        serveySection7aRequest.setQno81(getCheckedID(binding.question81Options.getCheckedRadioButtonId(), R.id.question_81_yes, R.id.question_81_no));
-        serveySection7aRequest.setQno82(getCheckedID(binding.question82Options.getCheckedRadioButtonId(), R.id.question_82_yes, R.id.question_82_no));
-        serveySection7aRequest.setQno83(getCheckedID(binding.question83Options.getCheckedRadioButtonId(), R.id.question_83_yes, R.id.question_83_no));
-        serveySection7aRequest.setQno84(getCheckedID(binding.question84Options.getCheckedRadioButtonId(), R.id.question_84_yes, R.id.question_84_no));
-        serveySection7aRequest.setQno85(getCheckedID(binding.question85Options.getCheckedRadioButtonId(), R.id.question_85_yes, R.id.question_85_no));
-        serveySection7aRequest.setQno86(getCheckedID(binding.question86Options.getCheckedRadioButtonId(), R.id.question_86_yes, R.id.question_86_no));
-        serveySection7aRequest.setQno87(getCheckedID(binding.question87Options.getCheckedRadioButtonId(), R.id.question_87_yes, R.id.question_87_no));
-        serveySection7aRequest.setQno88(getCheckedID(binding.question88Options.getCheckedRadioButtonId(), R.id.question_88_yes, R.id.question_88_no));
-        serveySection7aRequest.setQno89(getCheckedID(binding.question89Options.getCheckedRadioButtonId(), R.id.question_89_yes, R.id.question_89_no));
-        serveySection7aRequest.setQno90(getCheckedID(binding.question90Options.getCheckedRadioButtonId(), R.id.question_90_yes, R.id.question_90_no));
-        serveySection7aRequest.setQno91(getCheckedID(binding.question91Options.getCheckedRadioButtonId(), R.id.question_91_yes, R.id.question_91_no));
-        serveySection7aRequest.setQno92(getCheckedID(binding.question92Options.getCheckedRadioButtonId(), R.id.question_92_yes, R.id.question_92_no));
-        serveySection7aRequest.setQno93(getCheckedID(binding.question93Options.getCheckedRadioButtonId(), R.id.question_93_yes, R.id.question_93_no));
-        serveySection7aRequest.setQno94(getCheckedID(binding.question94Options.getCheckedRadioButtonId(), R.id.question_94_yes, R.id.question_94_no));
-        serveySection7aRequest.setQno95(getCheckedID(binding.question95Options.getCheckedRadioButtonId(), R.id.question_95_yes, R.id.question_95_no));
-        serveySection7aRequest.setQno96(getCheckedID(binding.question96Options.getCheckedRadioButtonId(), R.id.question_96_yes, R.id.question_96_no));
-        serveySection7aRequest.setQno97(getCheckedID(binding.question97Options.getCheckedRadioButtonId(), R.id.question_97_yes, R.id.question_97_no));
+        serveySection7aRequest.setQno78(getCheckedIDYes1(binding.question78Options.getCheckedRadioButtonId(), R.id.question_78_yes, R.id.question_78_no));
+        serveySection7aRequest.setQno79(getCheckedIDYes0(binding.question79Options.getCheckedRadioButtonId(), R.id.question_79_yes, R.id.question_79_no));
+        serveySection7aRequest.setQno80(getCheckedIDYes1(binding.question80Options.getCheckedRadioButtonId(), R.id.question_80_yes, R.id.question_80_no));
+        serveySection7aRequest.setQno81(getCheckedIDYes1(binding.question81Options.getCheckedRadioButtonId(), R.id.question_81_yes, R.id.question_81_no));
+        serveySection7aRequest.setQno82(getCheckedIDYes0(binding.question82Options.getCheckedRadioButtonId(), R.id.question_82_yes, R.id.question_82_no));
+        serveySection7aRequest.setQno83(getCheckedIDYes1(binding.question83Options.getCheckedRadioButtonId(), R.id.question_83_yes, R.id.question_83_no));
+        serveySection7aRequest.setQno84(getCheckedIDYes1(binding.question84Options.getCheckedRadioButtonId(), R.id.question_84_yes, R.id.question_84_no));
+        serveySection7aRequest.setQno85(getCheckedIDYes1(binding.question85Options.getCheckedRadioButtonId(), R.id.question_85_yes, R.id.question_85_no));
+        serveySection7aRequest.setQno86(getCheckedIDYes1(binding.question86Options.getCheckedRadioButtonId(), R.id.question_86_yes, R.id.question_86_no));
+        serveySection7aRequest.setQno87(getCheckedIDYes1(binding.question87Options.getCheckedRadioButtonId(), R.id.question_87_yes, R.id.question_87_no));
+        serveySection7aRequest.setQno88(getCheckedIDYes1(binding.question88Options.getCheckedRadioButtonId(), R.id.question_88_yes, R.id.question_88_no));
+        serveySection7aRequest.setQno89(getCheckedIDYes0(binding.question89Options.getCheckedRadioButtonId(), R.id.question_89_yes, R.id.question_89_no));
+        serveySection7aRequest.setQno90(getCheckedIDYes1(binding.question90Options.getCheckedRadioButtonId(), R.id.question_90_yes, R.id.question_90_no));
+        serveySection7aRequest.setQno91(getCheckedIDYes1(binding.question91Options.getCheckedRadioButtonId(), R.id.question_91_yes, R.id.question_91_no));
+        serveySection7aRequest.setQno92(getCheckedIDYes1(binding.question92Options.getCheckedRadioButtonId(), R.id.question_92_yes, R.id.question_92_no));
+        serveySection7aRequest.setQno93(getCheckedIDYes1(binding.question93Options.getCheckedRadioButtonId(), R.id.question_93_yes, R.id.question_93_no));
+        serveySection7aRequest.setQno94(getCheckedIDYes1(binding.question94Options.getCheckedRadioButtonId(), R.id.question_94_yes, R.id.question_94_no));
+        serveySection7aRequest.setQno95(getCheckedIDYes1(binding.question95Options.getCheckedRadioButtonId(), R.id.question_95_yes, R.id.question_95_no));
+        serveySection7aRequest.setQno96(getCheckedIDYes1(binding.question96Options.getCheckedRadioButtonId(), R.id.question_96_yes, R.id.question_96_no));
+        serveySection7aRequest.setQno97(getCheckedIDYes1(binding.question97Options.getCheckedRadioButtonId(), R.id.question_97_yes, R.id.question_97_no));
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         apiInterface.putServeySection7AData(eligibleResponse.houseHoldId, serveySection7aRequest, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
@@ -208,14 +229,23 @@ public class Section7aActivity extends AppCompatActivity {
     }
 
 
-    private int getCheckedID(int checkedID, int yes_id, int no_id) {
+    private int getCheckedIDYes1(int checkedID, int yes_id, int no_id) {
         if (checkedID == yes_id) {
             return 1;
         } else if (checkedID == no_id) {
-            return 2;
+            return 0;
         } else {
             return -1;
         }
+    }
+        private int getCheckedIDYes0(int checkedIDYes0, int yes_idYes0, int no_idYes0) {
+            if (checkedIDYes0 == yes_idYes0) {
+                return 0;
+            } else if (checkedIDYes0 == no_idYes0) {
+                return 1;
+            } else {
+                return -1;
+            }
     }
 
     public void onClickNextSection(View v) {

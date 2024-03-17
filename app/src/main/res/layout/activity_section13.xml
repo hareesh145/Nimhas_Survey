@@ -74,10 +74,83 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:padding="10dp"
                         android:text="INTERVIEW ONLY THE PARENTS/GUARDIAN"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Respondent"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/section12RespondentGrp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp">
+
+                        <RadioButton
+                            android:id="@+id/mother_btn"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="1. Mother"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/father_btn"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="2. Father"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/gaurdian_btn"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="3. Guardian"
+                            android:textAlignment="textStart" />
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/section12Respondent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_border"
+                        android:hint="Specify"
+                        android:padding="10dp"
+                        android:inputType="textCapSentences"
+                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        android:textAllCaps="false"
+                        android:textColor="#000000"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -209,6 +282,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                     <RadioGroup
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/yesno_221A"
                         android:layout_marginLeft="30dp">
 
                         <RadioButton
@@ -216,6 +290,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/yes221a"
                             android:text="1. Yes"
                             android:textAlignment="textStart" />
 
@@ -224,6 +299,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
+                            android:id="@+id/no221a"
                             android:text="2. No"
                             android:textAlignment="textStart" />
                     </RadioGroup>
@@ -427,7 +503,12 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:text="2. No"
                             android:textAlignment="textStart" />
                     </RadioGroup>
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/h226227"
+                        android:visibility="visible"
+                        android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -527,7 +608,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:text="2. No"
                             android:textAlignment="textStart" />
                     </RadioGroup>
-
+                    </LinearLayout>
                     <LinearLayout
                         android:id="@+id/checkbox_227"
                         android:layout_width="match_parent"
@@ -575,6 +656,19 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layoutDirection="rtl"
                             android:onClick="@{handlers::onCheckboxClicked}"
                             android:text="Others" />
+                        <EditText
+                            android:id="@+id/others_specify_222"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:hint="Specify227"
+                            android:inputType="textPersonName"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:visibility="gone" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -712,19 +806,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:textColor="#000000" />
                     </LinearLayout>
 
-                    <EditText
-                        android:id="@+id/others_specify_222"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:background="@drawable/edit_text_border"
-                        android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                        android:hint="Specify"
-                        android:inputType="textPersonName"
-                        android:padding="10dp"
-                        android:textAllCaps="false"
-                        android:textColor="#000000"
-                        android:visibility="gone" />
+
 
 
                     <EditText

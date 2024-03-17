@@ -86,7 +86,7 @@ public class Section5dActivity extends AppCompatActivity {
                     binding.tobaccoProduct169d.clearCheck();
                     binding.tobaccoProduct170d.clearCheck();
                     binding.tobaccoProduct171d.clearCheck();
-                    binding.aTobaccoGrp.clearCheck();
+                    //binding.aTobaccoGrp.clearCheck();
                     break;
             }
         });

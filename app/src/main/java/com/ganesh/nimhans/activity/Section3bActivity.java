@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.FAMILY_COUNT;
 import static com.ganesh.nimhans.utils.Constants.House_Hold_Model;
 import static com.ganesh.nimhans.utils.Constants.LINE_NO;
 import static com.ganesh.nimhans.utils.Constants.MARITAL_STATUS;
+import static com.ganesh.nimhans.utils.Constants.NOOFPEOPLE;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_PEOPLE;
 import static com.ganesh.nimhans.utils.Constants.REPEAT_COUNT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
@@ -64,7 +65,7 @@ public class Section3bActivity extends AppCompatActivity {
     RadioButton radioButton;
     RadioGroup Gender, AnswerType1;
     String selectedGender;
-    String selectedMaritalStatus1 = "";
+    String selectedMaritalStatus1;
     String selectedAnswerType2;
     String selectedTobacco;
     String selectedNicotineUsed;
@@ -87,7 +88,7 @@ public class Section3bActivity extends AppCompatActivity {
     MyNimhans myGameApp;
     Long demoGraphicsID;
     private int surveyID;
-    private String maritalState;
+    private String maritalState,NO_OF_PEOPLE;
 
     String[] selectedTypeOfProblem;
     int repeatCount = 0;
@@ -117,6 +118,7 @@ public class Section3bActivity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         maritalState = getIntent().getStringExtra(MARITAL_STATUS);
+        NO_OF_PEOPLE = getIntent().getStringExtra(NO_OF_PEOPLE);
         ActivityCompat.requestPermissions( this,
                 new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -131,7 +133,7 @@ public class Section3bActivity extends AppCompatActivity {
             binding.relation.setVisibility(View.VISIBLE);
             binding.selfEdittext.setVisibility(View.GONE);
             binding.NoOfPeople.setText(String.valueOf(getIntent().getIntExtra(NO_OF_PEOPLE, 0)));
-            Log.d("TAG", "onCreate: " + binding.NoOfPeople.getText().toString());
+            Log.d("TAG", "onCreate: " + NO_OF_PEOPLE);
             binding.lineNo.setText(String.valueOf(getIntent().getIntExtra(LINE_NO, 0)));
             repeatCount = getIntent().getIntExtra(REPEAT_COUNT, 0);
 
@@ -145,7 +147,7 @@ public class Section3bActivity extends AppCompatActivity {
             binding.whatIsRelationTxt.setText("What is the relationship of (" + nameOfRespondent + ") to you?");
             binding.isNameMaleOrFemale.setText("Is (" + nameOfRespondent + ") a male or female?");
             binding.howOldAge.setText("How old is (" + nameOfRespondent + ")?");
-            binding.relation.selectItemByIndex(0);
+            binding.relation.setText("Self");
             int checkedID = getCheckedID(maritalState);
             if (checkedID != -1) {
                 binding.maritalStatus1.check(checkedID);
@@ -172,9 +174,11 @@ public class Section3bActivity extends AppCompatActivity {
         if (repeatCount > 1) {
             binding.addMember.setVisibility(View.VISIBLE);
             binding.nextbutton.setVisibility(View.GONE);
+            binding.mentalAlcohol.setVisibility(View.GONE);
         } else {
             binding.addMember.setVisibility(View.GONE);
             binding.nextbutton.setVisibility(View.VISIBLE);
+            binding.mentalAlcohol.setVisibility(View.GONE);
         }
 
         binding.NoOfPeople.addTextChangedListener(new TextWatcher() {
@@ -254,6 +258,18 @@ public class Section3bActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus1 = selectedValue;
             Log.d("selectedMaritalStatus1", "Selected value: " + selectedMaritalStatus1);
+            switch (checkedId) {
+
+                case R.id.NotMarried:
+                    break;
+                case R.id.Married:
+                    break;
+                case R.id.WorDorS:
+                    break;
+                default:
+                    break;
+            }
+
         });
         AnswerType1.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
@@ -368,35 +384,6 @@ public class Section3bActivity extends AppCompatActivity {
         occupation = binding.occupation.getText().toString();
         education = binding.education.getText().toString();
 
-        ServeySection3bRequest serveySection5Request = new ServeySection3bRequest();
-        if (!NoOfPersons.getText().toString().isEmpty()) {
-            serveySection5Request.setQno7(Integer.parseInt(NoOfPersons.getText().toString()));
-        } else {
-            serveySection5Request.setQno7(0);
-        }
-
-        if (!binding.lineNo.getText().toString().isEmpty()) {
-            serveySection5Request.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
-        } else {
-            serveySection5Request.setQno8(0);
-        }
-        serveySection5Request.setQno9(Name.getText().toString());
-        serveySection5Request.setQno10(binding.relation.getText().toString());
-        serveySection5Request.setQno11(getGendarSelection());
-        if (!binding.age.getText().toString().isEmpty()) {
-            serveySection5Request.setQno12(Integer.parseInt(binding.age.getText().toString()));
-        } else {
-            serveySection5Request.setQno12(0);
-        }
-
-        serveySection5Request.setQno13(selectedMaritalStatus1);
-        serveySection5Request.setQno14(binding.occupation.getText().toString());
-        serveySection5Request.setQno15(binding.education.getText().toString());
-        serveySection5Request.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
-        serveySection5Request.setQno16A(binding.Specify4.getText().toString());
-        serveySection5Request.setQno17(selectedAnswerType2);
-        serveySection5Request.setQno17A(selectedNicotineUsed);
-
         binding.progressBar.setVisibility(View.VISIBLE);
 
         ArrayList<String> selectedTypeOfProblems = new ArrayList<>();
@@ -431,7 +418,6 @@ public class Section3bActivity extends AppCompatActivity {
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         HouseHoldModel houseHoldModel = new HouseHoldModel();
-        houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
         houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
         houseHoldModel.setQno9(binding.Name.getText().toString());
         houseHoldModel.setQno10(binding.relation.getText().toString());
@@ -440,7 +426,18 @@ public class Section3bActivity extends AppCompatActivity {
         if (!binding.age.getText().toString().isEmpty()) {
             houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
         }
-        houseHoldModel.setQno13(selectedMaritalStatus1);
+        try {
+            if (!maritalState.isEmpty()) {
+                houseHoldModel.setQno13(maritalState);
+            } else if (!selectedMaritalStatus1.isEmpty()) {
+                houseHoldModel.setQno13(selectedMaritalStatus1);
+            } else {
+                houseHoldModel.setQno13(selectedMaritalStatus1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         houseHoldModel.setQno14(binding.occupation.getText().toString());
         houseHoldModel.setQno15(binding.education.getText().toString());
         houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
@@ -448,7 +445,7 @@ public class Section3bActivity extends AppCompatActivity {
         houseHoldModel.setQno17(selectedAnswerType2);
         houseHoldModel.setLatitude(latitude);
         houseHoldModel.setLongitude(longitude);
-
+        Log.e("Request","Body"+houseHoldModel);
         if (selectedTypeOfProblems.size() > 0)
             houseHoldModel.setQno17A(selectedTypeOfProblem);
 
@@ -457,7 +454,7 @@ public class Section3bActivity extends AppCompatActivity {
         apiCall.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Intent intent = new Intent(activity, Section3Mentalillness.class);
+                Intent intent = new Intent(activity, ResultPage.class);
                 Log.e("TAG", "onResponse: " + response.body().getAsJsonObject().get("houseHoldId"));
                 householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
                 int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
@@ -481,45 +478,6 @@ public class Section3bActivity extends AppCompatActivity {
 
             }
         });
-//        Call<JsonObject> call = apiService.putServeySection3BData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-//        call.enqueue(new Callback<JsonObject>() {
-//            @Override
-//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//                if (binding.progressBar.isShown())
-//                    binding.progressBar.setVisibility(View.GONE);
-//                JsonObject userResponse = response.body();
-//                if (response.isSuccessful()) {
-//                    Log.d("response", "onResponse: " + userResponse);
-//                    Util.showToast(activity, "Successfully data saved");
-//                    Intent intent = new Intent(Section3bActivity.this, Section3cActivity.class);
-//                    if (!binding.age.getText().toString().isEmpty()) {
-//                        int age = Integer.parseInt(binding.age.getText().toString());
-//                        if (age > 17) {
-//                            intent = new Intent(Section3bActivity.this, Section12Activity.class);
-//                        } else if (age > 8 && age < 17) {
-//                            intent = new Intent(Section3bActivity.this, Section3cActivity.class);
-//                        } else if (age > 6 && age < 17) {
-//                            intent = new Intent(Section3bActivity.this, Section4Activity.class);
-//                        }
-//                    }
-//
-//                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-//                    intent.putExtra(SURVEY_ID, surveyID);
-//                    intent.putExtra(AGE_ID, binding.age.getText().toString());
-//                    startActivity(intent);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<JsonObject> call, Throwable t) {
-//                binding.progressBar.setVisibility(View.GONE);
-//                Util.showToast(activity, "Successfully data saved");
-//                Intent intent = new Intent(Section3bActivity.this, Section3cActivity.class);
-//                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-//                intent.putExtra(SURVEY_ID, surveyID);
-//                startActivity(intent);
-//            }
-//        });
 
 
     }
@@ -564,36 +522,6 @@ public class Section3bActivity extends AppCompatActivity {
             occupation = binding.occupation.getText().toString();
             education = binding.education.getText().toString();
 
-            ServeySection3bRequest serveySection5Request = new ServeySection3bRequest();
-            if (!NoOfPersons.getText().toString().isEmpty()) {
-                serveySection5Request.setQno7(Integer.parseInt(NoOfPersons.getText().toString()));
-            } else {
-                serveySection5Request.setQno7(0);
-            }
-
-            if (!binding.lineNo.getText().toString().isEmpty()) {
-                serveySection5Request.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
-            } else {
-                serveySection5Request.setQno8(0);
-            }
-            serveySection5Request.setQno9(Name.getText().toString());
-            serveySection5Request.setQno10(binding.relation.getText().toString());
-            serveySection5Request.setQno11(getGendarSelection());
-            if (!binding.age.getText().toString().isEmpty()) {
-                serveySection5Request.setQno12(Integer.parseInt(binding.age.getText().toString()));
-            } else {
-                serveySection5Request.setQno12(0);
-            }
-
-            serveySection5Request.setQno13(selectedMaritalStatus1);
-            serveySection5Request.setQno14(binding.occupation.getText().toString());
-            serveySection5Request.setQno15(binding.education.getText().toString());
-            serveySection5Request.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
-            serveySection5Request.setQno16A(binding.Specify4.getText().toString());
-            serveySection5Request.setQno17(selectedAnswerType2);
-            serveySection5Request.setQno17A(selectedNicotineUsed);
-
-
             binding.progressBar.setVisibility(View.VISIBLE);
 
             ArrayList<String> selectedTypeOfProblems = new ArrayList<>();
@@ -628,9 +556,6 @@ public class Section3bActivity extends AppCompatActivity {
 
             ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
             HouseHoldModel houseHoldModel = new HouseHoldModel();
-            if (!binding.NoOfPeople.getText().toString().isEmpty()) {
-                houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
-            }
             if (!binding.lineNo.getText().toString().isEmpty()) {
                 houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
             }
@@ -641,13 +566,20 @@ public class Section3bActivity extends AppCompatActivity {
             if (!binding.age.getText().toString().isEmpty()) {
                 houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
             }
-            houseHoldModel.setQno13(selectedMaritalStatus1);
+            if (!maritalState.isEmpty()){
+                houseHoldModel.setQno13(maritalState);
+            }
+            else if(!selectedMaritalStatus1.isEmpty()){
+                houseHoldModel.setQno13(selectedMaritalStatus1);
+            }else {
+                houseHoldModel.setQno13(selectedMaritalStatus1);
+            }
             houseHoldModel.setQno14(binding.occupation.getText().toString());
             houseHoldModel.setQno15(binding.education.getText().toString());
             houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");
             houseHoldModel.setQno16A(binding.Specify4.getText().toString());
             houseHoldModel.setQno17(selectedAnswerType2);
-
+            Log.e("Request","Body"+houseHoldModel);
             if (selectedTypeOfProblems.size() > 0)
                 houseHoldModel.setQno17A(selectedTypeOfProblem);
 
@@ -728,7 +660,6 @@ public class Section3bActivity extends AppCompatActivity {
 
             ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
             HouseHoldModel houseHoldModel = new HouseHoldModel();
-            houseHoldModel.setQno7(Integer.parseInt(binding.NoOfPeople.getText().toString()));
             houseHoldModel.setQno8(Integer.parseInt(binding.lineNo.getText().toString()));
             houseHoldModel.setQno9(binding.Name.getText().toString());
             houseHoldModel.setQno10(binding.relation.getText().toString());
@@ -737,7 +668,14 @@ public class Section3bActivity extends AppCompatActivity {
             if (!binding.age.getText().toString().isEmpty()) {
                 houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
             }
-            houseHoldModel.setQno13(selectedMaritalStatus1);
+            if (!maritalState.isEmpty()){
+                houseHoldModel.setQno13(maritalState);
+            }
+            else if(!selectedMaritalStatus1.isEmpty()){
+                houseHoldModel.setQno13(selectedMaritalStatus1);
+            }else {
+                houseHoldModel.setQno13(selectedMaritalStatus1);
+            }
             houseHoldModel.setQno14(binding.occupation.getText().toString());
             houseHoldModel.setQno15(binding.education.getText().toString());
             houseHoldModel.setQno16(binding.answerType1.getCheckedRadioButtonId() == R.id.yes ? "Yes" : "No");

@@ -195,7 +195,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="98."
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -282,7 +282,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:text="99."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -379,7 +379,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="100."
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -488,7 +488,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:text="101."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -584,7 +584,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="1dp"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:text="102."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -671,7 +671,7 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="103."
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -777,7 +777,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:text="104."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -874,7 +874,7 @@
                             android:gravity="center"
                             android:padding="1dp"
                             android:text="105."
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -951,7 +951,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="106."
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -1033,7 +1033,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="107."
-                            android:visibility="gone"
+                            android:visibility="visible"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 

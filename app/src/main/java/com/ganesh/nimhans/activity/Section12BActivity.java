@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -54,7 +56,7 @@ public class Section12BActivity extends AppCompatActivity {
     private EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
     String stringParent_guardian;
-    private String ageValue;
+    private String ageValue,respondentTxt;
     private String rCards4Result;
 
     @Override
@@ -107,19 +109,25 @@ public class Section12BActivity extends AppCompatActivity {
                     break;
             }
         });
-        binding.PARENTSGUARDIAN.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton radioButton = findViewById(checkedId);
-            String selectedValue = radioButton.getText().toString();
-            stringParent_guardian = selectedValue;
-            Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
-            switch (checkedId) {
-                case R.id.guardian_rb:
-                    binding.specifyRespo.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.specifyRespo.setVisibility(View.GONE);
-                    binding.specifyRespo.setText("");
-                    break;
+        binding.PARENTSGUARDIAN.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.mother_btn:
+                        respondentTxt = "Mother";
+                        binding.specifyRespo.setVisibility(View.GONE);
+                        binding.specifyRespo.setText("");
+                        break;
+                    case R.id.father_btn:
+                        respondentTxt = "Father";
+                        binding.specifyRespo.setVisibility(View.GONE);
+                        binding.specifyRespo.setText("");
+                        break;
+                    case R.id.gaurdian_btn:
+                        respondentTxt = "Guardian";
+                        binding.specifyRespo.setVisibility(View.VISIBLE);
+                        break;
+                }
             }
         });
         binding.noFunyes.setOnCheckedChangeListener((group, checkedId) -> {
@@ -143,51 +151,129 @@ public class Section12BActivity extends AppCompatActivity {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         SurveySection12B surveySection12B = new SurveySection12B();
+        int checkedRadioButtonId = binding.PARENTSGUARDIAN.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == -1) {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                surveySection12B.setSection6Arespondent(respondentTxt);
+                surveySection12B.setSection6AGuardian(binding.specifyRespo.getText().toString());
+            }
+            else {
+                surveySection12B.setSection6Arespondent(respondentTxt);
+                surveySection12B.setSection6AGuardian("NA");
+            }
+        } else {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                surveySection12B.setSection6Arespondent(respondentTxt);
+                surveySection12B.setSection6AGuardian(binding.specifyRespo.getText().toString());
+            }
+            else {
+                surveySection12B.setSection6Arespondent(respondentTxt);
+                surveySection12B.setSection6AGuardian("NA");
+            }
+        }
         if (binding.Anxiety.getCheckedRadioButtonId() != -1) {
-            surveySection12B.qno73a = getSelected73A(binding.Anxiety.getCheckedRadioButtonId(), binding.never45.getId(), binding.sometime.getId(), binding.often.getId());
+            surveySection12B.setQno73a(Integer.toString(getSelected73A(binding.Anxiety.getCheckedRadioButtonId(), binding.never45.getId(), binding.sometime.getId(), binding.often.getId())));
+        }else {
+            surveySection12B.setQno73a("NA");
         }
         if (binding.problemMother.getCheckedRadioButtonId() != -1) {
-            surveySection12B.qno73b = getCheckedRadioGrpID(binding.problemMother.getCheckedRadioButtonId(), binding.yesMother.getId(), binding.noMother.getId());
+            String mother73b = Integer.toString(getCheckedRadioGrpID(binding.problemMother.getCheckedRadioButtonId(), binding.yesMother.getId(), binding.noMother.getId()));
+            surveySection12B.setQno73b(mother73b);
+            if (mother73b.equals("1")){
+                if (binding.HypertensionHighBP.isChecked()) {
+                    surveySection12B.setQno73ba(binding.HypertensionHighBP.getText().toString());
+                }else {
+                    surveySection12B.setQno73ba("NA");
+
+                }
+                if (binding.DiabetesMellitus.isChecked()) {
+                    surveySection12B.setQno73bb(binding.DiabetesMellitus.getText().toString());
+                }else {
+                    surveySection12B.setQno73bb("NA");
+
+                }
+                if (binding.Infections.isChecked()) {
+                    surveySection12B.setQno73bc(binding.Infections.getText().toString());
+                }else {
+                    surveySection12B.setQno73bc("NA");
+
+                }
+                if (binding.SeizuresConvulsions.isChecked()) {
+                    surveySection12B.setQno73bd(binding.SeizuresConvulsions.getText().toString());
+                }else {
+                    surveySection12B.setQno73bd("NA");
+
+                }
+            }else {
+                surveySection12B.setQno73ba("NA NO");
+                surveySection12B.setQno73bb("NA NO");
+                surveySection12B.setQno73bc("NA NO");
+                surveySection12B.setQno73bd("NA NO");
+            }
+        }else {
+            surveySection12B.setQno73ba("NA NO");
+            surveySection12B.setQno73bb("NA NO");
+            surveySection12B.setQno73bc("NA NO");
+            surveySection12B.setQno73bd("NA NO");
         }
 
 
         if (binding.funnyFeeling.getCheckedRadioButtonId() != -1) {
-            String typeOfDelivery = getSelected73C(binding.funnyFeeling.getCheckedRadioButtonId(), binding.never47.getId(), binding.sometime2.getId(), binding.often2.getId());
-            if (typeOfDelivery.equals("Others")) {
-                surveySection12B.qno73c = binding.Specify1.getText().toString();
+            String typeOfDelivery = Integer.toString(getSelected73C(binding.funnyFeeling.getCheckedRadioButtonId(), binding.never47.getId(), binding.sometime2.getId(), binding.often2.getId()));
+            if (typeOfDelivery.equals("96")) {
+                surveySection12B.setQno73c(typeOfDelivery);
+                surveySection12B.setQno73cSpecify(binding.Specify1.getText().toString());
             } else {
-                surveySection12B.qno73c = typeOfDelivery;
+                surveySection12B.setQno73c(typeOfDelivery);
+                surveySection12B.setQno73cSpecify("NA");
             }
+        }else {
+            surveySection12B.setQno73c("NA");
+            surveySection12B.setQno73cSpecify("NA");
         }
         if (binding.feelingWorry.getCheckedRadioButtonId() != -1) {
-            String typeOfDelivery = getSelected73D(binding.feelingWorry.getCheckedRadioButtonId(), binding.never1.getId(), binding.sometime3.getId());
-            surveySection12B.qno73d = typeOfDelivery;
+            String typeOfDelivery = Integer.toString(getSelected73D(binding.feelingWorry.getCheckedRadioButtonId(), binding.never1.getId(), binding.sometime3.getId()));
+            surveySection12B.setQno73d(typeOfDelivery);
+        }else {
+            surveySection12B.setQno73d("NA");
         }
 
 
         if (binding.feelingAfraid.getCheckedRadioButtonId() != -1) {
-            String typeOfDelivery = getSelected73D(binding.feelingAfraid.getCheckedRadioButtonId(), binding.never2.getId(), binding.sometime4.getId());
-            surveySection12B.qno73e = typeOfDelivery;
+            String typeOfDelivery = Integer.toString(getSelected73D(binding.feelingAfraid.getCheckedRadioButtonId(), binding.never2.getId(), binding.sometime4.getId()));
+            surveySection12B.setQno73e(typeOfDelivery);
+        }else {
+            surveySection12B.setQno73e("NA");
         }
 
         if (binding.noFunyes.getCheckedRadioButtonId() != -1) {
-            String typeOfDelivery = getSelected73D(binding.noFunyes.getCheckedRadioButtonId(), binding.never3.getId(), binding.sometime5.getId());
-            surveySection12B.qno73f = typeOfDelivery;
+            String typeOfDelivery = Integer.toString(getSelected73D(binding.noFunyes.getCheckedRadioButtonId(), binding.never3.getId(), binding.sometime5.getId()));
+            if (typeOfDelivery.equals("1")) {
+                surveySection12B.setQno73f(typeOfDelivery);
+                surveySection12B.setQno73fSpecify(binding.Specify2.getText().toString());
+            } else {
+                surveySection12B.setQno73f(typeOfDelivery);
+                surveySection12B.setQno73fSpecify("NA");
+            }
+        }else {
+            surveySection12B.setQno73f("NA");
+            surveySection12B.setQno73fSpecify("NA");
         }
 
-        if (binding.noFunyes.getCheckedRadioButtonId() != -1) {
-            String typeOfDelivery = getSelected73D(binding.noFunyes.getCheckedRadioButtonId(), binding.never3.getId(), binding.sometime5.getId());
-            surveySection12B.qno73f = typeOfDelivery;
-        }
         if (!binding.Specify3.getText().toString().isEmpty()) {
-            surveySection12B.qno73g = Integer.parseInt(binding.Specify3.getText().toString());
+            surveySection12B.setQno73g(Integer.parseInt(binding.Specify3.getText().toString()));
+        }else {
+            surveySection12B.setQno73g(-1);
         }
 
 
         if (binding.noFun.getCheckedRadioButtonId() != -1) {
-            String typeOfDelivery = getSelected73h(binding.noFun.getCheckedRadioButtonId(), binding.neverh.getId(), binding.sometime5h.getId());
-            surveySection12B.qno73h = typeOfDelivery;
+            String typeOfDelivery = Integer.toString(getSelected73h(binding.noFun.getCheckedRadioButtonId(), binding.neverh.getId(), binding.sometime5h.getId(),binding.sometimeh.getId()));
+            surveySection12B.setQno73h(typeOfDelivery);
+        }else {
+            surveySection12B.setQno73h("NA");
         }
+
         binding.progressBar.setVisibility(View.VISIBLE);
         apiService.putServeySection12BData(eligibleResponse.houseHoldId, surveySection12B, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
             @Override
@@ -302,54 +388,56 @@ public class Section12BActivity extends AppCompatActivity {
 //        startActivity(intent);
     }
 
-    private String getSelected73h(int checkedRadioButtonId, int id, int id1) {
+    private int getSelected73h(int checkedRadioButtonId, int id, int id1,int id2) {
         if (checkedRadioButtonId == id) {
-            return "Normal";
+            return 1;
         } else if (checkedRadioButtonId == id1) {
-            return "Underweight";
+            return 2;
+        }else if (checkedRadioButtonId == id2) {
+            return 3;
         }
-        return null;
+        return -1;
     }
 
-    private String getSelected73D(int checkedRadioButtonId, int id, int id1) {
+    private int getSelected73D(int checkedRadioButtonId, int id, int id1) {
         if (checkedRadioButtonId == id) {
-            return "Yes";
+            return 1;
         } else if (checkedRadioButtonId == id1) {
-            return "No";
+            return 0;
         }
-        return null;
+        return -1;
     }
 
-    private String getSelected73C(int checkedRadioButtonId, int id, int id1, int id2) {
+    private int getSelected73C(int checkedRadioButtonId, int id, int id1, int id2) {
         if (checkedRadioButtonId == id) {
-            return "Normal";
+            return 1;
         } else if (checkedRadioButtonId == id1) {
-            return "Caesarean";
+            return 2;
         } else if (checkedRadioButtonId == id2) {
-            return "Others";
+            return 96;
         }
-        return null;
+        return -1;
     }
 
 
-    private String getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
+    private int getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
         if (checkedRadioButtonId == yesId) {
-            return "Yes";
+            return 1;
         } else if (checkedRadioButtonId == noId) {
-            return "No";
+            return 0;
         }
-        return null;
+        return -1;
     }
 
-    private String getSelected73A(int checkedRadioButtonId, int id, int id1, int id2) {
+    private int getSelected73A(int checkedRadioButtonId, int id, int id1, int id2) {
         if (checkedRadioButtonId == id) {
-            return "Normal";
+            return 1;
         } else if (checkedRadioButtonId == id1) {
-            return "Over nourished";
+            return 2;
         } else if (checkedRadioButtonId == id2) {
-            return "Undernourished";
+            return 3;
         }
-        return null;
+        return -1;
     }
 
     public void onClickPreviousSection(View v) {

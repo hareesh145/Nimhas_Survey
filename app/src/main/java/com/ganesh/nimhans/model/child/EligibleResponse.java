@@ -17,6 +17,14 @@ public class EligibleResponse implements Serializable {
     public String qno16;
     public String qno16A;
     public String qno17;
-    public ArrayList<String> qno17A;
+    public String qno17A;
+    public String qno17B;
+    public String qno17C;
+    public String houseHoldStatus;
+    public  String houseHoldPCDate;
+    public String houseHoldPCTime;
+    public String specify;
+    public String qno1Other;
+    public  String qno3Other;
     public SurveySection surveySection;
 }

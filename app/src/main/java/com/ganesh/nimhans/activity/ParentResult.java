@@ -127,61 +127,11 @@ public class ParentResult extends AppCompatActivity {
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
-                        JsonObject jsonObjectrefused =new JsonObject();
-                        jsonObjectrefused.addProperty("parentStatus","Refused");
-                        ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponserefused = response.body();
-                                    if (response.isSuccessful()) {
-                                        Log.d("response", "onResponse: " + userResponserefused);
-                                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
                         break;
                     case R.id.partiallyCompleted:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.specify1.setVisibility(View.GONE);
                         binding.specify1.setText("");
-
-                        JsonObject jsonObjectpartiallyCompleted =new JsonObject();
-                        jsonObjectpartiallyCompleted.addProperty("parentStatus","Interview Partially Completed");
-                        ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponsepartiallyCompleted = response.body();
-                                    if (response.isSuccessful()) {
-                                        Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
-                                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
                         break;
                     case R.id.pending:
                         binding.specify1.setVisibility(View.GONE);
@@ -237,7 +187,161 @@ public class ParentResult extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (selectedResultCode.equals("Interview Partially Completed")){
+            JsonObject jsonObjectpartiallyCompleted =new JsonObject();
+            jsonObjectpartiallyCompleted.addProperty("parentStatus","Interview Partially Completed");
+            jsonObjectpartiallyCompleted.addProperty("parentPCDate",binding.date3.getText().toString());
+            jsonObjectpartiallyCompleted.addProperty("parentPCTime",binding.time.getText().toString());
+            ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
+            apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        JsonObject userResponsepartiallyCompleted = response.body();
+                        if (response.isSuccessful()) {
+                            Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
+                            Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+                            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                            apiInterface.getHouseHoldChilderns(surveyID, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, ""))
+                                    .enqueue(new Callback<List<EligibleResponse>>() {
+                                        @Override
+                                        public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+                                            try {
+                                                Log.d("TAG", "onResponse: " + response.body());
+
+                                                if (response.isSuccessful()) {
+
+                                                    if (response.body().isEmpty()) {
+                                                        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+                                                        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same.");
+
+                                                        builder.setTitle("Alert !");
+
+                                                        builder.setCancelable(false);
+                                                        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                                            Intent intent = new Intent(ParentResult.this, ActivitySurvey.class);
+                                                            startActivity(intent);
+                                                        });
+                                                        AlertDialog alertDialog = builder.create();
+                                                        alertDialog.show();
+                                                    } else {
+                                                        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+                                                        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same. We will now proceed to the next child");
+                                                        builder.setTitle("Alert !");
+                                                        builder.setCancelable(false);
+                                                        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                                            // takeScreenshot(getWindow().getDecorView().getRootView());
+                                                            Intent intent = new Intent(ParentResult.this, Eligiblechildren.class);
+                                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                                            intent.putExtra(SURVEY_ID, surveyID);
+                                                            startActivity(intent);
+                                                        });
+                                                        AlertDialog alertDialog = builder.create();
+                                                        alertDialog.show();
+
+                                                    }
+
+                                                }
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+                                            t.printStackTrace();
+                                        }
+                                    });
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
+        }else if(selectedResultCode.equals("Refused to take part")){
+            JsonObject jsonObjectrefused =new JsonObject();
+            jsonObjectrefused.addProperty("parentStatus","Refused");
+            jsonObjectrefused.addProperty("parentStatusSpecify",binding.specify1.getText().toString());
+            ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
+            apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        JsonObject userResponserefused = response.body();
+                        if (response.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                            apiInterface.getHouseHoldChilderns(surveyID, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, ""))
+                                    .enqueue(new Callback<List<EligibleResponse>>() {
+                                        @Override
+                                        public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+                                            try {
+                                                Log.d("TAG", "onResponse: " + response.body());
+
+                                                if (response.isSuccessful()) {
+
+                                                    if (response.body().isEmpty()) {
+                                                        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+                                                        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same.");
+
+                                                        builder.setTitle("Alert !");
+
+                                                        builder.setCancelable(false);
+                                                        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                                            Intent intent = new Intent(ParentResult.this, ActivitySurvey.class);
+                                                            startActivity(intent);
+                                                        });
+                                                        AlertDialog alertDialog = builder.create();
+                                                        alertDialog.show();
+                                                    } else {
+                                                        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+                                                        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same. We will now proceed to the next child");
+                                                        builder.setTitle("Alert !");
+                                                        builder.setCancelable(false);
+                                                        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                                            // takeScreenshot(getWindow().getDecorView().getRootView());
+                                                            Intent intent = new Intent(ParentResult.this, Eligiblechildren.class);
+                                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                                            intent.putExtra(SURVEY_ID, surveyID);
+                                                            startActivity(intent);
+                                                        });
+                                                        AlertDialog alertDialog = builder.create();
+                                                        alertDialog.show();
+
+                                                    }
+
+                                                }
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+                                            t.printStackTrace();
+                                        }
+                                    });
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                }
+            });
+        }else {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         apiInterface.getHouseHoldChilderns(surveyID, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, ""))
                 .enqueue(new Callback<List<EligibleResponse>>() {
@@ -289,7 +393,7 @@ public class ParentResult extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
-
+        }
     }
 
     private final DatePickerDialog.OnDateSetListener dateSetListener =

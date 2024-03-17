@@ -445,7 +445,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         } else if (selectedValue.contains("Always")) {
             return 3;
         }
-        return 0;
+        return -1;
     }
 
 
