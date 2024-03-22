@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -264,7 +265,11 @@ public class Section8Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        checkRCADSScore();
+        if (binding.respondentGrp.getCheckedRadioButtonId() == -1 || binding.question108.getCheckedRadioButtonId() == -1  || binding.question109.getCheckedRadioButtonId() == -1 || binding.question110.getCheckedRadioButtonId() == -1 || binding.question111.getCheckedRadioButtonId() == -1|| binding.question112.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
+            checkRCADSScore();
+        }
     }
 
     public void onClickPreviousSection(View v) {

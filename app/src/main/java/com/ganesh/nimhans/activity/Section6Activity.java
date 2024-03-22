@@ -17,8 +17,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,6 +38,7 @@ import com.ganesh.nimhans.utils.Util;
 import com.google.gson.JsonObject;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -55,9 +56,10 @@ public class Section6Activity extends AppCompatActivity {
     String stringParent_guardian;
     RadioGroup PARENTS_GUARDIAN;
     HashMap<Integer, Integer> integerHashMap = new HashMap<>();
-    private String ageValue,respondentTxt;
+    private String ageValue, respondentTxt;
     private EligibleResponse eligibleResponse;
     ServeySection3cRequest serveySection3cRequest;
+    Section6Adapter section6Adapter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +79,8 @@ public class Section6Activity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
         binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
-        binding.section6List.setAdapter(new Section6Adapter(QuestionUtils.getSection6Questions(this),this));
+        section6Adapter = new Section6Adapter(QuestionUtils.getSection6Questions(this), this);
+        binding.section6List.setAdapter(section6Adapter);
         integerHashMap.put(77, 0);
         integerHashMap.put(74, 0);
         integerHashMap.put(75, 0);
@@ -131,49 +134,47 @@ public class Section6Activity extends AppCompatActivity {
 
     private void calculateRCadsScore() {
         try {
-        ServeySection6Request serveySection6Request = new ServeySection6Request();
-        int checkedRadioButtonId = binding.PARENTSGUARDIAN.getCheckedRadioButtonId();
-        if (checkedRadioButtonId == -1) {
-            if (respondentTxt.equalsIgnoreCase("Guardian")){
-                serveySection6Request.setSection6respondent(respondentTxt);
-                serveySection6Request.setSection6Gr(binding.specifyRespo.getText().toString());
+            ServeySection6Request serveySection6Request = new ServeySection6Request();
+            int checkedRadioButtonId = binding.PARENTSGUARDIAN.getCheckedRadioButtonId();
+            if (checkedRadioButtonId == -1) {
+                if (respondentTxt.equalsIgnoreCase("Guardian")) {
+                    serveySection6Request.setSection6respondent(respondentTxt);
+                    serveySection6Request.setSection6Gr(binding.specifyRespo.getText().toString());
+                } else {
+                    serveySection6Request.setSection6respondent(respondentTxt);
+                    serveySection6Request.setSection6Gr("NA");
+                }
+            } else {
+                if (respondentTxt.equalsIgnoreCase("Guardian")) {
+                    serveySection6Request.setSection6respondent(respondentTxt);
+                    serveySection6Request.setSection6Gr(binding.specifyRespo.getText().toString());
+                } else {
+                    serveySection6Request.setSection6respondent(respondentTxt);
+                    serveySection6Request.setSection6Gr("NA");
+                }
             }
-            else {
-                serveySection6Request.setSection6respondent(respondentTxt);
-                serveySection6Request.setSection6Gr("NA");
-            }
-        } else {
-            if (respondentTxt.equalsIgnoreCase("Guardian")){
-                serveySection6Request.setSection6respondent(respondentTxt);
-                serveySection6Request.setSection6Gr(binding.specifyRespo.getText().toString());
-            }
-            else {
-                serveySection6Request.setSection6respondent(respondentTxt);
-                serveySection6Request.setSection6Gr("NA");
-            }
-        }
-        serveySection6Request.setQno77(integerHashMap.get(77));
-        serveySection6Request.setQno74(integerHashMap.get(74));
-        serveySection6Request.setQno75(integerHashMap.get(75));
-        serveySection6Request.setQno76(integerHashMap.get(76));
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        binding.progressBar.setVisibility(View.VISIBLE);
-        Call<JsonObject> call = apiService.putServeySection6Data(eligibleResponse.houseHoldId, serveySection6Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+            serveySection6Request.setQno77(integerHashMap.get(77));
+            serveySection6Request.setQno74(integerHashMap.get(74));
+            serveySection6Request.setQno75(integerHashMap.get(75));
+            serveySection6Request.setQno76(integerHashMap.get(76));
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            binding.progressBar.setVisibility(View.VISIBLE);
+            Call<JsonObject> call = apiService.putServeySection6Data(eligibleResponse.houseHoldId, serveySection6Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
 
-        call.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                binding.progressBar.setVisibility(View.GONE);
-                JsonObject userResponse = response.body();
-                if (response.isSuccessful()) {
-                    Log.d("response", "onResponse: " + userResponse);
-                    try {
-                        int screenPositiveNegative = calculateIDResult();
-                        binding.idScannerResult.setText("" + screenPositiveNegative);
-                        PreferenceConnector.writeString(Section6Activity.this, RCADS6_RESULT, "" + screenPositiveNegative);
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    JsonObject userResponse = response.body();
+                    if (response.isSuccessful()) {
+                        Log.d("response", "onResponse: " + userResponse);
+                        try {
+                            int screenPositiveNegative = calculateIDResult();
+                            binding.idScannerResult.setText("" + screenPositiveNegative);
+                            PreferenceConnector.writeString(Section6Activity.this, RCADS6_RESULT, "" + screenPositiveNegative);
 
-                        Util.showToast(activity, "Successfully data saved");
-                        Log.d("TAG", "onResponse RCADS6_RESULT: " + PreferenceConnector.readString(Section6Activity.this, RCADS6_RESULT, ""));
+                            Util.showToast(activity, "Successfully data saved");
+                            Log.d("TAG", "onResponse RCADS6_RESULT: " + PreferenceConnector.readString(Section6Activity.this, RCADS6_RESULT, ""));
 
 //                        if (Float.parseFloat(ageValue) <= 17.0f) {
 //                            if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
@@ -207,59 +208,63 @@ public class Section6Activity extends AppCompatActivity {
 //                                startActivity(intent);
 //                            }
 //                        }
-                        if (Float.parseFloat(ageValue) <= 17.0f) {
-                            if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
-                                //If the age is greater than 2 & less than 3
-                                Intent intent = new Intent(activity, Section7aActivity.class);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                intent.putExtra(AGE_ID, ageValue);
-                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                                startActivity(intent);
-                            } else if (Float.parseFloat(ageValue) >= 4.0f) {
-                                //If the age is greater than 3 Krishna
-                                Intent intent = new Intent(activity, Section7bActivity.class);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                intent.putExtra(AGE_ID, ageValue);
-                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                                startActivity(intent);
-                            } else {
-                                //IF the Age is 18
-                                Intent intent = new Intent(activity, Section8Activity.class);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                intent.putExtra(AGE_ID, ageValue);
-                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                                startActivity(intent);
+                            if (Float.parseFloat(ageValue) <= 17.0f) {
+                                if (Float.parseFloat(ageValue) >= 2.0f && Float.parseFloat(ageValue) <= 3.0f) {
+                                    //If the age is greater than 2 & less than 3
+                                    Intent intent = new Intent(activity, Section7aActivity.class);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                } else if (Float.parseFloat(ageValue) >= 4.0f) {
+                                    //If the age is greater than 3 Krishna
+                                    Intent intent = new Intent(activity, Section7bActivity.class);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                } else {
+                                    //IF the Age is 18
+                                    Intent intent = new Intent(activity, Section8Activity.class);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }
                             }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            binding.idScannerResult.setText("0");
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        binding.idScannerResult.setText("0");
                     }
+
                 }
 
-            }
-
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                binding.progressBar.setVisibility(View.GONE);
-            }
-        });
-        }catch (Exception e){
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    binding.progressBar.setVisibility(View.GONE);
+                }
+            });
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void onClickNextSection(View v) {
-        calculateRCadsScore();
+        if (isAllRadioButtonChecked()) {
+            calculateRCadsScore();
+        } else {
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }
 //        Intent intent = new Intent(activity, Section7aActivity.class);
 //        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
 //        intent.putExtra(SURVEY_ID, surveyID);
@@ -293,6 +298,16 @@ public class Section6Activity extends AppCompatActivity {
 
     }
 
+    private boolean isAllRadioButtonChecked() {
+        Set<Integer> integers = integerHashMap.keySet();
+        for (Integer integer : integers) {
+            if (integer == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void onClickPreviousSection(View v) {
 //        startActivity(new Intent(activity, Section5Activity.class));
         finish();
@@ -321,7 +336,7 @@ public class Section6Activity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Section6Activity.this,ActivitySurvey.class);
+                        Intent intent = new Intent(Section6Activity.this, ActivitySurvey.class);
                         startActivity(intent);
                     }
                 })

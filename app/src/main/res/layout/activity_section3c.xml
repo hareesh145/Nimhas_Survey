@@ -379,7 +379,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="18I"
+                            android:text="18I."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 

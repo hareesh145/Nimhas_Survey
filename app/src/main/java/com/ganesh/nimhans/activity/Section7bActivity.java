@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -235,6 +236,9 @@ public class Section7bActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.iasqRespondendtGrp.getCheckedRadioButtonId() == -1 || binding.q98.getCheckedRadioButtonId() == -1  || binding.q99.getCheckedRadioButtonId() == -1 || binding.q100.getCheckedRadioButtonId() == -1 || binding.q101.getCheckedRadioButtonId() == -1|| binding.q102.getCheckedRadioButtonId() == -1 || binding.q103.getCheckedRadioButtonId() == -1|| binding.q104.getCheckedRadioButtonId() == -1|| binding.q105.getCheckedRadioButtonId() == -1|| binding.q106.getCheckedRadioButtonId() == -1|| binding.q107.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
         /*Intent intent = new Intent(activity, Section8Activity.class);
         Util.showToast(activity, "Successfully data saved");
         intent.putExtra(AGE_ID, ageValue);
@@ -242,7 +246,8 @@ public class Section7bActivity extends AppCompatActivity {
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);*/
-        checkRCADSScore();
+            checkRCADSScore();
+        }
 
     }
 

@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -98,43 +99,46 @@ public class Section5FinalActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-        if (binding.yes32.isChecked() || binding.yes33.isChecked()) { //Injection
-            PreferenceConnector.writeString(this, RCADS5_3_RESULT, "1");
-        }
+        if (binding.drugInjectionGrp.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
+            Util.showToast(activity, "Successfully data saved");
+            if (binding.yes32.isChecked() || binding.yes33.isChecked()) { //Injection
+                PreferenceConnector.writeString(this, RCADS5_3_RESULT, "1");
+            }
 
-        serveySection5Request.setQno73(getSelected73Question());
+            serveySection5Request.setQno73(getSelected73Question());
 
-        binding.progressBar.setVisibility(View.VISIBLE);
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        apiInterface.putServeySection5Data(eligibleResponse.houseHoldId, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                binding.progressBar.setVisibility(View.GONE);
-                if (response.isSuccessful()) {
-                    Intent intent = new Intent(activity, ChildrenResult.class);
-                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    intent.putExtra(SURVEY_ID, surveyID);
-                    intent.putExtra(AGE_ID, ageValue);
-                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                    intent.putExtra(RCADS4_RESULT, rCards4Result);
-                    intent.putExtra("section5_status", true);
-                    intent.putExtra("ASSIST_screener", 1);
-                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                    startActivity(intent);
+            binding.progressBar.setVisibility(View.VISIBLE);
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface.putServeySection5Data(eligibleResponse.houseHoldId, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    if (response.isSuccessful()) {
+                        Intent intent = new Intent(activity, ChildrenResult.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        intent.putExtra(AGE_ID, ageValue);
+                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                        intent.putExtra(RCADS4_RESULT, rCards4Result);
+                        intent.putExtra("section5_status", true);
+                        intent.putExtra("ASSIST_screener", 1);
+                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                        startActivity(intent);
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                binding.progressBar.setVisibility(View.GONE);
-            }
-        });
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    binding.progressBar.setVisibility(View.GONE);
+                }
+            });
 
 
-        //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
-
+            //   if (binding.onceOrTwice67a.isChecked() || binding.monthly67a.isChecked() || binding.weekly67a.isChecked() || binding.daily67a.isChecked()) {
+        }
     }
 
     private int getSelected73Question() {

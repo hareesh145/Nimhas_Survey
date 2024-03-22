@@ -444,7 +444,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• Does he/she ignore the presence of family members?"
+                            android:text="@string/does_he_she_ignore_the_presence_of_family_members"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

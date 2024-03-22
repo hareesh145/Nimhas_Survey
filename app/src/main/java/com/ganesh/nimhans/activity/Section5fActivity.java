@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -124,30 +125,33 @@ public class Section5fActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
+        if (binding.inhalants.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
+            Util.showToast(activity, "Successfully data saved");
 
-        serveySection5Request.setQno72f(getSelectedItem(binding.tobaccoProduct172f.getCheckedRadioButtonId(), binding.never72f.getId(), binding.onceTwice72f.getId(), binding.monthly72f.getId()));
-        serveySection5Request.setQno71f(getSelectedItem(binding.tobaccoProduct171f.getCheckedRadioButtonId(), binding.never71f.getId(), binding.yes71f.getId(), binding.yesBut71f.getId()));
-        serveySection5Request.setQno70f(getSelectedItem(binding.tobaccoProduct170f.getCheckedRadioButtonId(), binding.never70f.getId(), binding.onceTwice70f.getId(), binding.m70f.getId(), binding.w70f.getId(), binding.dOA70f.getId()));
-        serveySection5Request.setQno69f(getSelectedItem69G(binding.tobaccoProduct169f.getCheckedRadioButtonId(), binding.never69f.getId(), binding.onceOrTwice69f.getId(), binding.m69f.getId(), binding.w69f.getId(), binding.dOA69f.getId()));
-        serveySection5Request.setQno68f(getSelectedItem68G(binding.tobaccoProduct168f.getCheckedRadioButtonId(), binding.never68f.getId(), binding.onceTwice68f.getId(), binding.m68f.getId(), binding.w68f.getId(), binding.dOA68f.getId()));
-        serveySection5Request.setQno67f(getSelectedItem67G(binding.alcoholProduct167f.getCheckedRadioButtonId(), binding.never67f.getId(), binding.onceOrTwice67f.getId(), binding.monthly67f.getId(), binding.weekly67f.getId(), binding.daily67f.getId()));
-        serveySection5Request.setQno66f(getSelected66g(binding.inhalants.getCheckedRadioButtonId(), binding.no366f.getId(), binding.yes266f.getId()));
+            serveySection5Request.setQno72f(getSelectedItem(binding.tobaccoProduct172f.getCheckedRadioButtonId(), binding.never72f.getId(), binding.onceTwice72f.getId(), binding.monthly72f.getId()));
+            serveySection5Request.setQno71f(getSelectedItem(binding.tobaccoProduct171f.getCheckedRadioButtonId(), binding.never71f.getId(), binding.yes71f.getId(), binding.yesBut71f.getId()));
+            serveySection5Request.setQno70f(getSelectedItem(binding.tobaccoProduct170f.getCheckedRadioButtonId(), binding.never70f.getId(), binding.onceTwice70f.getId(), binding.m70f.getId(), binding.w70f.getId(), binding.dOA70f.getId()));
+            serveySection5Request.setQno69f(getSelectedItem69G(binding.tobaccoProduct169f.getCheckedRadioButtonId(), binding.never69f.getId(), binding.onceOrTwice69f.getId(), binding.m69f.getId(), binding.w69f.getId(), binding.dOA69f.getId()));
+            serveySection5Request.setQno68f(getSelectedItem68G(binding.tobaccoProduct168f.getCheckedRadioButtonId(), binding.never68f.getId(), binding.onceTwice68f.getId(), binding.m68f.getId(), binding.w68f.getId(), binding.dOA68f.getId()));
+            serveySection5Request.setQno67f(getSelectedItem67G(binding.alcoholProduct167f.getCheckedRadioButtonId(), binding.never67f.getId(), binding.onceOrTwice67f.getId(), binding.monthly67f.getId(), binding.weekly67f.getId(), binding.daily67f.getId()));
+            serveySection5Request.setQno66f(getSelected66g(binding.inhalants.getCheckedRadioButtonId(), binding.no366f.getId(), binding.yes266f.getId()));
 
 
-        Intent intent = new Intent(activity, Section5gActivity.class);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        intent.putExtra(RCADS4_RESULT, rCards4Result);
-        intent.putExtra("section5_status", true);
-        intent.putExtra("ASSIST_screener", 1);
-        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-        intent.putExtra(SURVEY_SECTION5, serveySection5Request);
-        startActivity(intent);
-        //  }
+            Intent intent = new Intent(activity, Section5gActivity.class);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(RCADS4_RESULT, rCards4Result);
+            intent.putExtra("section5_status", true);
+            intent.putExtra("ASSIST_screener", 1);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            intent.putExtra(SURVEY_SECTION5, serveySection5Request);
+            startActivity(intent);
+            //  }
        /* Intent intent = new Intent(activity, ChildrenResult.class);
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(SURVEY_ID, surveyID);
@@ -156,7 +160,9 @@ public class Section5fActivity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         intent.putExtra(RCADS4_RESULT, rCards4Result);
         startActivity(intent);
+        }
 */
+        }
     }
 
 

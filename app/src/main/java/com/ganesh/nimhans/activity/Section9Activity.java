@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -343,6 +344,10 @@ public class Section9Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.respondentGrp.getCheckedRadioButtonId() == -1 || binding.question113.getCheckedRadioButtonId() == -1  || binding.question114.getCheckedRadioButtonId() == -1 || binding.question115.getCheckedRadioButtonId() == -1 || binding.question116.getCheckedRadioButtonId() == -1|| binding.question117.getCheckedRadioButtonId() == -1 || binding.question118.getCheckedRadioButtonId() == -1|| binding.question119.getCheckedRadioButtonId() == -1|| binding.question120.getCheckedRadioButtonId() == -1|| binding.question121.getCheckedRadioButtonId() == -1|| binding.question122.getCheckedRadioButtonId() == -1
+        || binding.question124.getCheckedRadioButtonId() == -1 || binding.question125.getCheckedRadioButtonId() == -1 || binding.question126.getCheckedRadioButtonId() == -1|| binding.question127.getCheckedRadioButtonId() == -1 || binding.question128.getCheckedRadioButtonId() == -1|| binding.question129.getCheckedRadioButtonId() == -1|| binding.question130.getCheckedRadioButtonId() == -1|| binding.question131.getCheckedRadioButtonId() == -1|| binding.question132.getCheckedRadioButtonId() == -1|| binding.question134.getCheckedRadioButtonId() == -1|| binding.question135.getCheckedRadioButtonId() == -1|| binding.q136.getCheckedRadioButtonId() == -1 || binding.q137.getCheckedRadioButtonId() == -1|| binding.q138.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
        /* Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, Section10Activity.class);
         intent.putExtra(AGE_ID, ageValue);
@@ -350,7 +355,8 @@ public class Section9Activity extends AppCompatActivity {
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);*/
-        checkRCADSScore();
+            checkRCADSScore();
+        }
     }
 
     public void onClickPreviousSection(View v) {

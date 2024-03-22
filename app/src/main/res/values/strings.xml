@@ -631,7 +631,7 @@
     <string name="does_the_child_interact_on_his_her_own_with_others">• Does the child interact on his/her own with others?</string>
     <string name="does_the_child_ask_questions">• Does the child ask questions?</string>
     <string name="can_the_child_sustain_conversation_with_others_family_members_teachers_and_friends">• Can the child sustain conversation with others (family members, teachers, and friends)?</string>
-    <string name="if_yes_check_the_frequency_and_duration">• यदि हाँ, तो आवृत्ति और अवधि की जाँच करें।</string>
+    <string name="if_yes_check_the_frequency_and_duration">• If yes, check the frequency and duration.</string>
     <string name="does_he_she_respond_mostly_by_nodding_his_her_head_or_by_saying_yes_or_no">• Does he/she respond mostly by nodding his/her head or by saying yes or no?</string>
     <string name="does_he_she_engage_in_repetitive_behaviours_like_hand_flapping_head_nodding_finger_wiggling_and_body_rocking">• Does he/she engage in repetitive behaviours like hand flapping, head nodding, finger wiggling and body rocking?</string>
     <string name="ask_if_the_child_uses_any_object_while_engaging_in_repetitive_activities_spinning_objects">• Ask if the child uses any object while engaging in repetitive activities (spinning objects).</string>
@@ -644,6 +644,8 @@
     <string name="does_he_she_express_dislike_when_someone_tries_to_touch_him_her">• Does he/she express dislike when someone tries to touch him/her?</string>
     <string name="does_the_child_like_to_eat_food_of_a_particular_taste">• Does the child like to eat food of a particular taste?</string>
     <string name="is_he_she_attached_to_only_one_family_member_and_ignores_others_presence">• Is he/she attached to only one family member and ignores others\' presence?</string>
+    <string name="in_your_life_have_you_ever_used_any_other_drugs_apart_from_those_mentioned_above">In your life, have you ever used any other drugs apart from those mentioned above?</string>
+    <string name="does_he_she_ignore_the_presence_of_family_members">• Does he/she ignore the presence of family members?</string>
 
     <string-array name="illness_dropdown">
         <item>Govt./Municipal Hospital</item>

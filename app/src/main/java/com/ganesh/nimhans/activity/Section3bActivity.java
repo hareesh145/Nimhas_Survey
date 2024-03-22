@@ -369,7 +369,7 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.NoOfPeople.getText().toString().isEmpty() || binding.gender.getCheckedRadioButtonId() == -1 || binding.age.getText().toString().isEmpty() || binding.maritalStatus1.getCheckedRadioButtonId() == -1){
+        if (binding.NoOfPeople.getText().toString().isEmpty() || binding.gender.getCheckedRadioButtonId() == -1 || binding.age.getText().toString().isEmpty() ){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
         Log.d("noOfPeople", "onClickNextSection: " + NoOfPersons.getText().toString());
@@ -649,7 +649,7 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickAddMember(View v) {
-        if ( binding.Name.getText().toString().isEmpty() || binding.gender.getCheckedRadioButtonId() == -1 || binding.age.getText().toString().isEmpty() || binding.maritalStatus1.getCheckedRadioButtonId() == -1){
+        if ( binding.Name.getText().toString().isEmpty() || binding.gender.getCheckedRadioButtonId() == -1 || binding.age.getText().toString().isEmpty() ){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
         if (repeatCount > 0) {

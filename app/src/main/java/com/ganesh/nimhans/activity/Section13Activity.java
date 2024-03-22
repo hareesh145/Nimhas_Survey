@@ -281,128 +281,137 @@ public class Section13Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1 || binding.options220.getCheckedRadioButtonId() == -1  || binding.yesno221A.getCheckedRadioButtonId() == -1 || binding.options222.getCheckedRadioButtonId()== -1 || binding.options223.getCheckedRadioButtonId() == -1 || binding.options224.getCheckedRadioButtonId() == -1 || binding.options225.getCheckedRadioButtonId() == -1 || binding.yesNo228.getCheckedRadioButtonId() == -1 ){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
 
-
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        ServeySection13Request serveySection9Request = new ServeySection13Request();
-        int checkedRadioButtonId = binding.section12RespondentGrp.getCheckedRadioButtonId();
-        if (checkedRadioButtonId == -1) {
-            if (respondentTxt.equalsIgnoreCase("Guardian")){
-                serveySection9Request.setSection13Respondent(respondentTxt);
-                serveySection9Request.setSection13Guardian(binding.section12Respondent.getText().toString());
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            ServeySection13Request serveySection9Request = new ServeySection13Request();
+            int checkedRadioButtonId = binding.section12RespondentGrp.getCheckedRadioButtonId();
+            if (checkedRadioButtonId == -1) {
+                if (respondentTxt.equalsIgnoreCase("Guardian")) {
+                    serveySection9Request.setSection13Respondent(respondentTxt);
+                    serveySection9Request.setSection13Guardian(binding.section12Respondent.getText().toString());
+                } else {
+                    serveySection9Request.setSection13Respondent(respondentTxt);
+                    serveySection9Request.setSection13Guardian("NA");
+                }
+            } else {
+                if (respondentTxt.equalsIgnoreCase("Guardian")) {
+                    serveySection9Request.setSection13Respondent(respondentTxt);
+                    serveySection9Request.setSection13Guardian(binding.section12Respondent.getText().toString());
+                } else {
+                    serveySection9Request.setSection13Respondent(respondentTxt);
+                    serveySection9Request.setSection13Guardian("NA");
+                }
             }
-            else {
-                serveySection9Request.setSection13Respondent(respondentTxt);
-                serveySection9Request.setSection13Guardian("NA");
+            if (binding.options220.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno220(getCheckedRadioGrpID(binding.options220.getCheckedRadioButtonId(), binding.yes220.getId(), binding.no220.getId()));
+            } else {
+                serveySection9Request.setQno220("NA");
             }
-        } else {
-            if (respondentTxt.equalsIgnoreCase("Guardian")){
-                serveySection9Request.setSection13Respondent(respondentTxt);
-                serveySection9Request.setSection13Guardian(binding.section12Respondent.getText().toString());
+
+            if (binding.options221.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno221(getCheckedRadioGrpID(binding.options221.getCheckedRadioButtonId(), binding.yes221.getId(), binding.no221.getId()));
+            } else {
+                serveySection9Request.setQno221("NA");
             }
-            else {
-                serveySection9Request.setSection13Respondent(respondentTxt);
-                serveySection9Request.setSection13Guardian("NA");
+            if (binding.yesno221A.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno221a(getCheckedRadioGrpID(binding.yesno221A.getCheckedRadioButtonId(), binding.yes221a.getId(), binding.no221a.getId()));
+            } else {
+                serveySection9Request.setQno221a("NA");
             }
-        }
-        if (binding.options220.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno220(getCheckedRadioGrpID(binding.options220.getCheckedRadioButtonId(), binding.yes220.getId(), binding.no220.getId()));
-        }else {
-            serveySection9Request.setQno220("NA");
-        }
 
-        if (binding.options221.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno221(getCheckedRadioGrpID(binding.options221.getCheckedRadioButtonId(), binding.yes221.getId(), binding.no221.getId()));
-        }else {
-            serveySection9Request.setQno221("NA");
-        }
-        if (binding.yesno221A.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno221a(getCheckedRadioGrpID(binding.yesno221A.getCheckedRadioButtonId(), binding.yes221a.getId(), binding.no221a.getId()));
-        }else {
-            serveySection9Request.setQno221a("NA");
-        }
+            if (binding.options222.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno222(getCheckedRadioGrpID(binding.options222.getCheckedRadioButtonId(), binding.yes222.getId(), binding.no222.getId()));
+            } else {
+                serveySection9Request.setQno222("NA");
+            }
 
-        if (binding.options222.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno222(getCheckedRadioGrpID(binding.options222.getCheckedRadioButtonId(), binding.yes222.getId(), binding.no222.getId()));
-        }else {
-            serveySection9Request.setQno222("NA");
-        }
+            if (binding.options223.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno223(getCheckedRadioGrpID(binding.options223.getCheckedRadioButtonId(), binding.yes223.getId(), binding.no223.getId()));
+            } else {
+                serveySection9Request.setQno223("NA");
+            }
 
-        if (binding.options223.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno223(getCheckedRadioGrpID(binding.options223.getCheckedRadioButtonId(), binding.yes223.getId(), binding.no223.getId()));
-        }else {
-            serveySection9Request.setQno223("NA");
-        }
+            if (binding.options224.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno224(getCheckedRadioGrpID(binding.options224.getCheckedRadioButtonId(), binding.yes224.getId(), binding.no224.getId()));
+            } else {
+                serveySection9Request.setQno224("NA");
+            }
 
-        if (binding.options224.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno224(getCheckedRadioGrpID(binding.options224.getCheckedRadioButtonId(), binding.yes224.getId(), binding.no224.getId()));
-        }else {
-            serveySection9Request.setQno224("NA");
-        }
+            if (binding.options225.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno225(getCheckedRadioGrpID(binding.options225.getCheckedRadioButtonId(), binding.yes225.getId(), binding.no225.getId()));
+            } else {
+                serveySection9Request.setQno225("NA");
+            }
 
-        if (binding.options225.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno225(getCheckedRadioGrpID(binding.options225.getCheckedRadioButtonId(), binding.yes225.getId(), binding.no225.getId()));
-        }else {
-            serveySection9Request.setQno225("NA");
-        }
+            if (binding.options226.getCheckedRadioButtonId() != -1) {
+                serveySection9Request.setQno226(getCheckedRadioGrpID(binding.options226.getCheckedRadioButtonId(), binding.yes226.getId(), binding.no226.getId()));
+            } else {
+                serveySection9Request.setQno226("NA");
+            }
 
-        if (binding.options226.getCheckedRadioButtonId() != -1) {
-            serveySection9Request.setQno226(getCheckedRadioGrpID(binding.options226.getCheckedRadioButtonId(), binding.yes226.getId(), binding.no226.getId()));
-        }else {
-            serveySection9Request.setQno226("NA");
-        }
+            if (binding.yesNo227.getCheckedRadioButtonId() != -1) {
+                String yes228 = getCheckedRadioGrpID(binding.yesNo227.getCheckedRadioButtonId(), binding.yes227.getId(), binding.no227.getId());
+                serveySection9Request.setQno227(yes228);
+                if (yes228.equals("1")) {
+                    serveySection9Request.setQno227("1");
+                    if (binding.TravelBenefit.isChecked()) {
+                        String value = binding.TravelBenefit.getText().toString();
+                        serveySection9Request.setQno227a("1");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    } else {
+                        serveySection9Request.setQno227a("NA");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    }
 
-        if (binding.yesNo227.getCheckedRadioButtonId() != -1) {
-            String yes228 = getCheckedRadioGrpID(binding.yesNo227.getCheckedRadioButtonId(), binding.yes227.getId(), binding.no227.getId());
-            serveySection9Request.setQno227(yes228);
-            if (yes228.equals("1")){
-                serveySection9Request.setQno227("1");
-                if (binding.TravelBenefit.isChecked()) {
-                    String value = binding.TravelBenefit.getText().toString();
-                    serveySection9Request.setQno227a("1");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }else {
+                    if (binding.specialSchools.isChecked()) {
+                        String value = binding.specialSchools.getText().toString();
+                        serveySection9Request.setQno227b("2");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    } else {
+                        serveySection9Request.setQno227b("NA");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    }
+                    if (binding.HealthInsurance.isChecked()) {
+                        String value = binding.HealthInsurance.getText().toString();
+                        serveySection9Request.setQno227c("3");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    } else {
+                        serveySection9Request.setQno227c("NA");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    }
+
+                    if (binding.incomeTax.isChecked()) {
+                        String value = binding.incomeTax.getText().toString();
+                        serveySection9Request.setQno227d("4");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    } else {
+                        serveySection9Request.setQno227d("NA");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    }
+                    if (binding.others222.isChecked()) {
+                        String value = binding.others222.getText().toString();
+                        serveySection9Request.setQno227e("Others");
+                        serveySection9Request.setQno227eSpecify(binding.othersSpecify222.getText().toString());
+                    } else {
+                        serveySection9Request.setQno227d("NA");
+                        serveySection9Request.setQno227eSpecify("NA");
+                    }
+
+
+                } else {
+                    serveySection9Request.setQno227("0");
                     serveySection9Request.setQno227a("NA");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }
-
-                if (binding.specialSchools.isChecked()) {
-                    String value = binding.specialSchools.getText().toString();
-                    serveySection9Request.setQno227b("2");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }else {
                     serveySection9Request.setQno227b("NA");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }
-                if (binding.HealthInsurance.isChecked()) {
-                    String value = binding.HealthInsurance.getText().toString();
-                    serveySection9Request.setQno227c("3");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }else {
                     serveySection9Request.setQno227c("NA");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }
-
-                if (binding.incomeTax.isChecked()) {
-                    String value = binding.incomeTax.getText().toString();
-                    serveySection9Request.setQno227d("4");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }else {
                     serveySection9Request.setQno227d("NA");
+                    serveySection9Request.setQno227e("NA");
                     serveySection9Request.setQno227eSpecify("NA");
                 }
-                if (binding.others222.isChecked()) {
-                    String value = binding.others222.getText().toString();
-                    serveySection9Request.setQno227e("Others");
-                    serveySection9Request.setQno227eSpecify(binding.othersSpecify222.getText().toString());
-                }else {
-                    serveySection9Request.setQno227d("NA");
-                    serveySection9Request.setQno227eSpecify("NA");
-                }
-
-
-            }else{
-                serveySection9Request.setQno227("0");
+            } else {
+                serveySection9Request.setQno227("NA");
                 serveySection9Request.setQno227a("NA");
                 serveySection9Request.setQno227b("NA");
                 serveySection9Request.setQno227c("NA");
@@ -410,94 +419,85 @@ public class Section13Activity extends AppCompatActivity {
                 serveySection9Request.setQno227e("NA");
                 serveySection9Request.setQno227eSpecify("NA");
             }
-        }else{
-            serveySection9Request.setQno227("NA");
-            serveySection9Request.setQno227a("NA");
-            serveySection9Request.setQno227b("NA");
-            serveySection9Request.setQno227c("NA");
-            serveySection9Request.setQno227d("NA");
-            serveySection9Request.setQno227e("NA");
-            serveySection9Request.setQno227eSpecify("NA");
-        }
 
-        if (binding.yesNo228.getCheckedRadioButtonId() != -1) {
-           String yes228 = getCheckedRadioGrpID(binding.yesNo228.getCheckedRadioButtonId(), binding.yes228.getId(), binding.no228.getId());
-            serveySection9Request.setQno228(yes228);
-            if (yes228.equals("1")){
-                serveySection9Request.setQno228("1");
-                if (binding.NationalTrust.isChecked()) {
-                    String value = binding.NationalTrust.getText().toString();
-                    serveySection9Request.setQno228a("1");
-                }else {
+            if (binding.yesNo228.getCheckedRadioButtonId() != -1) {
+                String yes228 = getCheckedRadioGrpID(binding.yesNo228.getCheckedRadioButtonId(), binding.yes228.getId(), binding.no228.getId());
+                serveySection9Request.setQno228(yes228);
+                if (yes228.equals("1")) {
+                    serveySection9Request.setQno228("1");
+                    if (binding.NationalTrust.isChecked()) {
+                        String value = binding.NationalTrust.getText().toString();
+                        serveySection9Request.setQno228a("1");
+                    } else {
+                        serveySection9Request.setQno228a("NA");
+                    }
+
+                    if (binding.act2016.isChecked()) {
+                        String value = binding.act2016.getText().toString();
+                        serveySection9Request.setQno228b("2");
+                    } else {
+                        serveySection9Request.setQno228b("NA");
+                    }
+                    if (binding.act2017.isChecked()) {
+                        String value = binding.act2017.getText().toString();
+                        serveySection9Request.setQno228c("3");
+                    } else {
+                        serveySection9Request.setQno228c("NA");
+                    }
+
+                    if (binding.act2015.isChecked()) {
+                        String value = binding.act2015.getText().toString();
+                        serveySection9Request.setQno228d("4");
+                    } else {
+                        serveySection9Request.setQno228d("NA");
+                    }
+
+
+                } else {
+                    serveySection9Request.setQno228("0");
                     serveySection9Request.setQno228a("NA");
-                }
-
-                if (binding.act2016.isChecked()) {
-                    String value = binding.act2016.getText().toString();
-                    serveySection9Request.setQno228b("2");
-                }else {
                     serveySection9Request.setQno228b("NA");
-                }
-                if (binding.act2017.isChecked()) {
-                    String value = binding.act2017.getText().toString();
-                    serveySection9Request.setQno228c("3");
-                }else {
                     serveySection9Request.setQno228c("NA");
-                }
-
-                if (binding.act2015.isChecked()) {
-                    String value = binding.act2015.getText().toString();
-                    serveySection9Request.setQno228d("4");
-                }else {
                     serveySection9Request.setQno228d("NA");
                 }
-
-
-            }else{
-                serveySection9Request.setQno228("0");
+            } else {
+                serveySection9Request.setQno228("NA");
                 serveySection9Request.setQno228a("NA");
                 serveySection9Request.setQno228b("NA");
                 serveySection9Request.setQno228c("NA");
                 serveySection9Request.setQno228d("NA");
             }
-        }else{
-            serveySection9Request.setQno228("NA");
-            serveySection9Request.setQno228a("NA");
-            serveySection9Request.setQno228b("NA");
-            serveySection9Request.setQno228c("NA");
-            serveySection9Request.setQno228d("NA");
-        }
 
-        binding.progressBar.setVisibility(View.VISIBLE);
-        apiService.putServeySection13AData(eligibleResponse.houseHoldId, serveySection9Request,
-                PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                binding.progressBar.setVisibility(View.GONE);
-                try {
-                    Util.showToast(activity, "Successfully data saved");
-                    Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
-                    finishAffinity();
-                    Intent intent = new Intent(Section13Activity.this, ParentResult.class);
-                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    intent.putExtra(SURVEY_ID, surveyID);
-                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                    startActivity(intent);
+            binding.progressBar.setVisibility(View.VISIBLE);
+            apiService.putServeySection13AData(eligibleResponse.houseHoldId, serveySection9Request,
+                    PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    try {
+                        Util.showToast(activity, "Successfully data saved");
+                        Log.d("sec3", "onClickSubmit: " + sec3.getSelectedCaste());
+                        finishAffinity();
+                        Intent intent = new Intent(Section13Activity.this, ParentResult.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        intent.putExtra(SURVEY_ID, surveyID);
+                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                        startActivity(intent);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                binding.progressBar.setVisibility(View.GONE);
-                t.printStackTrace();
-            }
-        });
-
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    binding.progressBar.setVisibility(View.GONE);
+                    t.printStackTrace();
+                }
+            });
+        }
 
     }
 

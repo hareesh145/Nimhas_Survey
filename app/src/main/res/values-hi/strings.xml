@@ -37,8 +37,8 @@
     <string name="what_is_your_current_marital_status">आपकी वर्तमान वैवाहिक स्थिति क्या है?</string>
     <string name="do_you_have_any_children">आपका कोई बच्चा हैं?</string>
     <string name="how_many_son_s_daughter_s_do_you_have">आपके कितने बेटे और बेटियाँ हैं?</string>
-    <string name="son_s">बेटा(s)</string>
-    <string name="daughter_s">बेटी (s)</string>
+    <string name="son_s">बेटा</string>
+    <string name="daughter_s">बेटी</string>
     <string name="what_is_the_total_monthly_household_income_from_all_sources_in_rupees">सभी स्रोतों से कुल मासिक घरेलू आय(रुपये में) क्या है?</string>
     <string name="_7_total_number_of_people_in_the_household">7. घर में लोगों की कुल संख्या</string>
     <string name="_16_does_anyone_in_the_family_have_had_mental_illness">16. क्या परिवार में किसी को मानसिक बीमारी है/रही है?</string>
@@ -59,57 +59,55 @@
     <string name="anxiety_and_depression_rcads">चिंता और अवसाद (RCADS)</string>
     <string name="i_worry_about_things">मैं चीजों के बारे में चितित हो जाता/जाती हूँ|</string>
     <string name="i_feel_sad_or_empty">मैं उदास और खालीपन महसूस करता/करती हूँ|</string>
-    <string name="when_i_have_a_problem_i_get_a_funny_feeling_in_my_stomach">अगर कोई समस्या होती है तो मेरे पेट में अजीब सी सतिथि हो जोती है|</string>
-    <string name="i_worry_when_i_think_i_have_done_poorly_at_something">मैं परेशान हो जाता/जाती हूँ जब मुजे लगता है किमैंने काम ठीक से नहीं किया</string>
-    <string name="i_would_feel_afraid_of_being_on_my_own_at_home">मैं घर पर अकेले रहना से डरता/डरती हूँ</string>
-    <string name="nothing_is_much_fun_anymore">मेरे लिए जिन्दगी में अधिक कोई ख़ुशी नहीं है |</string>
-    <string name="i_feel_scared_when_i_have_to_take_a_test">जब मुजेसे कोई इमतिहान देना हो तो मैं डर जाता/जाती हूँ</string>
-    <string name="i_feel_worried_when_i_think_someone_is_angry_with_me">जब मुझे लगे की कोई मुजेसे  मुझसे नारास है तो परिशानी होती है|</string>
-    <string name="i_worry_about_being_away_from_my_parents">मुझे अपने माता पिता से दूर होने पर परेशानी होती है ।</string>
-    <string name="i_get_bothered_by_bad_or_silly_thoughts_or_pictures_in_my_mind">मैं अपने मन में मुर्ख या बुरे विचारो से परेशान हो जाता/जाती हूँ</string>
-    <string name="i_worry_that_i_will_do_badly_at_my_school_work">मुझे चिंता रहती है कि मैं अपने स्कूल का काम ठीक से नहीं कर पाउँगा / पाऊँगी |</string>
-    <string name="i_worry_that_something_awful_will_happen_to_someone_in_my_family">मुझे डर रहता है कि मेरे परिवार में किसी के साथ बुरा हो जायेगा ।</string>
+    <string name="when_i_have_a_problem_i_get_a_funny_feeling_in_my_stomach">अगर मुझे कोई समस्या होती है तो मेरे पेट में अज़ीब सा एहसास होता है</string>
+    <string name="i_worry_when_i_think_i_have_done_poorly_at_something">मैं परेशान हो जाता/जाती हूँ जब मुझे  लगता है कि मैंने काम ठीक से नहीं किया |</string>
+    <string name="i_would_feel_afraid_of_being_on_my_own_at_home">मैं घर पर अकेले रेहने से डरता/डरती हूँ |</string>
+    <string name="nothing_is_much_fun_anymore">अब कुछ भी ज्यादा मज़ेदार नहीं हैं  |</string>
+    <string name="i_feel_scared_when_i_have_to_take_a_test">जब मुझे कोई परीक्षा देना हो तो में डर जाता / जाती हूँ|</string>
+    <string name="i_feel_worried_when_i_think_someone_is_angry_with_me">जब मुझे लगता की कोई मुझसे नाराज है तो मुझे चिंता होती है|</string>
+    <string name="i_worry_about_being_away_from_my_parents">मुझे अपने माता पिता से दूर होने पर चिंता होती है ।</string>
+    <string name="i_get_bothered_by_bad_or_silly_thoughts_or_pictures_in_my_mind">ममैं अपने मन में मूर्खतापूर्ण या बुरे विचारो से परेशान हो जाता/जाती हूँ</string>
+    <string name="i_worry_that_i_will_do_badly_at_my_school_work"> मुझे चिंता रहती है कि मैं अपने स्कूल का काम ठीक से नहीं कर पाउँगा / पाऊँगी |</string>
+    <string name="i_worry_that_something_awful_will_happen_to_someone_in_my_family">मुझे चिंता रेहती है कि मेरे परिवार में किसी के साथ बुरा हो जायेगा ।</string>
     <string name="i_suddenly_feel_as_if_i_can_t_breathe_when_there_is_no_reason_for_this">मुझे अचानक लगता है जैसे मैं सांस नहीं ले सकता/सकती जबकि इसकी कोई वजह नहीं होती ।</string>
-    <string name="i_have_problems_with_my_appetite">मुझे अपनी भूख से सम्बंधित समस्या है।</string>
-    <string name="i_have_to_keep_checking_that_i_have_done_things_right_like_the_switch_is_off_or_the_door_is_locked">मुझे बार बार देखना पड़ता है कि मैंने काम ठीक से किये हैं- जैसे पंखा बंद करना या दरवाज़ा बंद करना</string>
+    <string name="i_have_problems_with_my_appetite">मुझे अपनी भूख से सम्बंधित समस्याएं है।</string>
+    <string name="i_have_to_keep_checking_that_i_have_done_things_right_like_the_switch_is_off_or_the_door_is_locked">मुझे बार बार देखना पड़ता है कि मैंने काम ठीक से किया है या नहीं हैं- जैसे पंखा बंद करना या दरवाज़ा बंद करना</string>
     <string name="i_feel_scared_if_i_have_to_sleep_on_my_own">मुझे अकेले सोने से डर लगता है ।</string>
     <string name="i_have_trouble_going_to_school_in_the_mornings_because_i_feel_nervous_or_afraid">मुझे सुबह के समय स्कूल जाने में परेशानी होती है क्योंकि मुझे डर या बेचैनी सी महसूस होती है</string>
-    <string name="i_have_no_energy_for_things"> मुझ में कोई भी काम करने की ताकत नहीं है ।</string>
+    <string name="i_have_no_energy_for_things"> मुझमें कोई भी काम करने की ताकत नहीं है  ।</string>
     <string name="i_worry_i_might_look_foolish">मुझे चिंता होती है की मैं बेवकूफ़ न लगूं।</string>
     <string name="i_am_tired_a_lot">मुझे बहुत ज्यादा थकान महसूस होती है |</string>
     <string name="i_worry_that_bad_things_will_happen_to_me">मुझे चिंता होती है कि मेरे साथ कुछ बुरा न हो जाए |</string>
-    <string name="i_can_t_seem_to_get_bad_or_silly_thoughts_out_of_my_head">मुझे नहीं लगता मैं अपने दिमाग से बुरे या मुर्ख विचार निकल पाउँगा / पाऊँगी |</string>
-    <string name="when_i_have_a_problem_my_heart_beats_really_fast">जब मुझे कोई समस्या होती है तो मेरा दिलजोर जोर से धड़कना शुरू कर देता है</string>
+    <string name="i_can_t_seem_to_get_bad_or_silly_thoughts_out_of_my_head">मुझे नहीं लगता मैं अपने दिमाग से बुरे या मूर्खतापूर्ण विचार निक|ल पाउँगा / पाऊँगी |</string>
+    <string name="when_i_have_a_problem_my_heart_beats_really_fast">जब मुझे कोई समस्या होती है तो मेरा दिल जोर- जोर से धड़कना शुरू कर देता है </string>
     <string name="i_cannot_think_clearly">मैं स्पष्ट रूप से नहीं सोच पाता / पाती</string>
-    <string name="i_suddenly_start_to_tremble_or_shake_when_there_is_no_reason_for_this">मैं बिना वजह अचानक कांपना और थरथराना शुरू कर देता देती हूँ |</string>
-    <string name="i_worry_that_something_bad_will_happen_to_me"> मुझे चिंता रहती है कि मेरे साथ कुछ बुरा होने वाला है</string>
-    <string name="when_i_have_a_problem_i_feel_shaky">जब मेरे साथ कोई समस्या हो तो मैं कांपना और थरथराना शुरू कर देता / देती हूँ |</string>
+    <string name="i_suddenly_start_to_tremble_or_shake_when_there_is_no_reason_for_this">मैं बिना वजह अचानक कांपना और थरथराना शुरू कर देता / देती हूँ |</string>
+    <string name="i_worry_that_something_bad_will_happen_to_me">  मुझे चिंता रहती है कि मेरे साथ कुछ बुरा होने वाला है</string>
+    <string name="when_i_have_a_problem_i_feel_shaky">जब मेरे साथ कोई समस्या होती है तो मैं कांपना और थरथराना शुरू कर देता / देती हूँ |</string>
     <string name="i_feel_worthless">मैं बेकार महसूस करता हूँ</string>
     <string name="i_worry_about_making_mistakes">मुझे चिंता रहती है कि मैं कुछ गलत न कर कर बैठूं ।</string>
-    <string name="i_have_to_think_of_special_thoughts_like_numbers_or_words_to_stop_bad_things_from_happening">बुरी चीज़ों को होने से रोकने के लिए मुझे विशेष चीजें (जैसे नंबर या शब्द) के बारे में सोचना पड़ता है ।</string>
+    <string name="i_have_to_think_of_special_thoughts_like_numbers_or_words_to_stop_bad_things_from_happening"> बुरी चीज़ों को होने से रोकने के लिए मुझे विशेष चीज़ों (जैसे नंबर या शब्दो) के बारे में सोचना पड़ता है ।</string>
     <string name="i_worry_what_other_people_think_of_me">मुझे चिंता रहती है कि दूसरे लोग मेरे बारे में क्या सोचते होंगे ।</string>
     <string name="i_am_afraid_of_being_in_crowded_places_like_shopping_centers_the_movies_buses_busy_playgrounds">मुझे भीड़ भाड़ वाली जगहों पर जाने से डर लगता है (जैसे सिनेमा घर, शौपिंग सेंटर, बसों और खेल के मैदान</string>
-    <string name="all_of_a_sudden_i_feel_really_scared_for_no_reason_at_all">मैं बगैर किसी वजह से अचानक बहुत ज्यादा डर जाता हूँ ।</string>
+    <string name="all_of_a_sudden_i_feel_really_scared_for_no_reason_at_all">मैं बगैर किसी वजह से अचानक बहुत ज्यादा डर जाता / जाती हूँ । ।</string>
     <string name="i_worry_about_what_is_going_to_happen">मैं क्या होने वाला है उसके बारे में चिंतित रहता / रहती हूँ ।</string>
-    <string name="i_suddenly_become_dizzy_or_faint_when_there_is_no_reason_for_this">बगैर किसी वजह के अचानक मेरा सर चकराने लग जाता है या मैं बेहोश हो जाता / जाती हूँ ।</string>
+    <string name="i_suddenly_become_dizzy_or_faint_when_there_is_no_reason_for_this">बगैर किसी वजह के अचानक मेरा सर चकराने लग जाता / जाती है या मैं बेहोश हो जाता / जाती हूँ ।</string>
     <string name="i_think_about_death">मैं मरने के बारे में सोचता / सोचती हूँ ।</string>
     <string name="i_feel_afraid_if_i_have_to_talk_in_front_of_my_class">मैं क्लास में सबके सामने बोलने से घबरा जाता / जाती हूँ ।</string>
     <string name="my_heart_suddenly_starts_to_beat_too_quickly_for_no_reason">मेरे दिल की धड़कन बगैर किसी वजह के अचानक तेज़ हो जाती है ।</string>
-    <string name="i_feel_like_i_don_t_want_to_move">मेरा कुछ भी काम करने का मन नहीं करता</string>
+    <string name="i_feel_like_i_don_t_want_to_move">मेरा कुछ भी काम करने का मन नहीं करता है ।</string>
     <string name="i_worry_that_i_will_suddenly_get_a_scared_feeling_when_there_is_nothing_to_be_afraid_of">मुझे चिंता होती है कि मैं बिना वजह डर महसूस करूँगा /करूँगी</string>
     <string name="i_have_to_do_some_things_over_and_over_again_like_washing_my_hands_cleaning_or_putting_things_in_a_certain_order">मुझे कुछ चीज़ें बार बार करनी पड़ती है जैसे हाथ धोना, सफाई करना या चीज़ों को ढंग से रखना</string>
     <string name="i_feel_afraid_that_i_will_make_a_fool_of_myself_in_front_of_people">मुझे चिंता होती है कि मैं दूसरो के सामने कोई मुर्खता वाली हरकत न कर बैठूं ।</string>
     <string name="i_have_to_do_some_things_in_just_the_right_way_to_stop_bad_things_from_happening">मुझे कुछ चीजें बिलकुल सही अंदाज़ से करनी पड़ती है। ताकि मैं कुछ बुरा होने से रोक सकूँ</string>
     <string name="i_worry_when_i_go_to_bed_at_night">जब मैं रात में सोने लगता / लगती हूँ तो परेशान हो जाता/जाती हूँ |</string>
-    <string name="i_would_feel_scared_if_i_had_to_stay_away_from_home_overnight">अगर मुझे रात भर घर से बाहर रहना पड़े तो मैं बहुत डर जाता हूँ ।</string>
+    <string name="i_would_feel_scared_if_i_had_to_stay_away_from_home_overnight">अगर मुझे रात भर घर से बाहर रहना पड़े तो मैं बहुत डर जाता /जाती हूँ ।</string>
     <string name="i_feel_restless">मैं बेचैनी महसूस करता / करती हूँ ।</string>
-    <string name="section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist">धारा 5: शराब, सिगरेट व नशीले पदार्थो का उपयोग करने संबंधी जाँच टेस्ट</string>
+    <string name="section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist">धारा 5: शराब, धूम्रपान व नशीले पदार्थो का उपयोग करने संबंधी जाँच टेस्ट</string>
     <string name="section5_intro">परिचय (कृपया रोगियों को पढ़ें)।</string>
-    <string name="section5_intro2">शराब, तंबाकू उत्पादों और अन्य नशीले उत्पादों के बारे में इस संक्षिप्त साक्षात्कार में भाग लेने के लिए सहमत होने के लिए धन्यवाद / निम्नलिखित प्रश्न आपके पूरे जीवन में व पिछले तीन महीनों में शराब, तम्बाकू से बने सामान व अन्य नशीले पदार्थो के उपयोग के आपके अनुभवों के बारे में हैं| इन पदार्थो का धूम्रपान किया जा सकता है, निगला, सूंघा, नाक या सांस सेअंदर खींचा या इंजेक्शन से लिया जा सकता है| ( उत्तर देने वाला कार्ड दिखाए)|इनमें से कुछ पदार्थों का नुस्खा डॉक्टर द्वारा दिया जाता है, जैसे कि ( एक उत्तेजक दवा एम्फिटेमीन, शामक दवाए)| इस इंटरव्यू के लिए हम उन दवाओं का रिकॉर्ड नहीं रखेंगे जिनका नुस्खा आपके डॉक्टर ने दिया हैं| पर यदि यह दवाएँ आपने नुस्खे के बजाय किसी अन्य कारण से ली हैं, या अधिक बार ली हैं, डॉक्टर द्वारा बताई गयी मात्रा से ज्यादा ली हैं या इनको लेने का इरादा वह नहीं था जिसके लिए डॉक्टर ने आपको दी थी, तो कृपया मुझे बताएँ|
-निम्नलिखित प्रश्न आपके पूरे जीवन में व पिछले तीन महीनों में शराब, तम्बाकू से बने सामान व अन्य नशीले पदार्थो के उपयोग के आपके अनुभवों के बारे में हैं| इन पदार्थो का धूम्रपान किया जा सकता है, निगला, सूंघा, नाक या सांस सेअंदर खींचा या इंजेक्शन से लिया जा सकता है| ( उत्तर देने वाला कार्ड दिखाए)|
+    <string name="section5_intro2">शराब, तंबाकू उत्पादों और अन्य नशीले उत्पादों के बारे में इस संक्षिप्त साक्षात्कार में भाग लेने के लिए सहमत होने के लिए धन्यवाद / निम्नलिखित प्रश्न आपके पूरे जीवन में व पिछले तीन महीनों में शराब, तम्बाकू से बने सामान व अन्य नशीले पदार्थो के उपयोग के आपके अनुभवों के बारे में हैं| इन पदार्थो का धूम्रपान किया जा सकता है, निगला, सूंघा, नाक या सांस सेअंदर खींचा या इंजेक्शन से लिया जा सकता है| ( उत्तर देने वाला कार्ड दिखाए)|
 इनमें से कुछ पदार्थों का नुस्खा डॉक्टर द्वारा दिया जाता है, जैसे कि ( एक उत्तेजक दवा एम्फिटेमीन, शामक दवाए)| इस इंटरव्यू के लिए हम उन दवाओं का रिकॉर्ड नहीं रखेंगे जिनका नुस्खा आपके डॉक्टर ने दिया हैं| पर यदि यह दवाएँ आपने नुस्खे के बजाय किसी अन्य कारण से ली हैं, या अधिक बार ली हैं, डॉक्टर द्वारा बताई गयी मात्रा से ज्यादा ली हैं या इनको लेने का इरादा वह नहीं था जिसके लिए डॉक्टर ने आपको दी थी, तो कृपया मुझे बताएँ|
-हाँलांकि हम आपके अवैध नशीले पदार्थों के उपयोग के बारे में जानना चाहते हैं, कृपया निश्चिंत रहें कि यह जानकारी बिल्कुल गुप्त रहेगी।
-</string>
+हाँलांकि हम आपके अवैध नशीले पदार्थों के उपयोग के बारे में जानना चाहते हैं, कृपया निश्चिंत रहें कि यह जानकारी बिल्कुल गुप्त रहेगी।</string>
     <string name="screening_for_intellectual_disability">बौद्धिक विकलांगता के लिए स्क्रीनिंग</string>
     <string name="is_your_child_slow_in_academic_learning">क्या आपका बच्चा शैक्षणिक रूप से सीखने में धीमा है?</string>
     <string name="does_your_child_need_support_for_activities_of_daily_living">क्या आपके बच्चे को दैनिक जीवन की गतिविधियों के लिए सहायता की आवश्यकता है?</string>
@@ -186,9 +184,9 @@
     <string name="often_is_angry_and_resentful">अक्सर क्रोधित और चिड़चिड़े स्वभाव का होता है</string>
     <string name="often_is_spiteful_or_vindictive">अक्सर द्वेषपूर्ण या प्रतिशोधी होता है</string>
     <string name="conduct_disorder_vanderbilt">आचरण विकार (Vanderbilt)</string>
-    <string name="bullies_threatens_or_scares_others">दूसरों को  धमकाना या डराता है</string>
+    <string name="bullies_threatens_or_scares_others">दूसरों को धमकाना या डराता है</string>
     <string name="starts_physical_fights">शारीरिक झगड़े शुरू कर देता है</string>
-    <string name="lies_to_get_out_of_trouble_or_to_avoid_jobs_i_e_cons_others">मुसीबत से बाहर निकलने या नौकरी से बचने के लिए झूठ बोलता/बोलती है (यानी, दूसरों को "नुकसान" पहुंचाना)</string>
+    <string name="lies_to_get_out_of_trouble_or_to_avoid_jobs_i_e_cons_others">मुसीबत से बाहर निकलने या नौकरी से बचने के लिए झूठ बोलता/बोलती है (यानी,दूसरों को "नुकसान" पहुंचाना)</string>
     <string name="skips_school_without_permission">बिना अनुमति के स्कूल छोड़ देता है</string>
     <string name="is_physically_unkind_to_people">लोगों के प्रति शारीरिक रूप से निर्दयी है</string>
     <string name="has_stolen_things_that_have_value">ऐसी चीजें चुराई हैं जिनका मूल्य है</string>
@@ -263,15 +261,15 @@
     <string name="have_you_ever_visited_a_health_facility_or_doctor_of_any_kind_to_receive_services_or_information_on_mental_illness">क्या आप कभी मानसिक बीमारी पर सेवाएँ या जानकारी प्राप्त करने के लिए किसी स्वास्थ्य सुविधा या किसी भी प्रकार के डॉक्टर के पास गए हैं?</string>
     <string name="how_many_times_have_you_sought_services_or_information_from_a_doctor_or_a_nurse_for_these_services_in_the_last_12_months">पिछले 12 महीनों में आपने कितनी बार किसी डॉक्टर या नर्स से इन सेवाओं के लिए सेवाएँ या जानकारी मांगी है?</string>
     <string name="thinking_about_your_last_visit_where_did_you_go">अपनी पिछली यात्रा के बारे में सोचकर  बताऐ, आप कहाँ गए थे?</string>
-    <string name="when_you_last_saw_a_doctor_or_a_nurse_what_was_the_main_reason_for_going">जब आपने आखिरी बार किसी डॉक्टर या नर्स को देखाया  था, तो जाने का मुख्य कारण क्या था?</string>
-    <string name="at_this_facility_did_you_see_any_posters_on_mental_health">क्या आपने इस सुविधा  में  मानसिक स्वास्थ्य पर कोई पोस्टर देखा?</string>
+    <string name="when_you_last_saw_a_doctor_or_a_nurse_what_was_the_main_reason_for_going">जब आपने आखिरी बार किसी डॉक्टर या नर्स को देखाया था,तो जाने का मुख्य कारण क्या था?</string>
+    <string name="at_this_facility_did_you_see_any_posters_on_mental_health">क्या आपने इस सुविधा में मानसिक स्वास्थ्य पर कोई पोस्टर देखा?</string>
     <string name="have_you_ever_heard_of_the_following_mental_and_neurological_illnesses">क्या आपने कभी निम्नलिखित मानसिक और तंत्रिका संबंधी बीमारी के बारे में सुना है?</string>
     <string name="have_you_ever_heard_visited_yspk_adolescent_clinics_arsh_kishori_clinics_use_local_name">क्या आपने कभी (YSPK)/किशोर क्लीनिक/ARSH/किशोरी क्लीनिक (स्थानीय नाम का उपयोग करें) के बारे में सुना/दौरा किया है?</string>
     <string name="what_are_all_the_services_available_at_these_clinics">इन क्लीनिकों में कौन सी सेवाएँ उपलब्ध हैं?</string>
     <string name="how_far_is_it_from_your_place_n_mark_in_kilometers">यह आपके स्थान से कितनी दूर है?
 किलोमीटर में निशान लगाएं</string>
     <string name="parent_interview_title">माता-पिता में से किसी एक को प्रशासित किया जाना अधिमानतः माँ को दिया जाए। यदि माता और पिता दोनों जीवित नहीं हैं, तो केवल अभिभावक या देखभालकर्ता से साक्षात्कार की आवश्यकता है। प्रत्येक बच्चे के लिए एक अलग अभिभावक साक्षात्कार फॉर्म भरना होगा। उदाहरण के लिए: यदि तीन बच्चे हैं, तो प्रत्येक बच्चे के लिए एक ही माता-पिता का साक्षात्कार लिया जाना आवश्यक है। कुल मिलाकर, उस माता-पिता के लिए 3 अभिभावकीय साक्षात्कार होने आवश्यक हैं।</string>
-    <string name="what_are_all_the_different_modes_of_travel_available_for_you_to_reach_this_place">इस स्थान तक पहुँचने के लिए आपके  पास  यात्रा के कौन से विभिन्न साधन उपलब्ध हैं?</string>
+    <string name="what_are_all_the_different_modes_of_travel_available_for_you_to_reach_this_place">इस स्थान तक पहुँचने के लिए आपके पास यात्रा के कौन से विभिन्न साधन उपलब्ध हैं?</string>
     <string name="how_easy_is_it_to_go_to_these_places">इन जगहों पर जाना कितना आसान है?</string>
     <string name="maternal_information">मातृ संबंधी जानकारी</string>
     <string name="_73a_how_was_the_mother_s_nutrition_during_the_pregnancy_of_this_child">73A. इस बच्चे की गर्भावस्था के दौरान माँ का पोषण कैसा था?   </string>
@@ -299,7 +297,7 @@
     <string name="in_your_life_have_you_ever_used_tobacco_products_cigarettes_chewing_tobacco_cigars_etc">क्या आपने अपने जीवन में कभी तम्बाकू उत्पादों (Tobacco products) (cigarettes, chewing tobacco, cigars, etc.) का उपयोग किया है?</string>
     <string name="in_the_past_three_months_how_often_have_you_used_tobacco_products_you_mentioned">पिछले तीन महीनों में आपने कितनी बार तंबाकू (tobacco) उत्पादों का उपयोग किया है जिसका आपने उल्लेख किया है</string>
     <string name="during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_tobacco_products">पिछले तीन महीनों के दौरान, आपके तंबाकू (tobacco) उत्पादों के उपयोग से कितनी बार स्वास्थ्य, सामाजिक, कानूनी या वित्तीय समस्याएं पैदा हुई हैं?</string>
-    <string name="during_the_past_three_months_how_often_has_your_use_of_tobacco_products_led_to_health_social_legal_or_financial_problems">During the past three months, how often has your use of tobacco products led to health, social, legal or financial problems?</string>
+    <string name="during_the_past_three_months_how_often_has_your_use_of_tobacco_products_led_to_health_social_legal_or_financial_problems">पिछले तीन महीनों के दौरान, आपके तंबाकू (tobacco) उत्पादों के उपयोग से कितनी बार स्वास्थ्य, सामाजिक, कानूनी या वित्तीय समस्याएं पैदा हुई हैं?</string>
     <string name="has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_tobacco_products">क्या आपके किसी मित्र या रिश्तेदार या किसी अन्य ने कभी आपके तंबाकू (tobacco) उत्पादों के उपयोग के बारे में चिंता व्यक्त की है</string>
     <string name="have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_tobacco_products">क्या आपने कभी  तंबाकू (tobacco) उत्पादों के उपयोग को नियंत्रित करने, कम करने या बंद करने का प्रयास किया है और असफल रहे हैं?</string>
     <string name="in_your_life_have_you_ever_used_alcoholic_beverages_beer_wine_spirits_etc">क्या आपने अपने जीवन में कभी मादक पेय  (Alcoholic beverages) (beer, wine, spirits, etc.) का उपयोग किया है?</string>
@@ -349,7 +347,7 @@
     <string name="during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_hallucinogens">पिछले तीन महीनों के दौरान, आपको कितनी बार हैलुसिनोजन (Hallucinogens) प्रकार के उत्तेजक का सेवन करने की तीव्र इच्छा या आग्रह हुआ है</string>
     <string name="during_the_past_three_months_how_often_has_your_use_of_hallucinogens_led_to_health_social_legal_or_financial_problems">पिछले तीन महीनों के दौरान, आपके द्वारा हैलुसिनोजन (Hallucinogens) प्रकार के उत्तेजक के सेवन से कितनी बार स्वास्थ्य, सामाजिक, कानूनी या वित्तीय समस्याएं पैदा हुईं?</string>
     <string name="during_the_past_three_months_how_often_have_you_failed_to_do_what_was_normally_expected_of_you_because_of_your_use_of_hallucinogens">पिछले तीन महीनों के दौरान,  हैलुसिनोजन (Hallucinogens) प्रकार के उत्तेजक  के कारण आप कितनी बार वह काम करने में असफल रहे जिसकी आपसे सामान्यतः अपेक्षा की जाती थी</string>
-    <string name="has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_hallucinogens">Has a friend or relative or anyone else ever expressed concern about your use of hallucinogens</string>
+    <string name="has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_hallucinogens">क्या किसी मित्र या रिश्तेदार या किसी अन्य ने कभी आपके हैलुसिनोजन (Hallucinogens) प्रकार के उत्तेजक  पेय पदार्थों के उपयोग के बारे में चिंता व्यक्त की है</string>
     <string name="have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_hallucinogens">क्या आपने कभी हैलुसिनोजन (Hallucinogens) पेय पदार्थों के उपयोग को नियंत्रित करने, कम करने या बंद करने का प्रयास किया है और असफल रहे हैं</string>
     <string name="in_your_life_have_you_ever_used_opioids_heroin_morphine_buprenorphine_opium_methadone_tramadol_codeine_pentazocine_etc">क्या आपने अपने जीवन में कभी नशीले पदार्थोंन  प्रकार के उत्तेजक (Opioids) (heroin, morphine, buprenorphine, opium, methadone, tramadol, codeine, pentazocine, etc.) का उपयोग किया है?</string>
     <string name="in_the_past_three_months_how_often_have_you_used_opioids_you_mentioned">पिछले तीन महीनों में आपने कितनी बार नशीले पदार्थों प्रकार के उत्तेजक (opiods) का उपयोग किया है, जिसका उल्लेख आपने किया है</string>
@@ -395,7 +393,7 @@
     <string name="does_the_child_interact_on_his_her_own_with_others">• क्या बच्चा दूसरों के साथ अपनी खुद की बातचीत करता है / करती है?</string>
     <string name="does_the_child_ask_questions">• क्या बच्चा सवाल पूछता है ?</string>
     <string name="can_the_child_sustain_conversation_with_others_family_members_teachers_and_friends">• क्या बच्चा दूसरों के साथ बातचीत जारी रख सकता है ? परिवार के सदस्यों, शिक्षकों, दोस्तों ।.</string>
-    <string name="if_yes_check_the_frequency_and_duration">• </string>
+    <string name="if_yes_check_the_frequency_and_duration">• यदि हाँ, तो आवृत्ति और अवधि की जाँच करें। </string>
     <string name="does_he_she_respond_mostly_by_nodding_his_her_head_or_by_saying_yes_or_no">•  क्या वह अपना सिर हिलाकर या हां / ना कहकर ज्यादातर प्रतिक्रिया देता है / देती है ?</string>
     <string name="does_he_she_engage_in_repetitive_behaviours_like_hand_flapping_head_nodding_finger_wiggling_and_body_rocking">• क्या वह हाथ हिलाते रहना, सिर हिलाना, उंगली लड़खड़ाना और शरीर को हिलाना जैसे दोहराए जाने वाले व्यवहारों में शामिल रहता है / रहती है?</string>
     <string name="ask_if_the_child_uses_any_object_while_engaging_in_repetitive_activities_spinning_objects">• कभी-कभी जांचें कि क्या बच्चा दोहराए जाने वाली गतिविधियों में शामिल होने के दौरान किसी भी वस्तु का उपयोग करता है। (घुमाने वाली वस्तुए)</string>
@@ -408,6 +406,8 @@
     <string name="does_he_she_express_dislike_when_someone_tries_to_touch_him_her">• जब कोई उसे छूने की कोशिश करता है तो वह नापसंद व्यक्त करता है?</string>
     <string name="does_the_child_like_to_eat_food_of_a_particular_taste">• क्या बच्चा केवल विशेष स्वाद का खाना खाना पसंद करता है?</string>
     <string name="is_he_she_attached_to_only_one_family_member_and_ignores_others_presence">• क्या वह केवल परिवार के एक ही सदस्य से जुड़ा हुआ है/ जुडी हुई है और दूसरों की उपस्थिति को अनदेखा करता/ करती है?</string>
+    <string name="in_your_life_have_you_ever_used_any_other_drugs_apart_from_those_mentioned_above">क्या आपने अपने जीवन में कभी ऊपर बताई गई दवाओं के अलावा किसी अन्य दवा का इस्तेमाल किया है?</string>
+    <string name="does_he_she_ignore_the_presence_of_family_members">• क्या वह परिवार के सदस्यों की उपस्थिति को अनदेखा करता है / करती है ?</string>
 
 
 </resources>

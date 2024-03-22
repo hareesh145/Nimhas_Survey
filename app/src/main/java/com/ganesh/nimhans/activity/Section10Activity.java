@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -225,16 +226,13 @@ public class Section10Activity extends AppCompatActivity {
 
 
     public void onClickNextSection(View v) {
-       /* Util.showToast(activity, "Successfully data saved");
-        Intent intent = new Intent(activity, Section11Activity.class);
-        intent.putExtra(AGE_ID, ageValue);
-        intent.putExtra(SURVEY_ID, surveyID);
-        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-        startActivity(intent);
-*/
-        checkRCADSScore();
+        if (binding.section10RespondentGrp.getCheckedRadioButtonId() == -1 || binding.question139Grp.getCheckedRadioButtonId() == -1  || binding.question140.getCheckedRadioButtonId() == -1 || binding.question141.getCheckedRadioButtonId() == -1 || binding.question142.getCheckedRadioButtonId() == -1|| binding.question143.getCheckedRadioButtonId() == -1 || binding.question144.getCheckedRadioButtonId() == -1|| binding.question145.getCheckedRadioButtonId() == -1|| binding.question146.getCheckedRadioButtonId() == -1|| binding.question147.getCheckedRadioButtonId() == -1|| binding.question148.getCheckedRadioButtonId() == -1
+                || binding.question149.getCheckedRadioButtonId() == -1 || binding.question150.getCheckedRadioButtonId() == -1 || binding.question151.getCheckedRadioButtonId() == -1|| binding.question152.getCheckedRadioButtonId() == -1 || binding.question153.getCheckedRadioButtonId() == -1|| binding.question154.getCheckedRadioButtonId() == -1|| binding.question155.getCheckedRadioButtonId() == -1|| binding.question156.getCheckedRadioButtonId() == -1|| binding.question157.getCheckedRadioButtonId() == -1|| binding.question158.getCheckedRadioButtonId() == -1|| binding.question159.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
 
+            checkRCADSScore();
+        }
     }
 
     public void onClickPreviousSection(View v) {

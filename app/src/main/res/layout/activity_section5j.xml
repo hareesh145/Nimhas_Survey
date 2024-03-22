@@ -168,7 +168,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used any other drugs apart from those mentioned above?"
+                            android:text="@string/in_your_life_have_you_ever_used_any_other_drugs_apart_from_those_mentioned_above"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />

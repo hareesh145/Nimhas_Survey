@@ -652,7 +652,7 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/a_tobacco_grp"
+                                android:id="@+id/tobaccoProduct172d"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 

@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -249,6 +250,10 @@ public class Section7aActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.section7Respondent.getCheckedRadioButtonId() == -1 || binding.question78Options.getCheckedRadioButtonId() == -1  || binding.question79Options.getCheckedRadioButtonId() == -1 || binding.question80Options.getCheckedRadioButtonId() == -1 || binding.question81Options.getCheckedRadioButtonId() == -1|| binding.question82Options.getCheckedRadioButtonId() == -1 || binding.question83Options.getCheckedRadioButtonId() == -1|| binding.question84Options.getCheckedRadioButtonId() == -1|| binding.question85Options.getCheckedRadioButtonId() == -1|| binding.question86Options.getCheckedRadioButtonId() == -1|| binding.question87Options.getCheckedRadioButtonId() == -1|| binding.question88Options.getCheckedRadioButtonId() == -1|| binding.question89Options.getCheckedRadioButtonId() == -1|| binding.question90Options.getCheckedRadioButtonId() == -1|| binding.question91Options.getCheckedRadioButtonId() == -1|| binding.question92Options.getCheckedRadioButtonId() == -1 || binding.question93Options.getCheckedRadioButtonId() == -1
+                || binding.question94Options.getCheckedRadioButtonId() == -1 || binding.question95Options.getCheckedRadioButtonId() == -1|| binding.question96Options.getCheckedRadioButtonId() == -1|| binding.question97Options.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
        /* binding.progressBar.setVisibility(View.VISIBLE);
         Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, Section7bActivity.class);
@@ -258,7 +263,8 @@ public class Section7aActivity extends AppCompatActivity {
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);*/
 //        startActivity(new Intent(activity, Section7bActivity.class));
-        checkRCADSScore();
+            checkRCADSScore();
+        }
 
     }
 

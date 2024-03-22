@@ -265,7 +265,7 @@ public class Section3aActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.Caste.getCheckedRadioButtonId() == -1 || binding.maritalStatus.getCheckedRadioButtonId()== -1 || binding.yesOrNo.getCheckedRadioButtonId() == -1 || binding.NoOfPeople.getText().toString().isEmpty() || binding.answerType1.getCheckedRadioButtonId() == -1 || binding.answerType2.getCheckedRadioButtonId() == -1) {
+        if (binding.Caste.getCheckedRadioButtonId() == -1 || binding.maritalStatus.getCheckedRadioButtonId()== -1 || binding.NoOfPeople.getText().toString().isEmpty() || binding.answerType1.getCheckedRadioButtonId() == -1 || binding.answerType2.getCheckedRadioButtonId() == -1) {
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
             Bundle bundle = getIntent().getExtras();
