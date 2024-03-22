@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Anxiety and Depression (RCADS)"
+                        android:text="@string/anxiety_and_depression_rcads"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -127,7 +127,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry about things"
+                            android:text="@string/i_worry_about_things"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -195,7 +195,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel sad or empty"
+                            android:text="@string/i_feel_sad_or_empty"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -263,7 +263,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When I have a problem, I get a funny feeling in my stomach"
+                            android:text="@string/when_i_have_a_problem_i_get_a_funny_feeling_in_my_stomach"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -331,7 +331,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry when I think I have done poorly at something"
+                            android:text="@string/i_worry_when_i_think_i_have_done_poorly_at_something"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -399,7 +399,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I would feel afraid of being on my own at home"
+                            android:text="@string/i_would_feel_afraid_of_being_on_my_own_at_home"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -467,7 +467,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Nothing is much fun anymore"
+                            android:text="@string/nothing_is_much_fun_anymore"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -535,7 +535,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel scared when I have to take a test"
+                            android:text="@string/i_feel_scared_when_i_have_to_take_a_test"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -603,7 +603,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel worried when I think someone is angry with me"
+                            android:text="@string/i_feel_worried_when_i_think_someone_is_angry_with_me"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -671,7 +671,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry about being away from my parents"
+                            android:text="@string/i_worry_about_being_away_from_my_parents"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -739,7 +739,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I get bothered by bad or silly thoughts or pictures in my mind"
+                            android:text="@string/i_get_bothered_by_bad_or_silly_thoughts_or_pictures_in_my_mind"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -807,7 +807,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have trouble sleeping"
+                            android:text="@string/i_have_trouble_sleeping"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -875,7 +875,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry that I will do badly at my school work"
+                            android:text="@string/i_worry_that_i_will_do_badly_at_my_school_work"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -943,7 +943,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry that something awful will happen to someone in my family"
+                            android:text="@string/i_worry_that_something_awful_will_happen_to_someone_in_my_family"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1011,7 +1011,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I suddenly feel as if I can't breathe when there is no reason for this "
+                            android:text="@string/i_suddenly_feel_as_if_i_can_t_breathe_when_there_is_no_reason_for_this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1079,7 +1079,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have problems with my appetite"
+                            android:text="@string/i_have_problems_with_my_appetite"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1147,7 +1147,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have to keep checking that I have done things right (like the switch is off, or the door is locked)"
+                            android:text="@string/i_have_to_keep_checking_that_i_have_done_things_right_like_the_switch_is_off_or_the_door_is_locked"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1215,7 +1215,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel scared if I have to sleep on my own"
+                            android:text="@string/i_feel_scared_if_i_have_to_sleep_on_my_own"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1283,7 +1283,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have trouble going to school in the mornings because I feel nervous or afraid"
+                            android:text="@string/i_have_trouble_going_to_school_in_the_mornings_because_i_feel_nervous_or_afraid"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1351,7 +1351,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have no energy for things"
+                            android:text="@string/i_have_no_energy_for_things"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1419,7 +1419,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry I might look foolish"
+                            android:text="@string/i_worry_i_might_look_foolish"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1487,7 +1487,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I am tired a lot"
+                            android:text="@string/i_am_tired_a_lot"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1555,7 +1555,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry that bad things will happen to me"
+                            android:text="@string/i_worry_that_bad_things_will_happen_to_me"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1623,7 +1623,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I can't seem to get bad or silly thoughts out of my head"
+                            android:text="@string/i_can_t_seem_to_get_bad_or_silly_thoughts_out_of_my_head"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1691,7 +1691,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When I have a problem, my heart beats really fast"
+                            android:text="@string/when_i_have_a_problem_my_heart_beats_really_fast"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1759,7 +1759,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I cannot think clearly"
+                            android:text="@string/i_cannot_think_clearly"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1827,7 +1827,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I suddenly start to tremble or shake when there is no reason for this"
+                            android:text="@string/i_suddenly_start_to_tremble_or_shake_when_there_is_no_reason_for_this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1895,7 +1895,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry that something bad will happen to me"
+                            android:text="@string/i_worry_that_something_bad_will_happen_to_me"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1963,7 +1963,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When I have a problem, I feel shaky"
+                            android:text="@string/when_i_have_a_problem_i_feel_shaky"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2031,7 +2031,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel worthless"
+                            android:text="@string/i_feel_worthless"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2099,7 +2099,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry about making mistakes"
+                            android:text="@string/i_worry_about_making_mistakes"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2168,7 +2168,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have to think of special thoughts (like numbers or words) to stop bad things from happening"
+                            android:text="@string/i_have_to_think_of_special_thoughts_like_numbers_or_words_to_stop_bad_things_from_happening"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2237,7 +2237,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry what other people think of me"
+                            android:text="@string/i_worry_what_other_people_think_of_me"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2306,7 +2306,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I am afraid of being in crowded places (like shopping centers, the movies, buses, busy playgrounds)"
+                            android:text="@string/i_am_afraid_of_being_in_crowded_places_like_shopping_centers_the_movies_buses_busy_playgrounds"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2375,7 +2375,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="All of a sudden I feel really scared for no reason at all"
+                            android:text="@string/all_of_a_sudden_i_feel_really_scared_for_no_reason_at_all"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2444,7 +2444,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry about what is going to happen"
+                            android:text="@string/i_worry_about_what_is_going_to_happen"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2513,7 +2513,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I suddenly become dizzy or faint when there is no reason for this"
+                            android:text="@string/i_suddenly_become_dizzy_or_faint_when_there_is_no_reason_for_this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2582,7 +2582,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I think about death"
+                            android:text="@string/i_think_about_death"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2651,7 +2651,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel afraid if I have to talk in front of my class "
+                            android:text="@string/i_feel_afraid_if_i_have_to_talk_in_front_of_my_class"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2720,7 +2720,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My heart suddenly starts to beat too quickly for no reason"
+                            android:text="@string/my_heart_suddenly_starts_to_beat_too_quickly_for_no_reason"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2789,7 +2789,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel like I don’t want to move"
+                            android:text="@string/i_feel_like_i_don_t_want_to_move"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2858,7 +2858,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry that I will suddenly get a scared feeling when there is nothing to be afraid of"
+                            android:text="@string/i_worry_that_i_will_suddenly_get_a_scared_feeling_when_there_is_nothing_to_be_afraid_of"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2927,7 +2927,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have to do some things over and over again (like washing my hands, cleaning or putting things in a certain order)"
+                            android:text="@string/i_have_to_do_some_things_over_and_over_again_like_washing_my_hands_cleaning_or_putting_things_in_a_certain_order"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2995,7 +2995,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel afraid that I will make a fool of myself in front of people"
+                            android:text="@string/i_feel_afraid_that_i_will_make_a_fool_of_myself_in_front_of_people"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3064,7 +3064,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I have to do some things in just the right way to stop bad things from happening"
+                            android:text="@string/i_have_to_do_some_things_in_just_the_right_way_to_stop_bad_things_from_happening"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3133,7 +3133,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I worry when I go to bed at night"
+                            android:text="@string/i_worry_when_i_go_to_bed_at_night"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3202,7 +3202,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I would feel scared if I had to stay away from home overnight"
+                            android:text="@string/i_would_feel_scared_if_i_had_to_stay_away_from_home_overnight"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3271,7 +3271,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="I feel restless"
+                            android:text="@string/i_feel_restless"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

@@ -163,7 +163,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Opioids (heroin, morphine, buprenorphine, opium, methadone, tramadol, codeine, pentazocine, etc.)?"
+                            android:text="@string/in_your_life_have_you_ever_used_opioids_heroin_morphine_buprenorphine_opium_methadone_tramadol_codeine_pentazocine_etc"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -229,7 +229,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used opioids you mentioned?"
+                                android:text="@string/in_the_past_three_months_how_often_have_you_used_opioids_you_mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -314,7 +314,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use opioids?"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_opioids"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"/>
                         </LinearLayout>
@@ -400,7 +400,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of opioids led to health, social, legal or financial problems?"
+                                android:text="@string/during_the_past_three_months_how_often_has_your_use_of_opioids_led_to_health_social_legal_or_financial_problems"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -487,7 +487,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of opioids?"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_failed_to_do_what_was_normally_expected_of_you_because_of_your_use_of_opioids"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -572,7 +572,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of opioids?"
+                                android:text="@string/has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_opioids"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -640,7 +640,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
-                                android:text="Have you ever tried and failed to control, cut down or stop using opioids?"
+                                android:text="@string/have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_opioids"
                                 android:textAllCaps="false" />
                         </LinearLayout>
 
@@ -675,7 +675,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
-                                    android:id="@id/monthly_72i"
+                                    android:id="@+id/monthly_72i"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"

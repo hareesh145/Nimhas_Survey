@@ -167,7 +167,7 @@
                             android:layout_below="@+id/question_options_list"
                             android:layout_toRightOf="@+id/question_73"
                             android:padding="10dp"
-                            android:text="Have you ever used any drug by injection (non-medical use only)?"
+                            android:text="@string/have_you_ever_used_any_drug_by_injection_non_medical_use_only"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />

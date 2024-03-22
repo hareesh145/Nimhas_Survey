@@ -4,9 +4,12 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.House_Hold_Model;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -59,6 +62,8 @@ public class ResultPage extends AppCompatActivity {
     String consentForStudy;
     String householdid;
     private int householdidint;
+    int hour;
+    int minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +103,7 @@ public class ResultPage extends AppCompatActivity {
                         binding.date3.setText("");
                         binding.time.setText("");
                         isInterviewcompleted = false;
-                        JsonObject jsonObject =new JsonObject();
+                       /* JsonObject jsonObject =new JsonObject();
                         jsonObject.addProperty("houseHoldStatus","Residents of Household Refused to take part");
                         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
                         apiInterface.putHouseholdStatus(surveyID,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
@@ -121,14 +126,13 @@ public class ResultPage extends AppCompatActivity {
                             public void onFailure(Call<JsonObject> call, Throwable t) {
 
                             }
-                        });
+                        });*/
                         break;
                     case R.id.b:
                         binding.nextVisitDateTime.setVisibility(View.VISIBLE);
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.specify1.setText("");
                         isInterviewcompleted = false;
-                        Toast.makeText(activity, "Interview Partially Completed/Postponed", Toast.LENGTH_SHORT).show();
 
                         break;
                     case R.id.d:
@@ -213,167 +217,159 @@ public class ResultPage extends AppCompatActivity {
     }
 
     public void onClickSubmit(View v) {
-      /*  if (consentForStudy != null && consentForStudy.equals("no")) {
-            Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
-            finish();
-        } else {
-            Intent intent = new Intent(ResultPage.this, Eligiblechildren.class);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(SURVEY_ID, surveyID);
-            startActivity(intent);
-        }*/
+        if (binding.resultCode.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
+            if (isInterviewcompleted) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("houseHoldStatus", "Interview Completed");
+                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                apiInterface.putHouseholdStatus(surveyID, jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
-        if (isInterviewcompleted) {
-            JsonObject jsonObject =new JsonObject();
-            jsonObject.addProperty("houseHoldStatus","Interview Completed");
-            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    binding.progressBar.setVisibility(View.GONE);
-                    try {
-                        JsonObject userResponse = response.body();
-                        if (response.isSuccessful()) {
-                            Log.d("response", "onResponse: " + userResponse);
-                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
-                            Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
-                            intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                            intentcomplet.putExtra(SURVEY_ID, surveyID);
-                            startActivity(intentcomplet);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                }
-            });
-
-
-
-        } else if (selectedResultCode.equals("Others")){
-            JsonObject jsonObject =new JsonObject();
-            jsonObject.addProperty("houseHoldStatus","Others");
-            jsonObject.addProperty("specify",binding.specify1.getText().toString());
-            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    binding.progressBar.setVisibility(View.GONE);
-                    try {
-                        JsonObject userResponse = response.body();
-                        if (response.isSuccessful()) {
-                            Log.d("response", "onResponse: " + userResponse);
-                            Toast.makeText(getApplicationContext(), "Others", Toast.LENGTH_LONG).show();
-                            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
-                                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                startActivity(intent);
-
-
-                            } else {
-                                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        binding.progressBar.setVisibility(View.GONE);
+                        try {
+                            JsonObject userResponse = response.body();
+                            if (response.isSuccessful()) {
+                                Log.d("response", "onResponse: " + userResponse);
+                                Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                Intent intentcomplet = new Intent(ResultPage.this, Eligiblechildren.class);
+                                intentcomplet.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intentcomplet.putExtra(SURVEY_ID, surveyID);
+                                startActivity(intentcomplet);
                             }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
-                }
 
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
 
-                }
-            });
-        }else if(selectedResultCode.equals("Residents of Household Refused to take part")){
-            JsonObject jsonObject =new JsonObject();
-            jsonObject.addProperty("houseHoldStatus","Residents of Household Refused to take part");
-            jsonObject.addProperty("specify",binding.specify1.getText().toString());
-            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    binding.progressBar.setVisibility(View.GONE);
-                    try {
-                        JsonObject userResponse = response.body();
-                        if (response.isSuccessful()) {
-                            Log.d("response", "onResponse: " + userResponse);
-                            Toast.makeText(getApplicationContext(), "Residents of Household Refused to take part", Toast.LENGTH_LONG).show();
-                            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
-                                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                startActivity(intent);
+                    }
+                });
 
 
-                            } else {
-                                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+            } else if (selectedResultCode.equals("Others")) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("houseHoldStatus", "Others");
+                jsonObject.addProperty("specify", binding.specify1.getText().toString());
+                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                apiInterface.putHouseholdStatus(surveyID, jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        binding.progressBar.setVisibility(View.GONE);
+                        try {
+                            JsonObject userResponse = response.body();
+                            if (response.isSuccessful()) {
+                                Log.d("response", "onResponse: " + userResponse);
+                                Toast.makeText(getApplicationContext(), "Others", Toast.LENGTH_LONG).show();
+                                if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                                    Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    startActivity(intent);
+
+
+                                } else {
+                                    Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                                }
                             }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
-                }
 
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
 
-                }
-            });
-        }else if(selectedResultCode.equals("Interview Partially Completed/Postponed")){
-            JsonObject jsonObject =new JsonObject();
-            jsonObject.addProperty("houseHoldStatus","Interview Partially Completed");
-            jsonObject.addProperty("houseHoldPCDate",binding.date3.getText().toString());
-            jsonObject.addProperty("houseHoldPCTime",binding.time.getText().toString());
-            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-            apiInterface.putHouseholdStatus(householdidint,jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                    }
+                });
+            } else if (selectedResultCode.equals("Residents of Household Refused to take part")) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("houseHoldStatus", "Residents of Household Refused to take part");
+                jsonObject.addProperty("specify", binding.specify1.getText().toString());
+                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                apiInterface.putHouseholdStatus(surveyID, jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    binding.progressBar.setVisibility(View.GONE);
-                    try {
-                        JsonObject userResponse = response.body();
-                        if (response.isSuccessful()) {
-                            Log.d("response", "onResponse: " + userResponse);
-                            Toast.makeText(getApplicationContext(), "Residents of Household Refused to take part", Toast.LENGTH_LONG).show();
-                            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
-                                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                startActivity(intent);
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        binding.progressBar.setVisibility(View.GONE);
+                        try {
+                            JsonObject userResponse = response.body();
+                            if (response.isSuccessful()) {
+                                Log.d("response", "onResponse: " + userResponse);
+                                Toast.makeText(getApplicationContext(), "Residents of Household Refused to take part", Toast.LENGTH_LONG).show();
+                                if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                                    Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    startActivity(intent);
 
 
-                            } else {
-                                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                                }
                             }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
-                }
 
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
 
-                }
-            });
-        } else {
-            if (binding.resultCode.getCheckedRadioButtonId() != -1) {
-                Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(SURVEY_ID, surveyID);
-                startActivity(intent);
+                    }
+                });
+            } else if (selectedResultCode.equals("Interview Partially Completed/Postponed")) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("houseHoldStatus", "Interview Partially Completed");
+                jsonObject.addProperty("houseHoldPCDate", binding.date3.getText().toString());
+                jsonObject.addProperty("houseHoldPCTime", binding.time.getText().toString());
+                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                apiInterface.putHouseholdStatus(surveyID, jsonObject, PreferenceConnector.readString(ResultPage.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        binding.progressBar.setVisibility(View.GONE);
+                        try {
+                            JsonObject userResponse = response.body();
+                            if (response.isSuccessful()) {
+                                Log.d("response", "onResponse: " + userResponse);
+                                if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                                    Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    startActivity(intent);
+                                    Toast.makeText(activity, "Interview Partially Completed/Postponed", Toast.LENGTH_SHORT).show();
 
+                                } else {
+                                    Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+
+                    }
+                });
             } else {
-                Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                if (binding.resultCode.getCheckedRadioButtonId() != -1) {
+                    Intent intent = new Intent(ResultPage.this, ActivitySurvey.class);
+                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                    intent.putExtra(SURVEY_ID, surveyID);
+                    startActivity(intent);
+
+
+                } else {
+                    Toast.makeText(activity, "Please select any one option", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
@@ -381,16 +377,41 @@ public class ResultPage extends AppCompatActivity {
 
     public void showTimePickerDialog(View v) {
         Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
+
         TimePickerDialog mTimePicker;
         mTimePicker = new TimePickerDialog(ResultPage.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                binding.time.setText(selectedHour + ":" + selectedMinute);
+                hour = selectedHour;
+                minute = selectedMinute;
+                binding.time.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");
         mTimePicker.show();
+    }
+    @SuppressLint("MissingSuperCall")
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        builder.setMessage("Are you Sure you want to exit from this section ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(ResultPage.this,ActivitySurvey.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Alert");
+        alert.show();
     }
 }

@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Screening for Autism spectrum disorder (MCHAT)"
+                        android:text="@string/screening_for_autism_spectrum_disorder_mchat"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -195,8 +195,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="If you point at something across the room, does your child look at it?
-(FOR EXAMPLE, if you point at a toy or an animal, does your child look at the toy or animal?)"
+                            android:text="@string/if_you_point_at_something_across_the_room_does_your_child_look_at_it_for_example_if_you_point_at_a_toy_or_an_animal_does_your_child_look_at_the_toy_or_animal"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -246,7 +245,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you ever wondered if your child might be deaf?"
+                            android:text="@string/have_you_ever_wondered_if_your_child_might_be_deaf"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -298,8 +297,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child play pretend or make-believe?
-(FOR EXAMPLE, pretend to drink from an empty cup, pretend to talk on a phone, or pretend to feed a doll or stuffed animal?)"
+                            android:text="@string/does_your_child_play_pretend_or_make_believe_for_example_pretend_to_drink_from_an_empty_cup_pretend_to_talk_on_a_phone_or_pretend_to_feed_a_doll_or_stuffed_animal"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -351,8 +349,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child like climbing on things?
-(FOR EXAMPLE, furniture, playground equipment, or stairs)"
+                            android:text="@string/does_your_child_like_climbing_on_things_for_example_furniture_playground_equipment_or_stairs"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -404,8 +401,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child make unusual finger movements near his or her eyes?
-(FOR EXAMPLE, does your child wiggle his or her fingers close to his or her eyes?) "
+                            android:text="@string/does_your_child_make_unusual_finger_movements_near_his_or_her_eyes_for_example_does_your_child_wiggle_his_or_her_fingers_close_to_his_or_her_eyes"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -457,8 +453,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child point with one finger to ask for something or to get help?
-(FOR EXAMPLE, pointing to a snack or toy that is out of reach)"
+                            android:text="@string/does_your_child_point_with_one_finger_to_ask_for_something_or_to_get_help_for_example_pointing_to_a_snack_or_toy_that_is_out_of_reach"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -509,8 +504,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child point with one finger to show you something interesting?
-(FOR EXAMPLE, pointing to an airplane in the sky or a big truck in the road) "
+                            android:text="@string/does_your_child_point_with_one_finger_to_show_you_something_interesting_for_example_pointing_to_an_airplane_in_the_sky_or_a_big_truck_in_the_road"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -561,8 +555,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Is your child interested in other children?
-(FOR EXAMPLE, does your child watch other children, smile at them, or go to them?)"
+                            android:text="@string/is_your_child_interested_in_other_children_for_example_does_your_child_watch_other_children_smile_at_them_or_go_to_them"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -613,8 +606,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child show you things by bringing them to you or holding them up for you to see – not to get help, but just to share?
-(FOR EXAMPLE, showing you a flower, a stuffed animal, or a toy truck)"
+                            android:text="@string/does_your_child_show_you_things_by_bringing_them_to_you_or_holding_them_up_for_you_to_see_not_to_get_help_but_just_to_share_for_example_showing_you_a_flower_a_stuffed_animal_or_a_toy_truck"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -665,8 +657,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child respond when you call his or her name?
-(FOR EXAMPLE, does he or she look up, talk or babble, or stop what he or she is doing when you call his or her name?)"
+                            android:text="@string/does_your_child_respond_when_you_call_his_or_her_name_for_example_does_he_or_she_look_up_talk_or_babble_or_stop_what_he_or_she_is_doing_when_you_call_his_or_her_name"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -717,7 +708,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When you smile at your child, does he or she smile back at you?"
+                            android:text="@string/when_you_smile_at_your_child_does_he_or_she_smile_back_at_you"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -768,8 +759,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child get upset by everyday noises?
-(FOR EXAMPLE, does your child scream or cry to noise such as a vacuum cleaner or loud music?)"
+                            android:text="@string/does_your_child_get_upset_by_everyday_noises_for_example_does_your_child_scream_or_cry_to_noise_such_as_a_vacuum_cleaner_or_loud_music"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -820,7 +810,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child walk?"
+                            android:text="@string/does_your_child_walk"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -871,7 +861,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child look you in the eye when you are talking to him or her, playing with him or her, or dressing him or her?"
+                            android:text="@string/does_your_child_look_you_in_the_eye_when_you_are_talking_to_him_or_her_playing_with_him_or_her_or_dressing_him_or_her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -922,8 +912,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child try to copy what you do?
-(FOR EXAMPLE, wave bye-bye, clap, or make a funny noise when you do)"
+                            android:text="@string/does_your_child_try_to_copy_what_you_do_for_example_wave_bye_bye_clap_or_make_a_funny_noise_when_you_do"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -974,7 +963,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="If you turn your head to look at something, does your child look around to see what you are looking at?"
+                            android:text="@string/if_you_turn_your_head_to_look_at_something_does_your_child_look_around_to_see_what_you_are_looking_at"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1026,8 +1015,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child try to get you to watch him or her?
-(FOR EXAMPLE, does your child look at you for praise, or say “look” or “watch me”?)"
+                            android:text="@string/does_your_child_try_to_get_you_to_watch_him_or_her_for_example_does_your_child_look_at_you_for_praise_or_say_look_or_watch_me"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1078,9 +1066,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child understand when you tell him or her to do something?
-(FOR EXAMPLE, if you don’t point, can your child understand “put the book on the chair” or “bring me the blanket”?)
-"
+                            android:text="@string/does_your_child_understand_when_you_tell_him_or_her_to_do_something_for_example_if_you_don_t_point_can_your_child_understand_put_the_book_on_the_chair_or_bring_me_the_blanket"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1131,8 +1117,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="If something new happens, does your child look at your face to see how you feel about it?
-(FOR EXAMPLE, if he or she hears a strange or funny noise, or sees a new toy, will he or she look at your face?) "
+                            android:text="@string/if_something_new_happens_does_your_child_look_at_your_face_to_see_how_you_feel_about_it_for_example_if_he_or_she_hears_a_strange_or_funny_noise_or_sees_a_new_toy_will_he_or_she_look_at_your_face"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1183,8 +1168,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Does your child like movement activities?
-(FOR EXAMPLE, being swung or bounced on your knee)"
+                            android:text="@string/does_your_child_like_movement_activities_for_example_being_swung_or_bounced_on_your_knee"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

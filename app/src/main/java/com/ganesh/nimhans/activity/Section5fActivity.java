@@ -127,12 +127,12 @@ public class Section5fActivity extends AppCompatActivity {
         Util.showToast(activity, "Successfully data saved");
 
         serveySection5Request.setQno72f(getSelectedItem(binding.tobaccoProduct172f.getCheckedRadioButtonId(), binding.never72f.getId(), binding.onceTwice72f.getId(), binding.monthly72f.getId()));
-        serveySection5Request.setQno71g(getSelectedItem(binding.tobaccoProduct171f.getCheckedRadioButtonId(), binding.never71f.getId(), binding.yes71f.getId(), binding.yesBut71f.getId()));
-        serveySection5Request.setQno70g(getSelectedItem(binding.tobaccoProduct170f.getCheckedRadioButtonId(), binding.never70f.getId(), binding.onceTwice70f.getId(), binding.m70f.getId(), binding.w70f.getId(), binding.dOA70f.getId()));
-        serveySection5Request.setQno69g(getSelectedItem69G(binding.tobaccoProduct169f.getCheckedRadioButtonId(), binding.never69f.getId(), binding.onceOrTwice69f.getId(), binding.m69f.getId(), binding.w69f.getId(), binding.dOA69f.getId()));
-        serveySection5Request.setQno68g(getSelectedItem68G(binding.tobaccoProduct168f.getCheckedRadioButtonId(), binding.never68f.getId(), binding.onceTwice68f.getId(), binding.m68f.getId(), binding.w68f.getId(), binding.dOA68f.getId()));
-        serveySection5Request.setQno67g(getSelectedItem67G(binding.alcoholProduct167f.getCheckedRadioButtonId(), binding.never67f.getId(), binding.onceOrTwice67f.getId(), binding.monthly67f.getId(), binding.weekly67f.getId(), binding.daily67f.getId()));
-        serveySection5Request.setQno66g(getSelected66g(binding.inhalants.getCheckedRadioButtonId(), binding.no366f.getId(), binding.yes266f.getId()));
+        serveySection5Request.setQno71f(getSelectedItem(binding.tobaccoProduct171f.getCheckedRadioButtonId(), binding.never71f.getId(), binding.yes71f.getId(), binding.yesBut71f.getId()));
+        serveySection5Request.setQno70f(getSelectedItem(binding.tobaccoProduct170f.getCheckedRadioButtonId(), binding.never70f.getId(), binding.onceTwice70f.getId(), binding.m70f.getId(), binding.w70f.getId(), binding.dOA70f.getId()));
+        serveySection5Request.setQno69f(getSelectedItem69G(binding.tobaccoProduct169f.getCheckedRadioButtonId(), binding.never69f.getId(), binding.onceOrTwice69f.getId(), binding.m69f.getId(), binding.w69f.getId(), binding.dOA69f.getId()));
+        serveySection5Request.setQno68f(getSelectedItem68G(binding.tobaccoProduct168f.getCheckedRadioButtonId(), binding.never68f.getId(), binding.onceTwice68f.getId(), binding.m68f.getId(), binding.w68f.getId(), binding.dOA68f.getId()));
+        serveySection5Request.setQno67f(getSelectedItem67G(binding.alcoholProduct167f.getCheckedRadioButtonId(), binding.never67f.getId(), binding.onceOrTwice67f.getId(), binding.monthly67f.getId(), binding.weekly67f.getId(), binding.daily67f.getId()));
+        serveySection5Request.setQno66f(getSelected66g(binding.inhalants.getCheckedRadioButtonId(), binding.no366f.getId(), binding.yes266f.getId()));
 
 
         Intent intent = new Intent(activity, Section5gActivity.class);
@@ -166,7 +166,7 @@ public class Section5fActivity extends AppCompatActivity {
         } else if (selectedGrp == yes) {
             return 3;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem67G(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
@@ -181,7 +181,7 @@ public class Section5fActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 6;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem68G(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
@@ -196,7 +196,7 @@ public class Section5fActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 6;
         }
-        return -1;
+        return 0;
     }
 
 
@@ -212,7 +212,7 @@ public class Section5fActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 7;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
@@ -227,7 +227,7 @@ public class Section5fActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 8;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem(int selectedGrp, int no, int yes, int yesBut) {
@@ -238,7 +238,7 @@ public class Section5fActivity extends AppCompatActivity {
         } else if (selectedGrp == yesBut) {
             return 3;
         }
-        return -1;
+        return 0;
     }
 
     public void updateQuestionOption(String question, int option) {

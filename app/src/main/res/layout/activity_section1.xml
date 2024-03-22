@@ -188,7 +188,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Select Taluka"
+                            android:hint="@string/select_taluka_text"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
@@ -288,7 +288,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Locale:"
+                            android:text="@string/locale"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -341,7 +341,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Name of the Respondent"
+                            android:hint="@string/name_of_the_respondent_text"
                             android:padding="10dp"
                             android:inputType="textCapSentences"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -371,7 +371,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="86dp"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Address with Landmark"
+                            android:hint="@string/address_with_landmark"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -399,7 +399,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Mobile Number"
+                            android:hint="@string/mobile_number"
                             android:inputType="number"
                             android:maxLength="10"
                             android:padding="10dp"
@@ -412,7 +412,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="26dp"
                         android:padding="10dp"
-                        android:text="Date Of Interview"
+                        android:text="@string/date_of_interview"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -466,7 +466,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Consented for study :"
+                            android:text="@string/consented_for_study"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -483,7 +483,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Yes"
+                            android:text="@string/yes"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -492,7 +492,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="No"
+                            android:text="@string/no"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 

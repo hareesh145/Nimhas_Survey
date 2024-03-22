@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Screening for Autism spectrum disorder (IASQ)"
+                        android:text="@string/screening_for_autism_spectrum_disorder_iasq"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>
@@ -203,7 +203,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have poor eye contact?"
+                            android:text="@string/have_poor_eye_contact"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -227,21 +227,21 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/eye_contact"
-                            android:text="• Does the child look at you when you call him/her?"
+                            android:text="@string/does_the_child_look_at_you_when_you_call_him_her"
                             android:textAllCaps="false"
                             android:visibility="visible"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• While asking something does he/she look at you?"
+                            android:text="@string/while_asking_something_does_he_she_look_at_you"
                             android:textAllCaps="false"
                             android:visibility="visible"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does the child get fussy when forced to look at people?"
+                            android:text="@string/does_the_child_get_fussy_when_forced_to_look_at_people"
                             android:textAllCaps="false"
                             android:visibility="visible"
                             android:textColor="#000000" />
@@ -291,7 +291,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Lack social smile?"
+                            android:text="@string/lack_social_smile"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -315,28 +315,28 @@
                             android:layout_height="wrap_content"
                             android:visibility="visible"
                             android:id="@+id/social_smile"
-                            android:text="• Does the child smile in response to familiar people (Grandparents, relatives/friends)?"
+                            android:text="@string/does_the_child_smile_in_response_to_familiar_people_grandparents_relatives_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• Does the child smile when someone greets him/her?"
+                            android:text="@string/does_the_child_smile_when_someone_greets_him_her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="•  Does he/she smile when father/mother returns home in the evening?"
+                            android:text="@string/does_he_she_smile_when_father_mother_returns_home_in_the_evening"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• Does he/she greet others by smiling?"
+                            android:text="@string/does_he_she_greet_others_by_smiling"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -387,7 +387,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Remain aloof?"
+                            android:text="@string/remain_aloof"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -409,35 +409,35 @@
                             android:layout_height="wrap_content"
                             android:visibility="visible"
                             android:id="@+id/Remain_aloof"
-                            android:text="• Does the child prefer to be alone rather in a group?"
+                            android:text="@string/does_the_child_prefer_to_be_alone_rather_in_a_group"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• Does the child like playing with a group of children?"
+                            android:text="@string/does_the_child_like_playing_with_a_group_of_children"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• Does the child want parent's presence while playing or doing any activity?"
+                            android:text="@string/does_the_child_want_parent_s_presence_while_playing_or_doing_any_activity"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• Does the child feel comfortable being in a group?"
+                            android:text="@string/does_the_child_feel_comfortable_being_in_a_group"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="visible"
-                            android:text="• If he/she is engaged in group activity how does he/she react? Does he/she get irritated or fussy?"
+                            android:text="@string/if_he_she_is_engaged_in_group_activity_how_does_he_she_react_does_he_she_get_irritated_or_fussy"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
@@ -497,7 +497,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Not reach out to others?"
+                            android:text="@string/not_reach_out_to_others"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -518,31 +518,31 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/reach_out"
-                            android:text="• Does he/she like being with family members? (Parents, siblings, grandparents)"
+                            android:text="@string/does_he_she_like_being_with_family_members_parents_siblings_grandparents"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she like playing with his/her siblings/friends?"
+                            android:text="@string/does_he_she_like_playing_with_his_her_siblings_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she like going out with family members?"
+                            android:text="@string/does_he_she_like_going_out_with_family_members"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she run and hug parents/grandparents/close relatives when they return after a break?"
+                            android:text="@string/does_he_she_run_and_hug_parents_grandparents_close_relatives_when_they_return_after_a_break"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="•Is he/she attached to only one family member and ignores others' presence?"
+                            android:text="@string/is_he_she_attached_to_only_one_family_member_and_ignores_others_presence"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -593,7 +593,7 @@
                             android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Engage in solitary and repetitive play activities?"
+                            android:text="@string/engage_in_solitary_and_repetitive_play_activities"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -614,20 +614,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/engage_solitary"
-                            android:text="• Does the child prefer playing the same game again and again for long duration?\n
-(Like playing with crayons/cars/beads/strings)"
+                            android:text="@string/does_the_child_prefer_playing_the_same_game_again_and_again_for_long_duration_n_like_playing_with_crayons_cars_beads_strings"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• If the child's play is interrupted how does he/she react"
+                            android:text="@string/if_the_child_s_play_is_interrupted_how_does_he_she_react"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• If undisturbed how long does he/she continue the same activity? Does he/she have any fixated interests? (Like playing by keeping the cars in a line or stacking things). When interrupted how does he/she react?"
+                            android:text="@string/if_undisturbed_how_long_does_he_she_continue_the_same_activity_does_he_she_have_any_fixated_interests_like_playing_by_keeping_the_cars_in_a_line_or_stacking_things_when_interrupted_how_does_he_she_react"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -679,7 +678,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Not maintain peer relationships?"
+                            android:text="@string/not_maintain_peer_relationships"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -700,43 +699,43 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/not_maintain"
-                            android:text="• Does the child have friends?"
+                            android:text="@string/does_the_child_have_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she know the names of his/her friends?"
+                            android:text="@string/does_he_she_know_the_names_of_his_her_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="•Does he/she prefer playing with any particular child?"
+                            android:text="@string/does_he_she_prefer_playing_with_any_particular_child"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she express the wish to play with his/her friends?"
+                            android:text="@string/does_he_she_express_the_wish_to_play_with_his_her_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she like attending his/her friend's birthday parties?"
+                            android:text="@string/does_he_she_like_attending_his_her_friend_s_birthday_parties"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she share his/her experiences with his/her friends?"
+                            android:text="@string/does_he_she_share_his_her_experiences_with_his_her_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she feel close to any particular child?"
+                            android:text="@string/does_he_she_feel_close_to_any_particular_child"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -786,7 +785,7 @@
                             android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Is unable to initiate or sustain conversation with others?"
+                            android:text="@string/is_unable_to_initiate_or_sustain_conversation_with_others"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -807,31 +806,31 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/sustain_conversation"
-                            android:text="• Does the child interact on his/her own with others?"
+                            android:text="@string/does_the_child_interact_on_his_her_own_with_others"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does the child ask questions?"
+                            android:text="@string/does_the_child_ask_questions"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Can the child sustain conversation with others (family members, teachers, and friends)?"
+                            android:text="@string/can_the_child_sustain_conversation_with_others_family_members_teachers_and_friends"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• If yes, check the frequency and duration."
+                            android:text="@string/if_yes_check_the_frequency_and_duration"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she respond mostly by nodding his/her head or by saying yes or no?"
+                            android:text="@string/does_he_she_respond_mostly_by_nodding_his_her_head_or_by_saying_yes_or_no"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -882,7 +881,7 @@
                             android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Engage in stereotyped/repetitive motor mannerisms?"
+                            android:text="@string/engage_in_stereotyped_repetitive_motor_mannerisms"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -902,13 +901,13 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does he/she engage in repetitive behaviours like hand flapping, head nodding, finger wiggling and body rocking?"
+                            android:text="@string/does_he_she_engage_in_repetitive_behaviours_like_hand_flapping_head_nodding_finger_wiggling_and_body_rocking"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Ask if the child uses any object while engaging in repetitive activities (spinning objects)."
+                            android:text="@string/ask_if_the_child_uses_any_object_while_engaging_in_repetitive_activities_spinning_objects"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -959,7 +958,7 @@
                             android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Show attachment to inanimate objects?"
+                            android:text="@string/show_attachment_to_inanimate_objects"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -980,19 +979,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/inanimate_objects"
-                            android:text="• Does the child play with strings, threads/ wires?"
+                            android:text="@string/does_the_child_play_with_strings_threads_wires"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• Does the child want to keep any object/toy with him/herself throughout the day?"
+                            android:text="@string/does_the_child_want_to_keep_any_object_toy_with_him_herself_throughout_the_day"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="• If parent tries to take it away how does he/she react?"
+                            android:text="@string/if_parent_tries_to_take_it_away_how_does_he_she_react"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1041,7 +1040,7 @@
                             android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Respond to objects/people unusually by smelling,touching or tasting?"
+                            android:text="@string/respond_to_objects_people_unusually_by_smelling_touching_or_tasting"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                         <ImageView
@@ -1064,31 +1063,31 @@
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:id="@+id/respond_objects"
-                          android:text="• Does the child put everything in his/her mouth? (even inedible objects-toys, pens, pencils, crayons)"
+                          android:text="@string/does_the_child_put_everything_in_his_her_mouth_even_inedible_objects_toys_pens_pencils_crayons"
                           android:textAllCaps="false"
                           android:textColor="#000000" />
                       <TextView
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="• Does the child like to smell things? (Dresses, hair, people)"
+                          android:text="@string/does_the_child_like_to_smell_things_dresses_hair_people"
                           android:textAllCaps="false"
                           android:textColor="#000000" />
                       <TextView
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="• Does the child touch/hug other people?"
+                          android:text="@string/does_the_child_touch_hug_other_people"
                           android:textAllCaps="false"
                           android:textColor="#000000" />
                       <TextView
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="• Does he/she express dislike when someone tries to touch him/her?"
+                          android:text="@string/does_he_she_express_dislike_when_someone_tries_to_touch_him_her"
                           android:textAllCaps="false"
                           android:textColor="#000000" />
                       <TextView
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:text="• Does the child like to eat food of a particular taste?"
+                          android:text="@string/does_the_child_like_to_eat_food_of_a_particular_taste"
                           android:textAllCaps="false"
                           android:textColor="#000000" />
                   </LinearLayout>

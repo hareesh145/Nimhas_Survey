@@ -7,10 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -47,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -86,6 +90,23 @@ public class ActivitySurvey extends AppCompatActivity {
     }
 
     public void onClickSurvey(View v) {
+        if (binding.langRadioBtns.getCheckedRadioButtonId()==binding.hindiBtn.getId()) {
+            Locale myLocale = new Locale("hi");
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            startActivity(new Intent(activity, Section1Activity.class));
+        }else {
+            Locale myLocale = new Locale("en");
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            startActivity(new Intent(activity, Section1Activity.class));
+        }
         startActivity(new Intent(activity, Section1Activity.class));
     }
 
@@ -96,6 +117,11 @@ public class ActivitySurvey extends AppCompatActivity {
         Intent i = new Intent(ActivitySurvey.this, LoginActivity.class);
         startActivity(i);
         finish();
+    }
+    public void onClickRegistration(View view){
+        Intent intent = new Intent(ActivitySurvey.this, CreateUserActivity.class);
+        startActivity(intent);
+
     }
 
 
@@ -113,7 +139,7 @@ public class ActivitySurvey extends AppCompatActivity {
                 try {
                     ConvertJsonToExcel.writeSurveyReports(response.body(), "SurveyReport.xls");
                 }catch (Exception e){
-
+                    e.printStackTrace();
                 }
             }
 
@@ -143,7 +169,7 @@ public class ActivitySurvey extends AppCompatActivity {
                 try {
                     ConvertJsonToExcel.writeHouseHoldTableReport(response.body(), "HouseHoldTable.xls");
                 }catch (Exception e){
-
+                    e.printStackTrace();
                 }
             }
 
@@ -167,24 +193,24 @@ public class ActivitySurvey extends AppCompatActivity {
 
     private void getHouseHoldFormReports() {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<EligibleResponse>> call = apiService.getAllHouseHoldChilderns(
+        Call<List<SurveySection>> call = apiService.getHouseholdFormReport(
                 PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
         binding.progressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<List<EligibleResponse>>() {
+        call.enqueue(new Callback<List<SurveySection>>() {
             @Override
-            public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+            public void onResponse(Call<List<SurveySection>> call, Response<List<SurveySection>> response) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
 
                 try {
                     ConvertJsonToExcel.writeHouseHoldFormReport(response.body(), "HouseHoldData.xls");
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                   e.printStackTrace();
                 }
             }
 
             @Override
-            public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+            public void onFailure(Call<List<SurveySection>> call, Throwable t) {
                 if (binding.progressBar.isShown())
                     binding.progressBar.setVisibility(View.GONE);
                 Util.showToast(activity, getResources().getString(R.string.service_error));
@@ -193,51 +219,6 @@ public class ActivitySurvey extends AppCompatActivity {
         });
     }
 
-    private void saveWorkBook(HSSFWorkbook hssfWorkbook, String fileName) {
-        StorageManager storageManager = (StorageManager) getSystemService(STORAGE_SERVICE);
-        StorageVolume storageVolume = storageManager.getStorageVolumes().get(0); // internal storage
-
-        File fileOutput = null;
-
-        fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileName);
-//        }
-
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(fileOutput);
-            hssfWorkbook.write(fileOutputStream);
-            fileOutputStream.close();
-            Toast.makeText(this, "Report Downloaded Downloads > " + fileName, Toast.LENGTH_LONG).show();
-
-        } catch (Exception e) {
-            Toast.makeText(this, "File Creation Failed", Toast.LENGTH_LONG).show();
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void saveWorkBookHousehold(HSSFWorkbook hssfWorkbook) {
-        StorageManager storageManager = (StorageManager) getSystemService(STORAGE_SERVICE);
-        StorageVolume storageVolume = storageManager.getStorageVolumes().get(0); // internal storage
-
-        File fileOutput = null;
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-//            fileOutput = new File(storageVolume.getDirectory().getPath() + "/Download/SurveyData.xlsx");
-//        } else {
-        String csvFile = "HouseHoldReport.xls";
-
-        fileOutput = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), csvFile);
-//        }
-
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(fileOutput);
-            hssfWorkbook.write(fileOutputStream);
-            fileOutputStream.close();
-            Toast.makeText(this, "Report Downloaded Please check in Downloads HouseHoldReport.xlsx", Toast.LENGTH_LONG).show();
-
-        } catch (Exception e) {
-            Toast.makeText(this, "File Creation Failed", Toast.LENGTH_LONG).show();
-            throw new RuntimeException(e);
-        }
-    }
 
     private List<Map<String, List<?>>> getListOfObject(JsonObject loginResponse) {
         List<Map<String, List<?>>> map = new ArrayList<>();

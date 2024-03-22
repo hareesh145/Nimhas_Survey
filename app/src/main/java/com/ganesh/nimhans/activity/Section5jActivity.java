@@ -209,7 +209,7 @@ public class Section5jActivity extends AppCompatActivity {
         } else if (selectedGrp == yes) {
             return 3;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem(int selectedGrp, int no, int yes, int yesBut) {
@@ -220,7 +220,7 @@ public class Section5jActivity extends AppCompatActivity {
         } else if (selectedGrp == yesBut) {
             return 3;
         }
-        return -1;
+        return 0;
     }
 
 
@@ -236,7 +236,7 @@ public class Section5jActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 8;
         }
-        return -1;
+        return 0;
     }
 
 
@@ -252,7 +252,7 @@ public class Section5jActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 7;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem68J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
@@ -267,7 +267,7 @@ public class Section5jActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 6;
         }
-        return -1;
+        return 0;
     }
 
 
@@ -283,7 +283,7 @@ public class Section5jActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 6;
         }
-        return -1;
+        return 0;
     }
 
     public void updateQuestionOption(String question, int option) {

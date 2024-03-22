@@ -6,6 +6,7 @@ import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 import static com.ganesh.nimhans.utils.PreferenceConnector.TALUKA;
 import static com.ganesh.nimhans.utils.PreferenceConnector.VILLAGE;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -229,7 +230,6 @@ public class Section1Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
 
-
         String stateValue = state.getText().toString();
         String talukaValue = binding.taluka.getText().toString();
         String mobileNumberValue = isValidPhoneNumber(mobileNumber.getText().toString());
@@ -279,6 +279,9 @@ public class Section1Activity extends AppCompatActivity {
                 selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
                 "", "", "", specifyValue, "", "",
                 "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        if (binding.district.getCheckedRadioButtonId() == -1 || binding.notr.getText().toString().isEmpty() || binding.address.getText().toString().isEmpty() || binding.date1.getText().toString().isEmpty() || binding.ConsentedForStudy.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        } else{
         if (!mobileNumberValue.trim().equals("") && mobileNumberValue.length() >= 10) {
             call.enqueue(new Callback<DemoGraphyResponse>() {
                 @Override
@@ -326,7 +329,7 @@ public class Section1Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter the valid Mobile number", Toast.LENGTH_SHORT).show();
         }
 
-
+    }
     }
 
     public void onClickGoToResult(View v) {
@@ -446,5 +449,11 @@ public class Section1Activity extends AppCompatActivity {
         }
 
         return phone;
+    }
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+       Intent intent = new Intent(Section1Activity.this,ActivitySurvey.class);
+       startActivity(intent);
     }
 }

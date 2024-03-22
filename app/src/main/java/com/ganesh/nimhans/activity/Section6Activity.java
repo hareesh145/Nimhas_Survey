@@ -10,6 +10,8 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -75,7 +77,7 @@ public class Section6Activity extends AppCompatActivity {
         phoneNo = myGameApp.getUserPhoneNo();
         binding.childAge.setText(ageValue);
         binding.childNameAge.setText(eligibleResponse.qno9 + " Age");
-        binding.section6List.setAdapter(new Section6Adapter(QuestionUtils.getSection6Questions(), this));
+        binding.section6List.setAdapter(new Section6Adapter(QuestionUtils.getSection6Questions(this),this));
         integerHashMap.put(77, 0);
         integerHashMap.put(74, 0);
         integerHashMap.put(75, 0);
@@ -128,6 +130,7 @@ public class Section6Activity extends AppCompatActivity {
     }
 
     private void calculateRCadsScore() {
+        try {
         ServeySection6Request serveySection6Request = new ServeySection6Request();
         int checkedRadioButtonId = binding.PARENTSGUARDIAN.getCheckedRadioButtonId();
         if (checkedRadioButtonId == -1) {
@@ -250,6 +253,9 @@ public class Section6Activity extends AppCompatActivity {
                 binding.progressBar.setVisibility(View.GONE);
             }
         });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void onClickNextSection(View v) {
@@ -308,8 +314,27 @@ public class Section6Activity extends AppCompatActivity {
     }
 
     @SuppressLint("MissingSuperCall")
-    @Override
     public void onBackPressed() {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        builder.setMessage("Are you Sure you want to exit ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Section6Activity.this,ActivitySurvey.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Alert");
+        alert.show();
     }
 }

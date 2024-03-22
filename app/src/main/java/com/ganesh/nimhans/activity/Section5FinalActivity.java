@@ -146,7 +146,7 @@ public class Section5FinalActivity extends AppCompatActivity {
             case R.id.yes33:
                 return 1;
         }
-        return -1;
+        return 0;
     }
 
     public void updateQuestionOption(String question, int option) {

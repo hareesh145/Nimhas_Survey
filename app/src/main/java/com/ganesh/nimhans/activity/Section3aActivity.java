@@ -265,8 +265,11 @@ public class Section3aActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        Bundle bundle = getIntent().getExtras();
-        demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
+        if (binding.Caste.getCheckedRadioButtonId() == -1 || binding.maritalStatus.getCheckedRadioButtonId()== -1 || binding.yesOrNo.getCheckedRadioButtonId() == -1 || binding.NoOfPeople.getText().toString().isEmpty() || binding.answerType1.getCheckedRadioButtonId() == -1 || binding.answerType2.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
+            Bundle bundle = getIntent().getExtras();
+            demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
 //        Log.d("demoID", "onCreate: " + demoGraphicsID);
 //        Log.d("selectedCaste", "onCreate: " + selectedCaste);
 //        Log.d("selectedAnswerType", "onCreate: " + selectedAnswerType);
@@ -276,131 +279,131 @@ public class Section3aActivity extends AppCompatActivity {
 ////        Log.d("noOfSon", "onCreate: " + noOfSon);
 //        Log.d("noOfDaughters", "onCreate: " + noOfDaughters);
 //        Log.d("income", "onCreate: " + incomePerMonth);
-        if (!NoOfSons.getText().toString().isEmpty()) {
-            noOfSons = Integer.parseInt(NoOfSons.getText().toString());
-        } else {
-            noOfSons = 0;
-        }
-        if (!NoOfDaughters.getText().toString().isEmpty()) {
-            noOfDaughters = Integer.parseInt(NoOfDaughters.getText().toString());
-        } else {
-            noOfDaughters = 0;
-        }
-        if (!binding.Income.getText().toString().isEmpty()) {
-            incomePerMonth = Integer.parseInt(binding.Income.getText().toString());
-        } else {
-            incomePerMonth = 0;
-        }
-        if (!binding.NoOfPeople.getText().toString().isEmpty()) {
-            NoOfPeople = String.valueOf(Integer.parseInt(binding.NoOfPeople.getText().toString()));
-        } else {
-            NoOfPeople = String.valueOf(Integer.parseInt("0"));
-        }
+            if (!NoOfSons.getText().toString().isEmpty()) {
+                noOfSons = Integer.parseInt(NoOfSons.getText().toString());
+            } else {
+                noOfSons = 0;
+            }
+            if (!NoOfDaughters.getText().toString().isEmpty()) {
+                noOfDaughters = Integer.parseInt(NoOfDaughters.getText().toString());
+            } else {
+                noOfDaughters = 0;
+            }
+            if (!binding.Income.getText().toString().isEmpty()) {
+                incomePerMonth = Integer.parseInt(binding.Income.getText().toString());
+            } else {
+                incomePerMonth = 0;
+            }
+            if (!binding.NoOfPeople.getText().toString().isEmpty()) {
+                NoOfPeople = String.valueOf(Integer.parseInt(binding.NoOfPeople.getText().toString()));
+            } else {
+                NoOfPeople = String.valueOf(Integer.parseInt("0"));
+            }
 
-        String noOfSon = String.valueOf(noOfSons);
-        String noOfDougter = String.valueOf(noOfDaughters);
-        String income = String.valueOf(incomePerMonth);
-        progressBar = binding.progressBar;
-        progressBar.setVisibility(View.VISIBLE);
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        ServeySectionRequest servey = new ServeySectionRequest();
-        if (selectedCaste.equals("Other")){
-            servey.setQno1(selectedCaste);
-            servey.setQno1Other( binding.Specify.getText().toString());
-        }else {
-            servey.setQno1(selectedCaste);
-            servey.setQno1Other( "NA");
-        }
-        if (!binding.Specify1.getText().toString().isEmpty()){
-        servey.setQno2(binding.Specify1.getText().toString());
-        }else{
-            servey.setQno2(selectedAnswerType);
-        }
-        if (selectedMaritalStatus.equals("Other")){
-            servey.setQno3(selectedMaritalStatus);
-            servey.setQno3Other(binding.Specify2.getText().toString());
-        }else {
-            servey.setQno3(selectedMaritalStatus);
-            servey.setQno3Other("NA");
-        }
+            String noOfSon = String.valueOf(noOfSons);
+            String noOfDougter = String.valueOf(noOfDaughters);
+            String income = String.valueOf(incomePerMonth);
+            progressBar = binding.progressBar;
+            progressBar.setVisibility(View.VISIBLE);
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+            ServeySectionRequest servey = new ServeySectionRequest();
+            if (selectedCaste.equals("Other")) {
+                servey.setQno1(selectedCaste);
+                servey.setQno1Other(binding.Specify.getText().toString());
+            } else {
+                servey.setQno1(selectedCaste);
+                servey.setQno1Other("NA");
+            }
+            if (!binding.Specify1.getText().toString().isEmpty()) {
+                servey.setQno2(binding.Specify1.getText().toString());
+            } else {
+                servey.setQno2(selectedAnswerType);
+            }
+            if (selectedMaritalStatus.equals("Other")) {
+                servey.setQno3(selectedMaritalStatus);
+                servey.setQno3Other(binding.Specify2.getText().toString());
+            } else {
+                servey.setQno3(selectedMaritalStatus);
+                servey.setQno3Other("NA");
+            }
 
-        servey.setQno4(selectedYesOrNo);
-        servey.setQno5A(Integer.parseInt(noOfSon));
-        servey.setQno5B(Integer.parseInt(noOfDougter));
-        servey.setQno6(Integer.parseInt(income));
-        servey.setQno7(Integer.parseInt(NoOfPeople));
-        if (binding.answerType1.getCheckedRadioButtonId() != -1) {
-            String qusno213 =getCheckedRadioGrpID(binding.answerType1.getCheckedRadioButtonId(), binding.yes16.getId(), binding.no16.getId());
-            servey.setQno16(qusno213);
-            if (qusno213.equals("Yes")){
-                servey.setQno16A(binding.Specify4.getText().toString());
-            }else {
+            servey.setQno4(selectedYesOrNo);
+            servey.setQno5A(Integer.parseInt(noOfSon));
+            servey.setQno5B(Integer.parseInt(noOfDougter));
+            servey.setQno6(Integer.parseInt(income));
+            servey.setQno7(Integer.parseInt(NoOfPeople));
+            if (binding.answerType1.getCheckedRadioButtonId() != -1) {
+                String qusno213 = getCheckedRadioGrpID(binding.answerType1.getCheckedRadioButtonId(), binding.yes16.getId(), binding.no16.getId());
+                servey.setQno16(qusno213);
+                if (qusno213.equals("Yes")) {
+                    servey.setQno16A(binding.Specify4.getText().toString());
+                } else {
+                    servey.setQno16A("NA");
+                }
+            } else {
                 servey.setQno16A("NA");
             }
-        }else {
-            servey.setQno16A("NA");
-        }
-        if (binding.answerType2.getCheckedRadioButtonId() != -1) {
-            String qusno213 =getCheckedRadioGrpID(binding.answerType2.getCheckedRadioButtonId(), binding.yes1.getId(), binding.no1.getId());
-            servey.setQno17(qusno213);
-            if (qusno213.equals("Yes")){
-                if (binding.alcohol.isChecked()) {
-                    String value = binding.alcohol.getText().toString();
-                    servey.setQno17A(value);
-                }else {
-                    servey.setQno17A("NA");
-                }
-
-                if (binding.tobacco.isChecked()) {
-                    String value = binding.tobacco.getText().toString();
-                    servey.setQno17B(value);
-                }else {
-                    servey.setQno17B("NA");
-                }
-                if (binding.substanceUse.isChecked()) {
-                    String value = binding.substanceUse.getText().toString();
-                    servey.setQno17C(value);
-                }else {
-                    servey.setQno17C("NA");
-                }
-            }
-        }else {
-            servey.setQno17A("NA");
-            servey.setQno17B("NA");
-            servey.setQno17C("NA");
-        }
-
-        Call<JsonObject> call = apiService.postServeySection5Data(demoGraphicsID, servey, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-        call.enqueue(new Callback<JsonObject>() {
-            @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                if (progressBar.isShown())
-                    progressBar.setVisibility(View.GONE);
-                JsonObject userResponse = response.body();
-                if (response.isSuccessful()) {
-                    Log.d("response", "onResponse: " + userResponse);
-                    Util.showToast(activity, "Successfully data saved");
-                    Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
-                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()) {
-                        selectedMaritalStatus = binding.Specify2.getText().toString();
-                        intent.putExtra("other", true);
+            if (binding.answerType2.getCheckedRadioButtonId() != -1) {
+                String qusno213 = getCheckedRadioGrpID(binding.answerType2.getCheckedRadioButtonId(), binding.yes1.getId(), binding.no1.getId());
+                servey.setQno17(qusno213);
+                if (qusno213.equals("Yes")) {
+                    if (binding.alcohol.isChecked()) {
+                        String value = binding.alcohol.getText().toString();
+                        servey.setQno17A(value);
+                    } else {
+                        servey.setQno17A("NA");
                     }
-                    intent.putExtra(MARITAL_STATUS, selectedMaritalStatus);
-                    intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
-                    intent.putExtra(NO_OF_PEOPLE, NoOfPeople);
-                    PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
-                    startActivity(intent);
+
+                    if (binding.tobacco.isChecked()) {
+                        String value = binding.tobacco.getText().toString();
+                        servey.setQno17B(value);
+                    } else {
+                        servey.setQno17B("NA");
+                    }
+                    if (binding.substanceUse.isChecked()) {
+                        String value = binding.substanceUse.getText().toString();
+                        servey.setQno17C(value);
+                    } else {
+                        servey.setQno17C("NA");
+                    }
                 }
+            } else {
+                servey.setQno17A("NA");
+                servey.setQno17B("NA");
+                servey.setQno17C("NA");
             }
 
-            @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            Call<JsonObject> call = apiService.postServeySection5Data(demoGraphicsID, servey, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    if (progressBar.isShown())
+                        progressBar.setVisibility(View.GONE);
+                    JsonObject userResponse = response.body();
+                    if (response.isSuccessful()) {
+                        Log.d("response", "onResponse: " + userResponse);
+                        Util.showToast(activity, "Successfully data saved");
+                        Intent intent = new Intent(Section3aActivity.this, Section3bActivity.class);
+                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                        if (selectedMaritalStatus != null && selectedMaritalStatus.equalsIgnoreCase("Others") && !binding.Specify2.getText().toString().isEmpty()) {
+                            selectedMaritalStatus = binding.Specify2.getText().toString();
+                            intent.putExtra("other", true);
+                        }
+                        intent.putExtra(MARITAL_STATUS, selectedMaritalStatus);
+                        intent.putExtra(SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+                        intent.putExtra(NO_OF_PEOPLE, NoOfPeople);
+                        PreferenceConnector.writeInteger(Section3aActivity.this, SURVEY_ID, userResponse.get(SURVEY_ID).getAsInt());
+                        startActivity(intent);
+                    }
+                }
 
-            }
-        });
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
 
+                }
+            });
 
+        }
     }
 
     public void onClickPreviousSection(View v) {
@@ -584,6 +587,26 @@ public class Section3aActivity extends AppCompatActivity {
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-        //
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        builder.setMessage("Are you Sure you want to exit from this section ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Section3aActivity.this,ActivitySurvey.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Alert");
+        alert.show();
     }
 }

@@ -169,7 +169,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Inhalants (nitrous, glue, petrol, paint thinner, etc.)?"
+                            android:text="@string/in_your_life_have_you_ever_used_inhalants_nitrous_glue_petrol_paint_thinner_etc"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -240,7 +240,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used inhalants you mentioned"
+                                android:text="@string/in_the_past_three_months_how_often_have_you_used_inhalants_you_mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -328,7 +328,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use inhalants"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -417,7 +417,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of inhalants led to health, social, legal or financial problems?"
+                                android:text="@string/during_the_past_three_months_how_often_has_your_use_of_inhalants_led_to_health_social_legal_or_financial_problems"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -506,7 +506,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of inhalants"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_failed_to_do_what_was_normally_expected_of_you_because_of_your_use_of_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -595,7 +595,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of inhalants"
+                                android:text="@string/has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -665,7 +665,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Have you ever tried and failed to control, cut down or stop using inhalants"
+                                android:text="@string/have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>

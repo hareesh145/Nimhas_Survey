@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Section 13: For Screened Positive"
+                        android:text="@string/section_13_for_screened_positive"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -172,7 +172,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you received any support for your child’s disability?"
+                            android:text="@string/have_you_received_any_support_for_your_child_s_disability"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -223,8 +223,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="If Yes, what kind of support?
-Support from school (eg: remedial education, behavioural intervention, accomodations for exams like providing a scribe/exemption of 2nd or 3rd language exams/extra time etc)"
+                            android:text="@string/if_yes_what_kind_of_support_support_from_school_eg_remedial_education_behavioural_intervention_accomodations_for_exams_like_providing_a_scribe_exemption_of_2nd_or_3rd_language_exams_extra_time_etc"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -274,7 +273,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Are you aware of any NGO working for your child’s cause?"
+                            android:text="@string/are_you_aware_of_any_ngo_working_for_your_child_s_cause"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -324,7 +323,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Do you know where disability assessments are done?"
+                            android:text="@string/do_you_know_where_disability_assessments_are_done"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -374,7 +373,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you undergone any assessment for disability?"
+                            android:text="@string/have_you_undergone_any_assessment_for_disability"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -424,7 +423,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you obtained disability certificate?"
+                            android:text="@string/have_you_obtained_disability_certificate"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -474,7 +473,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Are you aware of Unique Disability ID (UDID)?"
+                            android:text="@string/are_you_aware_of_unique_disability_id_udid"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -529,7 +528,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you got UDID card?"
+                            android:text="@string/have_you_got_udid_card"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -579,7 +578,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Do you know about all the benefits of having UDID? List them."
+                            android:text="@string/do_you_know_about_all_the_benefits_of_having_udid_list_them"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -841,7 +840,7 @@ Support from school (eg: remedial education, behavioural intervention, accomodat
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Are you aware of the following?"
+                            android:text="@string/are_you_aware_of_any_disability_or_mental_health_care_act_s"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

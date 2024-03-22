@@ -593,7 +593,7 @@ public class ConvertJsonToExcel {
     }
 
 
-    public static void writeHouseHoldFormReport(List<EligibleResponse> customers, String filePath) throws IOException {
+    public static void writeHouseHoldFormReport(List<SurveySection> customers, String filePath) throws IOException {
         String[] COLUMNs = {"Date of entry","Data Collector Name","Data Collector ID","Date of Interview","Household ID", "State", "District", "Taluka", "City/Town/Village",
                 "Locale", "Household no", "Respondent name", "Address", "Mobile no","Consented for study","Religion","Specify","Caste/Tribe", "Marital status","Specify", "Have any children", "Son(s)", "Daughter(s)", "Total monthly income", "Total no of people in the HH", "Mental illness","Specify", "Substance use","Alcohol","Tobacco","Substance","Household Result","Specify","Next visit date","Next visit time"};
 
@@ -624,40 +624,40 @@ public class ConvertJsonToExcel {
         ageCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("#"));
 
         int rowIdx = 1;
-        for (EligibleResponse customer : customers) {
+        for (SurveySection customer : customers) {
             Row row = sheet.createRow(rowIdx++);
             //row.createCell(0).setCellValue(customer.surveyId);
-            row.createCell(0).setCellValue(customer.surveySection.demographics.dataEntryDate);
-            row.createCell(1).setCellValue(customer.surveySection.demographics.userName);
-            row.createCell(2).setCellValue(customer.surveySection.demographics.userCode);
-            row.createCell(3).setCellValue(customer.surveySection.demographics.interviewDate);
-            row.createCell(4).setCellValue(customer.surveySection.demographics.randamId);
-            row.createCell(5).setCellValue(customer.surveySection.demographics.state);
-            row.createCell(6).setCellValue(customer.surveySection.demographics.district);
-            row.createCell(7).setCellValue(customer.surveySection.demographics.taluka);
-            row.createCell(8).setCellValue(customer.surveySection.demographics.cityOrTownOrVillage);
-            row.createCell(9).setCellValue(customer.surveySection.demographics.locale);
-            row.createCell(10).setCellValue(customer.surveySection.demographics.houseHoldNo);
-            row.createCell(11).setCellValue(customer.surveySection.demographics.respodentName);
-            row.createCell(12).setCellValue(customer.surveySection.demographics.address);
-            row.createCell(13).setCellValue(customer.surveySection.demographics.mobileno);
-            row.createCell(14).setCellValue(customer.surveySection.demographics.consentedForStudy);
-            row.createCell(15).setCellValue(customer.surveySection.qno1);
-            row.createCell(16).setCellValue(customer.surveySection.qno1Other);
-            row.createCell(17).setCellValue(customer.surveySection.qno2);
-            row.createCell(18).setCellValue(customer.surveySection.qno3);
-            row.createCell(19).setCellValue(customer.surveySection.qno3Other);
-            row.createCell(20).setCellValue(customer.surveySection.qno4);
-            row.createCell(21).setCellValue(customer.surveySection.qno5A);
-            row.createCell(22).setCellValue(customer.surveySection.qno5B);
-            row.createCell(23).setCellValue(customer.surveySection.qno6);
-            row.createCell(24).setCellValue(customer.surveySection.qno7);
-            row.createCell(25).setCellValue(customer.surveySection.qno16);
-            row.createCell(26).setCellValue(customer.surveySection.qno16A);
-            row.createCell(27).setCellValue(customer.surveySection.qno17);
-            row.createCell(28).setCellValue(customer.surveySection.qno17A);
-            row.createCell(29).setCellValue(customer.surveySection.qno17B);
-            row.createCell(30).setCellValue(customer.surveySection.qno17C);
+            row.createCell(0).setCellValue(customer.demographics.dataEntryDate);
+            row.createCell(1).setCellValue(customer.demographics.userName);
+            row.createCell(2).setCellValue(customer.demographics.userCode);
+            row.createCell(3).setCellValue(customer.demographics.interviewDate);
+            row.createCell(4).setCellValue(customer.demographics.randamId);
+            row.createCell(5).setCellValue(customer.demographics.state);
+            row.createCell(6).setCellValue(customer.demographics.district);
+            row.createCell(7).setCellValue(customer.demographics.taluka);
+            row.createCell(8).setCellValue(customer.demographics.cityOrTownOrVillage);
+            row.createCell(9).setCellValue(customer.demographics.locale);
+            row.createCell(10).setCellValue(customer.demographics.houseHoldNo);
+            row.createCell(11).setCellValue(customer.demographics.respodentName);
+            row.createCell(12).setCellValue(customer.demographics.address);
+            row.createCell(13).setCellValue(customer.demographics.mobileno);
+            row.createCell(14).setCellValue(customer.demographics.consentedForStudy);
+            row.createCell(15).setCellValue(customer.qno1);
+            row.createCell(16).setCellValue(customer.qno1Other);
+            row.createCell(17).setCellValue(customer.qno2);
+            row.createCell(18).setCellValue(customer.qno3);
+            row.createCell(19).setCellValue(customer.qno3Other);
+            row.createCell(20).setCellValue(customer.qno4);
+            row.createCell(21).setCellValue(customer.qno5A);
+            row.createCell(22).setCellValue(customer.qno5B);
+            row.createCell(23).setCellValue(customer.qno6);
+            row.createCell(24).setCellValue(customer.qno7);
+            row.createCell(25).setCellValue(customer.qno16);
+            row.createCell(26).setCellValue(customer.qno16A);
+            row.createCell(27).setCellValue(customer.qno17);
+            row.createCell(28).setCellValue(customer.qno17A);
+            row.createCell(29).setCellValue(customer.qno17B);
+            row.createCell(30).setCellValue(customer.qno17C);
             row.createCell(31).setCellValue(customer.houseHoldStatus);
             row.createCell(32).setCellValue(customer.specify);
             row.createCell(33).setCellValue(customer.houseHoldPCDate);

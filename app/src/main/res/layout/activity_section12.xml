@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Help seeking behaviours"
+                        android:text="@string/help_seeking_behaviours"
                         android:textStyle="bold"
                         android:textAllCaps="false"
                         android:textColor="@color/black" />
@@ -174,7 +174,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Generally, what are all the places people with any illness mainly go to seek care?"
+                            android:text="@string/generally_what_are_all_the_places_people_with_any_illness_mainly_go_to_seek_care"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -232,7 +232,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Generally, what are all the places people with mental/neurological illness mainly go to seek care?"
+                            android:text="@string/generally_what_are_all_the_places_people_with_mental_neurological_illness_mainly_go_to_seek_care"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -290,7 +290,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you ever visited a health facility or doctor of any kind to receive services or information on mental illness?"
+                            android:text="@string/have_you_ever_visited_a_health_facility_or_doctor_of_any_kind_to_receive_services_or_information_on_mental_illness"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -347,7 +347,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="How many times have you sought services or information from a doctor or a nurse for these services in the last 12 months?"
+                                android:text="@string/how_many_times_have_you_sought_services_or_information_from_a_doctor_or_a_nurse_for_these_services_in_the_last_12_months"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -402,7 +402,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Thinking about your last visit, where did you go?"
+                                android:text="@string/thinking_about_your_last_visit_where_did_you_go"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -460,7 +460,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="When you last saw a doctor or a nurse, what was the main reason for going?"
+                                android:text="@string/when_you_last_saw_a_doctor_or_a_nurse_what_was_the_main_reason_for_going"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -521,7 +521,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="At this facility did you see any posters on MENTAL HEALTH?"
+                                android:text="@string/at_this_facility_did_you_see_any_posters_on_mental_health"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -576,7 +576,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you ever heard of the following mental and neurological illnesses?"
+                            android:text="@string/have_you_ever_heard_of_the_following_mental_and_neurological_illnesses"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -673,7 +673,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Have you ever heard/visited (YSPK)/adolescent clinics/ARSH/ Kishori Clinics(Use local name)?"
+                            android:text="@string/have_you_ever_heard_visited_yspk_adolescent_clinics_arsh_kishori_clinics_use_local_name"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -738,7 +738,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What are all the services available at these clinics?"
+                            android:text="@string/what_are_all_the_services_available_at_these_clinics"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -842,8 +842,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="How far is it from your place?\n
-MARK IN KILOMETERS"
+                            android:text="@string/how_far_is_it_from_your_place_n_mark_in_kilometers"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -895,7 +894,7 @@ MARK IN KILOMETERS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What are all the different modes of travel available for you to reach this place?"
+                            android:text="@string/what_are_all_the_different_modes_of_travel_available_for_you_to_reach_this_place"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -984,7 +983,7 @@ MARK IN KILOMETERS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="How easy is it to go to these places?"
+                            android:text="@string/how_easy_is_it_to_go_to_these_places"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

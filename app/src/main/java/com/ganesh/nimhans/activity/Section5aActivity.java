@@ -120,6 +120,7 @@ public class Section5aActivity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         Util.showToast(activity, "Successfully data saved");
+        serveySection5Request= new ServeySection5Request();
         serveySection5Request.setQno72a(getSelectedItem(binding.tobaccoProduct172a.getCheckedRadioButtonId(), binding.never72a.getId(), binding.once72a.getId(), binding.monthly72a.getId()));
         serveySection5Request.setQno71a(getSelectedItem(binding.tobaccoProduct171a.getCheckedRadioButtonId(), binding.never71a.getId(), binding.yes71a.getId(), binding.yesNo71a.getId()));
         serveySection5Request.setQno70a(getSelectedItem70a(binding.tobaccoProduct170a.getCheckedRadioButtonId(), binding.never70a.getId(), binding.once70a.getId(), binding.monthly70a.getId(), binding.weekly70a.getId(), binding.daily70a.getId()));
@@ -150,7 +151,7 @@ public class Section5aActivity extends AppCompatActivity {
         } else if (selectedGrp == yes) {
             return 3;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem(int selectedGrp, int no, int yes, int yesBut) {
@@ -161,7 +162,7 @@ public class Section5aActivity extends AppCompatActivity {
         } else if (selectedGrp == yesBut) {
             return 3;
         }
-        return -1;
+        return 0;
     }
 
 
@@ -169,15 +170,15 @@ public class Section5aActivity extends AppCompatActivity {
         if (selectedGrp == never) {
             return 0;
         } else if (selectedGrp == onceTwice) {
-            return 5;
+            return 0;
         } else if (selectedGrp == monthly) {
-            return 6;
+            return 0;
         } else if (selectedGrp == weekly) {
-            return 7;
+            return 0;
         } else if (selectedGrp == daily) {
-            return 8;
+            return 0;
         }
-        return -1;
+        return 0;
     }
 
 
@@ -193,7 +194,7 @@ public class Section5aActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 7;
         }
-        return -1;
+        return 0;
     }
 
     private int getSelectedItem67J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
@@ -208,7 +209,7 @@ public class Section5aActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 6;
         }
-        return -1;
+        return 0;
     }
     private int getSelectedItem68J(int selectedGrp, int never, int onceTwice, int monthly, int weekly, int daily) {
         if (selectedGrp == never) {
@@ -222,7 +223,7 @@ public class Section5aActivity extends AppCompatActivity {
         } else if (selectedGrp == daily) {
             return 6;
         }
-        return -1;
+        return 0;
     }
     public void updateQuestionOption(String question, int option) {
         Integer integer = questionOptionsMap.get(question);

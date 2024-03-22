@@ -118,7 +118,12 @@ public class Section3bActivity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         maritalState = getIntent().getStringExtra(MARITAL_STATUS);
+        try{
         NO_OF_PEOPLE = getIntent().getStringExtra(NO_OF_PEOPLE);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         ActivityCompat.requestPermissions( this,
                 new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -364,6 +369,9 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.NoOfPeople.getText().toString().isEmpty() || binding.gender.getCheckedRadioButtonId() == -1 || binding.age.getText().toString().isEmpty() || binding.maritalStatus1.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
         Log.d("noOfPeople", "onClickNextSection: " + NoOfPersons.getText().toString());
         Log.d("lineNo", "onClickNextSection: " + binding.lineNo.getText().toString());
 //        Log.d("", "onClickNextSection: "+);
@@ -427,14 +435,20 @@ public class Section3bActivity extends AppCompatActivity {
             houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
         }
         try {
-            if (!maritalState.isEmpty()) {
-                houseHoldModel.setQno13(maritalState);
-            } else if (!selectedMaritalStatus1.isEmpty()) {
-                houseHoldModel.setQno13(selectedMaritalStatus1);
+            if (maritalState != null) {
+                if (!maritalState.isEmpty()) {
+                    houseHoldModel.setQno13(maritalState);
+                } else if (!selectedMaritalStatus1.isEmpty()) {
+                    houseHoldModel.setQno13(selectedMaritalStatus1);
+                } else {
+                    houseHoldModel.setQno13(selectedMaritalStatus1);
+                }
             } else {
-                houseHoldModel.setQno13(selectedMaritalStatus1);
+                int checkedRadioButtonId = binding.maritalStatus1.getCheckedRadioButtonId();
+                RadioButton radioButton1 = findViewById(checkedRadioButtonId);
+                houseHoldModel.setQno13(radioButton1.getText().toString());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -478,7 +492,7 @@ public class Section3bActivity extends AppCompatActivity {
 
             }
         });
-
+        }
 
     }
 
@@ -566,13 +580,22 @@ public class Section3bActivity extends AppCompatActivity {
             if (!binding.age.getText().toString().isEmpty()) {
                 houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
             }
-            if (!maritalState.isEmpty()){
-                houseHoldModel.setQno13(maritalState);
-            }
-            else if(!selectedMaritalStatus1.isEmpty()){
-                houseHoldModel.setQno13(selectedMaritalStatus1);
-            }else {
-                houseHoldModel.setQno13(selectedMaritalStatus1);
+            try {
+                if (maritalState != null) {
+                    if (!maritalState.isEmpty()) {
+                        houseHoldModel.setQno13(maritalState);
+                    } else if (!selectedMaritalStatus1.isEmpty()) {
+                        houseHoldModel.setQno13(selectedMaritalStatus1);
+                    } else {
+                        houseHoldModel.setQno13(selectedMaritalStatus1);
+                    }
+                } else {
+                    int checkedRadioButtonId = binding.maritalStatus1.getCheckedRadioButtonId();
+                    RadioButton radioButton1 = findViewById(checkedRadioButtonId);
+                    houseHoldModel.setQno13(radioButton1.getText().toString());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             houseHoldModel.setQno14(binding.occupation.getText().toString());
             houseHoldModel.setQno15(binding.education.getText().toString());
@@ -626,7 +649,9 @@ public class Section3bActivity extends AppCompatActivity {
     }
 
     public void onClickAddMember(View v) {
-
+        if ( binding.Name.getText().toString().isEmpty() || binding.gender.getCheckedRadioButtonId() == -1 || binding.age.getText().toString().isEmpty() || binding.maritalStatus1.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
         if (repeatCount > 0) {
             ArrayList<String> selectedTypeOfProblems = new ArrayList<>();
 
@@ -668,13 +693,22 @@ public class Section3bActivity extends AppCompatActivity {
             if (!binding.age.getText().toString().isEmpty()) {
                 houseHoldModel.setQno12(Integer.parseInt(binding.age.getText().toString()));
             }
-            if (!maritalState.isEmpty()){
-                houseHoldModel.setQno13(maritalState);
-            }
-            else if(!selectedMaritalStatus1.isEmpty()){
-                houseHoldModel.setQno13(selectedMaritalStatus1);
-            }else {
-                houseHoldModel.setQno13(selectedMaritalStatus1);
+            try {
+                if (maritalState != null) {
+                    if (!maritalState.isEmpty()) {
+                        houseHoldModel.setQno13(maritalState);
+                    } else if (!selectedMaritalStatus1.isEmpty()) {
+                        houseHoldModel.setQno13(selectedMaritalStatus1);
+                    } else {
+                        houseHoldModel.setQno13(selectedMaritalStatus1);
+                    }
+                } else {
+                    int checkedRadioButtonId = binding.maritalStatus1.getCheckedRadioButtonId();
+                    RadioButton radioButton1 = findViewById(checkedRadioButtonId);
+                    houseHoldModel.setQno13(radioButton1.getText().toString());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             houseHoldModel.setQno14(binding.occupation.getText().toString());
             houseHoldModel.setQno15(binding.education.getText().toString());
@@ -716,7 +750,7 @@ public class Section3bActivity extends AppCompatActivity {
             });
         }
 
-
+}
     }
     private void OnGPS() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -756,6 +790,26 @@ public class Section3bActivity extends AppCompatActivity {
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        builder.setMessage("Are you Sure you want to exit from this section ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Section3bActivity.this,ActivitySurvey.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Alert");
+        alert.show();
     }
 }

@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="MATERNAL INFORMATION"
+                        android:text="@string/maternal_information"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -186,7 +186,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="73A.  How was the mother‘s nutrition during the pregnancy of this child?"
+                            android:text="@string/_73a_how_was_the_mother_s_nutrition_during_the_pregnancy_of_this_child"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -247,7 +247,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Did the mother have any of the following problems during pregnancy of this child?"
+                            android:text="@string/did_the_mother_have_any_problems_during_pregnancy_of_this_child"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -382,7 +382,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="73c."
+                            android:text="73C."
                             android:textAllCaps="false"
                             android:textColor="#000000"
                             android:visibility="visible" />
@@ -391,7 +391,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What was the type of delivery of this child?"
+                            android:text="@string/what_was_the_type_of_delivery_of_this_child"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -456,7 +456,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="73d."
+                            android:text="73D."
                             android:textAllCaps="false"
                             android:textColor="#000000"
                             android:visibility="visible" />
@@ -465,7 +465,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Was the child born pre-term?"
+                            android:text="@string/was_the_child_born_pre_term"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -508,7 +508,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="73e."
+                            android:text="73E."
                             android:textAllCaps="false"
                             android:textColor="#000000"
                             android:visibility="visible" />
@@ -517,7 +517,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Did the baby cry immediately after birth?"
+                            android:text="@string/did_the_baby_cry_immediately_after_birth"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -560,7 +560,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="73f."
+                            android:text="73F."
                             android:textAllCaps="false"
                             android:textColor="#000000"
                             android:visibility="visible" />
@@ -569,7 +569,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Did the newborn have any health issues that required medical attention or care"
+                            android:text="@string/did_the_newborn_have_any_health_issues_that_required_medical_attention_or_care"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -624,7 +624,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="73g."
+                            android:text="73G."
                             android:textAllCaps="false"
                             android:textColor="#000000"
                             android:visibility="visible" />
@@ -633,8 +633,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What was the birth weight of the child
-                        (Mention in Grams)?"
+                            android:text="@string/what_was_the_birth_weight_of_the_child_mention_in_grams"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -663,7 +662,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="73h."
+                            android:text="73H."
                             android:textAllCaps="false"
                             android:textColor="#000000"
                             android:visibility="visible" />
@@ -672,7 +671,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="According to you, what is the nutritional status of the child?"
+                            android:text="@string/according_to_you_what_is_the_nutritional_status_of_the_child"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

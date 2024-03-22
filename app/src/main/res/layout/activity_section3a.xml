@@ -66,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Socio-Demographic Characteristics"
+                        android:text="@string/socio_demographic_characteristics"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -92,7 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What is the religion you follow?"
+                            android:text="@string/what_is_the_religion_you_follow"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -183,7 +183,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What is your caste/tribe?"
+                            android:text="@string/what_is_your_caste_tribe"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -266,7 +266,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What is your current marital status?"
+                            android:text="@string/what_is_your_current_marital_status"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -353,7 +353,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Do you have any children?"
+                                android:text="@string/do_you_have_any_children"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -411,7 +411,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="How many  Son(s) Daughter(s) do you have?"
+                                android:text="@string/how_many_son_s_daughter_s_do_you_have"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -437,7 +437,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text=" Son(s)"
+                                android:text="@string/son_s"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -492,7 +492,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Daughter(s)"
+                                android:text="@string/daughter_s"
 
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -548,7 +548,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="What is the total monthly household income from all sources (in rupees)?"
+                            android:text="@string/what_is_the_total_monthly_household_income_from_all_sources_in_rupees"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -591,7 +591,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="7    Total number of people in the household"
+                            android:text="@string/_7_total_number_of_people_in_the_household"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -627,7 +627,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="16.  Does anyone in the family have/had mental illness?"
+                                android:text="@string/_16_does_anyone_in_the_family_have_had_mental_illness"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -670,7 +670,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="16A.  What type of mental illness "
+                                android:text="@string/_16a_what_type_of_mental_illness"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -690,6 +690,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_border"
                                 android:hint="Specify4"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                 android:padding="10dp"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -707,7 +708,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="17.  Does anyone in the family have/had problems related with alcohol/tobacco/substance use?"
+                                android:text="@string/_17_does_anyone_in_the_family_have_had_problems_related_with_alcohol_tobacco_substance_use"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -755,7 +756,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
-                                    android:text="What type of problems"
+                                    android:text="@string/what_type_of_problems"
                                     android:textAllCaps="false"
                                     android:textColor="#000000" />
                             </LinearLayout>

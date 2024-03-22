@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Screening for Intellectual Disability"
+                        android:text="@string/screening_for_intellectual_disability"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textStyle="bold" />

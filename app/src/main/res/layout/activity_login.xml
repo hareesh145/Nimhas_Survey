@@ -102,7 +102,45 @@
                             android:maxLines="1"
                             android:padding="10dp" />
                     </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="10dp"
+                        android:visibility="gone"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:text="Languge Selection :">
 
+                    </TextView>
+                    <RadioGroup
+                        android:id="@+id/lang_radio_btns"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_below="@+id/title_section_header"
+                        android:layout_marginLeft="30dp">
+
+                        <RadioButton
+                            android:id="@+id/hindi_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Hindi"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/english_btn"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="English"
+                            android:textAlignment="textStart" />
+
+                    </RadioGroup>
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -119,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="Version 06.03.24.2">
+                    android:text="Version 20.03.24.2">
 
                 </TextView>
 
