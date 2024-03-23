@@ -728,10 +728,10 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
 
         }else {
-
+            Util.showToast(activity, "Successfully data saved");
+            checkRCADSValue();
         }
-        Util.showToast(activity, "Successfully data saved");
-        checkRCADSValue();
+
 
     }
 

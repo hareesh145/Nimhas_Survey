@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Pending Data Search"
+                    android:text="@string/pending_data_search"
                     android:textColor="@color/white" />
             </RelativeLayout>
 
@@ -205,7 +205,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="@string/select_village"
+                            android:hint="Select Village"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="@color/black"

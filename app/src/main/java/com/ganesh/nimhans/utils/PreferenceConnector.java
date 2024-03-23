@@ -20,18 +20,19 @@ public class PreferenceConnector {
     public static final String CUST_ID = "CUST_ID";
     public static final String LOCATION = "LOCATION";
     public static final String LOC_ID = "LOC_ID";
-    public static String LOGIN_ID="LOGIN_ID";
+    public static String LOGIN_ID = "LOGIN_ID";
 
     public static final String TOTAL_AMOUNT = "TOTAL_AMOUNT";
     public static final String NAME = "NAME";
-//    public static final String EMAIL = "EMAIL";
+    //    public static final String EMAIL = "EMAIL";
     public static final String MOBILE = "MOBILE";
 
-    public static final String DISTRICT="DISTRICT";
-    public static final String VILLAGE="VILLAGE";
-    public static final String TALUKA="TALUKA";
+    public static final String DISTRICT = "DISTRICT";
+    public static final String VILLAGE = "VILLAGE";
+    public static final String TALUKA = "TALUKA";
 
-    public static final String NAME_OF_RESPONDENT="NAME_OF_RESPONDENT";
+    public static final String NAME_OF_RESPONDENT = "NAME_OF_RESPONDENT";
+    public static final String LANG_FLAG = "LANG_FLAG";
 
 
     public static SharedPreferences getPreferences(Context context) {

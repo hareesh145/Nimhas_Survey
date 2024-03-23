@@ -4,7 +4,6 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,12 +22,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.ganesh.nimhans.MyNimhans;
 import com.ganesh.nimhans.R;
-import com.ganesh.nimhans.adapter.EligibleChildAdapter;
-import com.ganesh.nimhans.databinding.ActivityChildrenResultBinding;
 import com.ganesh.nimhans.databinding.ActivityParentResultBinding;
 import com.ganesh.nimhans.model.child.EligibleResponse;
 import com.ganesh.nimhans.model.child.Root;
@@ -96,10 +92,10 @@ public class ParentResult extends AppCompatActivity {
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.date3.setText("");
                         binding.time.setText("");
-                        JsonObject jsonObject =new JsonObject();
-                        jsonObject.addProperty("parentStatus","Interview Completed");
+                        JsonObject jsonObject = new JsonObject();
+                        jsonObject.addProperty("parentStatus", "Interview Completed");
                         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterface.putStatus(eligibleResponse.houseHoldId,jsonObject, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                        apiInterface.putStatus(eligibleResponse.houseHoldId, jsonObject, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
                             @Override
                             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -108,7 +104,7 @@ public class ParentResult extends AppCompatActivity {
                                     JsonObject userResponse = response.body();
                                     if (response.isSuccessful()) {
                                         Log.d("response", "onResponse: " + userResponse);
-                                        Log.e("eligibleResponse.houseHoldId ","eligibleResponse.houseHoldId : "+eligibleResponse.houseHoldId);
+                                        Log.e("eligibleResponse.houseHoldId ", "eligibleResponse.houseHoldId : " + eligibleResponse.houseHoldId);
                                         Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
                                     }
                                 } catch (Exception e) {
@@ -139,10 +135,10 @@ public class ParentResult extends AppCompatActivity {
                         binding.specify1.setText("");
                         binding.date3.setText("");
                         binding.time.setText("");
-                        JsonObject jsonObjectpartially =new JsonObject();
-                        jsonObjectpartially.addProperty("parentStatus","Interview Pending");
+                        JsonObject jsonObjectpartially = new JsonObject();
+                        jsonObjectpartially.addProperty("parentStatus", "Interview Pending");
                         ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                        apiInterfacepartially.putStatus(eligibleResponse.houseHoldId, jsonObjectpartially, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
                             @Override
                             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -187,13 +183,13 @@ public class ParentResult extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (selectedResultCode.equals("Interview Partially Completed")){
-            JsonObject jsonObjectpartiallyCompleted =new JsonObject();
-            jsonObjectpartiallyCompleted.addProperty("parentStatus","Interview Partially Completed");
-            jsonObjectpartiallyCompleted.addProperty("parentPCDate",binding.date3.getText().toString());
-            jsonObjectpartiallyCompleted.addProperty("parentPCTime",binding.time.getText().toString());
+        if (selectedResultCode.equals("Interview Partially Completed")) {
+            JsonObject jsonObjectpartiallyCompleted = new JsonObject();
+            jsonObjectpartiallyCompleted.addProperty("parentStatus", "Interview Partially Completed");
+            jsonObjectpartiallyCompleted.addProperty("parentPCDate", binding.date3.getText().toString());
+            jsonObjectpartiallyCompleted.addProperty("parentPCTime", binding.time.getText().toString());
             ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
-            apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId, jsonObjectpartiallyCompleted, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -265,12 +261,12 @@ public class ParentResult extends AppCompatActivity {
 
                 }
             });
-        }else if(selectedResultCode.equals("Refused to take part")){
-            JsonObject jsonObjectrefused =new JsonObject();
-            jsonObjectrefused.addProperty("parentStatus","Refused");
-            jsonObjectrefused.addProperty("parentStatusSpecify",binding.specify1.getText().toString());
+        } else if (selectedResultCode.equals("Refused to take part")) {
+            JsonObject jsonObjectrefused = new JsonObject();
+            jsonObjectrefused.addProperty("parentStatus", "Refused");
+            jsonObjectrefused.addProperty("parentStatusSpecify", binding.specify1.getText().toString());
             ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
-            apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+            apiInterfacerefused.putStatus(eligibleResponse.houseHoldId, jsonObjectrefused, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -341,58 +337,58 @@ public class ParentResult extends AppCompatActivity {
 
                 }
             });
-        }else {
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        apiInterface.getHouseHoldChilderns(surveyID, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, ""))
-                .enqueue(new Callback<List<EligibleResponse>>() {
-                    @Override
-                    public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
-                        try {
-                            Log.d("TAG", "onResponse: " + response.body());
+        } else {
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            apiInterface.getHouseHoldChilderns(surveyID, PreferenceConnector.readString(ParentResult.this, PreferenceConnector.TOKEN, ""))
+                    .enqueue(new Callback<List<EligibleResponse>>() {
+                        @Override
+                        public void onResponse(Call<List<EligibleResponse>> call, Response<List<EligibleResponse>> response) {
+                            try {
+                                Log.d("TAG", "onResponse: " + response.body());
 
-                            if (response.isSuccessful()) {
+                                if (response.isSuccessful()) {
 
-                                if (response.body().isEmpty()) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
-                                    builder.setMessage("Now we come to the end of this child's interview. We thank you for the same.");
+                                    if (response.body().isEmpty()) {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+                                        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same.");
 
-                                    builder.setTitle("Alert !");
+                                        builder.setTitle("Alert !");
 
-                                    builder.setCancelable(false);
-                                    builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-                                        Intent intent = new Intent(ParentResult.this, ActivitySurvey.class);
-                                        startActivity(intent);
-                                    });
-                                    AlertDialog alertDialog = builder.create();
-                                    alertDialog.show();
-                                } else {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
-                                    builder.setMessage("Now we come to the end of this child's interview. We thank you for the same. We will now proceed to the next child");
-                                    builder.setTitle("Alert !");
-                                    builder.setCancelable(false);
-                                    builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-                                        // takeScreenshot(getWindow().getDecorView().getRootView());
-                                        Intent intent = new Intent(ParentResult.this, Eligiblechildren.class);
-                                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                        intent.putExtra(SURVEY_ID, surveyID);
-                                        startActivity(intent);
-                                    });
-                                    AlertDialog alertDialog = builder.create();
-                                    alertDialog.show();
+                                        builder.setCancelable(false);
+                                        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                            Intent intent = new Intent(ParentResult.this, ActivitySurvey.class);
+                                            startActivity(intent);
+                                        });
+                                        AlertDialog alertDialog = builder.create();
+                                        alertDialog.show();
+                                    } else {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(ParentResult.this);
+                                        builder.setMessage("Now we come to the end of this child's interview. We thank you for the same. We will now proceed to the next child");
+                                        builder.setTitle("Alert !");
+                                        builder.setCancelable(false);
+                                        builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                            // takeScreenshot(getWindow().getDecorView().getRootView());
+                                            Intent intent = new Intent(ParentResult.this, Eligiblechildren.class);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            startActivity(intent);
+                                        });
+                                        AlertDialog alertDialog = builder.create();
+                                        alertDialog.show();
+
+                                    }
 
                                 }
-
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
-                        t.printStackTrace();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<List<EligibleResponse>> call, Throwable t) {
+                            t.printStackTrace();
+                        }
+                    });
         }
     }
 
@@ -450,7 +446,9 @@ public class ParentResult extends AppCompatActivity {
         mTimePicker = new TimePickerDialog(ParentResult.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                binding.time.setText(selectedHour + ":" + selectedMinute);
+                String hoursText = selectedHour < 9 ? "0" + selectedHour : "" + selectedHour;
+                String minutes = selectedMinute < 9 ? "0" + selectedMinute : "" + selectedMinute;
+                binding.time.setText(hoursText + ":" + minutes);
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");

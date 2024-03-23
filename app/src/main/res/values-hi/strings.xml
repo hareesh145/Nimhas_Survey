@@ -408,6 +408,7 @@
     <string name="is_he_she_attached_to_only_one_family_member_and_ignores_others_presence">• क्या वह केवल परिवार के एक ही सदस्य से जुड़ा हुआ है/ जुडी हुई है और दूसरों की उपस्थिति को अनदेखा करता/ करती है?</string>
     <string name="in_your_life_have_you_ever_used_any_other_drugs_apart_from_those_mentioned_above">क्या आपने अपने जीवन में कभी ऊपर बताई गई दवाओं के अलावा किसी अन्य दवा का इस्तेमाल किया है?</string>
     <string name="does_he_she_ignore_the_presence_of_family_members">• क्या वह परिवार के सदस्यों की उपस्थिति को अनदेखा करता है / करती है ?</string>
+    <string name="pending_data_search">Pending Data Search</string>
 
 
 </resources>

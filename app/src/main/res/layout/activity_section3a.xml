@@ -83,7 +83,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
                             android:text="1."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -91,7 +94,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
                             android:text="@string/what_is_the_religion_you_follow"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -174,7 +179,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
                             android:text="2."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -182,7 +190,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
                             android:text="@string/what_is_your_caste_tribe"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -257,7 +267,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
                             android:text="3."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -265,7 +278,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
                             android:text="@string/what_is_your_current_marital_status"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -344,7 +359,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="4."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -352,7 +370,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/do_you_have_any_children"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -402,7 +422,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="5."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -410,7 +433,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/how_many_son_s_daughter_s_do_you_have"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -428,7 +453,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="5a."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -436,7 +464,9 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/son_s"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -483,7 +513,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="5b."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -491,9 +524,10 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/daughter_s"
-
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -539,7 +573,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
                             android:text="6."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -547,7 +584,9 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
                             android:text="@string/what_is_the_total_monthly_household_income_from_all_sources_in_rupees"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -590,7 +629,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
                             android:text="@string/_7_total_number_of_people_in_the_household"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -626,7 +668,10 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/_16_does_anyone_in_the_family_have_had_mental_illness"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -669,7 +714,10 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/_16a_what_type_of_mental_illness"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -689,7 +737,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_border"
-                                android:hint="Specify4"
+                                android:hint="Specify"
                                 android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                 android:padding="10dp"
                                 android:textAllCaps="false"
@@ -707,7 +755,10 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
                                 android:text="@string/_17_does_anyone_in_the_family_have_had_problems_related_with_alcohol_tobacco_substance_use"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
@@ -755,7 +806,10 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:padding="10dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingEnd="6dp"
+                                    android:paddingStart="6dp"
+                                    android:paddingBottom="10dp"
                                     android:text="@string/what_type_of_problems"
                                     android:textAllCaps="false"
                                     android:textColor="#000000" />

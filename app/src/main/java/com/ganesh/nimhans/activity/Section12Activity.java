@@ -253,9 +253,9 @@ public class Section12Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1 || binding.options209.getCheckedRadioButtonId() == -1  || binding.heardVisitedOptions.getCheckedRadioButtonId() == -1){
+        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1 || binding.options209.getCheckedRadioButtonId() == -1 || binding.heardVisitedOptions.getCheckedRadioButtonId() == -1 || !isCheckBxGrp214Checked()) {
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
-        }else {
+        } else {
             ServeySection12Request serveySection12Request = new ServeySection12Request();
             int checkedRadioButtonId = binding.section12RespondentGrp.getCheckedRadioButtonId();
             if (checkedRadioButtonId == -1) {
@@ -533,6 +533,37 @@ public class Section12Activity extends AppCompatActivity {
         }
     }
 
+    private boolean isCheckBxGrp214Checked() {
+        if (binding.checkBx214Autism.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Ad.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Cd.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Depression.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Id.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Adhd.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Omilp.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Odd.isChecked()) {
+            return true;
+        }
+        if (binding.checkBx214Taada.isChecked()) {
+            return true;
+        }
+        return false;
+    }
+
     private String getCheckedRadioGrpID212(int checkedRadioButtonId, int yesId, int noId) {
         if (checkedRadioButtonId == yesId) {
             return "Mental Health";
@@ -552,22 +583,11 @@ public class Section12Activity extends AppCompatActivity {
         }
         return -1;
     }
-    private String getCheckedRadioGrpID219A(int checkedRadioButtonId,int easy , int some_what_possible, int very_difficult, int not_possible) {
-         if (checkedRadioButtonId == easy) {
-            return "1";
-        }else if (checkedRadioButtonId == some_what_possible) {
-            return "2";
-        } else if (checkedRadioButtonId == very_difficult) {
-            return "3";
-        } else if (checkedRadioButtonId == not_possible) {
-            return "4";
-        }
-        return "NA";
-    }
-    private String getCheckedRadioGrpID219B(int checkedRadioButtonId,int easy , int some_what_possible, int very_difficult, int not_possible) {
+
+    private String getCheckedRadioGrpID219A(int checkedRadioButtonId, int easy, int some_what_possible, int very_difficult, int not_possible) {
         if (checkedRadioButtonId == easy) {
             return "1";
-        }else if (checkedRadioButtonId == some_what_possible) {
+        } else if (checkedRadioButtonId == some_what_possible) {
             return "2";
         } else if (checkedRadioButtonId == very_difficult) {
             return "3";
@@ -576,10 +596,11 @@ public class Section12Activity extends AppCompatActivity {
         }
         return "NA";
     }
-    private String getCheckedRadioGrpID219C(int checkedRadioButtonId,int easy , int some_what_possible, int very_difficult, int not_possible) {
+
+    private String getCheckedRadioGrpID219B(int checkedRadioButtonId, int easy, int some_what_possible, int very_difficult, int not_possible) {
         if (checkedRadioButtonId == easy) {
             return "1";
-        }else if (checkedRadioButtonId == some_what_possible) {
+        } else if (checkedRadioButtonId == some_what_possible) {
             return "2";
         } else if (checkedRadioButtonId == very_difficult) {
             return "3";
@@ -588,6 +609,20 @@ public class Section12Activity extends AppCompatActivity {
         }
         return "NA";
     }
+
+    private String getCheckedRadioGrpID219C(int checkedRadioButtonId, int easy, int some_what_possible, int very_difficult, int not_possible) {
+        if (checkedRadioButtonId == easy) {
+            return "1";
+        } else if (checkedRadioButtonId == some_what_possible) {
+            return "2";
+        } else if (checkedRadioButtonId == very_difficult) {
+            return "3";
+        } else if (checkedRadioButtonId == not_possible) {
+            return "4";
+        }
+        return "NA";
+    }
+
     private int getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
         if (checkedRadioButtonId == yesId) {
             return 1;
