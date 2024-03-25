@@ -5,6 +5,7 @@ import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
+import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.ganesh.nimhans.R;
 import com.ganesh.nimhans.activity.Section3cActivity;
 import com.ganesh.nimhans.activity.Section4Activity;
 import com.ganesh.nimhans.activity.Section6Activity;
+import com.ganesh.nimhans.activity.Section7aActivity;
 import com.ganesh.nimhans.model.child.PendingListModel;
 import com.ganesh.nimhans.utils.StateModel;
 
@@ -54,7 +56,7 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
     }
 
     class EligibleChildHolder extends RecyclerView.ViewHolder {
-        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address, child_status, parent_status,mobile_number,next_visit_date,next_visit_time,pnext_visit_date,pnext_visit_time;
+        TextView child_parent_name, child_name, child_id, child_age, district, taluka, village, address, child_status, parent_status, mobile_number, next_visit_date, next_visit_time, pnext_visit_date, pnext_visit_time;
 
         public EligibleChildHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,9 +71,9 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             child_status = itemView.findViewById(R.id.child_status);
             parent_status = itemView.findViewById(R.id.parent_status);
             mobile_number = itemView.findViewById(R.id.mobile_number);
-            next_visit_time= itemView.findViewById(R.id.next_visit_time);
+            next_visit_time = itemView.findViewById(R.id.next_visit_time);
             next_visit_date = itemView.findViewById(R.id.next_visit_date);
-            pnext_visit_time= itemView.findViewById(R.id.pnext_visit_time);
+            pnext_visit_time = itemView.findViewById(R.id.pnext_visit_time);
             pnext_visit_date = itemView.findViewById(R.id.pnext_visit_date);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -90,14 +92,26 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                         activity.startActivity(intent);
                     } else if ("Interview Partially Completed".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).parentStatus)
                             || "Interview Pending".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).parentStatus)) {
-                        intent = new Intent(activity, Section6Activity.class);
-                        intent.putExtra("isFromPendingList", true);
-                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
-                        intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
-                        intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
-                        intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
-                        intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
-                        activity.startActivity(intent);
+                        if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 2 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 3) {
+                            //If the age is greater than 1 & less than 2
+                            intent = new Intent(activity, Section7aActivity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            activity.startActivity(intent);
+                        } else {
+                            intent = new Intent(activity, Section6Activity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                        }
                     }
 
 
@@ -116,13 +130,13 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             village.setText("Village : " + getSelectedVillageName(eligibleResponse.houseHold.surveySection.demographics.cityOrTownOrVillage));
             address.setText("Address: " + eligibleResponse.houseHold.surveySection.demographics.address);
             if (eligibleResponse.childStatus != null) {
-                if (eligibleResponse.childStatus.equals("Interview Partially Completed")){
+                if (eligibleResponse.childStatus.equals("Interview Partially Completed")) {
                     next_visit_date.setVisibility(View.VISIBLE);
                     next_visit_time.setVisibility(View.VISIBLE);
                     child_status.setText("Child Status : " + eligibleResponse.childStatus);
                     next_visit_date.setText("C.Next visit date : " + eligibleResponse.childPCDate);
                     next_visit_time.setText("C.Next visit time : " + eligibleResponse.childPCTime);
-                }else {
+                } else {
                     child_status.setText("Child Status : " + eligibleResponse.childStatus);
                     next_visit_date.setVisibility(View.GONE);
                     next_visit_time.setVisibility(View.GONE);
@@ -142,11 +156,11 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                     pnext_visit_date.setVisibility(View.GONE);
                     pnext_visit_time.setVisibility(View.GONE);
                 }
-            }else {
+            } else {
                 parent_status.setText("Parent Status : N/A");
-                }
+            }
 
-            mobile_number.setText("Mobile Number : " +eligibleResponse.houseHold.surveySection.demographics.mobileno);
+            mobile_number.setText("Mobile Number : " + eligibleResponse.houseHold.surveySection.demographics.mobileno);
         }
 
 
