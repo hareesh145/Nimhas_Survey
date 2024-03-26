@@ -281,7 +281,14 @@ public class Section13Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1 || binding.options220.getCheckedRadioButtonId() == -1  || binding.yesno221A.getCheckedRadioButtonId() == -1 || binding.options222.getCheckedRadioButtonId()== -1 || binding.options223.getCheckedRadioButtonId() == -1 || binding.options224.getCheckedRadioButtonId() == -1 || binding.options225.getCheckedRadioButtonId() == -1 || binding.yesNo228.getCheckedRadioButtonId() == -1 ){
+        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1
+                || binding.options220.getCheckedRadioButtonId() == -1
+                || binding.yesno221A.getCheckedRadioButtonId() == -1
+                || binding.options222.getCheckedRadioButtonId()== -1
+                || binding.options223.getCheckedRadioButtonId() == -1
+                || binding.options224.getCheckedRadioButtonId() == -1
+                || binding.options225.getCheckedRadioButtonId() == -1
+                || binding.yesNo228.getCheckedRadioButtonId() == -1 ){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
 
@@ -594,7 +601,7 @@ public class Section13Activity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-        startActivity(new Intent(activity, Section12Activity.class));
+        startActivity(new Intent(activity, Section12BActivity.class));
 
     }
 

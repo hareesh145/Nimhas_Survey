@@ -301,7 +301,7 @@ public class Section6Activity extends AppCompatActivity {
     private boolean isAllRadioButtonChecked() {
         Set<Integer> integers = integerHashMap.keySet();
         for (Integer integer : integers) {
-            if (integer == 0) {
+            if (integerHashMap.get(integer) == 0) {
                 return false;
             }
         }

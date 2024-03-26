@@ -236,7 +236,17 @@ public class Section7bActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.iasqRespondendtGrp.getCheckedRadioButtonId() == -1 || binding.q98.getCheckedRadioButtonId() == -1  || binding.q99.getCheckedRadioButtonId() == -1 || binding.q100.getCheckedRadioButtonId() == -1 || binding.q101.getCheckedRadioButtonId() == -1|| binding.q102.getCheckedRadioButtonId() == -1 || binding.q103.getCheckedRadioButtonId() == -1|| binding.q104.getCheckedRadioButtonId() == -1|| binding.q105.getCheckedRadioButtonId() == -1|| binding.q106.getCheckedRadioButtonId() == -1|| binding.q107.getCheckedRadioButtonId() == -1){
+        if (binding.iasqRespondendtGrp.getCheckedRadioButtonId() == -1
+                || binding.q98.getCheckedRadioButtonId() == -1
+                || binding.q99.getCheckedRadioButtonId() == -1
+                || binding.q100.getCheckedRadioButtonId() == -1
+                || binding.q101.getCheckedRadioButtonId() == -1
+                || binding.q102.getCheckedRadioButtonId() == -1
+                || binding.q103.getCheckedRadioButtonId() == -1
+                || binding.q104.getCheckedRadioButtonId() == -1
+                || binding.q105.getCheckedRadioButtonId() == -1
+                || binding.q106.getCheckedRadioButtonId() == -1
+                || binding.q107.getCheckedRadioButtonId() == -1){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
         /*Intent intent = new Intent(activity, Section8Activity.class);

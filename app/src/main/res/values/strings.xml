@@ -647,8 +647,10 @@
     <string name="in_your_life_have_you_ever_used_any_other_drugs_apart_from_those_mentioned_above">In your life, have you ever used any other drugs apart from those mentioned above?</string>
     <string name="does_he_she_ignore_the_presence_of_family_members">• Does he/she ignore the presence of family members?</string>
     <string name="pending_data_search">Pending Data Search</string>
+    <string name="does_anyone_in_the_family_have_had_problems_related_with_alcohol_tobacco_substance_use">Does anyone in the family have/had problems related with alcohol/tobacco/substance use?</string>
 
     <string-array name="illness_dropdown">
+        <item>Select illness Care</item>
         <item>Govt./Municipal Hospital</item>
         <item>Ngo/Trust Hospital/Clinic</item>
         <item>Private Hospital/Private Doctor/Clinic</item>

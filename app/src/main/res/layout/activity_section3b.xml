@@ -523,7 +523,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Does anyone in the family have/had problems related with alcohol/tobacco/substance use?"
+                                android:text="@string/does_anyone_in_the_family_have_had_problems_related_with_alcohol_tobacco_substance_use"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>

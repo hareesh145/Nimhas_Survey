@@ -253,7 +253,12 @@ public class Section12Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1 || binding.options209.getCheckedRadioButtonId() == -1 || binding.heardVisitedOptions.getCheckedRadioButtonId() == -1 || !isCheckBxGrp214Checked()) {
+        if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1
+                || binding.illnessCare207.getText().toString().equalsIgnoreCase("Select illness Care")
+                || binding.illnessCare208.getText().toString().equalsIgnoreCase("Select illness Care")
+                || binding.options209.getCheckedRadioButtonId() == -1
+                || binding.heardVisitedOptions.getCheckedRadioButtonId() == -1 //215
+                || !isCheckBxGrp214Checked()) {
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         } else {
             ServeySection12Request serveySection12Request = new ServeySection12Request();

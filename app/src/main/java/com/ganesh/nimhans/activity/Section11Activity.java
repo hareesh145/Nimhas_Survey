@@ -306,11 +306,54 @@ public class Section11Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.section11RespondentGrp.getCheckedRadioButtonId() == -1 || binding.question160Grp.getCheckedRadioButtonId() == -1  || binding.question161.getCheckedRadioButtonId() == -1 || binding.question162.getCheckedRadioButtonId() == -1 || binding.question163.getCheckedRadioButtonId() == -1|| binding.question164.getCheckedRadioButtonId() == -1 || binding.question165.getCheckedRadioButtonId() == -1|| binding.question166.getCheckedRadioButtonId() == -1|| binding.question167.getCheckedRadioButtonId() == -1|| binding.question168.getCheckedRadioButtonId() == -1|| binding.question169.getCheckedRadioButtonId() == -1
-                || binding.question170.getCheckedRadioButtonId() == -1 || binding.question171.getCheckedRadioButtonId() == -1 || binding.question172.getCheckedRadioButtonId() == -1|| binding.question173.getCheckedRadioButtonId() == -1 || binding.question174.getCheckedRadioButtonId() == -1|| binding.question175.getCheckedRadioButtonId() == -1|| binding.question176.getCheckedRadioButtonId() == -1|| binding.question177.getCheckedRadioButtonId() == -1|| binding.question178.getCheckedRadioButtonId() == -1|| binding.question179.getCheckedRadioButtonId() == -1|| binding.question180.getCheckedRadioButtonId() == -1
-                || binding.question181.getCheckedRadioButtonId() == -1 || binding.question182.getCheckedRadioButtonId() == -1 || binding.question183.getCheckedRadioButtonId() == -1|| binding.question184.getCheckedRadioButtonId() == -1 || binding.question185.getCheckedRadioButtonId() == -1|| binding.question186.getCheckedRadioButtonId() == -1|| binding.question187.getCheckedRadioButtonId() == -1|| binding.question188.getCheckedRadioButtonId() == -1|| binding.question189.getCheckedRadioButtonId() == -1|| binding.question190.getCheckedRadioButtonId() == -1|| binding.question191.getCheckedRadioButtonId() == -1
-                || binding.question192.getCheckedRadioButtonId() == -1 || binding.question193.getCheckedRadioButtonId() == -1 || binding.question194.getCheckedRadioButtonId() == -1|| binding.question195.getCheckedRadioButtonId() == -1 || binding.question196.getCheckedRadioButtonId() == -1|| binding.question197.getCheckedRadioButtonId() == -1|| binding.question198.getCheckedRadioButtonId() == -1|| binding.question199.getCheckedRadioButtonId() == -1|| binding.question200.getCheckedRadioButtonId() == -1|| binding.question201.getCheckedRadioButtonId() == -1|| binding.question202.getCheckedRadioButtonId() == -1
-                || binding.question203.getCheckedRadioButtonId() == -1 || binding.question204.getCheckedRadioButtonId() == -1 || binding.question205.getCheckedRadioButtonId() == -1|| binding.question206.getCheckedRadioButtonId() == -1){
+        if (binding.section11RespondentGrp.getCheckedRadioButtonId() == -1
+                || binding.question160Grp.getCheckedRadioButtonId() == -1
+                || binding.question161.getCheckedRadioButtonId() == -1
+                || binding.question162.getCheckedRadioButtonId() == -1
+                || binding.question163.getCheckedRadioButtonId() == -1
+                || binding.question164.getCheckedRadioButtonId() == -1
+                || binding.question165.getCheckedRadioButtonId() == -1
+                || binding.question166.getCheckedRadioButtonId() == -1
+                || binding.question167.getCheckedRadioButtonId() == -1
+                || binding.question168.getCheckedRadioButtonId() == -1
+                || binding.question169.getCheckedRadioButtonId() == -1
+                || binding.question170.getCheckedRadioButtonId() == -1
+                || binding.question171.getCheckedRadioButtonId() == -1
+                || binding.question172.getCheckedRadioButtonId() == -1
+                || binding.question173.getCheckedRadioButtonId() == -1
+                || binding.question174.getCheckedRadioButtonId() == -1
+                || binding.question175.getCheckedRadioButtonId() == -1
+                || binding.question176.getCheckedRadioButtonId() == -1
+                || binding.question177.getCheckedRadioButtonId() == -1
+                || binding.question178.getCheckedRadioButtonId() == -1
+                || binding.question179.getCheckedRadioButtonId() == -1
+                || binding.question180.getCheckedRadioButtonId() == -1
+                || binding.question181.getCheckedRadioButtonId() == -1
+                || binding.question182.getCheckedRadioButtonId() == -1
+                || binding.question183.getCheckedRadioButtonId() == -1
+                || binding.question184.getCheckedRadioButtonId() == -1
+                || binding.question185.getCheckedRadioButtonId() == -1
+                || binding.question186.getCheckedRadioButtonId() == -1
+                || binding.question187.getCheckedRadioButtonId() == -1
+                || binding.question188.getCheckedRadioButtonId() == -1
+                || binding.question189.getCheckedRadioButtonId() == -1
+                || binding.question190.getCheckedRadioButtonId() == -1
+                || binding.question191.getCheckedRadioButtonId() == -1
+                || binding.question192.getCheckedRadioButtonId() == -1
+                || binding.question193.getCheckedRadioButtonId() == -1
+                || binding.question194.getCheckedRadioButtonId() == -1
+                || binding.question195.getCheckedRadioButtonId() == -1
+                || binding.question196.getCheckedRadioButtonId() == -1
+                || binding.question197.getCheckedRadioButtonId() == -1
+                || binding.question198.getCheckedRadioButtonId() == -1
+                || binding.question199.getCheckedRadioButtonId() == -1
+                || binding.question200.getCheckedRadioButtonId() == -1
+                || binding.question201.getCheckedRadioButtonId() == -1
+                || binding.question202.getCheckedRadioButtonId() == -1
+                || binding.question203.getCheckedRadioButtonId() == -1
+                || binding.question204.getCheckedRadioButtonId() == -1
+                || binding.question205.getCheckedRadioButtonId() == -1
+                || binding.question206.getCheckedRadioButtonId() == -1){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
             checkRCADSScore();

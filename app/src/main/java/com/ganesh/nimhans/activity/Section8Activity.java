@@ -265,7 +265,12 @@ public class Section8Activity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.respondentGrp.getCheckedRadioButtonId() == -1 || binding.question108.getCheckedRadioButtonId() == -1  || binding.question109.getCheckedRadioButtonId() == -1 || binding.question110.getCheckedRadioButtonId() == -1 || binding.question111.getCheckedRadioButtonId() == -1|| binding.question112.getCheckedRadioButtonId() == -1){
+        if (binding.respondentGrp.getCheckedRadioButtonId() == -1
+                || binding.question108.getCheckedRadioButtonId() == -1
+                || binding.question109.getCheckedRadioButtonId() == -1
+                || binding.question110.getCheckedRadioButtonId() == -1
+                || binding.question111.getCheckedRadioButtonId() == -1
+                || binding.question112.getCheckedRadioButtonId() == -1){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
             checkRCADSScore();

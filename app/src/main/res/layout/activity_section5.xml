@@ -751,7 +751,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Alcoholic beverages (beer, wine, spirits, etc.)?"
+                            android:text="@string/in_your_life_have_you_ever_used_alcoholic_beverages_beer_wine_spirits_etc"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />

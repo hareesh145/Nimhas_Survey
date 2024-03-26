@@ -90,7 +90,11 @@ public class ActivitySurvey extends AppCompatActivity {
     }
 
     public void onClickSurvey(View v) {
-        if (binding.langRadioBtns.getCheckedRadioButtonId()==binding.hindiBtn.getId()) {
+        if (binding.langRadioBtns.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(activity, "Please Select Language", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (binding.langRadioBtns.getCheckedRadioButtonId() == binding.hindiBtn.getId()) {
             Locale myLocale = new Locale("hi");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -98,7 +102,7 @@ public class ActivitySurvey extends AppCompatActivity {
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
             startActivity(new Intent(activity, Section1Activity.class));
-        }else {
+        } else {
             Locale myLocale = new Locale("en");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -118,7 +122,8 @@ public class ActivitySurvey extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-    public void onClickRegistration(View view){
+
+    public void onClickRegistration(View view) {
         Intent intent = new Intent(ActivitySurvey.this, CreateUserActivity.class);
         startActivity(intent);
 
@@ -138,7 +143,7 @@ public class ActivitySurvey extends AppCompatActivity {
 
                 try {
                     ConvertJsonToExcel.writeSurveyReports(response.body(), "SurveyReport.xls");
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -168,7 +173,7 @@ public class ActivitySurvey extends AppCompatActivity {
 
                 try {
                     ConvertJsonToExcel.writeHouseHoldTableReport(response.body(), "HouseHoldTable.xls");
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -205,7 +210,7 @@ public class ActivitySurvey extends AppCompatActivity {
                 try {
                     ConvertJsonToExcel.writeHouseHoldFormReport(response.body(), "HouseHoldData.xls");
                 } catch (IOException e) {
-                   e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
 

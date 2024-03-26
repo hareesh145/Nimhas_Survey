@@ -136,7 +136,6 @@ public interface ApiInterface {
 
     //@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("villageCode") String villageCode, @Header("Authorization") String authHeader
     @GET("survey-questions/inprogres/{selectedStateCode}/{districtCode}/{talukaCode}/{selectedVillageCode}")
-//05061003108003176
     Call<List<PendingListModel>> getInprogressTasks(@Path("selectedStateCode") String selectedStateCode,@Path("districtCode") String districtCode, @Path("talukaCode") String talukaCode, @Path("selectedVillageCode") String selectedVillageCode, @Header("Authorization") String authHeader);
 
     //    0500310061800317

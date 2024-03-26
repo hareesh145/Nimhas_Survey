@@ -157,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="Version 25.03.24.1">
+                    android:text="Version 25.03.24.3">
 
                 </TextView>
 

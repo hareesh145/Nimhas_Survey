@@ -171,7 +171,7 @@ public class ConsentNo extends AppCompatActivity {
         mTimePicker = new TimePickerDialog(ConsentNo.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                binding.time.setText(selectedHour + ":" + selectedMinute);
+                binding.time.setText(String.format(Locale.getDefault(), "%02d:%02d", selectedHour, selectedMinute));
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");

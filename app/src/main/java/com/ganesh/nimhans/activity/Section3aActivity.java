@@ -53,7 +53,7 @@ public class Section3aActivity extends AppCompatActivity {
 
 
     RadioGroup Caste, AnswerType, MaritalStatus, YesOrNo;
-    String selectedCaste, selectedAnswerType, selectedMaritalStatus, selectedYesOrNo,NoOfPeople,selectedTobacco,selectedAnswerType2;
+    String selectedCaste, selectedAnswerType, selectedMaritalStatus, selectedYesOrNo, NoOfPeople, selectedTobacco, selectedAnswerType2;
     Long demoGraphicsID;
     int noOfSons;
     int noOfDaughters;
@@ -265,9 +265,15 @@ public class Section3aActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.Caste.getCheckedRadioButtonId() == -1 || binding.maritalStatus.getCheckedRadioButtonId()== -1 || binding.NoOfPeople.getText().toString().isEmpty() || binding.answerType1.getCheckedRadioButtonId() == -1 || binding.answerType2.getCheckedRadioButtonId() == -1) {
+        if (binding.Caste.getCheckedRadioButtonId() == -1
+                || binding.maritalStatus.getCheckedRadioButtonId() == -1
+                || binding.NoOfPeople.getText().toString().isEmpty()
+                || binding.answerType1.getCheckedRadioButtonId() == -1
+                || binding.answerType2.getCheckedRadioButtonId() == -1
+                || binding.Income.getText().toString().isEmpty()
+        ) {
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
-        }else {
+        } else {
             Bundle bundle = getIntent().getExtras();
             demoGraphicsID = Long.valueOf(bundle.getString("demoo"));
 //        Log.d("demoID", "onCreate: " + demoGraphicsID);
@@ -468,22 +474,22 @@ public class Section3aActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         ServeySectionRequest servey = new ServeySectionRequest();
-        if (selectedCaste.equals("Other")){
+        if (selectedCaste.equals("Other")) {
             servey.setQno1(selectedCaste);
-            servey.setQno1Other( binding.Specify.getText().toString());
-        }else {
+            servey.setQno1Other(binding.Specify.getText().toString());
+        } else {
             servey.setQno1(selectedCaste);
-            servey.setQno1Other( "NA");
+            servey.setQno1Other("NA");
         }
-        if (!binding.Specify1.getText().toString().isEmpty()){
+        if (!binding.Specify1.getText().toString().isEmpty()) {
             servey.setQno2(binding.Specify1.getText().toString());
-        }else{
+        } else {
             servey.setQno2(selectedAnswerType);
         }
-        if (selectedMaritalStatus.equals("Other")){
+        if (selectedMaritalStatus.equals("Other")) {
             servey.setQno3(selectedMaritalStatus);
             servey.setQno3Other(binding.Specify2.getText().toString());
-        }else {
+        } else {
             servey.setQno3(selectedMaritalStatus);
             servey.setQno3Other("NA");
         }
@@ -494,41 +500,41 @@ public class Section3aActivity extends AppCompatActivity {
         servey.setQno6(Integer.parseInt(income));
         servey.setQno7(Integer.parseInt(NoOfPeople));
         if (binding.answerType1.getCheckedRadioButtonId() != -1) {
-            String qusno213 =getCheckedRadioGrpID(binding.answerType1.getCheckedRadioButtonId(), binding.yes16.getId(), binding.no16.getId());
+            String qusno213 = getCheckedRadioGrpID(binding.answerType1.getCheckedRadioButtonId(), binding.yes16.getId(), binding.no16.getId());
             servey.setQno16(qusno213);
-            if (qusno213.equals("Yes")){
+            if (qusno213.equals("Yes")) {
                 servey.setQno16A(binding.Specify4.getText().toString());
-            }else {
+            } else {
                 servey.setQno16A("NA");
             }
-        }else {
+        } else {
             servey.setQno16A("NA");
         }
         if (binding.answerType2.getCheckedRadioButtonId() != -1) {
-            String qusno213 =getCheckedRadioGrpID(binding.answerType2.getCheckedRadioButtonId(), binding.yes1.getId(), binding.no1.getId());
+            String qusno213 = getCheckedRadioGrpID(binding.answerType2.getCheckedRadioButtonId(), binding.yes1.getId(), binding.no1.getId());
             servey.setQno17(qusno213);
-            if (qusno213.equals("Yes")){
+            if (qusno213.equals("Yes")) {
                 if (binding.alcohol.isChecked()) {
                     String value = binding.alcohol.getText().toString();
                     servey.setQno17A(value);
-                }else {
+                } else {
                     servey.setQno17A("NA");
                 }
 
                 if (binding.tobacco.isChecked()) {
                     String value = binding.tobacco.getText().toString();
                     servey.setQno17B(value);
-                }else {
+                } else {
                     servey.setQno17B("NA");
                 }
                 if (binding.substanceUse.isChecked()) {
                     String value = binding.substanceUse.getText().toString();
                     servey.setQno17C(value);
-                }else {
+                } else {
                     servey.setQno17C("NA");
                 }
             }
-        }else {
+        } else {
             servey.setQno17A("NA");
             servey.setQno17B("NA");
             servey.setQno17C("NA");
@@ -565,8 +571,8 @@ public class Section3aActivity extends AppCompatActivity {
         });
 
 
-
     }
+
     private String getCheckedRadioGrpID(int checkedRadioButtonId, int yesId, int noId) {
         if (checkedRadioButtonId == yesId) {
             return "Yes";
@@ -575,6 +581,7 @@ public class Section3aActivity extends AppCompatActivity {
         }
         return "NA";
     }
+
     public String getPhoneNo() {
         return phoneNo;
     }
@@ -593,7 +600,7 @@ public class Section3aActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Section3aActivity.this,ActivitySurvey.class);
+                        Intent intent = new Intent(Section3aActivity.this, ActivitySurvey.class);
                         startActivity(intent);
                     }
                 })

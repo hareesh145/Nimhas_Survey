@@ -148,7 +148,16 @@ public class Section12BActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (binding.PARENTSGUARDIAN.getCheckedRadioButtonId() == -1 || binding.Anxiety.getCheckedRadioButtonId() == -1  || binding.problemMother.getCheckedRadioButtonId() == -1 || binding.funnyFeeling.getCheckedRadioButtonId() == -1 || binding.feelingWorry.getCheckedRadioButtonId() == -1|| binding.feelingAfraid.getCheckedRadioButtonId() == -1 || binding.noFunyes.getCheckedRadioButtonId() == -1|| binding.noFun.getCheckedRadioButtonId() == -1 || binding.Specify3.getText().toString().isEmpty()){
+        if (binding.PARENTSGUARDIAN.getCheckedRadioButtonId() == -1
+                || binding.Anxiety.getCheckedRadioButtonId() == -1   //73A
+                || binding.problemMother.getCheckedRadioButtonId() == -1 //73B
+                || binding.funnyFeeling.getCheckedRadioButtonId() == -1 //73C
+                || binding.feelingWorry.getCheckedRadioButtonId() == -1  //73D
+                || binding.feelingAfraid.getCheckedRadioButtonId() == -1 //73E
+                || binding.noFunyes.getCheckedRadioButtonId() == -1 //73F
+                || binding.Specify3.getText().toString().isEmpty()//73G
+                || binding.noFun.getCheckedRadioButtonId() == -1  //73H
+        ){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
 
@@ -443,7 +452,7 @@ public class Section12BActivity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-        startActivity(new Intent(activity, Section13Activity.class));
+        startActivity(new Intent(activity, Section12Activity.class));
 
     }
 

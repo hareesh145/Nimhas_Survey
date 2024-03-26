@@ -226,8 +226,28 @@ public class Section10Activity extends AppCompatActivity {
 
 
     public void onClickNextSection(View v) {
-        if (binding.section10RespondentGrp.getCheckedRadioButtonId() == -1 || binding.question139Grp.getCheckedRadioButtonId() == -1  || binding.question140.getCheckedRadioButtonId() == -1 || binding.question141.getCheckedRadioButtonId() == -1 || binding.question142.getCheckedRadioButtonId() == -1|| binding.question143.getCheckedRadioButtonId() == -1 || binding.question144.getCheckedRadioButtonId() == -1|| binding.question145.getCheckedRadioButtonId() == -1|| binding.question146.getCheckedRadioButtonId() == -1|| binding.question147.getCheckedRadioButtonId() == -1|| binding.question148.getCheckedRadioButtonId() == -1
-                || binding.question149.getCheckedRadioButtonId() == -1 || binding.question150.getCheckedRadioButtonId() == -1 || binding.question151.getCheckedRadioButtonId() == -1|| binding.question152.getCheckedRadioButtonId() == -1 || binding.question153.getCheckedRadioButtonId() == -1|| binding.question154.getCheckedRadioButtonId() == -1|| binding.question155.getCheckedRadioButtonId() == -1|| binding.question156.getCheckedRadioButtonId() == -1|| binding.question157.getCheckedRadioButtonId() == -1|| binding.question158.getCheckedRadioButtonId() == -1|| binding.question159.getCheckedRadioButtonId() == -1){
+        if (binding.section10RespondentGrp.getCheckedRadioButtonId() == -1
+                || binding.question139Grp.getCheckedRadioButtonId() == -1
+                || binding.question140.getCheckedRadioButtonId() == -1
+                || binding.question141.getCheckedRadioButtonId() == -1
+                || binding.question142.getCheckedRadioButtonId() == -1
+                || binding.question143.getCheckedRadioButtonId() == -1
+                || binding.question144.getCheckedRadioButtonId() == -1
+                || binding.question145.getCheckedRadioButtonId() == -1
+                || binding.question146.getCheckedRadioButtonId() == -1
+                || binding.question147.getCheckedRadioButtonId() == -1
+                || binding.question148.getCheckedRadioButtonId() == -1
+                || binding.question149.getCheckedRadioButtonId() == -1
+                || binding.question150.getCheckedRadioButtonId() == -1
+                || binding.question151.getCheckedRadioButtonId() == -1
+                || binding.question152.getCheckedRadioButtonId() == -1
+                || binding.question153.getCheckedRadioButtonId() == -1
+                || binding.question154.getCheckedRadioButtonId() == -1
+                || binding.question155.getCheckedRadioButtonId() == -1
+                || binding.question156.getCheckedRadioButtonId() == -1
+                || binding.question157.getCheckedRadioButtonId() == -1
+                || binding.question158.getCheckedRadioButtonId() == -1
+                || binding.question159.getCheckedRadioButtonId() == -1){
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
 

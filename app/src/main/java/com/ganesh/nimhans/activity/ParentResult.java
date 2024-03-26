@@ -183,6 +183,11 @@ public class ParentResult extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
+        if (binding.interviewStatus.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(activity, "Please Fill data", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (selectedResultCode.equals("Interview Partially Completed")) {
             JsonObject jsonObjectpartiallyCompleted = new JsonObject();
             jsonObjectpartiallyCompleted.addProperty("parentStatus", "Interview Partially Completed");
@@ -446,9 +451,7 @@ public class ParentResult extends AppCompatActivity {
         mTimePicker = new TimePickerDialog(ParentResult.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                String hoursText = selectedHour < 9 ? "0" + selectedHour : "" + selectedHour;
-                String minutes = selectedMinute < 9 ? "0" + selectedMinute : "" + selectedMinute;
-                binding.time.setText(hoursText + ":" + minutes);
+                binding.time.setText(String.format(Locale.getDefault(), "%02d:%02d", selectedHour, selectedMinute));
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");

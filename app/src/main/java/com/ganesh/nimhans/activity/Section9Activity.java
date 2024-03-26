@@ -163,20 +163,18 @@ public class Section9Activity extends AppCompatActivity {
         ServeySection9Request serveySection9Request = new ServeySection9Request();
         int checkedRadioButtonId = binding.respondentGrp.getCheckedRadioButtonId();
         if (checkedRadioButtonId == -1) {
-            if (respondentTxt.equalsIgnoreCase("Guardian")){
+            if (respondentTxt.equalsIgnoreCase("Guardian")) {
                 serveySection9Request.setSection9Respondent(respondentTxt);
                 serveySection9Request.setSection9Gr(binding.respondent.getText().toString());
-            }
-            else {
+            } else {
                 serveySection9Request.setSection9Respondent(respondentTxt);
                 serveySection9Request.setSection9Gr("NA");
             }
         } else {
-            if (respondentTxt.equalsIgnoreCase("Guardian")){
+            if (respondentTxt.equalsIgnoreCase("Guardian")) {
                 serveySection9Request.setSection9Respondent(respondentTxt);
                 serveySection9Request.setSection9Gr(binding.respondent.getText().toString());
-            }
-            else {
+            } else {
                 serveySection9Request.setSection9Respondent(respondentTxt);
                 serveySection9Request.setSection9Gr("NA");
             }
@@ -335,19 +333,32 @@ public class Section9Activity extends AppCompatActivity {
             return 1;
         } else if (checkedRadioButtonId == question_113_c) {
             return 2;
-        } else if (checkedRadioButtonId == question_113_a){
+        } else if (checkedRadioButtonId == question_113_a) {
             return 0;
-        }
-        else {
+        } else {
             return -1;
         }
     }
 
     public void onClickNextSection(View v) {
-        if (binding.respondentGrp.getCheckedRadioButtonId() == -1 || binding.question113.getCheckedRadioButtonId() == -1  || binding.question114.getCheckedRadioButtonId() == -1 || binding.question115.getCheckedRadioButtonId() == -1 || binding.question116.getCheckedRadioButtonId() == -1|| binding.question117.getCheckedRadioButtonId() == -1 || binding.question118.getCheckedRadioButtonId() == -1|| binding.question119.getCheckedRadioButtonId() == -1|| binding.question120.getCheckedRadioButtonId() == -1|| binding.question121.getCheckedRadioButtonId() == -1|| binding.question122.getCheckedRadioButtonId() == -1
-        || binding.question124.getCheckedRadioButtonId() == -1 || binding.question125.getCheckedRadioButtonId() == -1 || binding.question126.getCheckedRadioButtonId() == -1|| binding.question127.getCheckedRadioButtonId() == -1 || binding.question128.getCheckedRadioButtonId() == -1|| binding.question129.getCheckedRadioButtonId() == -1|| binding.question130.getCheckedRadioButtonId() == -1|| binding.question131.getCheckedRadioButtonId() == -1|| binding.question132.getCheckedRadioButtonId() == -1|| binding.question134.getCheckedRadioButtonId() == -1|| binding.question135.getCheckedRadioButtonId() == -1|| binding.q136.getCheckedRadioButtonId() == -1 || binding.q137.getCheckedRadioButtonId() == -1|| binding.q138.getCheckedRadioButtonId() == -1){
+        if (binding.respondentGrp.getCheckedRadioButtonId() == -1 || binding.question113.getCheckedRadioButtonId() == -1
+                || binding.question114.getCheckedRadioButtonId() == -1 || binding.question115.getCheckedRadioButtonId() == -1
+                || binding.question116.getCheckedRadioButtonId() == -1 || binding.question117.getCheckedRadioButtonId() == -1
+                || binding.question118.getCheckedRadioButtonId() == -1 || binding.question119.getCheckedRadioButtonId() == -1
+                || binding.question120.getCheckedRadioButtonId() == -1 || binding.question121.getCheckedRadioButtonId() == -1
+                || binding.question122.getCheckedRadioButtonId() == -1
+                || binding.question123.getCheckedRadioButtonId() == -1
+                || binding.question124.getCheckedRadioButtonId() == -1 || binding.question125.getCheckedRadioButtonId() == -1
+                || binding.question126.getCheckedRadioButtonId() == -1 || binding.question127.getCheckedRadioButtonId() == -1
+                || binding.question128.getCheckedRadioButtonId() == -1 || binding.question129.getCheckedRadioButtonId() == -1
+                || binding.question130.getCheckedRadioButtonId() == -1 || binding.question131.getCheckedRadioButtonId() == -1
+                || binding.question132.getCheckedRadioButtonId() == -1 || binding.question133.getCheckedRadioButtonId() == -1
+                || binding.question134.getCheckedRadioButtonId() == -1
+                || binding.question135.getCheckedRadioButtonId() == -1
+                || binding.q136.getCheckedRadioButtonId() == -1 || binding.q137.getCheckedRadioButtonId() == -1
+                || binding.q138.getCheckedRadioButtonId() == -1) {
             Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
-        }else {
+        } else {
        /* Util.showToast(activity, "Successfully data saved");
         Intent intent = new Intent(activity, Section10Activity.class);
         intent.putExtra(AGE_ID, ageValue);
