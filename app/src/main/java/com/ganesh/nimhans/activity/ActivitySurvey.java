@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.storage.StorageManager;
@@ -71,6 +72,7 @@ public class ActivitySurvey extends AppCompatActivity {
     public static final String PASSWORD_KEY = "password_key";
     SharedPreferences sharedpreferences;
     private File file;
+    public static final String SHARED_PREFS_LANG = "shared_prefs_lang";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,11 +92,11 @@ public class ActivitySurvey extends AppCompatActivity {
     }
 
     public void onClickSurvey(View v) {
-        if (binding.langRadioBtns.getCheckedRadioButtonId() == -1) {
+        /*if (binding.langRadioBtns.getCheckedRadioButtonId() == -1) {
             Toast.makeText(activity, "Please Select Language", Toast.LENGTH_SHORT).show();
             return;
-        }
-        if (binding.langRadioBtns.getCheckedRadioButtonId() == binding.hindiBtn.getId()) {
+        }*/
+        if (binding.langRadioBtns.getCheckedRadioButtonId()==binding.hindiBtn.getId()) {
             Locale myLocale = new Locale("hi");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -102,7 +104,7 @@ public class ActivitySurvey extends AppCompatActivity {
             conf.locale = myLocale;
             res.updateConfiguration(conf, dm);
             startActivity(new Intent(activity, Section1Activity.class));
-        } else {
+        }else {
             Locale myLocale = new Locale("en");
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();

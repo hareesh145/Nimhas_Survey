@@ -662,7 +662,7 @@
                             android:layout_marginStart="30dp"
                             android:background="@drawable/edit_text_border"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:hint="Specify227"
+                            android:hint="Specify"
                             android:inputType="textPersonName"
                             android:padding="10dp"
                             android:textAllCaps="false"

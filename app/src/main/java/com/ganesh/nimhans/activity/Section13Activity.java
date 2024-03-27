@@ -135,16 +135,16 @@ public class Section13Activity extends AppCompatActivity {
 
         String section9aResult = "";
         if (PreferenceConnector.readString(this, RCADS9_1_RESULT, "").equals("1")) {
-            section9aResult = "\n 9.  Attention Deficit : " + PreferenceConnector.readString(this, RCADS9_1_RESULT, "") + "\n";
+            section9aResult = "\n 9A.  Attention Deficit : " + PreferenceConnector.readString(this, RCADS9_1_RESULT, "") + "\n";
         }
         String section9hResult = "";
         if (PreferenceConnector.readString(this, RCADS9_2_RESULT, "").equals("1")) {
-            section9hResult = "\n     Hyperactivity Disorder : " + PreferenceConnector.readString(this, RCADS9_2_RESULT, "") + "\n";
+            section9hResult = "\n 9B.  Hyperactivity Disorder : " + PreferenceConnector.readString(this, RCADS9_2_RESULT, "") + "\n";
         }
 
         String section9OResult = "";
         if (PreferenceConnector.readString(this, RCADS9_3_RESULT, "").equals("1")) {
-            section9OResult = "\n     Oppositional Defiant Disorder : " + PreferenceConnector.readString(this, RCADS9_3_RESULT, "") + "\n";
+            section9OResult = "\n 9C.  Oppositional Defiant Disorder : " + PreferenceConnector.readString(this, RCADS9_3_RESULT, "") + "\n";
         }
 
         String section10Result = "";
@@ -601,7 +601,7 @@ public class Section13Activity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-        startActivity(new Intent(activity, Section12BActivity.class));
+        finish();
 
     }
 

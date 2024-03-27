@@ -4,8 +4,20 @@ import static com.ganesh.nimhans.utils.Constants.AGE_ID;
 import static com.ganesh.nimhans.utils.Constants.DEMO_GRAPHIC_ID;
 import static com.ganesh.nimhans.utils.Constants.ELIGIBLE_RESPONDENT;
 import static com.ganesh.nimhans.utils.Constants.NO_OF_CHILDERNS;
+import static com.ganesh.nimhans.utils.Constants.RCADS10_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS11_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS4_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS5_3_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS6_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7A_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS7B_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS8_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_1_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_2_RESULT;
+import static com.ganesh.nimhans.utils.Constants.RCADS9_3_RESULT;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
-import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,16 +25,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ganesh.nimhans.R;
+import com.ganesh.nimhans.activity.Section12Activity;
 import com.ganesh.nimhans.activity.Section3cActivity;
-import com.ganesh.nimhans.activity.Section4Activity;
 import com.ganesh.nimhans.activity.Section6Activity;
 import com.ganesh.nimhans.activity.Section7aActivity;
+import com.ganesh.nimhans.activity.Section7bActivity;
 import com.ganesh.nimhans.model.child.PendingListModel;
+import com.ganesh.nimhans.utils.PreferenceConnector;
 import com.ganesh.nimhans.utils.StateModel;
 
 import java.util.List;
@@ -79,10 +94,69 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent;
-                    if ("Interview Partially Completed".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).childStatus)
+                    PreferenceConnector.writeString(activity, RCADS6_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS4_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS7A_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS7B_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS8_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS9_1_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS9_2_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS9_3_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS10_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS11_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS5_1_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS5_2_RESULT, "");
+                    PreferenceConnector.writeString(activity, RCADS5_3_RESULT, "");
+
+                    if (eligibleResponses.get(getBindingAdapterPosition()).childStatus == null){
+                        if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 2 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 3) {
+                            //If the age is greater than 1 & less than 2
+                            Toast.makeText(activity.getApplicationContext(), "Section7aActivity",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(activity, Section7aActivity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                        } else if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 4 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 5) {
+                            //If the age is greater than 1 & less than 2
+                            Intent intent = new Intent(activity, Section7bActivity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                            Toast.makeText(activity.getApplicationContext(), "Section7bActivity",Toast.LENGTH_LONG).show();
+                        } else if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 0 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 1) {
+                            //If the age is greater than 1 & less than 2
+                            Intent intent = new Intent(activity, Section12Activity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                            Toast.makeText(activity.getApplicationContext(), "Section12Activity",Toast.LENGTH_LONG).show();
+
+                        }else {
+                            Intent intent = new Intent(activity, Section6Activity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                        }
+
+                    }else if ("Interview Partially Completed".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).childStatus)
                             || "Interview Pending".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).childStatus)) {
-                        intent = new Intent(activity, Section3cActivity.class);
+                        Intent intent = new Intent(activity, Section3cActivity.class);
                         intent.putExtra("isFromPendingList", true);
                         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
                         intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
@@ -94,16 +168,36 @@ public class PendingListAdapter extends RecyclerView.Adapter<PendingListAdapter.
                             || "Interview Pending".equalsIgnoreCase(eligibleResponses.get(getBindingAdapterPosition()).parentStatus)) {
                         if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 2 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 3) {
                             //If the age is greater than 1 & less than 2
-                            intent = new Intent(activity, Section7aActivity.class);
+                            Intent intent = new Intent(activity, Section7aActivity.class);
                             intent.putExtra("isFromPendingList", true);
-                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
                             intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
-                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
-                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()));
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
                             intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
                             activity.startActivity(intent);
-                        } else {
-                            intent = new Intent(activity, Section6Activity.class);
+                        } else if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 4 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 5) {
+                            //If the age is greater than 1 & less than 2
+                            Intent intent = new Intent(activity, Section7bActivity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                        } else if (eligibleResponses.get(getAdapterPosition()).houseHold.qno12 >= 0 && eligibleResponses.get(getAdapterPosition()).houseHold.qno12 <= 1) {
+                            //If the age is greater than 1 & less than 2
+                            Intent intent = new Intent(activity, Section12Activity.class);
+                            intent.putExtra("isFromPendingList", true);
+                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
+                            intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);
+                            intent.putExtra(DEMO_GRAPHIC_ID, Long.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.demographics.demographicsId));
+                            intent.putExtra(NO_OF_CHILDERNS, eligibleResponses.size());
+                            intent.putExtra(AGE_ID, String.valueOf(eligibleResponses.get(getAdapterPosition()).houseHold.qno12));
+                            activity.startActivity(intent);
+                        }else {
+                            Intent intent = new Intent(activity, Section6Activity.class);
                             intent.putExtra("isFromPendingList", true);
                             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponses.get(getAdapterPosition()).houseHold);
                             intent.putExtra(SURVEY_ID, eligibleResponses.get(getAdapterPosition()).houseHold.surveySection.surveyId);

@@ -125,6 +125,13 @@ public class Section12Activity extends AppCompatActivity {
                     binding.options210213.setVisibility(View.VISIBLE);
                 } else {
                     binding.options210213.setVisibility(View.GONE);
+                    binding.othersSpecify210.setText("");
+                    binding.question210.clearCheck();
+                    binding.othersSpecify211.setText("");
+                    binding.question212.clearCheck();
+                    binding.othersSpecify212.setText("");
+                    binding.options213.clearCheck();
+                    binding.illnessCare211.setText("");
                 }
             }
         });
@@ -160,6 +167,17 @@ public class Section12Activity extends AppCompatActivity {
                     binding.a219Radiogroup.clearCheck();
                     binding.b219Radiogroup.clearCheck();
                     binding.c219Radiogroup.clearCheck();
+                    binding.km.setText("");
+                    binding.question217.clearCheck();
+                    binding.publicBuses.setChecked(false);
+                    binding.autoRickshaw.setChecked(false);
+                    binding.train.setChecked(false);
+                    binding.privateBuses.setChecked(false);
+                    binding.taxis.setChecked(false);
+                    binding.others218.setChecked(false);
+                    binding.othersSpecify218.setText("");
+
+
                 } else {
                     binding.options216219.setVisibility(View.VISIBLE);
                 }
@@ -254,8 +272,8 @@ public class Section12Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
         if (binding.section12RespondentGrp.getCheckedRadioButtonId() == -1
-                || binding.illnessCare207.getText().toString().equalsIgnoreCase("Select illness Care")
-                || binding.illnessCare208.getText().toString().equalsIgnoreCase("Select illness Care")
+                || binding.illnessCare207.getText().toString().isEmpty()
+                || binding.illnessCare208.getText().toString().isEmpty()
                 || binding.options209.getCheckedRadioButtonId() == -1
                 || binding.heardVisitedOptions.getCheckedRadioButtonId() == -1 //215
                 || !isCheckBxGrp214Checked()) {

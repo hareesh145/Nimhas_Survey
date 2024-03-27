@@ -485,7 +485,7 @@ public class ChildrenResult extends AppCompatActivity {
                             String parent = String.valueOf(userResponserefused.get("parentStatus"));
                             parentstatus = parent.substring(1, parent.length() - 1);
                             Log.d("response", "onResponse: " + userResponserefused);
-                            Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
                             String message = "You are found to be positive for the following screener\n";
 
                             if (rCards4Result != null && rCards4Result.equals("1")) {
@@ -627,7 +627,7 @@ public class ChildrenResult extends AppCompatActivity {
                             String parent = String.valueOf(userResponserefused.get("parentStatus"));
                             parentstatus = parent.substring(1, parent.length() - 1);
                             Log.d("response", "onResponse: " + userResponserefused);
-                            Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
                             String message = "You are found to be positive for the following screener\n";
 
                             if (rCards4Result != null && rCards4Result.equals("1")) {

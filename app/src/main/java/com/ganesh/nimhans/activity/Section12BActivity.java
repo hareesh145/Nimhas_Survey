@@ -452,7 +452,7 @@ public class Section12BActivity extends AppCompatActivity {
     }
 
     public void onClickPreviousSection(View v) {
-        startActivity(new Intent(activity, Section12Activity.class));
+        finish();
 
     }
 

@@ -60,7 +60,6 @@ public class Section7bActivity extends AppCompatActivity {
         setContentView(view);
         activity = this;
         binding.setHandlers(this);
-
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         myGameApp = (MyNimhans) activity.getApplicationContext();

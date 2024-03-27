@@ -58,6 +58,8 @@ public class ParentResult extends AppCompatActivity {
     private EligibleResponse eligibleResponse;
     private Root root;
     private List<StateModel> stateModels;
+    int hour;
+    int minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -445,13 +447,14 @@ public class ParentResult extends AppCompatActivity {
 
     public void showTimePickerDialog(View v) {
         Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
+
         TimePickerDialog mTimePicker;
         mTimePicker = new TimePickerDialog(ParentResult.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                binding.time.setText(String.format(Locale.getDefault(), "%02d:%02d", selectedHour, selectedMinute));
+                hour = selectedHour;
+                minute = selectedMinute;
+                binding.time.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");
