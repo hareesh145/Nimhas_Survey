@@ -262,6 +262,10 @@
         <item>Degree/diploma</item>
         <item>Post-graduation and above</item>
     </string-array>
+    <string-array name="role_array">
+        <item>USER</item>
+        <item>SUPERVISOR</item>
+    </string-array>
     <string name="children_s_result">Children\'s Result</string>
     <string name="calculate">Calculate</string>
     <string name="did_not_seek_care_in_last_12_months">Did Not Seek Care In Last 12 Months</string>

@@ -96,7 +96,22 @@
                     android:padding="10dp"
                     android:textAllCaps="false"
                     android:textColor="@color/app_bg_champ" />
-
+                <com.skydoves.powerspinner.PowerSpinnerView
+                    android:id="@+id/role"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="Select Role"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    app:spinner_arrow_tint="@color/black"
+                    app:spinner_divider_color="@color/black"
+                    app:spinner_divider_size="0.4dp"
+                    app:spinner_item_array="@array/role_array"
+                    app:spinner_popup_animation="dropdown"
+                    app:spinner_popup_background="@color/white" />
                 <EditText
                     android:id="@+id/edUserName"
                     android:layout_width="match_parent"

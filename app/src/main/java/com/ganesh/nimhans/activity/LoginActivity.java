@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                     PreferenceConnector.writeString(activity, PreferenceConnector.LOGIN_ID, phoneNo);
 
                     if (loginResponse.getRole().equals("SUPERVISOR")) {
-                        startActivity(new Intent(activity, DashboardActivity.class));
+                        startActivity(new Intent(activity, SupervisorsActivity.class));
                     }
                     else {
                         SharedPreferences.Editor editor = sharedpreferences.edit();

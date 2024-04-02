@@ -119,7 +119,7 @@ public class ConsentNoChildren extends AppCompatActivity {
                         binding.date3.setText("");
                         binding.time.setText("");
                         JsonObject jsonObjectpartially =new JsonObject();
-                        jsonObjectpartially.addProperty("childStatus","Interview Pending");
+                        jsonObjectpartially.addProperty("childStatus","Child not available");
                         ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
                         apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
@@ -130,7 +130,7 @@ public class ConsentNoChildren extends AppCompatActivity {
                                     JsonObject userResponsepartially = response.body();
                                     if (response.isSuccessful()) {
                                         Log.d("response", "onResponse: " + userResponsepartially);
-                                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "Child not available", Toast.LENGTH_LONG).show();
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -240,6 +240,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
@@ -271,6 +281,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -382,6 +402,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
@@ -413,6 +443,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -524,6 +564,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
@@ -555,6 +605,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -598,9 +658,9 @@ public class ConsentNoChildren extends AppCompatActivity {
 
                 }
             });
-        } else if (selectedResultCode.equals("Interview Pending")) {
+        } else if (selectedResultCode.equals("Child not available")) {
             JsonObject jsonObjectrefused = new JsonObject();
-            jsonObjectrefused.addProperty("childStatus", "Interview Pending");
+            jsonObjectrefused.addProperty("childStatus", "Child not available");
             ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
             apiInterfacerefused.putStatus(eligibleResponse.houseHoldId, jsonObjectrefused, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
 
@@ -613,7 +673,7 @@ public class ConsentNoChildren extends AppCompatActivity {
                             String parent = String.valueOf(userResponserefused.get("parentStatus"));
                             parentstatus = parent.substring(1, parent.length() - 1);
                             Log.d("response", "onResponse: " + userResponserefused);
-                            Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Child not available", Toast.LENGTH_LONG).show();
                             String message = "You are found to be positive for the following screener\n";
 
                             if (rCards4Result != null && rCards4Result.equals("1")) {
@@ -666,6 +726,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
@@ -697,6 +767,16 @@ public class ConsentNoChildren extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ConsentNoChildren.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -743,90 +823,6 @@ public class ConsentNoChildren extends AppCompatActivity {
         }
     }
 
-   /* public void onClickNextSection(View v) {
-        if (binding.interviewStatus.getCheckedRadioButtonId() == -1){
-            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
-        }else {
-            //checkStatusIsRefused();
-            if (selectedResultCode.equals("Interview Partially Completed")) {
-                JsonObject jsonObjectpartiallyCompleted = new JsonObject();
-                jsonObjectpartiallyCompleted.addProperty("childStatus", "Interview Partially Completed");
-                jsonObjectpartiallyCompleted.addProperty("childPCDate", binding.date3.getText().toString());
-                jsonObjectpartiallyCompleted.addProperty("childPCTime", binding.time.getText().toString());
-                ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
-                apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId, jsonObjectpartiallyCompleted, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        binding.progressBar.setVisibility(View.GONE);
-                        try {
-                            JsonObject userResponsepartiallyCompleted = response.body();
-                            if (response.isSuccessful()) {
-                                Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
-                                Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
-                                intent.putExtra(AGE_ID, ageValue);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                                startActivity(intent);
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                    }
-                });
-            } else if (selectedResultCode.equals("Refused to take part")) {
-                JsonObject jsonObjectrefused = new JsonObject();
-                jsonObjectrefused.addProperty("childStatus", "Refused");
-                jsonObjectrefused.addProperty("childStatusSpecify", binding.specify1.getText().toString());
-                ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
-                apiInterfacerefused.putStatus(eligibleResponse.houseHoldId, jsonObjectrefused, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        binding.progressBar.setVisibility(View.GONE);
-                        try {
-                            JsonObject userResponserefused = response.body();
-                            if (response.isSuccessful()) {
-                                Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
-                                intent.putExtra(AGE_ID, ageValue);
-                                intent.putExtra(SURVEY_ID, surveyID);
-                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                                startActivity(intent);
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                    }
-                });
-            } else {
-                Intent intent = new Intent(ConsentNoChildren.this, Section6Activity.class);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                startActivity(intent);
-            }
-        }
-    }*/
 
     private void checkStatusIsRefused() {
         if (selectedResultCode.contains("Refused")) {

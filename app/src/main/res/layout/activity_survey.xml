@@ -64,7 +64,7 @@
                     android:textColor="@color/black"
                     android:layout_marginBottom="10dp"
                     android:textStyle="bold"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:textSize="20dp"
                     android:text="Languge Selection :">
 
@@ -73,7 +73,7 @@
                     android:id="@+id/lang_radio_btns"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:layout_below="@+id/title_section_header"
                     android:layout_marginLeft="30dp">
 
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
 
                 <androidx.appcompat.widget.AppCompatButton

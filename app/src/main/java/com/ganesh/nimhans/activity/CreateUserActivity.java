@@ -62,7 +62,7 @@ public class CreateUserActivity extends AppCompatActivity {
         progressBar = binding.progressBar;
         progressBar.setVisibility(View.VISIBLE);
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<UserResponse> call = apiService.postAppUser(new UserRequest(edFullname.getText().toString(), edAge.getText().toString(), edMobileNumber.getText().toString(), edEmail.getText().toString(), "USER", edUserName.getText().toString(), edPassword.getText().toString()), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
+        Call<UserResponse> call = apiService.postAppUser(new UserRequest(edFullname.getText().toString(), edAge.getText().toString(), edMobileNumber.getText().toString(), edEmail.getText().toString(), binding.role.getText().toString(), edUserName.getText().toString(), edPassword.getText().toString()), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
 
         call.enqueue(new Callback<UserResponse>() {
             @Override

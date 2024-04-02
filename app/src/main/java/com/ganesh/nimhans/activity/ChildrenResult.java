@@ -254,6 +254,16 @@ public class ChildrenResult extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
@@ -285,6 +295,16 @@ public class ChildrenResult extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -396,6 +416,16 @@ public class ChildrenResult extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
@@ -427,6 +457,16 @@ public class ChildrenResult extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -538,7 +578,17 @@ public class ChildrenResult extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
-                                        } else {
+                                        } else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
+                                        }else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
                                             intent.putExtra(AGE_ID, ageValue);
@@ -578,7 +628,17 @@ public class ChildrenResult extends AppCompatActivity {
                                     intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                     intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                     startActivity(intent);
-                                } else {
+                                } else if (parentstatus.equals("Refused")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else {
                                     Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                     Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
                                     intent.putExtra(AGE_ID, ageValue);
@@ -680,6 +740,16 @@ public class ChildrenResult extends AppCompatActivity {
                                             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
                                             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                                             startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
                                         } else {
                                             Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                                             Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
@@ -711,6 +781,16 @@ public class ChildrenResult extends AppCompatActivity {
                             if (parentstatus != null) {
 
                                 if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
                                     Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                                     Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
                                     intent.putExtra(AGE_ID, ageValue);
