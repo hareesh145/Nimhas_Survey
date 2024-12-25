@@ -5,7 +5,6 @@ plugins {
 android {
     namespace 'com.ganesh.nimhans'
     compileSdk 34
-
     dataBinding {
         enabled = true
     }
@@ -18,7 +17,7 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
+        resConfigs "hi","en"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -62,6 +61,14 @@ android {
     }
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+    defaultConfig {
+        resConfigs "en" ,"hi"
     }
 }
 

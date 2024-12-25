@@ -180,7 +180,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66"
                             android:padding="10dp"
-                            android:text="In your life, which of the following substances have you ever used (non-medical use only)?"
+                            android:text="@string/in_your_life_have_you_ever_used_tobacco_products_cigarettes_chewing_tobacco_cigars_etc"
                             android:textAllCaps="false"
                             android:textStyle="bold"
                             android:textColor="@color/black" />
@@ -210,7 +210,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Tobacco products (cigarettes, chewing tobacco, cigars, etc.)?"
+                            android:text="@string/in_your_life_have_you_ever_used_tobacco_products_cigarettes_chewing_tobacco_cigars_etc"
                             android:textAllCaps="false"
                             android:textStyle="bold"
                             android:textColor="@color/black"/>
@@ -276,7 +276,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="5dp"
                             android:padding="10dp"
-                            android:text="In the past three months, how often have you used tobacco products you mentioned"
+                            android:text="@string/in_the_past_three_months_how_often_have_you_used_tobacco_products_you_mentioned"
                             android:textAllCaps="false"
                             android:textColor="@color/black"/>
                     </LinearLayout>
@@ -360,7 +360,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="5dp"
                             android:padding="10dp"
-                            android:text="During the past three months, how often have you had a strong desire or urge to use tobacco products"
+                            android:text="@string/during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_tobacco_products"
                             android:textAllCaps="false"
                             android:textColor="@color/black"/>
                     </LinearLayout>
@@ -381,6 +381,7 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
+                                android:id="@+id/never_68a"
                                 android:layoutDirection="rtl"
                                 android:text="@string/never"
                                 android:textAlignment="textStart" />
@@ -390,6 +391,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/once_twice_68a"
                                 android:text="@string/once_or_twice"
                                 android:textAlignment="textStart" />
 
@@ -398,6 +400,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/monthly_68a"
                                 android:text="@string/monthly"
                                 android:textAlignment="textStart" />
 
@@ -407,6 +410,7 @@
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
                                 android:text="@string/weekly"
+                                android:id="@+id/weekly_68a"
                                 android:textAlignment="textStart" />
 
                             <RadioButton
@@ -414,6 +418,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/daily_68a"
                                 android:text="@string/daily_or_almost_daily"
                                 android:textAlignment="textStart" />
                         </RadioGroup>
@@ -441,7 +446,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="5dp"
                             android:padding="10dp"
-                            android:text="During the past three months, how often has your use of tobacco products led to health, social, legal or financial problems?"
+                            android:text="@string/during_the_past_three_months_how_often_has_your_use_of_tobacco_products_led_to_health_social_legal_or_financial_problems"
                             android:textAllCaps="false"
                             android:textColor="@color/black" />
                     </LinearLayout>
@@ -464,6 +469,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/never_69a"
                                 android:text="@string/never"
                                 android:textAlignment="textStart" />
 
@@ -472,6 +478,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/once_69a"
                                 android:text="@string/once_or_twice"
                                 android:textAlignment="textStart" />
 
@@ -480,6 +487,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/monthly_69a"
                                 android:text="@string/monthly"
                                 android:textAlignment="textStart" />
 
@@ -489,6 +497,7 @@
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
                                 android:text="@string/weekly"
+                                android:id="@+id/weekly_69a"
                                 android:textAlignment="textStart" />
 
                             <RadioButton
@@ -496,6 +505,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/daily_69a"
                                 android:text="@string/daily_or_almost_daily"
                                 android:textAlignment="textStart" />
                         </RadioGroup>
@@ -547,6 +557,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/never_70a"
                                 android:text="@string/never"
                                 android:textAlignment="textStart" />
 
@@ -555,6 +566,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/once_70a"
                                 android:text="@string/once_or_twice"
                                 android:textAlignment="textStart" />
 
@@ -564,6 +576,7 @@
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
                                 android:text="@string/monthly"
+                                android:id="@+id/monthly_70a"
                                 android:textAlignment="textStart" />
 
                             <RadioButton
@@ -572,6 +585,7 @@
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
                                 android:text="@string/weekly"
+                                android:id="@+id/weekly_70a"
                                 android:textAlignment="textStart" />
 
                             <RadioButton
@@ -579,6 +593,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/daily_70a"
                                 android:text="@string/daily_or_almost_daily"
                                 android:textAlignment="textStart" />
                         </RadioGroup>
@@ -606,7 +621,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="5dp"
                             android:padding="10dp"
-                            android:text="Has a friend or relative or anyone else ever expressed concern about your use of tobacco products"
+                            android:text="@string/has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_tobacco_products"
                             android:textAllCaps="false"
                             android:textColor="@color/black" />
                     </LinearLayout>
@@ -628,6 +643,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/never_71a"
                                 android:text="@string/no_never"
                                 android:textAlignment="textStart" />
 
@@ -636,6 +652,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/yes_71a"
                                 android:text="@string/yes_in_the_past_3_months"
                                 android:textAlignment="textStart" />
 
@@ -644,6 +661,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/yes_no_71a"
                                 android:text="@string/yes_but_not_in_the_past_3_months"
                                 android:textAlignment="textStart" />
                         </RadioGroup>
@@ -672,7 +690,7 @@
                             android:layout_marginBottom="5dp"
                             android:padding="10dp"
                             android:textColor="@color/black"
-                            android:text="Have you ever tried and failed to control, cut down or stop using tobacco products"
+                            android:text="@string/have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_tobacco_products"
                             android:textAllCaps="false" />
                     </LinearLayout>
 
@@ -693,6 +711,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
+                                android:id="@+id/never_72a"
                                 android:text="@string/never"
                                 android:textAlignment="textStart" />
 
@@ -701,7 +720,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
-                                android:text="@string/once_or_monthly"
+                                android:text="@string/once_or_twice"
+                                android:id="@+id/once_72a"
                                 android:textAlignment="textStart" />
 
                             <RadioButton
@@ -710,6 +730,7 @@
                                 android:layout_gravity="start"
                                 android:layoutDirection="rtl"
                                 android:text="@string/monthly"
+                                android:id="@+id/monthly_72a"
                                 android:textAlignment="textStart" />
 
 

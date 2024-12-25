@@ -30,8 +30,10 @@ public class Constants {
     public  static String RCADS11_RESULT = "RCADS11_RESULT";
 
     public static String SURVEY_SECTION3C="SURVEY_SECTION3C";
+    public static String SURVEY_SECTION5 = "SURVEY_SECTION5";
     public static final String MARITAL_STATUS="MARITAL_STATUS";
     public static final String NO_OF_CHILDERNS="no_of_childerns";
+    public static  final String NOOFPEOPLE="NoOfPeople";
 
 
 

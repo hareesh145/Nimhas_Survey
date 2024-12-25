@@ -150,13 +150,16 @@ public class Section3cActivity extends AppCompatActivity {
     }
 
     public void onClickNextSection(View v) {
-        if (getIntent().getBooleanExtra("isFromPendingList", false)) {
-            creationpendinglist();
+        if (binding.yesOrNo1.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
         }else {
-            creationhousehold();
+            if (getIntent().getBooleanExtra("isFromPendingList", false)) {
+                creationpendinglist();
+            } else {
+                creationhousehold();
+            }
+
         }
-
-
 /*//        binding.progressBar.setVisibility(View.VISIBLE);
 //        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 //        Call<JsonObject> call = apiService.putServeySection3CData(surveyID, serveySection5Request, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
@@ -546,8 +549,27 @@ public class Section3cActivity extends AppCompatActivity {
         }
     }
     @SuppressLint("MissingSuperCall")
-    @Override
     public void onBackPressed() {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        builder.setMessage("Are you Sure you want to exit ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Section3cActivity.this,ActivitySurvey.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Alert");
+        alert.show();
     }
 }

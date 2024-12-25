@@ -97,8 +97,27 @@ public class Eligiblechildren extends AppCompatActivity {
     }
 
     @SuppressLint("MissingSuperCall")
-    @Override
     public void onBackPressed() {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        builder.setMessage("Are you Sure you want to exit from this section ?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Eligiblechildren.this,ActivitySurvey.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Alert");
+        alert.show();
     }
 }

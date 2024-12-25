@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!-- Data -->
+        <variable
+            name="handlers"
+            type="com.ganesh.nimhans.activity.Section5FinalActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressTheme"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/app_bg_champ">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/section_5j_73_title"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_border"
+                    android:hint="SSD"
+                    android:padding="10dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_bg_champ"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/top_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/child_name_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Child Age"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/ageAndMark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_border"
+                        android:focusable="false"
+                        android:hint="13"
+                        android:padding="10dp"
+                        android:textAllCaps="false"
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Interview the child"
+                        android:textAllCaps="false"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:text="@string/section5_intro1"
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center|left"
+                            android:padding="10dp"
+                            android:text="@string/section5_intro3"
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/top_head"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/question_options_list"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="73."
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/question_options_list"
+                            android:layout_toRightOf="@+id/question_73"
+                            android:padding="10dp"
+                            android:text="@string/have_you_ever_used_any_drug_by_injection_non_medical_use_only"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/drug_injection_grp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp">
+
+                        <RadioButton
+                            android:id="@+id/no18"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="No, Never"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/yes32"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Yes, in the past 3 months"
+                            android:textAlignment="textStart" />
+
+                        <RadioButton
+                            android:id="@+id/yes33"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layoutDirection="rtl"
+                            android:text="Yes, but not in the past 3 months"
+                            android:textAlignment="textStart" />
+
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/bg_btn_background"
+                            android:text="@string/calculate"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:id="@+id/substance_score_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/rcads_score"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Substance(Alcohol)_score "
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <EditText
+                                android:id="@+id/alcoholSubstance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/substance_score_txt"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="15"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:id="@+id/substance_other_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/alcoholSubstance"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Substance(Other)_score "
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <EditText
+                                android:id="@+id/otherSubstance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/substance_other_txt"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="15"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:id="@+id/substance_injectable"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/otherSubstance"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Substance(injectable drug)_score "
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <EditText
+                                android:id="@+id/injectableDrugSubstance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/substance_injectable"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="15"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:id="@+id/assistResult_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/injectableDrugSubstance"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="ASSIST Result "
+                                android:textAllCaps="false"
+                                android:textColor="#000000"
+                                android:visibility="gone" />
+
+                            <EditText
+                                android:id="@+id/assistResult"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/assistResult_txt"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="15"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickGoToResult}"
+                            android:padding="15dp"
+                            android:text="@string/go_to_result"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:onClick="@{handlers::onClickPreviousSection}"
+                                android:padding="15dp"
+                                android:text="Previous Section"
+                                android:textAllCaps="false"
+                                android:textColor="@color/app_bg_champ" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:gravity="right"
+                                android:onClick="@{handlers::onClickNextSection}"
+                                android:padding="15dp"
+                                android:text="Next Section"
+                                android:textAllCaps="false"
+                                android:textColor="@color/app_bg_champ" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>

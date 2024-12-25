@@ -69,7 +69,7 @@
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:text="Screening for Specific Learning Disabilities\n(NIMHANS-BRIEF SLD tool)"
+                        android:text="@string/screening_for_specific_learning_disabilities_n_nimhans_brief_sld_tool"
                         android:textAllCaps="false"/>
 
 
@@ -189,7 +189,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="Even with adequate teaching and training at school (or informal education), my child"
+                        android:text="@string/even_with_adequate_teaching_and_training_at_school_or_informal_education_my_child"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textColor="@color/black" />
@@ -214,7 +214,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Cannot read as expected at his age level."
+                            android:text="@string/cannot_read_as_expected_at_his_age_level"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -291,7 +291,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has trouble in understanding the meaning of what is read."
+                            android:text="@string/has_trouble_in_understanding_the_meaning_of_what_is_read"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -368,8 +368,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has difficulty with written expression
-(e.g., slowness in writing, problems with grammar, punctuation or organization, reverses letters or symbols while writing – “q” instead “p” or b/d, u/v, w/m, च/ज, फ/प, व/ब, घ/ध, प/त, +/x, ÷/- etc."
+                            android:text="@string/has_difficulty_with_written_expression_e_g_slowness_in_writing_problems_with_grammar_punctuation_or_organization_reverses_letters_or_symbols_while_writing_q_instead_p_or_b_d_u_v_w_m_x_etc"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -447,7 +446,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Faces difficulty with writing spellings of simple words."
+                            android:text="@string/faces_difficulty_with_writing_spellings_of_simple_words"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -525,7 +524,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has difficulty in solving simple mathematics problems like addition, subtraction, multiplication etc"
+                            android:text="@string/has_difficulty_in_solving_simple_mathematics_problems_like_addition_subtraction_multiplication_etc"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

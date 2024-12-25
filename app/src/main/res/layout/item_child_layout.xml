@@ -114,6 +114,46 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="14sp" />
+        <TextView
+            android:id="@+id/next_visit_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobile_number"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/next_visit_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/next_visit_date"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/pnext_visit_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/next_visit_time"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/pnext_visit_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pnext_visit_date"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

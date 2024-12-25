@@ -66,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Socio-Demographic Characteristics"
+                        android:text="@string/socio_demographic_characteristics"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -83,16 +83,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
-                            android:text="1"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
+                            android:text="1."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="What is the religion you follow?"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="@string/what_is_the_religion_you_follow"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -145,7 +150,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Others"
+                            android:text="Other"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -174,16 +179,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
-                            android:text="2"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
+                            android:text="2."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="What is your caste/tribe?"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="@string/what_is_your_caste_tribe"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -257,16 +267,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
-                            android:text="3"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
+                            android:text="3."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="What is your current marital status?"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="@string/what_is_your_current_marital_status"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -310,7 +325,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Others"
+                            android:text="Other"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
@@ -344,16 +359,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
-                                android:text="4"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="4."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Do you have any children?"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/do_you_have_any_children"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -402,16 +422,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
-                                android:text="5"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="5."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="How many  Son(s) Daughter(s) do you have?"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/how_many_son_s_daughter_s_do_you_have"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -428,16 +453,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
-                                android:text="5a"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="5a."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text=" Son(s)"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/son_s"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -483,17 +513,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:padding="10dp"
-                                android:text="5b"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="5b."
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:text="Daughter(s)"
-
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/daughter_s"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -539,16 +573,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:padding="10dp"
-                            android:text="6"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
+                            android:text="6."
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="What is the total monthly household income from all sources (in rupees)?"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="@string/what_is_the_total_monthly_household_income_from_all_sources_in_rupees"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -580,7 +619,235 @@
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/total_no_of_people"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:paddingTop="10dp"
+                            android:paddingEnd="6dp"
+                            android:paddingStart="6dp"
+                            android:paddingBottom="10dp"
+                            android:text="@string/_7_total_number_of_people_in_the_household"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/NoOfPeople"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/edit_text_border"
+                            android:hint="Enter the number of People"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:padding="10dp"
+                            android:textAllCaps="false"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/mental_alcohol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/_16_does_anyone_in_the_family_have_had_mental_illness"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/answerType1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/yes16"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/no16"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/mental_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/_16a_what_type_of_mental_illness"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/specify4layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+
+                            <EditText
+                                android:id="@+id/Specify4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/edit_text_border"
+                                android:hint="Specify"
+                                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                android:padding="10dp"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="6dp"
+                                android:paddingStart="6dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/_17_does_anyone_in_the_family_have_had_problems_related_with_alcohol_tobacco_substance_use"
+                                android:textAllCaps="false"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/answerType2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp">
+
+                            <RadioButton
+                                android:id="@+id/yes1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="Yes"
+                                android:textAlignment="textStart" />
+
+                            <RadioButton
+                                android:id="@+id/no1"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layoutDirection="rtl"
+                                android:text="No"
+                                android:textAlignment="textStart" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/section_17_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="10dp"
+                                    android:paddingEnd="6dp"
+                                    android:paddingStart="6dp"
+                                    android:paddingBottom="10dp"
+                                    android:text="@string/what_type_of_problems"
+                                    android:textAllCaps="false"
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+
+                            <CheckBox
+                                android:id="@+id/alcohol"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Alcohol"
+                                android:textAlignment="textStart" />
+
+                            <CheckBox
+                                android:id="@+id/tobacco"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Tobacco"
+                                android:textAlignment="textStart" />
+
+                            <CheckBox
+                                android:id="@+id/substanceUse"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginLeft="30dp"
+                                android:layoutDirection="rtl"
+                                android:text="Substance use"
+                                android:textAlignment="textStart" />
+                            <!--                    </RadioGroup>-->
+                        </LinearLayout>
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

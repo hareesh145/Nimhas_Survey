@@ -50,19 +50,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="20dp"
-                android:text="Welcome to the Survey Reports"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="Welcome to the Uttarakhand Survey"
                 android:textColor="@color/app_bg_champ"
-                android:textSize="30dp" />
+                android:textSize="22dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Click here to Start Survey"
-                android:textColor="@color/app_bg_champ"
-                android:textSize="22sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:textSize="20dp"
+                    android:text="Languge Selection :">
 
+                </TextView>
+                <RadioGroup
+                    android:id="@+id/lang_radio_btns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_below="@+id/title_section_header"
+                    android:layout_marginLeft="30dp">
+
+                    <RadioButton
+                        android:id="@+id/hindi_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="Hindi"
+                        android:textAlignment="textStart" />
+
+                    <RadioButton
+                        android:id="@+id/english_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layoutDirection="rtl"
+                        android:text="English"
+                        android:textAlignment="textStart" />
+
+                </RadioGroup>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Click here to Start Survey"
+                    android:textColor="@color/app_bg_champ"
+                    android:textSize="22sp" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,6 +118,22 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/start_arrow" />
             </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/button_bg_login"
+                    android:onClick="@{handlers::onClickRegistration}"
+                    android:text="@string/registration"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
@@ -108,7 +164,7 @@
                 android:text="@string/house_hold_table_report"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
-
+                </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pending_list_btn"

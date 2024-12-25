@@ -2,14 +2,22 @@ package com.ganesh.nimhans.model;
 
 public class ServeySectionRequest {
 
-    private  String qno1;
-    private  String qno2;
-    private  String qno3;
-    private  String qno4;
-    private  String qno5A;
-    private String qno5B;
-    private String qno6;
-    private int qno7;
+    public String qno1;
+    private String qno1Other;
+    public String qno2;
+    public String qno3;
+    private String qno3Other;
+    public String qno4;
+    private int qno5A;
+    private int qno5B;
+    private int qno6;
+    public int qno7;
+    public String qno16;
+    private String qno16A;
+    public String qno17;
+    private String qno17A;
+    private String qno17B;
+    private String qno17C;
     private int qno8;
     private String qno9;
     private String qno10;
@@ -18,10 +26,6 @@ public class ServeySectionRequest {
     private String qno13;
     private String qno14;
     private String qno15;
-    private String qno16;
-    private String qno16A;
-    private String qno17;
-    private String qno17A;
     private String qno18A;
     private String qno18B;
     private String qno18C;
@@ -346,30 +350,6 @@ public class ServeySectionRequest {
 
     public void setQno4(String qno4) {
         this.qno4 = qno4;
-    }
-
-    public String getQno5A() {
-        return qno5A;
-    }
-
-    public void setQno5A(String qno5A) {
-        this.qno5A = qno5A;
-    }
-
-    public String getQno5B() {
-        return qno5B;
-    }
-
-    public void setQno5B(String qno5B) {
-        this.qno5B = qno5B;
-    }
-
-    public String getQno6() {
-        return qno6;
-    }
-
-    public void setQno6(String qno6) {
-        this.qno6 = qno6;
     }
 
     public int getQno7() {
@@ -2810,5 +2790,61 @@ public class ServeySectionRequest {
 
     public void setQno229(String qno229) {
         this.qno229 = qno229;
+    }
+
+    public String getQno1Other() {
+        return qno1Other;
+    }
+
+    public void setQno1Other(String qno1Other) {
+        this.qno1Other = qno1Other;
+    }
+
+    public String getQno17B() {
+        return qno17B;
+    }
+
+    public void setQno17B(String qno17B) {
+        this.qno17B = qno17B;
+    }
+
+    public String getQno17C() {
+        return qno17C;
+    }
+
+    public void setQno17C(String qno17C) {
+        this.qno17C = qno17C;
+    }
+
+    public String getQno3Other() {
+        return qno3Other;
+    }
+
+    public void setQno3Other(String qno3Other) {
+        this.qno3Other = qno3Other;
+    }
+
+    public int getQno5A() {
+        return qno5A;
+    }
+
+    public void setQno5A(int qno5A) {
+        this.qno5A = qno5A;
+    }
+
+    public int getQno5B() {
+        return qno5B;
+    }
+
+    public void setQno5B(int qno5B) {
+        this.qno5B = qno5B;
+    }
+
+    public int getQno6() {
+        return qno6;
+    }
+
+    public void setQno6(int qno6) {
+        this.qno6 = qno6;
     }
 }

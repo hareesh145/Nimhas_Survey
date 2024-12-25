@@ -171,7 +171,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Alcoholic beverages (beer, wine, spirits, etc.)?"
+                            android:text="@string/in_your_life_have_you_ever_used_alcoholic_beverages_beer_wine_spirits_etc"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -242,7 +242,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used alcohol beverages you mentioned"
+                                android:text="@string/in_the_past_three_months_how_often_have_you_used_alcohol_beverages_you_mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -330,7 +330,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use alcohol beverages"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_alcohol_beverages"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -354,6 +354,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never68b"
                                     android:text="@string/never"
                                     android:textAlignment="textStart" />
 
@@ -362,6 +363,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/once68b"
                                     android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
@@ -370,6 +372,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/monthly68b"
                                     android:text="@string/monthly"
                                     android:textAlignment="textStart" />
 
@@ -378,6 +381,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/weekly68b"
                                     android:text="@string/weekly"
                                     android:textAlignment="textStart" />
 
@@ -386,6 +390,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/daily68b"
                                     android:text="@string/daily_or_almost_daily"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -414,7 +419,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of alcohol beverages led to health, social, legal or financial problems?"
+                                android:text="@string/during_the_past_three_months_how_often_has_your_use_of_alcohol_beverages_led_to_health_social_legal_or_financial_problems"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -439,6 +444,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/never"
+                                    android:id="@+id/never69b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -447,6 +453,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/once_or_twice"
+                                    android:id="@+id/once69b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -454,6 +461,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/monthly69b"
                                     android:text="@string/monthly"
                                     android:textAlignment="textStart" />
 
@@ -462,6 +470,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/weekly69b"
                                     android:text="@string/weekly"
                                     android:textAlignment="textStart" />
 
@@ -470,6 +479,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/daily69b"
                                     android:text="@string/daily_or_almost_daily"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -498,7 +508,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of alcohol beverages"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_failed_to_do_what_was_normally_expected_of_you_because_of_your_use_of_alcohol_beverages"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -522,6 +532,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never70b"
                                     android:text="@string/never"
                                     android:textAlignment="textStart" />
 
@@ -530,6 +541,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/once70b"
                                     android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
@@ -539,6 +551,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/monthly"
+                                    android:id="@+id/monthly70b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -547,6 +560,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/weekly"
+                                    android:id="@+id/weekly70b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -554,6 +568,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/daily70b"
                                     android:text="@string/daily_or_almost_daily"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -582,7 +597,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of alcohol beverages"
+                                android:text="@string/has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_alcohol_beverages"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -605,6 +620,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never71b"
                                     android:text="@string/no_never"
                                     android:textAlignment="textStart" />
 
@@ -613,6 +629,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/yes71b"
                                     android:text="@string/yes_in_the_past_3_months"
                                     android:textAlignment="textStart" />
 
@@ -621,6 +638,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/yesno71b"
                                     android:text="@string/yes_but_not_in_the_past_3_months"
                                     android:textAlignment="textStart" />
                             </RadioGroup>
@@ -649,7 +667,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Have you ever tried and failed to control, cut down or stop using alcohol beverages"
+                                android:text="@string/have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_alcohol_beverages"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -672,6 +690,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
+                                    android:id="@+id/never72b"
                                     android:text="@string/never"
                                     android:textAlignment="textStart" />
 
@@ -680,7 +699,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
-                                    android:text="@string/once_or_monthly"
+                                    android:text="@string/once_or_twice"
+                                    android:id="@+id/once72b"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
@@ -689,6 +709,7 @@
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
                                     android:text="@string/monthly"
+                                    android:id="@+id/monthly72b"
                                     android:textAlignment="textStart" />
 
 

@@ -4,6 +4,7 @@ public class ServeySection7aRequest {
 
 
     private String mchatRespondent;
+    private  String mchatGr;
     private int qno78;
     private int qno79;
     private int qno80;
@@ -193,5 +194,13 @@ public class ServeySection7aRequest {
 
     public void setMchatRespondent(String mchatRespondent) {
         this.mchatRespondent = mchatRespondent;
+    }
+
+    public String getMchatGr() {
+        return mchatGr;
+    }
+
+    public void setMchatGr(String mchatGr) {
+        this.mchatGr = mchatGr;
     }
 }

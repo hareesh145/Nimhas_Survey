@@ -50,6 +50,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="10dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -57,16 +58,17 @@
                         android:text="@string/string_text2"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:textStyle="bold"
                         android:text="@string/string_text1"
                         android:textColor="@color/black"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -81,9 +83,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="1"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/state"
@@ -109,9 +111,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="2"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -179,16 +181,16 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="3"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <com.skydoves.powerspinner.PowerSpinnerView
                             android:id="@+id/taluka"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Select Taluka"
+                            android:hint="@string/select_taluka_text"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
@@ -213,9 +215,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="4"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <com.skydoves.powerspinner.PowerSpinnerView
                             android:id="@+id/city"
@@ -240,8 +242,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -249,18 +251,18 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="5"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/hhn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
+                            android:focusable="false"
                             android:hint="House hold Number"
                             android:inputType="number"
-                            android:focusable="false"
                             android:maxLength="2"
                             android:padding="10dp"
                             android:textAllCaps="false"
@@ -279,16 +281,16 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:visibility="gone"
                             android:text="6"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Locale:"
+                            android:text="@string/locale"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -297,8 +299,8 @@
                         android:id="@+id/locale"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:enabled="true"
-                        android:layout_marginLeft="30dp">
+                        android:layout_marginLeft="30dp"
+                        android:enabled="true">
 
                         <RadioButton
                             android:id="@+id/rural"
@@ -332,19 +334,19 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="7"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/notr"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Name of the Respondent"
-                            android:padding="10dp"
-                            android:inputType="textCapSentences"
                             android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:hint="@string/name_of_the_respondent_text"
+                            android:inputType="textCapSentences"
+                            android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -362,16 +364,16 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="8"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/address"
                             android:layout_width="match_parent"
                             android:layout_height="86dp"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Address with Landmark"
+                            android:hint="@string/address_with_landmark"
                             android:padding="10dp"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
@@ -390,16 +392,16 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="9"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/mobileNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_border"
-                            android:hint="Mobile Number"
+                            android:hint="@string/mobile_number"
                             android:inputType="number"
                             android:maxLength="10"
                             android:padding="10dp"
@@ -410,9 +412,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="26dp"
                         android:padding="10dp"
-                        android:text="Date Of Interview"
+                        android:text="@string/date_of_interview"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -428,9 +429,9 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="10"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <EditText
                             android:id="@+id/date1"
@@ -458,15 +459,15 @@
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="11"
-                            android:visibility="gone"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Consented for study :"
+                            android:text="@string/consented_for_study"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -483,7 +484,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="Yes"
+                            android:text="@string/yes"
                             android:textAlignment="textStart" />
 
                         <RadioButton
@@ -492,38 +493,38 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
                             android:layoutDirection="rtl"
-                            android:text="No"
+                            android:text="@string/no"
                             android:textAlignment="textStart" />
                     </RadioGroup>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:onClick="@{handlers::onClickGoToResult}"
-                        android:padding="15dp"
-                        android:text="@string/go_to_result"
-                        android:visibility="gone"
-                        android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="20dp"
-                        android:gravity="right"
-                        android:onClick="@{handlers::onClickNextSection}"
-                        android:padding="15dp"
-                        android:text="Proceed"
-                        android:textAllCaps="false"
-                        android:textColor="@color/app_bg_champ" />
-                </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:onClick="@{handlers::onClickGoToResult}"
+                            android:padding="15dp"
+                            android:text="@string/go_to_result"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:gravity="right"
+                            android:onClick="@{handlers::onClickNextSection}"
+                            android:padding="15dp"
+                            android:text="Proceed"
+                            android:textAllCaps="false"
+                            android:textColor="@color/app_bg_champ" />
+                    </LinearLayout>
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

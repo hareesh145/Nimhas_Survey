@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <!-- Data -->
@@ -53,15 +53,17 @@
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_text_border"
                     android:hint="SSD"
-                    android:visibility="gone"
                     android:padding="10dp"
                     android:textAllCaps="false"
-                    android:textColor="@color/app_bg_champ" />
+                    android:textColor="@color/app_bg_champ"
+                    android:visibility="gone" />
+
                 <LinearLayout
+                    android:id="@+id/top_head"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/top_head"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -70,7 +72,7 @@
                         android:text="@string/section_5_the_alcohol_smoking_and_substance_involvement_screening_test_assist"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/child_name_age"
@@ -88,8 +90,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
-                        android:hint="13"
                         android:focusable="false"
+                        android:hint="13"
                         android:padding="10dp"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -99,11 +101,12 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:visibility="gone"
                         android:text="Interview the child"
-                        android:textStyle="bold"
                         android:textAllCaps="false"
-                        android:textColor="#000000" />
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -115,34 +118,38 @@
                             android:layout_height="wrap_content"
                             android:gravity="center|left"
                             android:padding="10dp"
-                            android:visibility="gone"
-                            android:textStyle="bold"
                             android:text="@string/section5_intro1"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center|left"
                             android:padding="10dp"
-                            android:visibility="gone"
                             android:text="@string/section5_intro3"
                             android:textAllCaps="false"
-                            android:textColor="#000000" />
+                            android:textColor="#000000"
+                            android:visibility="gone" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/total_66f"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:id="@+id/total_66f"
                     android:layout_below="@+id/top_head"
+                    android:orientation="vertical"
                     tools:ignore="InvalidId">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/startque66"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -153,7 +160,7 @@
                             android:text="66F."
                             android:textAllCaps="false"
                             android:textColor="@color/black"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -162,16 +169,18 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Inhalants (nitrous, glue, petrol, paint thinner, etc.)?"
+                            android:text="@string/in_your_life_have_you_ever_used_inhalants_nitrous_glue_petrol_paint_thinner_etc"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/a_Inhalants66f"
                         android:orientation="vertical">
+
                         <RadioGroup
                             android:id="@+id/inhalants"
                             android:layout_width="fill_parent"
@@ -198,6 +207,7 @@
                                 android:textAlignment="textStart" />
                         </RadioGroup>
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/inhalants_products_que_all"
                         android:layout_width="match_parent"
@@ -206,11 +216,13 @@
                         android:orientation="vertical"
                         android:visibility="gone"
                         tools:ignore="UnknownId">
+
                         <LinearLayout
+                            android:id="@+id/tobacco_ques67f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques67f">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -228,7 +240,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used inhalants you mentioned"
+                                android:text="@string/in_the_past_three_months_how_often_have_you_used_inhalants_you_mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -236,8 +248,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/a_tobacco68e">
+                            android:layout_below="@+id/a_tobacco68e"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/alcoholProduct167f"
                                 android:layout_width="fill_parent"
@@ -291,11 +304,13 @@
                                     android:textAlignment="textStart" />
                             </RadioGroup>
                         </LinearLayout>
+
                         <LinearLayout
+                            android:id="@+id/tobacco_ques68f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques68f">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -313,16 +328,18 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use inhalants"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
+
                         <LinearLayout
+                            android:id="@+id/tobacco_ques68f_rb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/tobacco_ques68f_rb"
-                            android:layout_below="@+id/a_tobacco68a">
+                            android:layout_below="@+id/a_tobacco68a"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/tobaccoProduct168f"
                                 android:layout_width="fill_parent"
@@ -331,6 +348,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_68f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -339,6 +357,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_68f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -347,6 +366,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_68f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -355,6 +375,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_68f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -363,6 +384,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_68f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -373,10 +395,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobacco_ques69f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques69f">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -394,17 +417,18 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of inhalants led to health, social, legal or financial problems?"
+                                android:text="@string/during_the_past_three_months_how_often_has_your_use_of_inhalants_led_to_health_social_legal_or_financial_problems"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobaccoQues69fRb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/tobaccoQues69fRb"
-                            android:layout_below="@+id/a_tobacco69a">
+                            android:layout_below="@+id/a_tobacco69a"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/tobaccoProduct169f"
                                 android:layout_width="fill_parent"
@@ -413,6 +437,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_69f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -421,7 +446,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
-                                    android:id="@+id/onceOrTwice69F"
+                                    android:id="@+id/onceOrTwice69f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -430,6 +455,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_69f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -438,6 +464,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_69f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -446,6 +473,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_69f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -456,10 +484,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobacco_ques70f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques70f">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -477,16 +506,18 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of inhalants"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_failed_to_do_what_was_normally_expected_of_you_because_of_your_use_of_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
+
                         <LinearLayout
+                            android:id="@+id/tobaccoQues70fRb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:id="@+id/tobaccoQues70fRb"
-                            android:layout_below="@+id/a_tobacco">
+                            android:layout_below="@+id/a_tobacco"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/tobaccoProduct170f"
                                 android:layout_width="fill_parent"
@@ -495,6 +526,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_70f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -503,6 +535,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_70f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -511,6 +544,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_70f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -519,6 +553,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_70f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -527,6 +562,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_70f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -537,10 +573,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobacco_ques71f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques71f">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -558,7 +595,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of inhalants"
+                                android:text="@string/has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_inhalants"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -566,8 +603,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/a_tobacco71e">
+                            android:layout_below="@+id/a_tobacco71e"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/tobaccoProduct171f"
                                 android:layout_width="fill_parent"
@@ -576,6 +614,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_71f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -584,6 +623,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/yes_71f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -592,6 +632,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/yes_but_71f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -602,10 +643,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/tobacco_ques72f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:id="@+id/tobacco_ques72f">
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -623,16 +665,17 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:textColor="@color/black"
-                                android:text="Have you ever tried and failed to control, cut down or stop using inhalants"
-                                android:textAllCaps="false" />
+                                android:text="@string/have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_inhalants"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/a_tobacco">
+                            android:layout_below="@+id/a_tobacco"
+                            android:orientation="vertical">
+
                             <RadioGroup
                                 android:id="@+id/tobaccoProduct172f"
                                 android:layout_width="fill_parent"
@@ -641,6 +684,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_72f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -649,14 +693,16 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_72f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
-                                    android:text="@string/once_or_monthly"
+                                    android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/monthly_72f"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -676,11 +722,13 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/total_66f"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -690,11 +738,13 @@
                             android:text="@string/go_to_result"
                             android:textAllCaps="false"
                             android:textColor="@color/app_bg_champ" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"

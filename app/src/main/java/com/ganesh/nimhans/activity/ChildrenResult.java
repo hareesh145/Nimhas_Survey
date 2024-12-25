@@ -72,6 +72,9 @@ public class ChildrenResult extends AppCompatActivity {
     String rCards5_3_Result;
     private PendingListModel root;
     String parentstatus;
+    String apiResponse;
+    int hour;
+    int minute;
 
 
     @Override
@@ -176,18 +179,24 @@ public class ChildrenResult extends AppCompatActivity {
 
         String message = "You are found to be positive for the following screener\n";
 
-        if (rCards4Result != null && rCards4Result.equals("1")) {
-            message = message + "\n 4.  Anxiety and Depression : " + rCards4Result + "\n";
-        }
-        if (rCards5Result != null && rCards5Result.equals("1")) {
-            message = message + "\n 5A.  Substance (Alcohol) use : " + rCards5Result + "\n";
-        }
-        if (rCards5_2_Result != null && rCards5_2_Result.equals("1")) {
-            message = message + "\n 5B.  Substance (Other) use  : " + rCards5_2_Result + "\n";
-        }
-        if (rCards5_3_Result != null && rCards5_3_Result.equals("1")) {
-            message = message + "\n 5C.  Substance (Injectable drug) use : " + rCards5_3_Result + "\n";
-        }
+                            if (rCards4Result != null && rCards4Result.equals("1")) {
+                                message = message + "\n 4.  Anxiety and Depression : " + rCards4Result + "\n";
+                            }
+                            if (!userResponserefused.get("alcoholScoreResponse").isJsonNull()) {
+                                if (userResponserefused.get("alcoholScoreResponse").getAsInt() == 1) {
+                                    message = message + "\n 5A.  Substance (Alcohol) use : " + 1 + "\n";
+                                }
+                            }
+                            if (!userResponserefused.get("otherScoreResponse").isJsonNull()) {
+                                if (userResponserefused.get("otherScoreResponse").getAsInt() == 1) {
+                                    message = message + "\n 5B.  Substance (Other) use  : " + 1 + "\n";
+                                }
+                            }
+                            if (!userResponserefused.get("injectableScoreResponse").isJsonNull()) {
+                                if (userResponserefused.get("injectableScoreResponse").getAsInt() == 1) {
+                                    message = message + "\n 5C.  Substance (Injectable drug) use : " + 1 + "\n";
+                                }
+                            }
 
 //        String message = "You are found to be positive for the following screener\n" +
 //                "\n 4.  Anxiety and Depression : " + PreferenceConnector.readString(this, RCADS4_RESULT, "") + "\n";
@@ -199,90 +208,122 @@ public class ChildrenResult extends AppCompatActivity {
 //            }
 //        }
 
-        if ((rCards4Result != null && rCards4Result.equals("1")) || (rCards5Result != null && rCards5Result.equals("1"))
-                || (rCards5_2_Result != null && rCards5_2_Result.equals("1")) || (rCards5_3_Result != null && rCards5_3_Result.equals("1"))) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(ChildrenResult.this);
-            builder.setMessage(message);
-            builder.setTitle("Alert !");
-            builder.setCancelable(false);
-            builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-                Util.showToast(activity, "Successfully data saved");
-                // checkStatusIsRefused();
-                if (parentstatus != null) {
+                            if ((rCards4Result != null && rCards4Result.equals("1")) || (!userResponserefused.get("alcoholScoreResponse").isJsonNull() && userResponserefused.get("alcoholScoreResponse").getAsInt() == 1)
+                                    || (!userResponserefused.get("otherScoreResponse").isJsonNull() && userResponserefused.get("otherScoreResponse").getAsInt() == 1 || (!userResponserefused.get("injectableScoreResponse").isJsonNull() && userResponserefused.get("injectableScoreResponse").getAsInt() == 1))) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ChildrenResult.this);
+                                builder.setMessage(message);
+                                builder.setTitle("Alert !");
+                                builder.setCancelable(false);
+                                builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                                    Util.showToast(activity, "Successfully data saved");
+                                    // checkStatusIsRefused();
+                                    if (parentstatus != null) {
 
-                    if (parentstatus.equals("Interview Completed")) {
-                        Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
-                        Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
-                        intent.putExtra(AGE_ID, ageValue);
-                        intent.putExtra(SURVEY_ID, surveyID);
-                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                        startActivity(intent);
-                    } else {
-                        Log.e("parentStatus", "parentStatus els null:" + parentstatus);
-                        Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
-                        intent.putExtra(AGE_ID, ageValue);
-                        intent.putExtra(SURVEY_ID, surveyID);
-                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                        startActivity(intent);
+                                        if (parentstatus.equals("Interview Completed")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
+                                        }else if (parentstatus.equals("Refused")) {
+                                            Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
+                                        } else {
+                                            Log.e("parentStatus", "parentStatus els null:" + parentstatus);
+                                            Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+                                            intent.putExtra(AGE_ID, ageValue);
+                                            intent.putExtra(SURVEY_ID, surveyID);
+                                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                            startActivity(intent);
+                                        }
+                                    } else {
+                                        Log.e("parentStatus", "parentStatus null k:" + parentstatus);
+                                        Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+                                        intent.putExtra(AGE_ID, ageValue);
+                                        intent.putExtra(SURVEY_ID, surveyID);
+                                        intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                        intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                        intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                        intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                        startActivity(intent);
+                                    }
+                                });
+                                AlertDialog alertDialog = builder.create();
+                                alertDialog.show();
+                                return;
+                            }
+                            //checkStatusIsRefused();
+                            if (parentstatus != null) {
+
+                                if (parentstatus.equals("Interview Completed")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }else if (parentstatus.equals("Refused")) {
+                                    Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                } else {
+                                    Log.e("parentStatus", "parentStatus els null:" + parentstatus);
+                                    Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+                                    intent.putExtra(AGE_ID, ageValue);
+                                    intent.putExtra(SURVEY_ID, surveyID);
+                                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                    startActivity(intent);
+                                }
+                            } else {
+                                Log.e("parentStatus", "parentStatus null k:" + parentstatus);
+                                Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+                                intent.putExtra(AGE_ID, ageValue);
+                                intent.putExtra(SURVEY_ID, surveyID);
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                                startActivity(intent);
+                            }
+
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } else {
-                    Log.e("parentStatus", "parentStatus null k:" + parentstatus);
-                    Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
-                    intent.putExtra(AGE_ID, ageValue);
-                    intent.putExtra(SURVEY_ID, surveyID);
-                    intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                    intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                    intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                    intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+
                 }
             });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-            return;
         }
-        //checkStatusIsRefused();
-        if (parentstatus != null) {
-
-            if (parentstatus.equals("Interview Completed")) {
-                Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
-                Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                startActivity(intent);
-            } else {
-                Log.e("parentStatus", "parentStatus els null:" + parentstatus);
-                Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
-                intent.putExtra(AGE_ID, ageValue);
-                intent.putExtra(SURVEY_ID, surveyID);
-                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                startActivity(intent);
-            }
-        } else {
-            Log.e("parentStatus", "parentStatus null k:" + parentstatus);
-            Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
-            intent.putExtra(AGE_ID, ageValue);
-            intent.putExtra(SURVEY_ID, surveyID);
-            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-            startActivity(intent);
-        }
-
     }
 
     private void checkStatusIsRefused() {
@@ -357,13 +398,14 @@ public class ChildrenResult extends AppCompatActivity {
 
     public void showTimePickerDialog(View v) {
         Calendar mcurrentTime = Calendar.getInstance();
-        int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int minute = mcurrentTime.get(Calendar.MINUTE);
+
         TimePickerDialog mTimePicker;
         mTimePicker = new TimePickerDialog(ChildrenResult.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                binding.time.setText(selectedHour + ":" + selectedMinute);
+                hour = selectedHour;
+                minute = selectedMinute;
+                binding.time.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         }, hour, minute, false);//Yes 24 hour time
         mTimePicker.setTitle("Select Time");

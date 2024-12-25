@@ -149,6 +149,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
                         android:textSize="14sp"
+                        android:visibility="gone"
                         android:text="lsd, acid, mushrooms, pcp, special k, etc."
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -178,7 +179,7 @@
                             android:layout_marginBottom="5dp"
                             android:layout_toRightOf="@+id/question_66_a"
                             android:padding="10dp"
-                            android:text="In your life, have you ever used Hallucinogens?"
+                            android:text="@string/in_your_life_have_you_ever_used_hallucinogens_lsd_acid_mushrooms_trips_ketamine_etc"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
@@ -249,7 +250,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="In the past three months, how often have you used hallucinogens you mentioned"
+                                android:text="@string/in_the_past_three_months_how_often_have_you_used_hallucinogens_you_mentioned"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -337,7 +338,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you had a strong desire or urge to use hallucinogens"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_had_a_strong_desire_or_urge_to_use_hallucinogens"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -352,10 +353,12 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct168h"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_68h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -364,6 +367,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_68h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -372,6 +376,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_68h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -380,6 +385,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_68h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -388,6 +394,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_68h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -420,7 +427,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often has your use of hallucinogens led to health, social, legal or financial problems?"
+                                android:text="@string/during_the_past_three_months_how_often_has_your_use_of_hallucinogens_led_to_health_social_legal_or_financial_problems"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -440,6 +447,7 @@
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_69h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -448,6 +456,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_69h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -456,6 +465,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_69h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -464,6 +474,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_69h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -472,6 +483,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_69h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -504,7 +516,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="During the past three months, how often have you failed to do what was normally expected of you because of your use of hallucinogens"
+                                android:text="@string/during_the_past_three_months_how_often_have_you_failed_to_do_what_was_normally_expected_of_you_because_of_your_use_of_hallucinogens"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -519,10 +531,12 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct170h"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_70h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -531,6 +545,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_70h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -539,6 +554,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/m_70h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -547,6 +563,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/w_70h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -555,6 +572,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/d_o_a_70h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -586,7 +604,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Has a friend or relative or anyone else ever expressed concern about your use of hallucinogens"
+                                android:text="@string/has_a_friend_or_relative_or_anyone_else_ever_expressed_concern_about_your_use_of_hallucinogens"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -600,10 +618,12 @@
                             <RadioGroup
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct171h"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never_71h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -612,6 +632,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/yes_71h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -620,6 +641,7 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/yes_but_71h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -651,7 +673,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
-                                android:text="Have you ever tried and failed to control, cut down or stop using hallucinogens"
+                                android:text="@string/have_you_ever_tried_and_failed_to_control_cut_down_or_stop_using_hallucinogens"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black" />
                         </LinearLayout>
@@ -663,13 +685,14 @@
                             android:orientation="vertical">
 
                             <RadioGroup
-
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/tobaccoProduct172h"
                                 android:layout_below="@+id/tobacco_ques"
                                 android:layout_marginLeft="30dp">
 
                                 <RadioButton
+                                    android:id="@+id/never72h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
@@ -678,14 +701,16 @@
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/once_twice_72h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:layoutDirection="rtl"
-                                    android:text="@string/once_or_monthly"
+                                    android:text="@string/once_or_twice"
                                     android:textAlignment="textStart" />
 
                                 <RadioButton
+                                    android:id="@+id/monthly_72h"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"

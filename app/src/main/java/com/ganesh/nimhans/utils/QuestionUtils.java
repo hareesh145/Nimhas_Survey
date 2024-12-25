@@ -1,5 +1,11 @@
 package com.ganesh.nimhans.utils;
 
+
+import android.content.Context;
+import android.content.res.Resources;
+
+import com.ganesh.nimhans.R;
+
 import java.util.ArrayList;
 
 public class QuestionUtils {
@@ -34,13 +40,27 @@ public class QuestionUtils {
     }
 
 
-    public static ArrayList<GenericQuestion> getSection6Questions(){
+   /* public static ArrayList<GenericQuestion> getSection6Questions(){
         ArrayList<GenericQuestion> genericQuestions=new ArrayList<>();
-        genericQuestions.add(new GenericQuestion(74,"Is your child slow in academic learning?"));
-        genericQuestions.add(new GenericQuestion(75,"Is your child slow in non- academic activities?"));
-        genericQuestions.add(new GenericQuestion(76,"Does your child need support for activities of daily living?"));
-        genericQuestions.add(new GenericQuestion(77,"Is your child having difficulty in socialization or communicating with others?"));
+        String Is_your_child_74 =  Resources.getSystem().getString(R.string.is_your_child_slow_in_academic_learning);
+        String Is_your_child_75 =  Resources.getSystem().getString(R.string.is_your_child_slow_in_non_academic_activities);
+        String Is_your_child_76 =  Resources.getSystem().getString(R.string.does_your_child_need_support_for_activities_of_daily_living);
+        String Is_your_child_77 =  Resources.getSystem().getString(R.string.is_your_child_having_difficulty_in_socialization_or_communicating_with_others);
+        genericQuestions.add(new GenericQuestion(74,Is_your_child_74));
+        genericQuestions.add(new GenericQuestion(75,Is_your_child_75));
+        genericQuestions.add(new GenericQuestion(76,Is_your_child_76));
+        genericQuestions.add(new GenericQuestion(77,Is_your_child_77));
 
         return genericQuestions;
-    }
+    }*/
+    public static ArrayList<GenericQuestion> getSection6Questions(Context context) {
+        ArrayList<GenericQuestion> genericQuestions = new ArrayList<>();
+        genericQuestions.add(new GenericQuestion(74, context.getString(R.string.is_your_child_slow_in_academic_learning)));
+        genericQuestions.add(new GenericQuestion(75, context.getString(R.string.is_your_child_slow_in_non_academic_activities)));
+        genericQuestions.add(new GenericQuestion(76, context.getString(R.string.does_your_child_need_support_for_activities_of_daily_living)));
+        genericQuestions.add(new GenericQuestion(77, context.getString(R.string.is_your_child_having_difficulty_in_socialization_or_communicating_with_others)));
+
+        return genericQuestions;
+}
+
 }

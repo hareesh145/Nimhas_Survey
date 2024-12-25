@@ -10,6 +10,7 @@ import static com.ganesh.nimhans.utils.Constants.SURVEY_ID;
 import static com.ganesh.nimhans.utils.Constants.SURVEY_SECTION3C;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -411,7 +412,7 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         } else if (selectedValue.contains("Always")) {
             return 3;
         }
-        return 0;
+        return -1;
     }
 
 
@@ -687,8 +688,62 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
     }
 
     public void onClickNextSection(View v) {
-        Util.showToast(activity, "Successfully data saved");
-        checkRCADSValue();
+        if (binding.Anxiety.getCheckedRadioButtonId() == -1 //60
+                || binding.feelingSad.getCheckedRadioButtonId() == -1 //19
+                || binding.funnyFeeling.getCheckedRadioButtonId() == -1 //20
+                || binding.feelingWorry.getCheckedRadioButtonId() == -1 //21
+                || binding.feelingAfraid.getCheckedRadioButtonId() == -1 //22
+                || binding.noFun.getCheckedRadioButtonId() == -1 //23
+                || binding.feelingScared.getCheckedRadioButtonId() == -1 //24
+                || binding.feelingAngryWithMe.getCheckedRadioButtonId() == -1 //25
+                || binding.worryAboutParents.getCheckedRadioButtonId() == -1 //26
+                || binding.sillyThoughts.getCheckedRadioButtonId() == -1 //27
+                || binding.sleepingProblem.getCheckedRadioButtonId() == -1 //28
+                || binding.badAtSchool.getCheckedRadioButtonId() == -1 //29
+                || binding.feelingAwful.getCheckedRadioButtonId() == -1 //30
+                || binding.CantBreatheSuddenly.getCheckedRadioButtonId() == -1 //31
+                || binding.appetiteProblem.getCheckedRadioButtonId() == -1 //32
+                || binding.crossCheckOCD.getCheckedRadioButtonId() == -1 //33
+                || binding.scaryWhileSleep.getCheckedRadioButtonId() == -1 //34
+                || binding.afraidGoingSchool.getCheckedRadioButtonId() == -1 //35
+                || binding.noEnergy.getCheckedRadioButtonId() == -1 //36
+                || binding.feelingFoolish.getCheckedRadioButtonId() == -1 //37
+                || binding.feelingTired.getCheckedRadioButtonId() == -1 //38
+                || binding.negativeThoughts.getCheckedRadioButtonId() == -1 //39
+                || binding.removeBadThoughtfromHead.getCheckedRadioButtonId() == -1 //40
+                || binding.heartBeatHigh.getCheckedRadioButtonId() == -1 //41
+                || binding.cantThink.getCheckedRadioButtonId() == -1 //42
+                || binding.shevirinhg.getCheckedRadioButtonId() == -1 //43
+                || binding.badHallucination.getCheckedRadioButtonId() == -1 //44
+                || binding.feelingShaky.getCheckedRadioButtonId() == -1 //45
+                || binding.feelingWorthless.getCheckedRadioButtonId() == -1 //46
+                || binding.afraidOfMistakes.getCheckedRadioButtonId() == -1 //47
+                || binding.superstition.getCheckedRadioButtonId() == -1 //48
+                || binding.socialAnxietyDisorder.getCheckedRadioButtonId() == -1 //49
+                || binding.agoraphobia.getCheckedRadioButtonId() == -1 //50
+                || binding.apprehension.getCheckedRadioButtonId() == -1//51
+                || binding.anticipatoryAnxiety.getCheckedRadioButtonId() == -1 //52
+                || binding.suddenSyncope.getCheckedRadioButtonId() == -1 //53
+                || binding.morbidContemplation.getCheckedRadioButtonId() == -1 //54
+                || binding.glossophobia.getCheckedRadioButtonId() == -1 //55
+                || binding.palpitations.getCheckedRadioButtonId() == -1 //56
+                || binding.immobility.getCheckedRadioButtonId() == -1 //57
+                || binding.anxietyAboutAnxiety.getCheckedRadioButtonId() == -1 //58
+                || binding.OCD.getCheckedRadioButtonId() == -1 //59
+
+                || binding.socialAnxiety.getCheckedRadioButtonId() == -1 //61
+                || binding.ritualisticBehavior.getCheckedRadioButtonId() == -1 //62
+                || binding.nighttimeAnxiety.getCheckedRadioButtonId() ==-1 //63
+                || binding.separationAnxiety1.getCheckedRadioButtonId() == -1 //64
+                || binding.restlessness.getCheckedRadioButtonId() ==-1 //65
+        ) {
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+
+        } else {
+            Util.showToast(activity, "Successfully data saved");
+            checkRCADSValue();
+        }
+
 
     }
 
@@ -742,4 +797,6 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
             }
         }
     }*/
+
+
 }

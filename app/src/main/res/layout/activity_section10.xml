@@ -66,7 +66,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Conduct Disorder (Vanderbilt)"
+                        android:text="@string/conduct_disorder_vanderbilt"
                         android:textAllCaps="false"
                         android:textStyle="bold"
                         android:textColor="@color/black" />
@@ -204,7 +204,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Bullies, threatens, or scares others"
+                            android:text="@string/bullies_threatens_or_scares_others"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -272,7 +272,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Starts physical fights"
+                            android:text="@string/starts_physical_fights"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -341,7 +341,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Lies to get out of trouble or to avoid jobs (i.e., “cons” others)"
+                            android:text="@string/lies_to_get_out_of_trouble_or_to_avoid_jobs_i_e_cons_others"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -410,7 +410,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Skips school without permission"
+                            android:text="@string/skips_school_without_permission"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -479,7 +479,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Is physically unkind to people"
+                            android:text="@string/is_physically_unkind_to_people"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -548,7 +548,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has stolen things that have value"
+                            android:text="@string/has_stolen_things_that_have_value"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -617,7 +617,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Destroys others’ property on purpose"
+                            android:text="@string/destroys_others_property_on_purpose"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -686,7 +686,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has used a weapon that can cause serious harm (bat, knife, brick, gun)"
+                            android:text="@string/has_used_a_weapon_that_can_cause_serious_harm_bat_knife_brick_gun"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -755,7 +755,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Is physically mean to animals"
+                            android:text="@string/is_physically_mean_to_animals"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -824,7 +824,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has set fires on purpose to cause damage"
+                            android:text="@string/has_set_fires_on_purpose_to_cause_damage"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -893,7 +893,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has broken into someone else’s home, business, or car"
+                            android:text="@string/has_broken_into_someone_else_s_home_business_or_car"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -962,7 +962,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has stayed out at night without permission"
+                            android:text="@string/has_stayed_out_at_night_without_permission"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1031,7 +1031,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Has run away from home overnight"
+                            android:text="@string/has_run_away_from_home_overnight"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1084,7 +1084,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="Performance"
+                        android:text="@string/performance"
                         android:textStyle="bold"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="150dp"
@@ -1111,7 +1111,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Overall school performance"
+                            android:text="@string/overall_school_performance"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1188,7 +1188,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Reading"
+                            android:text="@string/reading"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1265,7 +1265,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Writing"
+                            android:text="@string/writing"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1342,7 +1342,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Mathematics"
+                            android:text="@string/mathematics"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1419,7 +1419,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Relationship with parents"
+                            android:text="@string/relationship_with_parents"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1496,7 +1496,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Relationship with siblings"
+                            android:text="@string/relationship_with_siblings"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1573,7 +1573,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Relationship with peers"
+                            android:text="@string/relationship_with_peers"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1650,7 +1650,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Participation in organized activities (eg, teams)"
+                            android:text="@string/participation_in_organized_activities_eg_teams"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

@@ -3,6 +3,7 @@ package com.ganesh.nimhans.model;
 public class ServeySection10Request {
 
     private String section10Respondent;
+    private  String section10Gr;
     private int qno139;
     private int qno140;
     private int qno141;
@@ -199,5 +200,13 @@ public class ServeySection10Request {
 
     public void setQno159(int qno159) {
         this.qno159 = qno159;
+    }
+
+    public String getSection10Gr() {
+        return section10Gr;
+    }
+
+    public void setSection10Gr(String section10Gr) {
+        this.section10Gr = section10Gr;
     }
 }

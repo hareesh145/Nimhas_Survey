@@ -6,6 +6,7 @@ import static com.ganesh.nimhans.utils.PreferenceConnector.NAME_OF_RESPONDENT;
 import static com.ganesh.nimhans.utils.PreferenceConnector.TALUKA;
 import static com.ganesh.nimhans.utils.PreferenceConnector.VILLAGE;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -229,7 +230,6 @@ public class Section1Activity extends AppCompatActivity {
 
     public void onClickNextSection(View v) {
 
-
         String stateValue = state.getText().toString();
         String talukaValue = binding.taluka.getText().toString();
         String mobileNumberValue = isValidPhoneNumber(mobileNumber.getText().toString());
@@ -279,54 +279,57 @@ public class Section1Activity extends AppCompatActivity {
                 selectedlocale, nameOfRespondentValue, addressValue, mobileNumberValue, dateOfViewEditText.getText().toString(), selectedConsentedForStusy,
                 "", "", "", specifyValue, "", "",
                 "", "", "", userValue, codeOfUserValue, currentDate), PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-        if (!mobileNumberValue.trim().equals("") && mobileNumberValue.length() >= 10) {
-            call.enqueue(new Callback<DemoGraphyResponse>() {
-                @Override
-                public void onResponse(Call<DemoGraphyResponse> call, Response<DemoGraphyResponse> response) {
-                    if (binding.progressBar.isShown())
-                        binding.progressBar.setVisibility(View.GONE);
-                    DemoGraphyResponse userResponse = response.body();
-                    if (response.isSuccessful()) {
-                        demoGraphicsId = userResponse.getDemographicsId();
-                        System.out.println("deeee" + userResponse.getDemographicsId());
-                        activity.finish();
-                        Util.showToast(activity, "Successfully data saved");
-                        if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
-                            Intent intent = new Intent(Section1Activity.this, ConsentNo.class);
-                            intent.putExtra("isFromSection1", true);
-                            intent.putExtra("consentForStudy", "no");
-                            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsId);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Intent i = new Intent(activity, Section3aActivity.class);
-                            Bundle bundle = new Bundle();
+        if (binding.district.getCheckedRadioButtonId() == -1 || binding.notr.getText().toString().isEmpty() || binding.address.getText().toString().isEmpty() || binding.date1.getText().toString().isEmpty() || binding.ConsentedForStudy.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        } else {
+            if (!mobileNumberValue.trim().equals("") && mobileNumberValue.length() >= 10) {
+                call.enqueue(new Callback<DemoGraphyResponse>() {
+                    @Override
+                    public void onResponse(Call<DemoGraphyResponse> call, Response<DemoGraphyResponse> response) {
+                        if (binding.progressBar.isShown())
+                            binding.progressBar.setVisibility(View.GONE);
+                        DemoGraphyResponse userResponse = response.body();
+                        if (response.isSuccessful()) {
+                            demoGraphicsId = userResponse.getDemographicsId();
+                            System.out.println("deeee" + userResponse.getDemographicsId());
+                            activity.finish();
+                            Util.showToast(activity, "Successfully data saved");
+                            if (binding.ConsentedForStudy.getCheckedRadioButtonId() == R.id.no) {
+                                Intent intent = new Intent(Section1Activity.this, ConsentNo.class);
+                                intent.putExtra("isFromSection1", true);
+                                intent.putExtra("consentForStudy", "no");
+                                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsId);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Intent i = new Intent(activity, Section3aActivity.class);
+                                Bundle bundle = new Bundle();
 
 //Add your data to bundle
-                            bundle.putString("demoo", demoGraphicsId);
+                                bundle.putString("demoo", demoGraphicsId);
 
 //Add the bundle to the intent
-                            i.putExtras(bundle);
+                                i.putExtras(bundle);
 
 //Fire that second activity
-                            startActivity(i);
+                                startActivity(i);
+                            }
+
+                        } else {
+                            Util.showToast(activity, "Failed to saved the data");
                         }
-
-                    } else {
-                        Util.showToast(activity, "Failed to saved the data");
                     }
-                }
 
-                @Override
-                public void onFailure(Call<DemoGraphyResponse> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<DemoGraphyResponse> call, Throwable t) {
 
-                }
-            });
-        } else {
-            Toast.makeText(getApplicationContext(), "Please enter the valid Mobile number", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(getApplicationContext(), "Please enter the valid Mobile number", Toast.LENGTH_SHORT).show();
+            }
+
         }
-
-
     }
 
     public void onClickGoToResult(View v) {
@@ -446,5 +449,12 @@ public class Section1Activity extends AppCompatActivity {
         }
 
         return phone;
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Section1Activity.this, ActivitySurvey.class);
+        startActivity(intent);
     }
 }

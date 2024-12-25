@@ -341,7 +341,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When my child has a problem, he/she gets a funny feeling in his/her stomach"
+                            android:text="@string/when_my_child_has_a_problem_he_she_gets_a_funny_feeling_in_his_her_stomach"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -410,7 +410,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries when he/she thinks he/she has done poorly at something"
+                            android:text="@string/my_child_worries_when_he_she_thinks_he_she_has_done_poorly_at_something"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -479,7 +479,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels afraid of being alone at home"
+                            android:text="@string/my_child_feels_afraid_of_being_alone_at_home"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -548,7 +548,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Nothing is much fun for my child anymore"
+                            android:text="@string/nothing_is_much_fun_for_my_child_anymore"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -617,7 +617,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels scared when taking a test"
+                            android:text="@string/my_child_feels_scared_when_taking_a_test"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -686,7 +686,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries when he/she thinks someone is angry with him/her"
+                            android:text="@string/my_child_worries_when_he_she_thinks_someone_is_angry_with_him_her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -755,7 +755,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries about being away from me"
+                            android:text="@string/my_child_worries_about_being_away_from_me"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -824,7 +824,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child is bothered by bad or silly thoughts or pictures in his/her mind"
+                            android:text="@string/my_child_is_bothered_by_bad_or_silly_thoughts_or_pictures_in_his_her_mind"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -893,7 +893,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has trouble sleeping"
+                            android:text="@string/my_child_has_trouble_sleeping"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -962,7 +962,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries about doing badly at school work"
+                            android:text="@string/my_child_worries_about_doing_badly_at_school_work"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1031,7 +1031,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries that something awful will happen to someone in the family"
+                            android:text="@string/my_child_worries_that_something_awful_will_happen_to_someone_in_the_family"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1100,7 +1100,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child suddenly feels as if he/she can't breathe when there is no reason for this"
+                            android:text="@string/my_child_suddenly_feels_as_if_he_she_can_t_breathe_when_there_is_no_reason_for_this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1168,7 +1168,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has problems with his/her appetite"
+                            android:text="@string/my_child_has_problems_with_his_her_appetite"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1236,7 +1236,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has to keep checking that he/she has done things right (like the switch is off, or the door is locked)"
+                            android:text="@string/my_child_has_to_keep_checking_that_he_she_has_done_things_right_like_the_switch_is_off_or_the_door_is_locked"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1304,7 +1304,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels scared to sleep on his/her own"
+                            android:text="@string/my_child_feels_scared_to_sleep_on_his_her_own"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1372,7 +1372,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has trouble going to school in the mornings because of feeling nervous or afraid."
+                            android:text="@string/my_child_has_trouble_going_to_school_in_the_mornings_because_of_feeling_nervous_or_afraid"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1440,7 +1440,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has no energy for things"
+                            android:text="@string/my_child_has_no_energy_for_things"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1508,7 +1508,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries about looking foolish"
+                            android:text="@string/my_child_worries_about_looking_foolish"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1576,7 +1576,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child is tired a lot"
+                            android:text="@string/my_child_is_tired_a_lot"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1644,7 +1644,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries that bad things will happen to him/her"
+                            android:text="@string/my_child_worries_that_bad_things_will_happen_to_him_her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1712,7 +1712,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child can't seem to get bad or silly thoughts out of his/her head."
+                            android:text="@string/my_child_can_t_seem_to_get_bad_or_silly_thoughts_out_of_his_her_head"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1780,7 +1780,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When my child has a problem, his/her heart beats really fast."
+                            android:text="@string/when_my_child_has_a_problem_his_her_heart_beats_really_fast"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1848,7 +1848,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child cannot think clearly"
+                            android:text="@string/my_child_cannot_think_clearly"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1916,7 +1916,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child suddenly starts to tremble or shake when there is no reason for this"
+                            android:text="@string/my_child_suddenly_starts_to_tremble_or_shake_when_there_is_no_reason_for_this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -1984,7 +1984,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries that something bad will happen to him/her"
+                            android:text="@string/my_child_worries_that_something_bad_will_happen_to_him_her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2052,7 +2052,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="When my child has a problem, he/she feels shaky"
+                            android:text="@string/when_my_child_has_a_problem_he_she_feels_shaky"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2120,7 +2120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels worthless"
+                            android:text="@string/my_child_feels_worthless"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2188,7 +2188,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries about making mistakes"
+                            android:text="@string/my_child_worries_about_making_mistakes"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2256,7 +2256,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has to think of special thoughts (like numbers or words) to stop bad things from happening"
+                            android:text="@string/my_child_has_to_think_of_special_thoughts_like_numbers_or_words_to_stop_bad_things_from_happening"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2324,7 +2324,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries what other people think of him/her"
+                            android:text="@string/my_child_worries_what_other_people_think_of_him_her"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2392,7 +2392,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child is afraid of being in crowded places (like shopping centers, the movies, buses, busy playgrounds)"
+                            android:text="@string/my_child_is_afraid_of_being_in_crowded_places_like_shopping_centers_the_movies_buses_busy_playgrounds"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2460,7 +2460,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="All of a sudden my child will feel really scared for no reason at all"
+                            android:text="@string/all_of_a_sudden_my_child_will_feel_really_scared_for_no_reason_at_all"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2528,7 +2528,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries about what is going to happen"
+                            android:text="@string/my_child_worries_about_what_is_going_to_happen"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2596,7 +2596,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child suddenly becomes dizzy or faint when there is no reason for this"
+                            android:text="@string/my_child_suddenly_becomes_dizzy_or_faint_when_there_is_no_reason_for_this"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2664,7 +2664,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child thinks about death"
+                            android:text="@string/my_child_thinks_about_death"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2732,7 +2732,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels afraid if he/she has to talk in front of the class"
+                            android:text="@string/my_child_feels_afraid_if_he_she_has_to_talk_in_front_of_the_class"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2800,7 +2800,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child’s heart suddenly starts to beat too quickly for no reason"
+                            android:text="@string/my_child_s_heart_suddenly_starts_to_beat_too_quickly_for_no_reason"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2868,7 +2868,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels like he/she doesn’t want to move"
+                            android:text="@string/my_child_feels_like_he_she_doesn_t_want_to_move"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -2936,7 +2936,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries that he/she will suddenly get a scared feeling when there is nothing to be afraid of"
+                            android:text="@string/my_child_worries_that_he_she_will_suddenly_get_a_scared_feeling_when_there_is_nothing_to_be_afraid_of"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3004,7 +3004,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has to do some things over and over again (like washing hands, cleaning, or putting things in a certain order)"
+                            android:text="@string/my_child_has_to_do_some_things_over_and_over_again_like_washing_hands_cleaning_or_putting_things_in_a_certain_order"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3072,7 +3072,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels afraid that he/she will make a fool of him/herself in front of people"
+                            android:text="@string/my_child_feels_afraid_that_he_she_will_make_a_fool_of_him_herself_in_front_of_people"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3140,7 +3140,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child has to do some things in just the right way to stop bad things from happening"
+                            android:text="@string/my_child_has_to_do_some_things_in_just_the_right_way_to_stop_bad_things_from_happening"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3208,7 +3208,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child worries when in bed at night"
+                            android:text="@string/my_child_worries_when_in_bed_at_night"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3276,7 +3276,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child would feel scared if he/she had to stay away from home overnight"
+                            android:text="@string/my_child_would_feel_scared_if_he_she_had_to_stay_away_from_home_overnight"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -3344,7 +3344,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="My child feels restless"
+                            android:text="@string/my_child_feels_restless"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>

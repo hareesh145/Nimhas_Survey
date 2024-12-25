@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Is your child slow in academic learning?"
+            android:text="@string/is_your_child_slow_in_academic_learning"
             android:textAllCaps="false"
             android:textColor="#000000" />
     </LinearLayout>

@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,7 +60,6 @@ public class Section7bActivity extends AppCompatActivity {
         setContentView(view);
         activity = this;
         binding.setHandlers(this);
-
         eligibleResponse = (EligibleResponse) getIntent().getSerializableExtra(ELIGIBLE_RESPONDENT);
         serveySection3cRequest = (ServeySection3cRequest) getIntent().getSerializableExtra(SURVEY_SECTION3C);
         myGameApp = (MyNimhans) activity.getApplicationContext();
@@ -120,21 +120,37 @@ public class Section7bActivity extends AppCompatActivity {
 
     private void checkRCADSScore() {
         ServeySection7bRequest serveySection7bRequest = new ServeySection7bRequest();
-        if (respondentTxt == null) {
-            respondentTxt = binding.iasqRespondendtTxt.getText().toString();
+        int checkedRadioButtonId = binding.iasqRespondendtGrp.getCheckedRadioButtonId();
+        if (checkedRadioButtonId == -1) {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection7bRequest.setIasqRespondent(respondentTxt);
+                serveySection7bRequest.setIasqGr(binding.iasqRespondendtTxt.getText().toString());
+            }
+            else {
+                serveySection7bRequest.setIasqRespondent(respondentTxt);
+                serveySection7bRequest.setIasqGr("NA");
+            }
+        } else {
+            if (respondentTxt.equalsIgnoreCase("Guardian")){
+                serveySection7bRequest.setIasqRespondent(respondentTxt);
+                serveySection7bRequest.setIasqGr(binding.iasqRespondendtTxt.getText().toString());
+            }
+            else {
+                serveySection7bRequest.setIasqRespondent(respondentTxt);
+                serveySection7bRequest.setIasqGr("NA");
+            }
         }
-        serveySection7bRequest.iasqRespondent = respondentTxt;
-        serveySection7bRequest.qno98 = getCheckedID(binding.q98.getCheckedRadioButtonId(), R.id.q98a, R.id.q98b);
-        serveySection7bRequest.qno99 = getCheckedID(binding.q99.getCheckedRadioButtonId(), R.id.q99a, R.id.q99b);
-        serveySection7bRequest.qno100 = getCheckedID(binding.q100.getCheckedRadioButtonId(), R.id.q100a, R.id.q100b);
+        serveySection7bRequest.setQno98(getCheckedID(binding.q98.getCheckedRadioButtonId(), R.id.q98a, R.id.q98b));
+        serveySection7bRequest.setQno99(getCheckedID(binding.q99.getCheckedRadioButtonId(), R.id.q99a, R.id.q99b));
+        serveySection7bRequest.setQno100(getCheckedID(binding.q100.getCheckedRadioButtonId(), R.id.q100a, R.id.q100b));
 
-        serveySection7bRequest.qno101 = getCheckedID(binding.q101.getCheckedRadioButtonId(), R.id.q101a, R.id.q101b);
-        serveySection7bRequest.qno102 = getCheckedID(binding.q102.getCheckedRadioButtonId(), R.id.q102a, R.id.q102b);
-        serveySection7bRequest.qno103 = getCheckedID(binding.q103.getCheckedRadioButtonId(), R.id.q103a, R.id.q103b);
-        serveySection7bRequest.qno104 = getCheckedID(binding.q104.getCheckedRadioButtonId(), R.id.q104a, R.id.q104b);
-        serveySection7bRequest.qno105 = getCheckedID(binding.q105.getCheckedRadioButtonId(), R.id.q105a, R.id.q105b);
-        serveySection7bRequest.qno106 = getCheckedID(binding.q106.getCheckedRadioButtonId(), R.id.q106a, R.id.q106b);
-        serveySection7bRequest.qno107 = getCheckedID(binding.q107.getCheckedRadioButtonId(), R.id.q107a, R.id.q107b);
+        serveySection7bRequest.setQno101(getCheckedID(binding.q101.getCheckedRadioButtonId(), R.id.q101a, R.id.q101b));
+        serveySection7bRequest.setQno102(getCheckedID(binding.q102.getCheckedRadioButtonId(), R.id.q102a, R.id.q102b));
+        serveySection7bRequest.setQno103(getCheckedID(binding.q103.getCheckedRadioButtonId(), R.id.q103a, R.id.q103b));
+        serveySection7bRequest.setQno104(getCheckedID(binding.q104.getCheckedRadioButtonId(), R.id.q104a, R.id.q104b));
+        serveySection7bRequest.setQno105(getCheckedID(binding.q105.getCheckedRadioButtonId(), R.id.q105a, R.id.q105b));
+        serveySection7bRequest.setQno106(getCheckedID(binding.q106.getCheckedRadioButtonId(), R.id.q106a, R.id.q106b));
+        serveySection7bRequest.setQno107(getCheckedID(binding.q107.getCheckedRadioButtonId(), R.id.q107a, R.id.q107b));
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         apiInterface.putServeySection7bData(eligibleResponse.houseHoldId, serveySection7bRequest, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
@@ -207,12 +223,28 @@ public class Section7bActivity extends AppCompatActivity {
     private int getCheckedID(int checkedID, int yes_id, int no_id) {
         if (checkedID == yes_id) {
             return 1;
-        } else {
-            return 2;
+        } else if(checkedID == no_id) {
+            return 0;
+        }else {
+            return -1;
         }
+
     }
 
     public void onClickNextSection(View v) {
+        if (binding.iasqRespondendtGrp.getCheckedRadioButtonId() == -1
+                || binding.q98.getCheckedRadioButtonId() == -1
+                || binding.q99.getCheckedRadioButtonId() == -1
+                || binding.q100.getCheckedRadioButtonId() == -1
+                || binding.q101.getCheckedRadioButtonId() == -1
+                || binding.q102.getCheckedRadioButtonId() == -1
+                || binding.q103.getCheckedRadioButtonId() == -1
+                || binding.q104.getCheckedRadioButtonId() == -1
+                || binding.q105.getCheckedRadioButtonId() == -1
+                || binding.q106.getCheckedRadioButtonId() == -1
+                || binding.q107.getCheckedRadioButtonId() == -1){
+            Toast.makeText(getApplicationContext(), "Please fill the data", Toast.LENGTH_LONG).show();
+        }else {
         /*Intent intent = new Intent(activity, Section8Activity.class);
         Util.showToast(activity, "Successfully data saved");
         intent.putExtra(AGE_ID, ageValue);
@@ -220,7 +252,8 @@ public class Section7bActivity extends AppCompatActivity {
         intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
         intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
         startActivity(intent);*/
-        checkRCADSScore();
+            checkRCADSScore();
+        }
 
     }
 

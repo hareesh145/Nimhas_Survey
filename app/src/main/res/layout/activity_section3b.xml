@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="House Hold Table"
+                        android:text="@string/house_hold_table"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -77,7 +77,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Now we would like to obtain some information about the people who currently live in your household. Please give me the names of the persons who live with you in your household, starting with yourself."
+                        android:text="@string/now_we_would_like_to_obtain_some_information_about_the_people_who_currently_live_in_your_household_please_give_me_the_names_of_the_persons_who_live_with_you_in_your_household_starting_with_yourself"
                         android:textAlignment="gravity"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
@@ -93,7 +93,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="Total number of people in the household"
+                            android:text="@string/_7_total_number_of_people_in_the_household"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -116,7 +116,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Line No"
+                        android:text="@string/line_no"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -139,7 +139,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Name of the household member"
+                        android:text="@string/name_of_the_household_member"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -162,7 +162,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="What is the relationship of (NAME) to you?"
+                        android:text="@string/what_is_the_relationship_of_name_to_you"
                         android:textAllCaps="false"
                         android:textColor="#000000" />
 
@@ -211,7 +211,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Is (NAME) a male or female?"
+                            android:text="@string/is_name_a_male_or_female"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -253,7 +253,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="How old is (NAME)?"
+                            android:text="@string/how_old_is_name"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
                     </LinearLayout>
@@ -290,7 +290,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Marital status"
+                                android:text="@string/marital_status"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>
@@ -347,7 +347,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="Occupation"
+                            android:text="@string/occupation"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -373,7 +373,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:padding="10dp"
-                            android:text="Education"
+                            android:text="@string/education"
                             android:textAllCaps="false"
                             android:textColor="#000000" />
 
@@ -411,6 +411,25 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Family Information"
+                                android:textStyle="bold"
+                                android:textColor="#79A911"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:textSize="20dp">
+
+                            </TextView>
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -504,7 +523,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="Does anyone in the family have/had problems related with alcohol/tobacco/substance use?"
+                                android:text="@string/does_anyone_in_the_family_have_had_problems_related_with_alcohol_tobacco_substance_use"
                                 android:textAllCaps="false"
                                 android:textColor="#000000" />
                         </LinearLayout>

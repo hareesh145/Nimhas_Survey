@@ -1,6 +1,8 @@
 package com.ganesh.nimhans.model;
 
-public class ServeySection5Request {
+import java.io.Serializable;
+
+public class ServeySection5Request implements Serializable {
     private int qno66a;
     private int qno66b;
     private int qno66c;
@@ -11,6 +13,7 @@ public class ServeySection5Request {
     private int qno66h;
     private int qno66i;
     private int qno66j;
+    public String qno66jSpecify;
     private int qno67a;
     private int qno67b;
     private int qno67c;
@@ -72,7 +75,6 @@ public class ServeySection5Request {
     private int qno72i;
     private int qno72j;
     private int qno73;
-
 
     public int getQno66a() {
         return qno66a;

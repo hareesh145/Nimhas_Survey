@@ -325,6 +325,10 @@ public class PendingListModel implements Serializable {
     public String qno229;
     public String childStatus;
     public String parentStatus;
+    public  String parentPCTime;
+    public  String parentPCDate;
+    public  String childPCDate;
+    public  String childPCTime;
     @SerializedName("houseHold")
     public EligibleResponse houseHold;
 }

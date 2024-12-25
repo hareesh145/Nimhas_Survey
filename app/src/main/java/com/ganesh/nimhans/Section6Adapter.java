@@ -19,6 +19,8 @@ public class Section6Adapter extends RecyclerView.Adapter<Section6Adapter.Questi
     private ArrayList<GenericQuestion> genericQuestions;
     private Section6Activity activity;
 
+    public int selectedPosition = -1;
+
     public Section6Adapter(ArrayList<GenericQuestion> genericQuestions, Section6Activity activity) {
         this.genericQuestions = genericQuestions;
         this.activity = activity;
@@ -38,6 +40,11 @@ public class Section6Adapter extends RecyclerView.Adapter<Section6Adapter.Questi
     @Override
     public int getItemCount() {
         return genericQuestions.size();
+    }
+
+    public boolean isRadioButtonChecked() {
+
+        return false;
     }
 
     public class QuestionHolder extends RecyclerView.ViewHolder {

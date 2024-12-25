@@ -7,6 +7,8 @@ public class  SurveySection implements Serializable {
     public int surveyId;
     public String qno1;
     public String qno2;
+    public String qno1Other;
+    public  String qno3Other;
     public String qno3;
     public String qno4;
     public int qno5A;
@@ -14,7 +16,16 @@ public class  SurveySection implements Serializable {
     public int qno6;
     public int qno7;
     public Demographics demographics;
-
+    public int houseHoldId;
     public String qno16;
+    public  String qno16A;
     public String qno17;
+    public String qno17A;
+    public String qno17B;
+    public String qno17C;
+    public String houseHoldStatus;
+    public  String houseHoldPCDate;
+    public String houseHoldPCTime;
+    public String specify;
+
 }
