@@ -334,104 +334,70 @@ public class Section4Activity extends AppCompatActivity implements RadioGroup.On
         RadioButton radioButton = findViewById(checkedId);
         String selectedValue = radioButton.getText().toString();
 
-        switch (group.getId()) {
-            case R.id.crossCheckOCD:
-                selectedCrossCheckOCD = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.scaryWhileSleep: //35
-                selectedScaryWhileSleep = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.afraidGoingSchool: // 36
-                selectedAfraidGoingSchool = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.noEnergy: //37
-                selectedNoEnergy = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.feelingFoolish: //38
-                selectedFeelingFoolish = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.feelingTired: //39
-                selectedFeelingTired = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.negativeThoughts: //40
-                selectedNegativeThoughts = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.removeBadThoughtfromHead:  //41
-                selectedRemoveBadThoughtfromHead = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.heartBeatHigh:  //42
-                selectedHeartBeatHigh = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.cantThink:  //43
-                selectedCantThink = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.shevirinhg:  //44
-                selectedShevirinhg = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.badHallucination:  //45
-                selectedBadHallucination = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.feelingShaky:  //46
-                selectedFeelingShaky = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.feelingWorthless:  //47
-                selectedFeelingWorthless = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.afraidOfMistakes:  //48
-                selectedAfraidOfMistakes = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.superstition:  //49
-                selectedSuperstition = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.socialAnxietyDisorder:  //50
-                selectedSocialAnxietyDisorder = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.agoraphobia:  //51
-                selectedAgoraphobia = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.apprehension:  //52
-                selectedApprehension = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.anticipatoryAnxiety:  //53
-                selectedAnticipatoryAnxiety = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.suddenSyncope:  //54
-                selectedSuddenSyncope = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.morbidContemplation:  //55
-                selectedMorbidContemplation = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.glossophobia:  //56
-                selectedGlossophobia = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.palpitations:  //57
-                selectedPalpitations = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.immobility:  //58
-                selectedImmobility = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.anxietyAboutAnxiety:  //59
-                selectedAnxietyAboutAnxiety = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.OCD:  //60
-                selectedOCD = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.socialAnxiety:  //61
-                selectedSocialAnxiety = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.ritualisticBehavior:  //62
-                selectedRitualisticBehavior = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.nighttimeAnxiety:  //63
-                selectedNighttimeAnxiety = getSelectedValuePosition(selectedValue);
-                break;
-            case R.id.separationAnxiety1:  //64
-                selectedSeparationAnxiety1 = getSelectedValuePosition(selectedValue);
-                break;
-
-            case R.id.restlessness:  //65
-                selectedRestlessness = getSelectedValuePosition(selectedValue);
-                break;
+        if (group.getId() == R.id.crossCheckOCD) {
+            selectedCrossCheckOCD = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.scaryWhileSleep) {
+            selectedScaryWhileSleep = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.afraidGoingSchool) {
+            selectedAfraidGoingSchool = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.noEnergy) {
+            selectedNoEnergy = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.feelingFoolish) {
+            selectedFeelingFoolish = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.feelingTired) {
+            selectedFeelingTired = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.negativeThoughts) {
+            selectedNegativeThoughts = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.removeBadThoughtfromHead) {
+            selectedRemoveBadThoughtfromHead = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.heartBeatHigh) {
+            selectedHeartBeatHigh = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.cantThink) {
+            selectedCantThink = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.shevirinhg) {
+            selectedShevirinhg = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.feelingWorthless) {
+            selectedFeelingWorthless = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.badHallucination) {
+            selectedBadHallucination = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.feelingShaky) {
+            selectedFeelingShaky = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.afraidOfMistakes) {
+            selectedAfraidOfMistakes = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.superstition) {
+            selectedSuperstition = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.socialAnxietyDisorder) {
+            selectedSocialAnxietyDisorder = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.agoraphobia) {
+            selectedAgoraphobia = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.apprehension) {
+            selectedApprehension = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.anticipatoryAnxiety) {
+            selectedAnticipatoryAnxiety = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.suddenSyncope) {
+            selectedSuddenSyncope = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.morbidContemplation) {
+            selectedMorbidContemplation = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.glossophobia) {
+            selectedGlossophobia = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.palpitations) {
+            selectedPalpitations = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.immobility) {
+            selectedImmobility = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.anxietyAboutAnxiety) {
+            selectedAnxietyAboutAnxiety = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.OCD) {
+            selectedOCD = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.socialAnxiety) {
+            selectedSocialAnxiety = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.ritualisticBehavior) {
+            selectedRitualisticBehavior = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.nighttimeAnxiety) {
+            selectedNighttimeAnxiety = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.separationAnxiety1) {
+            selectedSeparationAnxiety1 = getSelectedValuePosition(selectedValue);
+        } else if (group.getId() == R.id.restlessness) {
+            selectedRestlessness = getSelectedValuePosition(selectedValue);
         }
     }
 

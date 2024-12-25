@@ -77,16 +77,13 @@ public class Section5jActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selecteothersProduct = selectedValue;
             Log.d("selecteothersProduct", "Selected value: " + selecteothersProduct);
-            switch (checkedId) {
-                case R.id.yes266j:
-                    binding.othersProductsQueAll.setVisibility(View.VISIBLE);
-                    binding.Specify1.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.othersProductsQueAll.setVisibility(View.GONE);
-                    binding.Specify1.setVisibility(View.GONE);
-                    binding.Specify1.setText("");
-                    break;
+            if (checkedId == R.id.yes266j) {
+                binding.othersProductsQueAll.setVisibility(View.VISIBLE);
+                binding.Specify1.setVisibility(View.VISIBLE);
+            } else {
+                binding.othersProductsQueAll.setVisibility(View.GONE);
+                binding.Specify1.setVisibility(View.GONE);
+                binding.Specify1.setText("");
             }
         });
         binding.alcoholProduct167j.setOnCheckedChangeListener((group, checkedId) -> {
@@ -94,23 +91,20 @@ public class Section5jActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selecteothersProduct = selectedValue;
             Log.d("selecteothersProduct", "Selected value: " + selecteothersProduct);
-            switch (checkedId) {
-                case R.id.never67j:
-                    binding.tobaccoQues68j.setVisibility(View.GONE);
-                    binding.tobaccoQues68jRb.setVisibility(View.GONE);
-                    binding.tobaccoQues69j.setVisibility(View.GONE);
-                    binding.tobaccoQues69jRb.setVisibility(View.GONE);
-                    binding.tobaccoQues70j.setVisibility(View.GONE);
-                    binding.tobaccoQues70jRb.setVisibility(View.GONE);
-                    break;
-                default:
-                    binding.tobaccoQues68j.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues68jRb.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues69j.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues69jRb.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues70j.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues70jRb.setVisibility(View.VISIBLE);
-                    break;
+            if (checkedId == R.id.never67j) {
+                binding.tobaccoQues68j.setVisibility(View.GONE);
+                binding.tobaccoQues68jRb.setVisibility(View.GONE);
+                binding.tobaccoQues69j.setVisibility(View.GONE);
+                binding.tobaccoQues69jRb.setVisibility(View.GONE);
+                binding.tobaccoQues70j.setVisibility(View.GONE);
+                binding.tobaccoQues70jRb.setVisibility(View.GONE);
+            } else {
+                binding.tobaccoQues68j.setVisibility(View.VISIBLE);
+                binding.tobaccoQues68jRb.setVisibility(View.VISIBLE);
+                binding.tobaccoQues69j.setVisibility(View.VISIBLE);
+                binding.tobaccoQues69jRb.setVisibility(View.VISIBLE);
+                binding.tobaccoQues70j.setVisibility(View.VISIBLE);
+                binding.tobaccoQues70jRb.setVisibility(View.VISIBLE);
             }
         });
 
@@ -119,14 +113,7 @@ public class Section5jActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == -1) return;
                 RadioButton radioButton = findViewById(checkedId);
-                switch (radioButton.getId()) {
-                    case R.id.no18:
-                        break;
-                    case R.id.yes32:
-                        break;
-                    case R.id.yes33:
-                        break;
-                }
+
 
             }
         });

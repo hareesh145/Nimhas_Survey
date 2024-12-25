@@ -117,8 +117,8 @@ public class Section3bActivity extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(Constants.DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         maritalState = getIntent().getStringExtra(MARITAL_STATUS);
-        ActivityCompat.requestPermissions( this,
-                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             OnGPS();
@@ -260,15 +260,12 @@ public class Section3bActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedTobacco = selectedValue;
             Log.d("selectedAnswerType1", "Selected value: " + selectedTobacco);
-            switch (checkedId) {
-                case R.id.yes:
-                    binding.mentalLayout.setVisibility(View.VISIBLE);
-                    binding.specify4layout.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.mentalLayout.setVisibility(View.GONE);
-                    binding.specify4layout.setVisibility(View.GONE);
-                    break;
+            if (checkedId == R.id.yes) {
+                binding.mentalLayout.setVisibility(View.VISIBLE);
+                binding.specify4layout.setVisibility(View.VISIBLE);
+            } else {
+                binding.mentalLayout.setVisibility(View.GONE);
+                binding.specify4layout.setVisibility(View.GONE);
             }
         });
         binding.answerType2.setOnCheckedChangeListener((group, checkedId) -> {
@@ -276,13 +273,10 @@ public class Section3bActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedAnswerType2 = selectedValue;
             Log.d("selectedAnswerType2", "Selected value: " + selectedAnswerType2);
-            switch (checkedId) {
-                case R.id.yes1:
-                    binding.section17A.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.no1:
-                    binding.section17A.setVisibility(View.GONE);
-                    break;
+            if (checkedId == R.id.yes1) {
+                binding.section17A.setVisibility(View.VISIBLE);
+            } else if (checkedId == R.id.no1) {
+                binding.section17A.setVisibility(View.GONE);
             }
         });
         binding.alcohol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -459,7 +453,7 @@ public class Section3bActivity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 Intent intent = new Intent(activity, Section3Mentalillness.class);
                 Log.e("TAG", "onResponse: " + response.body().getAsJsonObject().get("houseHoldId"));
-                householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
+                householdid = response.body().getAsJsonObject().get("houseHoldId").toString();
                 int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                 if (familyCount == 0) {
                     PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
@@ -472,7 +466,7 @@ public class Section3bActivity extends AppCompatActivity {
                 intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
                 intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
                 intent.putExtra(REPEAT_COUNT, repeatCount - 1);
-                intent.putExtra(House_Hold_Model,householdid);
+                intent.putExtra(House_Hold_Model, householdid);
                 startActivity(intent);
             }
 
@@ -657,7 +651,7 @@ public class Section3bActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     Intent intent = new Intent(activity, ResultPage.class);
-                    householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
+                    householdid = response.body().getAsJsonObject().get("houseHoldId").toString();
                     int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                     if (familyCount == 0) {
                         if (!binding.NoOfPeople.getText().toString().isEmpty()) {
@@ -676,7 +670,7 @@ public class Section3bActivity extends AppCompatActivity {
                         intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
                     }
                     intent.putExtra(REPEAT_COUNT, repeatCount - 1);
-                    intent.putExtra(House_Hold_Model,householdid);
+                    intent.putExtra(House_Hold_Model, householdid);
                     startActivity(intent);
                 }
 
@@ -754,7 +748,7 @@ public class Section3bActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     Intent intent = new Intent(activity, Section3bActivity.class);
-                    householdid =response.body().getAsJsonObject().get("houseHoldId").toString();
+                    householdid = response.body().getAsJsonObject().get("houseHoldId").toString();
                     int familyCount = PreferenceConnector.readInteger(Section3bActivity.this, FAMILY_COUNT, 0);
                     if (familyCount == 0) {
                         PreferenceConnector.writeInteger(Section3bActivity.this, FAMILY_COUNT, Integer.parseInt(binding.NoOfPeople.getText().toString()) - 1);
@@ -767,7 +761,7 @@ public class Section3bActivity extends AppCompatActivity {
                     intent.putExtra(NO_OF_PEOPLE, Integer.parseInt(binding.NoOfPeople.getText().toString()));
                     intent.putExtra(LINE_NO, Integer.parseInt(binding.lineNo.getText().toString()) + 1);
                     intent.putExtra(REPEAT_COUNT, repeatCount - 1);
-                    intent.putExtra(House_Hold_Model,householdid);
+                    intent.putExtra(House_Hold_Model, householdid);
                     startActivity(intent);
                 }
 
@@ -780,9 +774,10 @@ public class Section3bActivity extends AppCompatActivity {
 
 
     }
+
     private void OnGPS() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
+        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -796,9 +791,10 @@ public class Section3bActivity extends AppCompatActivity {
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
     private void getLocation() {
         if (ActivityCompat.checkSelfPermission(
-                this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         } else {
@@ -808,13 +804,14 @@ public class Section3bActivity extends AppCompatActivity {
                 double longi = locationGPS.getLongitude();
                 latitude = String.valueOf(lat);
                 longitude = String.valueOf(longi);
-               Log.e("latitude","latitude"+latitude);
-                Log.e("longitude","longitude"+longitude);
+                Log.e("latitude", "latitude" + latitude);
+                Log.e("longitude", "longitude" + longitude);
             } else {
                 Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
     @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {

@@ -126,14 +126,11 @@ public class Section3aActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
             Log.d("selectedCaste", "Selected value: " + selectedCaste);
-            switch (checkedId) {
-                case R.id.other_religion:
-                    binding.Specify.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.Specify.setVisibility(View.GONE);
-                    binding.Specify.setText("");
-                    break;
+            if (checkedId == R.id.other_religion) {
+                binding.Specify.setVisibility(View.VISIBLE);
+            } else {
+                binding.Specify.setVisibility(View.GONE);
+                binding.Specify.setText("");
             }
         });
         AnswerType.setOnCheckedChangeListener((group, checkedId) -> {
@@ -155,22 +152,21 @@ public class Section3aActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedMaritalStatus = selectedValue;
             Log.d("selectedMaritalStatus", "Selected value: " + selectedMaritalStatus);
-            switch (checkedId) {
-                case R.id.other:
-                    binding.Specify2.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.NotMarried:
-                    binding.que5Layout.setVisibility(View.GONE);
-                    binding.que4Layout.setVisibility(View.GONE);
-                    binding.Specify2.setText("");
-                    break;
-                default:
-                    binding.Specify2.setVisibility(View.GONE);
-                    binding.que5Layout.setVisibility(View.VISIBLE);
-                    binding.que4Layout.setVisibility(View.VISIBLE);
-                    binding.Specify2.setText("");
-                    break;
+
+            if (checkedId == R.id.other) {
+                binding.Specify2.setVisibility(View.VISIBLE);
+            } else if (checkedId == R.id.NotMarried) {
+                binding.que5Layout.setVisibility(View.GONE);
+                binding.que4Layout.setVisibility(View.GONE);
+                binding.Specify2.setText("");
+            }else {
+                binding.Specify2.setVisibility(View.GONE);
+                binding.que5Layout.setVisibility(View.VISIBLE);
+                binding.que4Layout.setVisibility(View.VISIBLE);
+                binding.Specify2.setText("");
             }
+
+
         });
         YesOrNo.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);

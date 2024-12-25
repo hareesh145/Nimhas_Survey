@@ -89,7 +89,7 @@ public class ChildrenResult extends AppCompatActivity {
         demoGraphicsID = getIntent().getLongExtra(DEMO_GRAPHIC_ID, -1);
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         ageValue = getIntent().getStringExtra(Constants.AGE_ID);
-        root=new PendingListModel();
+        root = new PendingListModel();
         section5_status = getIntent().getBooleanExtra("section5_status", false);
         ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
         rCards5Result = PreferenceConnector.readString(this, RCADS5_1_RESULT, "0");
@@ -103,27 +103,51 @@ public class ChildrenResult extends AppCompatActivity {
                 selectedResultCode = selectedValue;
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
-                switch (checkedId) {
-                    case R.id.completed:
-                        JsonObject jsonObject =new JsonObject();
-                        jsonObject.addProperty("childStatus","Interview Completed");
-                        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterface.putStatus(eligibleResponse.houseHoldId,jsonObject, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                binding.specify1.setVisibility(View.GONE);
+                binding.nextVisitDateTime.setVisibility(View.GONE);
+                binding.specify1.setText("");
+                binding.date3.setText("");
+                binding.time.setText("");
+
+                JsonObject jsonObject = new JsonObject();
+                String message = "";
+
+                if (checkedId == R.id.completed) {
+                    jsonObject.addProperty("childStatus", "Interview Completed");
+                    message = "Interview Completed";
+                } else if (checkedId == R.id.refused) {
+                    jsonObject.addProperty("childStatus", "Refused");
+                    message = "Refused to take part";
+                    binding.specify1.setVisibility(View.VISIBLE);
+                } else if (checkedId == R.id.partiallyCompleted) {
+                    jsonObject.addProperty("childStatus", "Interview Partially Completed");
+                    message = "Interview Partially Completed";
+                    binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                } else if (checkedId == R.id.pending) {
+                    jsonObject.addProperty("childStatus", "Interview Pending");
+                    message = "Interview Pending";
+                }
+
+                if (!jsonObject.has("childStatus")) {
+                    return; // Exit if no valid option is selected
+                }
+
+                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+                String finalMessage = message;
+                apiInterface.putStatus(eligibleResponse.houseHoldId, jsonObject,
+                                PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, ""))
+                        .enqueue(new Callback<JsonObject>() {
 
                             @Override
                             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                                 binding.progressBar.setVisibility(View.GONE);
                                 try {
                                     JsonObject userResponse = response.body();
-                                    userResponse.toString();
-                                    if (response.isSuccessful()) {
+                                    if (response.isSuccessful() && userResponse != null) {
+                                        String parent = String.valueOf(userResponse.get("parentStatus"));
+                                        parentstatus = parent.substring(1, parent.length() - 1);
                                         Log.d("response", "onResponse: " + userResponse);
-
-                                       String parent = String.valueOf(userResponse.get("parentStatus"));
-                                        parentstatus = parent.substring( 1, parent.length() - 1 );
-                                        Log.e("parentStatus","parentStatus :"+parentstatus);
-                                        Log.e("eligibleResponse.houseHoldId ","eligibleResponse.houseHoldId : "+eligibleResponse.houseHoldId);
-                                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), finalMessage, Toast.LENGTH_LONG).show();
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -132,116 +156,10 @@ public class ChildrenResult extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
-                        break;
-                    case R.id.refused:
-                        binding.specify1.setVisibility(View.VISIBLE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        JsonObject jsonObjectrefused =new JsonObject();
-                        jsonObjectrefused.addProperty("childStatus","Refused");
-                        ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                                 binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponserefused = response.body();
-                                    if (response.isSuccessful()) {
-                                        String parent = String.valueOf(userResponserefused.get("parentStatus"));
-                                        parentstatus = parent.substring( 1, parent.length() - 1 );
-                                        Log.d("response", "onResponse: " + userResponserefused);
-                                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
+                                Log.e("Error", "Request failed", t);
                             }
                         });
-                        break;
-                    case R.id.partiallyCompleted:
-                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        JsonObject jsonObjectpartiallyCompleted =new JsonObject();
-                        jsonObjectpartiallyCompleted.addProperty("childStatus","Interview Partially Completed");
-                        ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponsepartiallyCompleted = response.body();
-                                    if (response.isSuccessful()) {
-                                        String parent = String.valueOf(userResponsepartiallyCompleted.get("parentStatus"));
-                                        parentstatus = parent.substring( 1, parent.length() - 1 );
-                                        Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
-                                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
-                        break;
-                    case R.id.pending:
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        JsonObject jsonObjectpartially =new JsonObject();
-                        jsonObjectpartially.addProperty("childStatus","Interview Pending");
-                        ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ChildrenResult.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
-
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponsepartially = response.body();
-                                    if (response.isSuccessful()) {
-                                        String parent = String.valueOf(userResponsepartially.get("parentStatus"));
-                                        parentstatus = parent.substring( 1, parent.length() - 1 );
-                                        Log.d("response", "onResponse: " + userResponsepartially);
-                                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
-                        break;
-                    default:
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        break;
-
-
-                }
 
             }
 
@@ -293,7 +211,7 @@ public class ChildrenResult extends AppCompatActivity {
                 if (parentstatus != null) {
 
                     if (parentstatus.equals("Interview Completed")) {
-                        Log.e("parentStatus","parentStatus if nu:"+parentstatus);
+                        Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
                         Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
                         intent.putExtra(AGE_ID, ageValue);
                         intent.putExtra(SURVEY_ID, surveyID);
@@ -303,7 +221,7 @@ public class ChildrenResult extends AppCompatActivity {
                         intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                         startActivity(intent);
                     } else {
-                        Log.e("parentStatus","parentStatus els null:"+parentstatus);
+                        Log.e("parentStatus", "parentStatus els null:" + parentstatus);
                         Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
                         intent.putExtra(AGE_ID, ageValue);
                         intent.putExtra(SURVEY_ID, surveyID);
@@ -313,8 +231,8 @@ public class ChildrenResult extends AppCompatActivity {
                         intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
                         startActivity(intent);
                     }
-                }else {
-                    Log.e("parentStatus","parentStatus null k:"+parentstatus);
+                } else {
+                    Log.e("parentStatus", "parentStatus null k:" + parentstatus);
                     Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
                     intent.putExtra(AGE_ID, ageValue);
                     intent.putExtra(SURVEY_ID, surveyID);
@@ -330,40 +248,40 @@ public class ChildrenResult extends AppCompatActivity {
             return;
         }
         //checkStatusIsRefused();
-         if (parentstatus != null) {
+        if (parentstatus != null) {
 
-             if (parentstatus.equals("Interview Completed")) {
-                 Log.e("parentStatus","parentStatus if nu:"+parentstatus);
-                 Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
-                 intent.putExtra(AGE_ID, ageValue);
-                 intent.putExtra(SURVEY_ID, surveyID);
-                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                 intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                 intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                 startActivity(intent);
-             } else {
-                 Log.e("parentStatus","parentStatus els null:"+parentstatus);
-                 Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
-                 intent.putExtra(AGE_ID, ageValue);
-                 intent.putExtra(SURVEY_ID, surveyID);
-                 intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-                 intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-                 intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-                 intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-                 startActivity(intent);
-             }
-         }else {
-             Log.e("parentStatus","parentStatus null k:"+parentstatus);
-             Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
-             intent.putExtra(AGE_ID, ageValue);
-             intent.putExtra(SURVEY_ID, surveyID);
-             intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
-             intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
-             intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
-             intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
-             startActivity(intent);
-         }
+            if (parentstatus.equals("Interview Completed")) {
+                Log.e("parentStatus", "parentStatus if nu:" + parentstatus);
+                Intent intent = new Intent(ChildrenResult.this, ActivitySurvey.class);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
+            } else {
+                Log.e("parentStatus", "parentStatus els null:" + parentstatus);
+                Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+                intent.putExtra(AGE_ID, ageValue);
+                intent.putExtra(SURVEY_ID, surveyID);
+                intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+                intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+                intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+                intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+                startActivity(intent);
+            }
+        } else {
+            Log.e("parentStatus", "parentStatus null k:" + parentstatus);
+            Intent intent = new Intent(ChildrenResult.this, Section6Activity.class);
+            intent.putExtra(AGE_ID, ageValue);
+            intent.putExtra(SURVEY_ID, surveyID);
+            intent.putExtra(DEMO_GRAPHIC_ID, demoGraphicsID);
+            intent.putExtra(ELIGIBLE_RESPONDENT, eligibleResponse);
+            intent.putExtra(SURVEY_SECTION3C, serveySection3cRequest);
+            intent.putExtra(NO_OF_CHILDERNS, getIntent().getIntExtra(NO_OF_CHILDERNS, -1));
+            startActivity(intent);
+        }
 
     }
 

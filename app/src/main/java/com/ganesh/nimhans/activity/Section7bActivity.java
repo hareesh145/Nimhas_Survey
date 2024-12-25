@@ -94,28 +94,25 @@ public class Section7bActivity extends AppCompatActivity {
         binding.rcadsScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  checkRCADSScore();
+                //  checkRCADSScore();
             }
         });
 
         binding.iasqRespondendtGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.mother_btn:
-                        respondentTxt = "Mother";
-                        binding.iasqRespondendtTxt.setVisibility(View.GONE);
-                        binding.iasqRespondendtTxt.setText("");
-                        break;
-                    case R.id.father_btn:
-                        respondentTxt = "Father";
-                        binding.iasqRespondendtTxt.setVisibility(View.GONE);
-                        binding.iasqRespondendtTxt.setText("");
-                        break;
-                    case R.id.gaurdian_btn:
-                        respondentTxt = "Guardian";
-                        binding.iasqRespondendtTxt.setVisibility(View.VISIBLE);
-                        break;
+
+                if (checkedId == R.id.mother_btn) {
+                    respondentTxt = "Mother";
+                    binding.iasqRespondendtTxt.setVisibility(View.GONE);
+                    binding.iasqRespondendtTxt.setText("");
+                } else if (checkedId == R.id.father_btn) {
+                    respondentTxt = "Father";
+                    binding.iasqRespondendtTxt.setVisibility(View.GONE);
+                    binding.iasqRespondendtTxt.setText("");
+                } else if (checkedId == R.id.gaurdian_btn) {
+                    respondentTxt = "Guardian";
+                    binding.iasqRespondendtTxt.setVisibility(View.VISIBLE);
                 }
             }
         });

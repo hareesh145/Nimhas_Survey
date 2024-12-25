@@ -189,35 +189,29 @@ public class Section13Activity extends AppCompatActivity {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
-            switch (checkedId) {
-                case R.id.yes:
-                    binding.checkbox227.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.checkbox227.setVisibility(View.GONE);
-                    binding.TravelBenefit.setChecked(false);
-                    binding.specialSchools.setChecked(false);
-                    binding.HealthInsurance.setChecked(false);
-                    binding.incomeTax.setChecked(false);
-                    binding.others222.setChecked(false);
-                    break;
+            if (checkedId == R.id.yes) {
+                binding.checkbox227.setVisibility(View.VISIBLE);
+            } else {
+                binding.checkbox227.setVisibility(View.GONE);
+                binding.TravelBenefit.setChecked(false);
+                binding.specialSchools.setChecked(false);
+                binding.HealthInsurance.setChecked(false);
+                binding.incomeTax.setChecked(false);
+                binding.others222.setChecked(false);
             }
         });
         binding.yesNo228.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
-            switch (checkedId) {
-                case R.id.yes228:
-                    binding.checkbox228.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.checkbox228.setVisibility(View.GONE);
-                    binding.NationalTrust.setChecked(false);
-                    binding.act2016.setChecked(false);
-                    binding.act2017.setChecked(false);
-                    binding.act2015.setChecked(false);
-                    break;
+            if (checkedId == R.id.yes228) {
+                binding.checkbox228.setVisibility(View.VISIBLE);
+            } else {
+                binding.checkbox228.setVisibility(View.GONE);
+                binding.NationalTrust.setChecked(false);
+                binding.act2016.setChecked(false);
+                binding.act2017.setChecked(false);
+                binding.act2015.setChecked(false);
             }
         });
     }
@@ -367,17 +361,16 @@ public class Section13Activity extends AppCompatActivity {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
         // Check which checkbox was clicked
-        switch (view.getId()) {
-            case R.id.others_222:
-                if (checked) {
-                    binding.othersSpecify222.setVisibility(View.VISIBLE);
-                } else {
-                    binding.othersSpecify222.setVisibility(View.GONE);
-                    binding.othersSpecify222.setText("");
-                }
-                // Do your coding
+        if (view.getId() == R.id.others_222) {
+            if (checked) {
+                binding.othersSpecify222.setVisibility(View.VISIBLE);
+            } else {
+                binding.othersSpecify222.setVisibility(View.GONE);
+                binding.othersSpecify222.setText("");
+            }
+            // Do your coding
 
-                // Perform your logic
+            // Perform your logic
         }
 
     }

@@ -72,31 +72,27 @@ public class Section12BActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
             Log.d("selectedCaste", "Selected value: " + selectedCaste);
-            switch (checkedId) {
-                case R.id.often2:
-                    binding.Specify1.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.Specify1.setVisibility(View.GONE);
-                    binding.Specify1.setText("");
-                    break;
+
+
+            if (checkedId == R.id.often2) {
+                binding.Specify1.setVisibility(View.VISIBLE);
+            } else {
+                binding.Specify1.setVisibility(View.GONE);
+                binding.Specify1.setText("");
             }
         });
         binding.problemMother.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton radioButton = findViewById(checkedId);
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
-            switch (checkedId) {
-                case R.id.yes_mother:
-                    binding.checkboxProblem.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.checkboxProblem.setVisibility(View.GONE);
-                    binding.HypertensionHighBP.setChecked(false);
-                    binding.DiabetesMellitus.setChecked(false);
-                    binding.Infections.setChecked(false);
-                    binding.SeizuresConvulsions.setChecked(false);
-                    break;
+            if (checkedId == R.id.yes_mother) {
+                binding.checkboxProblem.setVisibility(View.VISIBLE);
+            } else {
+                binding.checkboxProblem.setVisibility(View.GONE);
+                binding.HypertensionHighBP.setChecked(false);
+                binding.DiabetesMellitus.setChecked(false);
+                binding.Infections.setChecked(false);
+                binding.SeizuresConvulsions.setChecked(false);
             }
         });
         binding.PARENTSGUARDIAN.setOnCheckedChangeListener((group, checkedId) -> {
@@ -104,14 +100,11 @@ public class Section12BActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             stringParent_guardian = selectedValue;
             Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
-            switch (checkedId) {
-                case R.id.guardian_rb:
-                    binding.specifyRespo.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.specifyRespo.setVisibility(View.GONE);
-                    binding.specifyRespo.setText("");
-                    break;
+            if (checkedId == R.id.guardian_rb) {
+                binding.specifyRespo.setVisibility(View.VISIBLE);
+            } else {
+                binding.specifyRespo.setVisibility(View.GONE);
+                binding.specifyRespo.setText("");
             }
         });
         binding.noFunyes.setOnCheckedChangeListener((group, checkedId) -> {
@@ -119,14 +112,11 @@ public class Section12BActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedCaste = selectedValue;
             Log.d("selectedCaste", "Selected value: " + selectedCaste);
-            switch (checkedId) {
-                case R.id.never3:
-                    binding.Specify2.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.Specify2.setVisibility(View.GONE);
-                    binding.Specify2.setText("");
-                    break;
+            if (checkedId == R.id.never3) {
+                binding.Specify2.setVisibility(View.VISIBLE);
+            } else {
+                binding.Specify2.setVisibility(View.GONE);
+                binding.Specify2.setText("");
             }
         });
     }

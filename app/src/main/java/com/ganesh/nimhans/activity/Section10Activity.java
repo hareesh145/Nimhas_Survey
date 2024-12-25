@@ -67,19 +67,16 @@ public class Section10Activity extends AppCompatActivity {
         binding.section10RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.mother_btn:
-                        respondentTxt = "Mother";
-                        binding.section10Respondent.setVisibility(View.GONE);
-                        break;
-                    case R.id.father_btn:
-                        respondentTxt = "Father";
-                        binding.section10Respondent.setVisibility(View.GONE);
-                        break;
-                    case R.id.gaurdian_btn:
-                        respondentTxt = "Guardian";
-                        binding.section10Respondent.setVisibility(View.VISIBLE);
-                        break;
+
+                if (checkedId == R.id.mother_btn) {
+                    respondentTxt = "Mother";
+                    binding.section10Respondent.setVisibility(View.GONE);
+                } else if (checkedId == R.id.father_btn) {
+                    respondentTxt = "Father";
+                    binding.section10Respondent.setVisibility(View.GONE);
+                } else if (checkedId == R.id.gaurdian_btn) {
+                    respondentTxt = "Guardian";
+                    binding.section10Respondent.setVisibility(View.VISIBLE);
                 }
             }
         });

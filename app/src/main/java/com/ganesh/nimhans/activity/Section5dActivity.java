@@ -75,13 +75,10 @@ public class Section5dActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedcocaineProduct = selectedValue;
             Log.d("selectedcocaineProduct", "Selected value: " + selectedcocaineProduct);
-            switch (checkedId) {
-                case R.id.yes266d:
-                    binding.cocaineProductsQueAll.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.cocaineProductsQueAll.setVisibility(View.GONE);
-                    break;
+            if (checkedId == R.id.yes266d) {
+                binding.cocaineProductsQueAll.setVisibility(View.VISIBLE);
+            } else {
+                binding.cocaineProductsQueAll.setVisibility(View.GONE);
             }
         });
         binding.alcoholProduct167d.setOnCheckedChangeListener((group, checkedId) -> {
@@ -89,23 +86,20 @@ public class Section5dActivity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedcocaineProduct = selectedValue;
             Log.d("selectedcocaineProduct", "Selected value: " + selectedcocaineProduct);
-            switch (checkedId) {
-                case R.id.never67d:
-                    binding.tobaccoQues68d.setVisibility(View.GONE);
-                    binding.tobaccoQues68dRb.setVisibility(View.GONE);
-                    binding.tobaccoQues69d.setVisibility(View.GONE);
-                    binding.tobaccoQues69dRb.setVisibility(View.GONE);
-                    binding.tobaccoQues70d.setVisibility(View.GONE);
-                    binding.tobaccoQues70dRb.setVisibility(View.GONE);
-                    break;
-                default:
-                    binding.tobaccoQues68d.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues68dRb.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues69d.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues69dRb.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues70d.setVisibility(View.VISIBLE);
-                    binding.tobaccoQues70dRb.setVisibility(View.VISIBLE);
-                    break;
+            if (checkedId == R.id.never67d) {
+                binding.tobaccoQues68d.setVisibility(View.GONE);
+                binding.tobaccoQues68dRb.setVisibility(View.GONE);
+                binding.tobaccoQues69d.setVisibility(View.GONE);
+                binding.tobaccoQues69dRb.setVisibility(View.GONE);
+                binding.tobaccoQues70d.setVisibility(View.GONE);
+                binding.tobaccoQues70dRb.setVisibility(View.GONE);
+            } else {
+                binding.tobaccoQues68d.setVisibility(View.VISIBLE);
+                binding.tobaccoQues68dRb.setVisibility(View.VISIBLE);
+                binding.tobaccoQues69d.setVisibility(View.VISIBLE);
+                binding.tobaccoQues69dRb.setVisibility(View.VISIBLE);
+                binding.tobaccoQues70d.setVisibility(View.VISIBLE);
+                binding.tobaccoQues70dRb.setVisibility(View.VISIBLE);
             }
         });
     }

@@ -83,16 +83,13 @@ public class Section3Mentalillness extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedTobacco = selectedValue;
             Log.d("selectedAnswerType1", "Selected value: " + selectedTobacco);
-            switch (checkedId) {
-                case R.id.yes:
-                    binding.mentalLayout.setVisibility(View.VISIBLE);
-                    binding.specify4layout.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.mentalLayout.setVisibility(View.GONE);
-                    binding.specify4layout.setVisibility(View.GONE);
-                    binding.Specify4.setText("");
-                    break;
+            if (checkedId == R.id.yes) {
+                binding.mentalLayout.setVisibility(View.VISIBLE);
+                binding.specify4layout.setVisibility(View.VISIBLE);
+            } else {
+                binding.mentalLayout.setVisibility(View.GONE);
+                binding.specify4layout.setVisibility(View.GONE);
+                binding.Specify4.setText("");
             }
         });
         binding.answerType2.setOnCheckedChangeListener((group, checkedId) -> {
@@ -100,16 +97,14 @@ public class Section3Mentalillness extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             selectedAnswerType2 = selectedValue;
             Log.d("selectedAnswerType2", "Selected value: " + selectedAnswerType2);
-            switch (checkedId) {
-                case R.id.yes1:
-                    binding.section17A.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.no1:
-                    binding.section17A.setVisibility(View.GONE);
-                    binding.tobacco.setChecked(false);
-                    binding.alcohol.setChecked(false);
-                    binding.substanceUse.setChecked(false);
-                    break;
+
+            if (checkedId == R.id.yes1) {
+                binding.section17A.setVisibility(View.VISIBLE);
+            } else if (checkedId == R.id.no1) {
+                binding.section17A.setVisibility(View.GONE);
+                binding.tobacco.setChecked(false);
+                binding.alcohol.setChecked(false);
+                binding.substanceUse.setChecked(false);
             }
         });
         binding.alcohol.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

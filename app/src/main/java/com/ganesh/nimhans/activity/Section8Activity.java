@@ -78,19 +78,16 @@ public class Section8Activity extends AppCompatActivity {
         binding.respondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.mother_btn:
-                        respondentTxt = "Mother";
-                        binding.respondent.setVisibility(View.GONE);
-                        break;
-                    case R.id.father_btn:
-                        respondentTxt = "Father";
-                        binding.respondent.setVisibility(View.GONE);
-                        break;
-                    case R.id.gaurdian_btn:
-                        respondentTxt = "Guardian";
-                        binding.respondent.setVisibility(View.VISIBLE);
-                        break;
+
+                if (checkedId == R.id.mother_btn) {
+                    respondentTxt = "Mother";
+                    binding.respondent.setVisibility(View.GONE);
+                } else if (checkedId == R.id.father_btn) {
+                    respondentTxt = "Father";
+                    binding.respondent.setVisibility(View.GONE);
+                } else if (checkedId == R.id.gaurdian_btn) {
+                    respondentTxt = "Guardian";
+                    binding.respondent.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -165,84 +162,87 @@ public class Section8Activity extends AppCompatActivity {
     }
 
     private int getChecked108Value(int checkedRadioButtonId) {
-        switch (checkedRadioButtonId) {
-            case R.id.question_108_a:
-                return 1;
-            case R.id.question_108_e:
-                return 5;
-            case R.id.question_108_b:
-                return 2;
-            case R.id.question_108_c:
-                return 3;
-            case R.id.question_108_d:
-                return 4;
+
+        if (checkedRadioButtonId == R.id.question_108_a) {
+            return 1;
+        } else if (checkedRadioButtonId == R.id.question_108_e) {
+            return 5;
+        } else if (checkedRadioButtonId == R.id.question_108_b) {
+            return 2;
+        } else if (checkedRadioButtonId == R.id.question_108_c) {
+            return 3;
+        } else if (checkedRadioButtonId == R.id.question_108_d) {
+            return 4;
         }
         return 0;
     }
 
 
     private int getChecked109Value(int checkedRadioButtonId) {
-        switch (checkedRadioButtonId) {
-            case R.id.question_109_a:
-                return 1;
-            case R.id.question_109_e:
-                return 5;
-            case R.id.question_109_b:
-                return 2;
-            case R.id.question_109_c:
-                return 3;
-            case R.id.question_109_d:
-                return 4;
+        if (checkedRadioButtonId == R.id.question_109_a) {
+            return 1;
+        } else if (checkedRadioButtonId == R.id.question_109_e) {
+            return 5;
+        } else if (checkedRadioButtonId == R.id.question_109_b) {
+            return 2;
+        } else if (checkedRadioButtonId == R.id.question_109_c) {
+            return 3;
+        } else if (checkedRadioButtonId == R.id.question_109_d) {
+            return 4;
+        } else {
+            return 0;
         }
-        return 0;
+
     }
 
     private int getChecked110Value(int checkedRadioButtonId) {
-        switch (checkedRadioButtonId) {
-            case R.id.question_110_a:
-                return 1;
-            case R.id.question_110_e:
-                return 5;
-            case R.id.question_110_b:
-                return 2;
-            case R.id.question_110_c:
-                return 3;
-            case R.id.question_110_d:
-                return 4;
+        if (checkedRadioButtonId == R.id.question_110_a) {
+            return 1;
+        } else if (checkedRadioButtonId == R.id.question_110_e) {
+            return 5;
+        } else if (checkedRadioButtonId == R.id.question_110_b) {
+            return 2;
+        } else if (checkedRadioButtonId == R.id.question_110_c) {
+            return 3;
+        } else if (checkedRadioButtonId == R.id.question_110_d) {
+            return 4;
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     private int getChecked111Value(int checkedRadioButtonId) {
-        switch (checkedRadioButtonId) {
-            case R.id.question_111_a:
-                return 1;
-            case R.id.question_111_e:
-                return 5;
-            case R.id.question_111_b:
-                return 2;
-            case R.id.question_111_c:
-                return 3;
-            case R.id.question_111_d:
-                return 4;
+
+        if (checkedRadioButtonId == R.id.question_111_a) {
+            return 1;
+        } else if (checkedRadioButtonId == R.id.question_111_e) {
+            return 5;
+        } else if (checkedRadioButtonId == R.id.question_111_b) {
+            return 2;
+        } else if (checkedRadioButtonId == R.id.question_111_c) {
+            return 3;
+        } else if (checkedRadioButtonId == R.id.question_111_d) {
+            return 4;
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     private int getChecked112Value(int checkedRadioButtonId) {
-        switch (checkedRadioButtonId) {
-            case R.id.question_112_a:
-                return 1;
-            case R.id.question_112_e:
-                return 5;
-            case R.id.question_112_b:
-                return 2;
-            case R.id.question_112_c:
-                return 3;
-            case R.id.question_112_d:
-                return 4;
+
+        if (checkedRadioButtonId == R.id.question_112_a) {
+            return 1;
+        } else if (checkedRadioButtonId == R.id.question_112_e) {
+            return 5;
+        } else if (checkedRadioButtonId == R.id.question_112_b) {
+            return 2;
+        } else if (checkedRadioButtonId == R.id.question_112_c) {
+            return 3;
+        } else if (checkedRadioButtonId == R.id.question_112_d) {
+            return 4;
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     public void onClickNextSection(View v) {

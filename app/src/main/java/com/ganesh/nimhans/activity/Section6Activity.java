@@ -92,14 +92,11 @@ public class Section6Activity extends AppCompatActivity {
             String selectedValue = radioButton.getText().toString();
             stringParent_guardian = selectedValue;
             Log.d("selectedCaste", "Selected value: " + stringParent_guardian);
-            switch (checkedId) {
-                case R.id.guardian_rb:
-                    binding.specifyRespo.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    binding.specifyRespo.setVisibility(View.GONE);
-                    binding.specifyRespo.setText("");
-                    break;
+            if (checkedId == R.id.guardian_rb) {
+                binding.specifyRespo.setVisibility(View.VISIBLE);
+            } else {
+                binding.specifyRespo.setVisibility(View.GONE);
+                binding.specifyRespo.setText("");
             }
         });
     }

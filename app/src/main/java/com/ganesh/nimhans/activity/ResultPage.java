@@ -73,9 +73,9 @@ public class ResultPage extends AppCompatActivity {
         surveyID = getIntent().getIntExtra(SURVEY_ID, -1);
         isFromSection1 = getIntent().getBooleanExtra("isFromSection1", false);
         consentForStudy = getIntent().getStringExtra("consentForStudy");
-        householdid =getIntent().getStringExtra(House_Hold_Model);
-        householdidint =Integer.parseInt(householdid);
-        Log.e("House_Hold_Model","House_Hold_Model RP :"+householdidint);
+        householdid = getIntent().getStringExtra(House_Hold_Model);
+        householdidint = Integer.parseInt(householdid);
+        Log.e("House_Hold_Model", "House_Hold_Model RP :" + householdidint);
         binding.resultCode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -84,86 +84,51 @@ public class ResultPage extends AppCompatActivity {
                 selectedResultCode = selectedValue;
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
-                switch (checkedId) {
-                    case R.id.h:
-                        binding.commentResultCode.setVisibility(View.VISIBLE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        isInterviewcompleted = false;
-                        break;
-                    case R.id.c:
-                        binding.commentResultCode.setVisibility(View.VISIBLE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        isInterviewcompleted = false;
-                        Toast.makeText(activity, "Household Refused to take part", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.b:
-                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.commentResultCode.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        isInterviewcompleted = false;
-                        Toast.makeText(activity, "Interview Partially Completed/Postponed", Toast.LENGTH_SHORT).show();
+                if (checkedId == R.id.h) {
+                    binding.commentResultCode.setVisibility(View.VISIBLE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
+                    binding.date3.setText("");
+                    binding.time.setText("");
+                    isInterviewcompleted = false;
+                } else if (checkedId == R.id.c) {
+                    binding.commentResultCode.setVisibility(View.VISIBLE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
+                    binding.date3.setText("");
+                    binding.time.setText("");
+                    isInterviewcompleted = false;
+                    Toast.makeText(activity, "Household Refused to take part", Toast.LENGTH_SHORT).show();
+                } else if (checkedId == R.id.b) {
+                    binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                    binding.commentResultCode.setVisibility(View.GONE);
+                    binding.specify1.setText("");
+                    isInterviewcompleted = false;
+                    Toast.makeText(activity, "Interview Partially Completed/Postponed", Toast.LENGTH_SHORT).show();
 
-                        break;
-                    case R.id.d:
-                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.commentResultCode.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        isInterviewcompleted = false;
-                        break;
-                    case R.id.a:
-                        if (isFromSection1) {
-                            Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            binding.commentResultCode.setVisibility(View.GONE);
-                            binding.nextVisitDateTime.setVisibility(View.GONE);
-                            binding.specify1.setText("");
-                            binding.date3.setText("");
-                            binding.time.setText("");
-                            isInterviewcompleted = true;
-                           /* ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-                            HouseHoldModel houseHoldModel = new HouseHoldModel();
-                            houseHoldModel.setHouseHoldStatus("Interview Completed");
-                            Call<JsonObject> apiCall = apiInterface.saveHouseHold(surveyID, houseHoldModel, PreferenceConnector.readString(activity, PreferenceConnector.TOKEN, ""));
-
-                            apiCall.enqueue(new Callback<JsonObject>() {
-                                @Override
-                                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                   // Log.e("TAG", "onResponse: " + response.body().getAsJsonObject().get("houseHoldId"));
-                                    try {
-                                        JsonObject userResponsepartially = response.body();
-                                        if (response.isSuccessful()) {
-                                            Log.d("response", "onResponse: " + userResponsepartially);
-                                            Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
-                                        }
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-
-                                }
-
-                                @Override
-                                public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                                }
-                            });*/
-                        }
-                        break;
-                    default:
-                        isInterviewcompleted = false;
+                } else if (checkedId == R.id.d) {
+                    binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                    binding.commentResultCode.setVisibility(View.GONE);
+                    binding.specify1.setText("");
+                    isInterviewcompleted = false;
+                } else if (checkedId == R.id.a) {
+                    if (isFromSection1) {
+                        Toast.makeText(activity, "Thanks for participating in the survey", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
                         binding.commentResultCode.setVisibility(View.GONE);
                         binding.nextVisitDateTime.setVisibility(View.GONE);
                         binding.specify1.setText("");
                         binding.date3.setText("");
                         binding.time.setText("");
-                        break;
-
+                        isInterviewcompleted = true;
+                    }
+                } else {
+                    isInterviewcompleted = false;
+                    binding.commentResultCode.setVisibility(View.GONE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
+                    binding.specify1.setText("");
+                    binding.date3.setText("");
+                    binding.time.setText("");
                 }
-
             }
 
         });

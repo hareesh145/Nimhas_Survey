@@ -52,25 +52,19 @@ public class Section6Adapter extends RecyclerView.Adapter<Section6Adapter.Questi
             child_radio_grp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    switch (checkedId) {
-                        case R.id.child_strong_disagree:
-                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 1);
-                            break;
-                        case R.id.child_disagree_btn:
-                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 2);
-                            break;
-                        case R.id.child_neutral:
-                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 3);
-                            break;
-                        case R.id.child_agree:
-                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 4);
-                            break;
-                        case R.id.child_strong_agree:
-                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 5);
-                            break;
-                        default:
-                            activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 0);
-                            break;
+
+                    if (checkedId == R.id.child_strong_disagree) {
+                        activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 1);
+                    } else if (checkedId == R.id.child_disagree_btn) {
+                        activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 2);
+                    } else if (checkedId == R.id.child_neutral) {
+                        activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 3);
+                    } else if (checkedId == R.id.child_agree) {
+                        activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 4);
+                    } else if (checkedId == R.id.child_strong_agree) {
+                        activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 5);
+                    } else {
+                        activity.setQuestionOption(genericQuestions.get(getAdapterPosition()).questionNo, 0);
                     }
                 }
             });

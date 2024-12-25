@@ -88,18 +88,17 @@ public class Section12Activity extends AppCompatActivity {
         binding.section12RespondentGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.mother_btn:
-                        binding.section12Respondent.setVisibility(View.GONE);
-                        break;
-                    case R.id.father_btn:
-                        respondentTxt = "Father";
-                        binding.section12Respondent.setVisibility(View.GONE);
-                        break;
-                    case R.id.gaurdian_btn:
-                        respondentTxt = "Guardian";
-                        binding.section12Respondent.setVisibility(View.VISIBLE);
-                        break;
+
+
+                if (checkedId == R.id.mother_btn) {
+                    binding.section12Respondent.setVisibility(View.GONE);
+                } else if (checkedId == R.id.father_btn) {
+                    respondentTxt = "Father";
+                    binding.section12Respondent.setVisibility(View.GONE);
+                } else if (checkedId == R.id.gaurdian_btn) {
+                    respondentTxt = "Guardian";
+                    binding.section12Respondent.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -218,17 +217,16 @@ public class Section12Activity extends AppCompatActivity {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
         // Check which checkbox was clicked
-        switch (view.getId()) {
-            case R.id.others_218:
-                if (checked) {
-                    binding.othersSpecify218.setVisibility(View.VISIBLE);
-                } else {
-                    binding.othersSpecify218.setVisibility(View.GONE);
-                    binding.othersSpecify218.setText("");
-                }
-                // Do your coding
+        if (view.getId() == R.id.others_218) {
+            if (checked) {
+                binding.othersSpecify218.setVisibility(View.VISIBLE);
+            } else {
+                binding.othersSpecify218.setVisibility(View.GONE);
+                binding.othersSpecify218.setText("");
+            }
+            // Do your coding
 
-                // Perform your logic
+            // Perform your logic
         }
 
     }

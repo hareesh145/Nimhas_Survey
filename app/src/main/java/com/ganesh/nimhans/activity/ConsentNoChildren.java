@@ -87,7 +87,7 @@ public class ConsentNoChildren extends AppCompatActivity {
         ASSIST_screener = getIntent().getIntExtra("ASSIST_screener", 0);
         rCards5Result = PreferenceConnector.readString(this, RCADS5_1_RESULT, "0");
         rCards5_2_Result = PreferenceConnector.readString(this, RCADS5_2_RESULT, "0");
-        rCards5_3_Result  = PreferenceConnector.readString(this, RCADS5_3_RESULT, "0");
+        rCards5_3_Result = PreferenceConnector.readString(this, RCADS5_3_RESULT, "0");
         binding.interviewStatus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -96,110 +96,113 @@ public class ConsentNoChildren extends AppCompatActivity {
                 selectedResultCode = selectedValue;
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
-                switch (checkedId) {
-                    case R.id.completed:
-                        Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
-                        break;
-                    case R.id.refused:
-                        binding.specify1.setVisibility(View.VISIBLE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        JsonObject jsonObjectrefused =new JsonObject();
-                        jsonObjectrefused.addProperty("childStatus","Refused");
-                        ApiInterface apiInterfacerefused = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacerefused.putStatus(eligibleResponse.houseHoldId,jsonObjectrefused, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                if (checkedId == R.id.completed) {
+                    Toast.makeText(getApplicationContext(), "Interview Completed", Toast.LENGTH_LONG).show();
+                } else if (checkedId == R.id.refused) {
+                    binding.specify1.setVisibility(View.VISIBLE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
+                    binding.date3.setText("");
+                    binding.time.setText("");
 
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponserefused = response.body();
-                                    if (response.isSuccessful()) {
-                                        Log.d("response", "onResponse: " + userResponserefused);
-                                        Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                    JsonObject jsonObjectRefused = new JsonObject();
+                    jsonObjectRefused.addProperty("childStatus", "Refused");
+
+                    ApiInterface apiInterfaceRefused = ApiClient.getClient().create(ApiInterface.class);
+                    apiInterfaceRefused.putStatus(eligibleResponse.houseHoldId, jsonObjectRefused,
+                                    PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, ""))
+                            .enqueue(new Callback<JsonObject>() {
+                                @Override
+                                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                    binding.progressBar.setVisibility(View.GONE);
+                                    try {
+                                        JsonObject userResponseRefused = response.body();
+                                        if (response.isSuccessful()) {
+                                            Log.d("response", "onResponse: " + userResponseRefused);
+                                            Toast.makeText(getApplicationContext(), "Refused to take part", Toast.LENGTH_LONG).show();
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
+                                @Override
+                                public void onFailure(Call<JsonObject> call, Throwable t) {
+                                    // Handle failure
+                                }
+                            });
+                } else if (checkedId == R.id.partiallyCompleted) {
+                    binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                    binding.specify1.setVisibility(View.GONE);
+                    binding.specify1.setText("");
 
-                            }
-                        });
-                        break;
-                    case R.id.partiallyCompleted:
-                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        JsonObject jsonObjectpartiallyCompleted =new JsonObject();
-                        jsonObjectpartiallyCompleted.addProperty("childStatus","Interview Partially Completed");
-                        ApiInterface apiInterfacepartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacepartiallyCompleted.putStatus(eligibleResponse.houseHoldId,jsonObjectpartiallyCompleted, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                    JsonObject jsonObjectPartiallyCompleted = new JsonObject();
+                    jsonObjectPartiallyCompleted.addProperty("childStatus", "Interview Partially Completed");
 
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponsepartiallyCompleted = response.body();
-                                    if (response.isSuccessful()) {
-                                        Log.d("response", "onResponse: " + userResponsepartiallyCompleted);
-                                        Toast.makeText(getApplicationContext(), " Interview Partially Completed", Toast.LENGTH_LONG).show();
+                    ApiInterface apiInterfacePartiallyCompleted = ApiClient.getClient().create(ApiInterface.class);
+                    apiInterfacePartiallyCompleted.putStatus(eligibleResponse.houseHoldId, jsonObjectPartiallyCompleted,
+                                    PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, ""))
+                            .enqueue(new Callback<JsonObject>() {
+                                @Override
+                                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                    binding.progressBar.setVisibility(View.GONE);
+                                    try {
+                                        JsonObject userResponsePartiallyCompleted = response.body();
+                                        if (response.isSuccessful()) {
+                                            Log.d("response", "onResponse: " + userResponsePartiallyCompleted);
+                                            Toast.makeText(getApplicationContext(), "Interview Partially Completed", Toast.LENGTH_LONG).show();
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
+                                @Override
+                                public void onFailure(Call<JsonObject> call, Throwable t) {
+                                    // Handle failure
+                                }
+                            });
+                } else if (checkedId == R.id.pending) {
+                    binding.specify1.setVisibility(View.GONE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
+                    binding.specify1.setText("");
+                    binding.date3.setText("");
+                    binding.time.setText("");
 
-                            }
-                        });
-                        break;
-                    case R.id.pending:
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        JsonObject jsonObjectpartially =new JsonObject();
-                        jsonObjectpartially.addProperty("childStatus","Interview Pending");
-                        ApiInterface apiInterfacepartially = ApiClient.getClient().create(ApiInterface.class);
-                        apiInterfacepartially.putStatus(eligibleResponse.houseHoldId,jsonObjectpartially, PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, "")).enqueue(new Callback<JsonObject>() {
+                    JsonObject jsonObjectPending = new JsonObject();
+                    jsonObjectPending.addProperty("childStatus", "Interview Pending");
 
-                            @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                binding.progressBar.setVisibility(View.GONE);
-                                try {
-                                    JsonObject userResponsepartially = response.body();
-                                    if (response.isSuccessful()) {
-                                        Log.d("response", "onResponse: " + userResponsepartially);
-                                        Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                    ApiInterface apiInterfacePending = ApiClient.getClient().create(ApiInterface.class);
+                    apiInterfacePending.putStatus(eligibleResponse.houseHoldId, jsonObjectPending,
+                                    PreferenceConnector.readString(ConsentNoChildren.this, PreferenceConnector.TOKEN, ""))
+                            .enqueue(new Callback<JsonObject>() {
+                                @Override
+                                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                    binding.progressBar.setVisibility(View.GONE);
+                                    try {
+                                        JsonObject userResponsePending = response.body();
+                                        if (response.isSuccessful()) {
+                                            Log.d("response", "onResponse: " + userResponsePending);
+                                            Toast.makeText(getApplicationContext(), "Interview Pending", Toast.LENGTH_LONG).show();
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
                                 }
-                            }
 
-                            @Override
-                            public void onFailure(Call<JsonObject> call, Throwable t) {
-
-                            }
-                        });
-                        break;
-                    default:
-                        binding.specify1.setVisibility(View.GONE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        break;
-
-
+                                @Override
+                                public void onFailure(Call<JsonObject> call, Throwable t) {
+                                    // Handle failure
+                                }
+                            });
+                } else {
+                    // Default case
+                    binding.specify1.setVisibility(View.GONE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
+                    binding.specify1.setText("");
+                    binding.date3.setText("");
+                    binding.time.setText("");
                 }
+
 
             }
 

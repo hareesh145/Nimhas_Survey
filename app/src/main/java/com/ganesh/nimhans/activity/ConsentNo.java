@@ -68,41 +68,23 @@ public class ConsentNo extends AppCompatActivity {
                 selectedResultCode = selectedValue;
                 Log.d("resultCode", "Selected value: " + selectedValue);
 
-                switch (checkedId) {
-                    case R.id.h:
-                        binding.commentResultCode.setVisibility(View.VISIBLE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        break;
-                    case R.id.c:
-                        binding.commentResultCode.setVisibility(View.VISIBLE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        break;
-                    case R.id.b:
-                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.commentResultCode.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        break;
-                    case R.id.d:
-                        binding.nextVisitDateTime.setVisibility(View.VISIBLE);
-                        binding.commentResultCode.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        break;
-                    case R.id.a:
+                binding.commentResultCode.setVisibility(View.GONE);
+                binding.nextVisitDateTime.setVisibility(View.GONE);
+                binding.specify1.setText("");
+                binding.date3.setText("");
+                binding.time.setText("");
 
-                        break;
-                    default:
-                        binding.commentResultCode.setVisibility(View.GONE);
-                        binding.nextVisitDateTime.setVisibility(View.GONE);
-                        binding.specify1.setText("");
-                        binding.date3.setText("");
-                        binding.time.setText("");
-                        break;
-
+                if (checkedId == R.id.h || checkedId == R.id.c) {
+                    binding.commentResultCode.setVisibility(View.VISIBLE);
+                } else if (checkedId == R.id.b || checkedId == R.id.d) {
+                    binding.nextVisitDateTime.setVisibility(View.VISIBLE);
+                    binding.commentResultCode.setVisibility(View.GONE);
+                } else {
+                    // Default case
+                    binding.commentResultCode.setVisibility(View.GONE);
+                    binding.nextVisitDateTime.setVisibility(View.GONE);
                 }
+
 
             }
 
